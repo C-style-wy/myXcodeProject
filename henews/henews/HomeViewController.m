@@ -28,8 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    NSLog(@"home===viewDidLoad=====");
     self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
     [self initUi];
     
@@ -43,7 +41,6 @@
 
 #pragma mark - 按钮响应函数
 - (void)channelBntSelect:(id)sender{
-    //    NSLog(@"频道选择");
     DetailViewController *detail = [[DetailViewController alloc] init];
     [self.navigationController pushViewController:detail animated:YES];
 }
@@ -108,7 +105,6 @@
 #pragma mark - 网络请求返回
 -(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg;{
     if ([tag isEqual:@"homeData"]) {
-        //        NSLog(@"returnJson======%@", returnJson);
         [_tableViewData removeAllObjects];
         [_tableCellHeightArray removeAllObjects];
         
@@ -148,7 +144,6 @@
 //下拉刷新
 - (void)headerRereshing
 {
-    //    NSLog(@"headerRereshing======");
 //    NSString *url = @"http://wap.cmread.com/clt/publish/clt/resource/portal/v1/contentList.jsp?n=26391&city=合肥";
 //    [Request requestPostForJSON:@"homeData" url:url delegate:self paras:nil msg:0];
 }
@@ -167,19 +162,15 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //    NSLog(@"tableView==count===%lu", [_tableViewData count]);
     return [_tableViewData count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    NSLog(@"return==cell====%@", _tableViewData);
     //    if ([_tableViewData objectAtIndex:indexPath.row] && [[_tableViewData objectAtIndex:indexPath.row]objectForKey:@"banners"]) {
-    //        NSLog(@"return==have==banners==");
     //        OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
     //        return cell;
     //    }
     if (0 == indexPath.row) {
-        //        NSLog(@"return==have==banners==");
         BannersCell *cell = [BannersCell cellWithTableView:tableView];
         [cell loadTableCell:[_tableViewData objectAtIndex:indexPath.row]];
         return cell;
@@ -196,7 +187,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //    NSLog(@"return==cellHeight====");
     //    if ([_tableViewData objectAtIndex:indexPath.row] && [[_tableViewData objectAtIndex:indexPath.row]objectForKey:@"banners"]) {
     //        return 180.0f;
     //    }

@@ -43,7 +43,6 @@
     NSDictionary *attribute = @{NSFontAttributeName: fnt};
     CGFloat titleHeight = TEXTHEIGHT(_title, attribute, SCREEN_WIDTH-16);
     
-    NSLog(@"titleHeight====%f", titleHeight);
     _titleFrame = CGRectMake(8, 10, SCREEN_WIDTH-16, titleHeight);
     _timeFrame = CGRectMake(8, 16+titleHeight, SCREEN_WIDTH-16, 12);
     _height = titleHeight+28;

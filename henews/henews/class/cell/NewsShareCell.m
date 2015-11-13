@@ -22,7 +22,6 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-    // NSLog(@"cellForRowAtIndexPath");
     static NSString *identifier = @"NewsShareCell";
     // 1.缓存中取
     NewsShareCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];

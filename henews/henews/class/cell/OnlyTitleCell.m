@@ -23,7 +23,6 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-    // NSLog(@"cellForRowAtIndexPath");
     static NSString *identifier = @"OnlyTitleCell";
     // 1.缓存中取
     OnlyTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];

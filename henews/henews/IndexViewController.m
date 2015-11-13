@@ -32,7 +32,6 @@
     UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     int screenW = [[UIScreen mainScreen] bounds].size.width;
     int screenH = [[UIScreen mainScreen] bounds].size.height;
-    NSLog(@"%d*%d", screenW, screenH);
     if ((320 == screenW && 480 == screenH) || (640 == screenW && 960 == screenH)) {
         bgImage.image = [UIImage imageNamed:@"launch640_960.png"];
     }else if ((320 == screenW && 568 == screenH) || (640 == screenW && 1136 == screenH)){
@@ -111,7 +110,6 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scroll{
     float x = scroll.contentOffset.x;
-    NSLog(@"xxxx====%f", x);
     pageControl.currentPage = (int)(x/SCREEN_WIDTH);
 }
 
@@ -135,7 +133,6 @@
 
 -(void)buttonpress3:(id)sender
 {
-    NSLog(@"引导图结束");
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (![userDefaults stringForKey:@"isNotFirstOpen"]){
         [userDefaults setObject:@"1" forKey:@"isNotFirstOpen"];

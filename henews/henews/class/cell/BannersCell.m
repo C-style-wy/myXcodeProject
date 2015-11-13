@@ -24,7 +24,6 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-    // NSLog(@"cellForRowAtIndexPath");
     static NSString *identifier = @"BannersCell";
     // 1.缓存中取
     BannersCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -58,7 +57,6 @@
 
 -(void)loadTableCell:(id)data{
     self.bannersScrollView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 155);
-    NSLog(@"banners==number===%lu", (unsigned long)[data count]);
     for (int i=0; i < (unsigned long)[data count]; i++) {
         UIImageView *scroImage = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*i, 0, SCREEN_WIDTH, self.bannersScrollView.frame.size.height)];
         [scroImage setImageWithURL:[NSURL URLWithString:[[data objectAtIndex:i] objectForKey:@"imageUrl"]]];

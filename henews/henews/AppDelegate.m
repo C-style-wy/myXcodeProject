@@ -41,13 +41,11 @@
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 [operationQueue setSuspended:NO];
                 // 此处可以发送有网络通知
-                NSLog(@"有网络");
                 break;
             case AFNetworkReachabilityStatusNotReachable:
             default:
                 [operationQueue setSuspended:YES];
                 // 此处可以发送断网通知
-                NSLog(@"断网了");
                 break;
         }
     }];

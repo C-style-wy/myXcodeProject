@@ -46,7 +46,6 @@
                                    msg:msg];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"http==error:%@", error);
         [delegate requestDidReturn:tag returnStr:nil returnJson:nil msg:msg];
     }];
 }

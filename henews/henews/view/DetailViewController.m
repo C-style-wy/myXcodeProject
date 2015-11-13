@@ -24,7 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = VIEWBACKGROUND_COLOR;
-    NSLog(@"detailUrl=viewDidLoad=");
     [self UIInit];
 }
 
@@ -69,7 +68,6 @@
 }
 
 -(void)getUrl:(NSString *)urlString{
-    NSLog(@"detailUrl==%@", urlString);
     [Request requestPostForJSON:@"detailData" url:urlString delegate:self paras:nil msg:0];
 }
 
@@ -80,7 +78,6 @@
 }
 
 -(void)dealDetailDataBack:(NSDictionary*)jsonData{
-//    NSLog(@"jsonData====%@", jsonData);
     if (!_tableViewData) {
         _tableViewData = [[NSMutableArray alloc]init];
     }

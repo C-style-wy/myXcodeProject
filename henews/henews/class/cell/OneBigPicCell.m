@@ -24,7 +24,6 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-    // NSLog(@"cellForRowAtIndexPath");
     static NSString *identifier = @"oneBigPicCell";
     // 1.缓存中取
     OneBigPicCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];

@@ -88,13 +88,13 @@
 
 - (void)myBtnClick:(UIButton *)button {
     if (0 == button.tag) {
-        NSLog(@"我的快讯");
+
     }else if (1 == button.tag){
-        NSLog(@"我的收藏");
+        
     }else if (2 == button.tag){
-        NSLog(@"我的评论");
+
     }else if (3 == button.tag){
-        NSLog(@"我的积分");
+
     }
     DetailViewController *detail = [[DetailViewController alloc] init];
     [self.navigationController pushViewController:detail animated:YES];

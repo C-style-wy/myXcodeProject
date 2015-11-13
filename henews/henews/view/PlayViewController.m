@@ -41,7 +41,6 @@
 */
 
 -(void)getUrl:(NSString *)urlString{
-    NSLog(@"detailUrl==%@", urlString);
     [Request requestPostForJSON:@"playData" url:urlString delegate:self paras:nil msg:0];
 }
 
@@ -49,7 +48,6 @@
     if ([tag isEqual:@"playData"]) {
         [self dealPlayDataBack:returnJson];
     }else if ([tag isEqual:@"playUrl"]){
-        NSLog(@"returnJson====%@", returnJson);
 //        NSURL *movieURL = [NSURL fileURLWithPath:[returnJson objectForKey:@"url"]];
 //        MPMoviePlayerController *movewController = [[MPMoviePlayerController alloc] initWithContentURL:movieURL];
 //        [movewController prepareToPlay];

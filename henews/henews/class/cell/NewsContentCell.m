@@ -23,7 +23,6 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-    // NSLog(@"cellForRowAtIndexPath");
     static NSString *identifier = @"NewsContentCell";
     // 1.缓存中取
     NewsContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];

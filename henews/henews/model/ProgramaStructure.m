@@ -30,9 +30,8 @@
     }
     
     if (newsOrder) {
-        NSLog(@"存在目录======");
+
     }else{
-        NSLog(@"不存在目录======");
         newsOrder = [localNewsOrder copy];
         newsNotOrder = [localNewsNotOrder copy];
         [userDefaults setObject:newsOrder forKey:@"newsOrder"];

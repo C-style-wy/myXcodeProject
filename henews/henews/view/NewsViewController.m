@@ -150,7 +150,6 @@
             [_firstTableView headerBeginRefreshing];
         }
     }else if ([tag isEqual:@"mainNewsData"]){
-//        NSLog(@"=====1======");
         NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:msg] data];
         [tempAry removeAllObjects];
         NSArray *newsList = [returnJson objectForKey:@"newsList"];
@@ -277,7 +276,6 @@
 }
 
 - (void)classBtnClick:(UIButton *)button {
-    NSLog(@"栏目按钮");
     _preClassLabel.textColor = [UIColor blackColor];
     UILabel *label = (UILabel *)[button viewWithTag:1001];
     label.textColor = ROSERED;
@@ -297,16 +295,11 @@
     CGFloat btnW = button.frame.size.width;
     //_scrollView的宽度
     CGFloat scroW = _scrollView.frame.size.width;
-//    NSLog(@"offsetX=%f", offsetX);
-//    NSLog(@"btnX=%f", btnX);
-//    NSLog(@"btnW=%f", btnW);
-//    NSLog(@"scroW=%f", scroW);
     if (_curClass == 0) {
         [_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
     }else{
         if (btnW + btnX - offsetX > scroW) {
             CGFloat setW = btnW + btnX  - scroW;
-//            NSLog(@"setW=%f", setW);
             [_scrollView setContentOffset:CGPointMake(setW, 0) animated:YES];
         }else if (btnX - offsetX < 0){
             CGFloat setW = btnX;
@@ -317,7 +310,7 @@
 }
 
 - (void)channelManage:(UIButton *)button {
-    NSLog(@"频道管理");
+
 }
 
 #pragma mark - 下拉、上拉刷新
@@ -359,11 +352,9 @@
             [self classBtnClick:btn];
         }
     }
-//    NSLog(@"_curClass=end=%li", (long)_curClass);
     //滑动TableView时记录滚动的位置
     if (scrollView == _firstTableView || scrollView == _middleTableView || scrollView  == _lastTableView) {
         float y = scrollView.contentOffset.y;
-//        NSLog(@"table==y==%f", y);
         if (y < 0) {
             y = 0;
         }
@@ -445,12 +436,10 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    NSLog(@"table=numberOfRowsInSection==");
     return [(NSMutableArray*)[[_classAry objectAtIndex:tableView.tag] data] count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSLog(@"table=cellForRowAtIndexPath==%li", tableView.tag);
     NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:tableView.tag] data];
     CellData *oneCell = [tempAry objectAtIndex:indexPath.row];
     if ([oneCell.displayType isEqual:ONE_SMALL_PIC]) {   //一张小图
@@ -478,7 +467,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSLog(@"table=heightForRowAtIndexPath==%li", tableView.tag);
     NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:tableView.tag] data];
     CellData *data = [tempAry objectAtIndex:indexPath.row];
     return data.height;
@@ -509,7 +497,7 @@
 
 #pragma mark - reflushDelegate
 -(void)reflushTableView{
-    NSLog(@"刷新列表===");
+
 }
 
 @end

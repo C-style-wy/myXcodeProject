@@ -74,7 +74,7 @@
 }
 
 -(void)didClickPage:(WHScrollAndPageView *)view atIndex:(NSInteger)index{
-    NSLog(@"点击了第%li页", index);
+
 }
 
 - (void)didReceiveMemoryWarning {

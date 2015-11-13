@@ -17,7 +17,6 @@
 -(void)setIphoneParam
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSLog(@"WD_VERSION==%@", [userDefaults stringForKey:@"WD_VERSION"]);
     if (![userDefaults stringForKey:@"isNotFirstOpen"]) {
         [userDefaults setObject:@"hxw" forKey:@"clientName"];
         [userDefaults setObject:@"123456" forKey:@"WD_UUID"];
@@ -57,8 +56,6 @@
     while (userAgent == nil) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
-    
-    NSLog(@"UserAgent:%@", userAgent);
     return userAgent;
 }
 

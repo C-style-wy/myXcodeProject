@@ -137,7 +137,6 @@
 typedef void (*send_type)(void *, SEL, UIView *);
 - (void)beginRefreshing
 {
-    NSLog(@"主动刷新=====wy==1==");
     if (self.state == MJRefreshStateRefreshing) {
         // 回调
         if ([self.beginRefreshingTaget respondsToSelector:self.beginRefreshingAction]) {

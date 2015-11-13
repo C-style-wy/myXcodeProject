@@ -104,7 +104,6 @@ static char MJRefreshFooterViewKey;
  */
 - (void)headerBeginRefreshing
 {
-    NSLog(@"主动下拉刷新=====wy====");
     [self.header beginRefreshing];
 }
 
