@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "APIStringMacros.h"
 #import "Request.h"
+#import "PlayerView.h"
 
 @interface PlayViewController : UIViewController<detailViewDelege>
 

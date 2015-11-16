@@ -106,6 +106,10 @@
 		D3C7958C1BDE02D800322D3C /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C795821BDE02D800322D3C /* UIScrollView+MJExtension.m */; };
 		D3C7958D1BDE02D800322D3C /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C795841BDE02D800322D3C /* UIScrollView+MJRefresh.m */; };
 		D3C7958E1BDE02D800322D3C /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C795861BDE02D800322D3C /* UIView+MJExtension.m */; };
+		D3D4436D1BF9BBB300460351 /* progress_point.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D4436C1BF9BBB300460351 /* progress_point.png */; };
+		D3D443701BF9C53C00460351 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D4436F1BF9C53C00460351 /* PlayerView.m */; };
+		D3D443721BF9CCFE00460351 /* play_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D443711BF9CCFE00460351 /* play_icon.png */; };
+		D3D443741BF9CE9400460351 /* fullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D443731BF9CE9400460351 /* fullscreen.png */; };
 		D3E6B5C61BE8F22200740A02 /* newsBigBg.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E6B5C51BE8F22200740A02 /* newsBigBg.png */; };
 		D3EC3DEA1BD1F8B800D32364 /* launch640_1136.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EC3DE91BD1F8B800D32364 /* launch640_1136.png */; };
 		D3EC3DEF1BD1FDC700D32364 /* launch640_960.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EC3DEB1BD1FDC700D32364 /* launch640_960.png */; };
@@ -297,6 +301,11 @@
 		D3C795841BDE02D800322D3C /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		D3C795851BDE02D800322D3C /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		D3C795861BDE02D800322D3C /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		D3D4436C1BF9BBB300460351 /* progress_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_point.png; sourceTree = "<group>"; };
+		D3D4436E1BF9C53C00460351 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		D3D4436F1BF9C53C00460351 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		D3D443711BF9CCFE00460351 /* play_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_icon.png; sourceTree = "<group>"; };
+		D3D443731BF9CE9400460351 /* fullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullscreen.png; sourceTree = "<group>"; };
 		D3E6B5C51BE8F22200740A02 /* newsBigBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newsBigBg.png; sourceTree = "<group>"; };
 		D3EC3DE91BD1F8B800D32364 /* launch640_1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch640_1136.png; sourceTree = "<group>"; };
 		D3EC3DEB1BD1FDC700D32364 /* launch640_960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch640_960.png; sourceTree = "<group>"; };
@@ -452,6 +461,8 @@
 				D37F85821BE34D6E00E8CA06 /* APIStringMacros.h */,
 				D376B4FA1BE99BA800806179 /* WHScrollAndPageView.h */,
 				D376B4FB1BE99BA800806179 /* WHScrollAndPageView.m */,
+				D3D4436E1BF9C53C00460351 /* PlayerView.h */,
+				D3D4436F1BF9C53C00460351 /* PlayerView.m */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -569,6 +580,9 @@
 		D3EC3DE81BD1F8A000D32364 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D3D443731BF9CE9400460351 /* fullscreen.png */,
+				D3D443711BF9CCFE00460351 /* play_icon.png */,
+				D3D4436C1BF9BBB300460351 /* progress_point.png */,
 				D3B970181BF31DEC00B48EFE /* shareMore.jpg */,
 				D3B970051BF313CE00B48EFE /* shareFriend.jpg */,
 				D3B970071BF313CE00B48EFE /* shareQQ.jpg */,
@@ -746,6 +760,7 @@
 				D378A8381BDA3AB700D21B13 /* my_list_icon_2.png in Resources */,
 				D3B9700A1BF313CE00B48EFE /* shareFriend.jpg in Resources */,
 				D378A81C1BDA051C00D21B13 /* menu4.png in Resources */,
+				D3D4436D1BF9BBB300460351 /* progress_point.png in Resources */,
 				D36510D21BCF9340004AEA98 /* LaunchScreen.storyboard in Resources */,
 				D378A8321BDA357200D21B13 /* menuFenge.png in Resources */,
 				D36B1D071BD4F87D00B03864 /* home_dw_icon.png in Resources */,
@@ -767,6 +782,7 @@
 				D378A8391BDA3AB700D21B13 /* my_list_icon_3.png in Resources */,
 				D37F85871BE36A1900E8CA06 /* guidepage2.jpg in Resources */,
 				D378A8201BDA051C00D21B13 /* menusel3.png in Resources */,
+				D3D443721BF9CCFE00460351 /* play_icon.png in Resources */,
 				D3B9700D1BF313CE00B48EFE /* shareWeibo.jpg in Resources */,
 				D3B9700E1BF313CE00B48EFE /* shareWeixin.jpg in Resources */,
 				D378A8191BDA051C00D21B13 /* menu1.png in Resources */,
@@ -775,6 +791,7 @@
 				D3EC3DF21BD1FDC700D32364 /* launch1242_2208.png in Resources */,
 				D378A8221BDA051C00D21B13 /* menusel5.png in Resources */,
 				D382D20D1BE83D4E009BA398 /* back_arrow.png in Resources */,
+				D3D443741BF9CE9400460351 /* fullscreen.png in Resources */,
 				D3EC3DEF1BD1FDC700D32364 /* launch640_960.png in Resources */,
 				D3EC3DEA1BD1F8B800D32364 /* launch640_1136.png in Resources */,
 				D37F85881BE36A1900E8CA06 /* guidepage3.jpg in Resources */,
@@ -821,6 +838,7 @@
 				D381BE691BE1C1B0005B00E7 /* Request.m in Sources */,
 				D36510C71BCF9340004AEA98 /* AppDelegate.m in Sources */,
 				D390C86E1BE066170093C76A /* AFHTTPSessionManager.m in Sources */,
+				D3D443701BF9C53C00460351 /* PlayerView.m in Sources */,
 				D3B970251BF3493700B48EFE /* PlayViewController.m in Sources */,
 				D36510C41BCF9340004AEA98 /* main.m in Sources */,
 				D36510F71BCF93A1004AEA98 /* IndexViewController.m in Sources */,
