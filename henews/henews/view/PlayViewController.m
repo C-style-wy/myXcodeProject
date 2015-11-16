@@ -48,23 +48,8 @@
     if ([tag isEqual:@"playData"]) {
         [self dealPlayDataBack:returnJson];
     }else if ([tag isEqual:@"playUrl"]){
-//        NSURL *movieURL = [NSURL fileURLWithPath:[returnJson objectForKey:@"url"]];
-//        MPMoviePlayerController *movewController = [[MPMoviePlayerController alloc] initWithContentURL:movieURL];
-//        [movewController prepareToPlay];
-//        [self.view addSubview:movewController.view];
-//        movewController.shouldAutoplay=YES;
-//        [movewController setControlStyle:MPMovieControlStyleDefault];
-//        
-//        [movewController setFullscreen:NO];
-        
-//        [movewController.view setFrame:self.view.bounds];
-//        [movewController.view setFrame:CGRectMake(0, 20, SCREEN_WIDTH, 200)];
-        
-//        AVPlayerViewController
-   
-//        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"backspace" ofType:@"mov"];
         NSString *filePath = [returnJson objectForKey:@"url"];
-        NSURL *sourceMovieURL = [NSURL fileURLWithPath:filePath];
+        NSURL *sourceMovieURL = [NSURL URLWithString:filePath];
         
         AVAsset *movieAsset = [AVURLAsset URLAssetWithURL:sourceMovieURL options:nil];
         AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:movieAsset];

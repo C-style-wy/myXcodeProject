@@ -14,4 +14,8 @@
 
 @interface PlayViewController : UIViewController<detailViewDelege>
 
+@property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong) AVPlayerItem *playerItem;
+//@property (nonatomic, weak) 
+
 @end
