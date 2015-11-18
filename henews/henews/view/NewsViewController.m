@@ -153,6 +153,13 @@
         NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:msg] data];
         [tempAry removeAllObjects];
         NSArray *newsList = [returnJson objectForKey:@"newsList"];
+        NSArray *banners = [returnJson objectForKey:@"banners"];
+        if (banners && (banners.count > 0)) {
+            BannersData *bannersData = [[BannersData alloc]init];
+            [bannersData initWithData:banners];
+            [tempAry addObject:bannersData];
+        }
+        
         for (int i = 0; i < newsList.count; i++) {
             CellData *data = [[CellData alloc]init];
             [data initWithData:[newsList objectAtIndex:i]];
@@ -441,28 +448,35 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:tableView.tag] data];
-    CellData *oneCell = [tempAry objectAtIndex:indexPath.row];
-    if ([oneCell.displayType isEqual:ONE_SMALL_PIC]) {   //一张小图
-        OneSmallPicCell *cell = [OneSmallPicCell cellWithTableView:tableView];
+    if ([[tempAry objectAtIndex:indexPath.row] isKindOfClass:[BannersData class]]) {
+        BannersData *oneCell = [tempAry objectAtIndex:indexPath.row];
+        BannersCell *cell = [BannersCell cellWithTableView:tableView];
         [cell loadTableCell:oneCell];
         return cell;
-    }else if ([oneCell.displayType isEqual:ONE_BIG_PIC] || [oneCell.displayType isEqual:NEWS_EARLY_BUS]){                        //一张大图和新闻早班车
-        OneBigPicCell *cell = [OneBigPicCell cellWithTableView:tableView];
-        [cell loadTableCell:oneCell];
-        return cell;
-    }else if ([oneCell.displayType isEqual:EVERY_ONE] || [oneCell.displayType isEqual:EVERY_ONE_G]){                                 //大家和感性
-        EveryOneCell *cell = [EveryOneCell cellWithTableView:tableView];
-        [cell loadTableCell:oneCell];
-        return cell;
-    }else if ([oneCell.displayType isEqual:THREE_SMALL_PIC]){  //三张小图
-        ThreePicCell *cell = [ThreePicCell cellWithTableView:tableView];
-        [cell loadTableCell:oneCell];
-        return cell;
-    }
-    else{                          //无图
-        OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
-        [cell loadTableCell:oneCell];
-        return cell;
+    }else{
+        CellData *oneCell = [tempAry objectAtIndex:indexPath.row];
+        if ([oneCell.displayType isEqual:ONE_SMALL_PIC]) {   //一张小图
+            OneSmallPicCell *cell = [OneSmallPicCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell];
+            return cell;
+        }else if ([oneCell.displayType isEqual:ONE_BIG_PIC] || [oneCell.displayType isEqual:NEWS_EARLY_BUS]){                        //一张大图和新闻早班车
+            OneBigPicCell *cell = [OneBigPicCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell];
+            return cell;
+        }else if ([oneCell.displayType isEqual:EVERY_ONE] || [oneCell.displayType isEqual:EVERY_ONE_G]){                                 //大家和感性
+            EveryOneCell *cell = [EveryOneCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell];
+            return cell;
+        }else if ([oneCell.displayType isEqual:THREE_SMALL_PIC]){  //三张小图
+            ThreePicCell *cell = [ThreePicCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell];
+            return cell;
+        }
+        else{                          //无图
+            OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell];
+            return cell;
+        }
     }
 }
 
@@ -477,21 +491,23 @@
     
     ClassDataStru *stru = [_classAry objectAtIndex:tableView.tag];
     NSMutableArray *ary = stru.data;
-    CellData *cell = [ary objectAtIndex:indexPath.row];
-    NSString *url = cell.url;
-    
-    if ([cell.newsType isEqual:@"1"]) {
-        PlayViewController *play = [[PlayViewController alloc] init];
-        self.delegate = play;
-        [self.delegate getUrl:url];
+    if (![[ary objectAtIndex:indexPath.row] isKindOfClass:[BannersData class]]) {
+        CellData *cell = [ary objectAtIndex:indexPath.row];
+        NSString *url = cell.url;
         
-        [self.navigationController pushViewController:play animated:YES];
-    }else{
-        DetailViewController *detail = [[DetailViewController alloc] init];
-        self.delegate = detail;
-        [self.delegate getUrl:url];
+        if ([cell.newsType isEqual:@"1"]) {
+            PlayViewController *play = [[PlayViewController alloc] init];
+            self.delegate = play;
+            [self.delegate getUrl:url];
+            
+            [self.navigationController pushViewController:play animated:YES];
+        }else{
+            DetailViewController *detail = [[DetailViewController alloc] init];
+            self.delegate = detail;
+            [self.delegate getUrl:url];
 
-        [self.navigationController pushViewController:detail animated:YES];
+            [self.navigationController pushViewController:detail animated:YES];
+        }
     }
 }
 

@@ -57,7 +57,7 @@
         pic.frame = CGRectMake(8, 35.0f, SCREEN_WIDTH-16, 101);
         pic.contentMode = UIViewContentModeScaleAspectFill;
         [pic setContentScaleFactor:[[UIScreen mainScreen]scale]];
-        pic.clipsToBounds  = YES;
+        pic.clipsToBounds = YES;
         [self addSubview:pic];
         self.cellPic = pic;
         

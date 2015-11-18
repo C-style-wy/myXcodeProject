@@ -118,9 +118,9 @@
     }else if ([_displayType isEqual:ONEBIG_TWOSMALL_PIC]){  //一张大图两张小图
         _height = 216.0f;
     }else if ([_displayType isEqual:EVERY_ONE]){  //大家样式--
-        _height = 81.0f;
+        _height = 96.0f;
     }else if ([_displayType isEqual:EVERY_ONE_G]){  //感性样式--
-        _height = 81.0f;
+        _height = 96.0f;
     }else if ([_displayType isEqual:NEWS_EARLY_BUS]){  //新闻早班车--
         _height = 171.0f;
     }else if ([_displayType isEqual:ONE_SMALL_PIC]){  //一张小图--

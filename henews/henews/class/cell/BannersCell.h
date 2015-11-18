@@ -7,12 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BannersData.h"
+#import "UIImageView+AFNetworking.h"
 
-@interface BannersCell : UITableViewCell
+@interface BannersCell : UITableViewCell<UIScrollViewDelegate>
 
-@property (nonatomic, weak) UIScrollView *bannersScrollView;
+@property (nonatomic, retain) UIScrollView *bannersScrollView;
+@property (nonatomic, retain) UIPageControl *pageContrl;
+@property (nonatomic, retain) BannersData *bannersData;
+@property (nonatomic, assign) int bannersNum;
+@property (nonatomic, retain) UILabel *titleLable;
+@property (nonatomic, assign) NSInteger curPage;
+
+
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
--(void)loadTableCell:(id)data;
+
+
+-(void)loadTableCell:(BannersData*)data;
 @end

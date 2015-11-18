@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVPlayerItem *playerItem;
-//@property (nonatomic, weak) 
+
+
+@property (nonatomic ,retain) PlayerView *playView;
 
 @end

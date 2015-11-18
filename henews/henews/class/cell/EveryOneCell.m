@@ -40,21 +40,21 @@
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
         UIImageView *line = [[UIImageView alloc]init];
-        line.frame = CGRectMake(0, 80.5f, SCREEN_WIDTH, 0.5f);
+        line.frame = CGRectMake(0, 95.5f, SCREEN_WIDTH, 0.5f);
         line.image = [UIImage imageNamed:@"menuFenge.png"];
         [self addSubview:line];
         
-        UIView *defaultView = [[UIView alloc]initWithFrame:CGRectMake(8, 11.5f, 72, 58)];
+        UIView *defaultView = [[UIView alloc]initWithFrame:CGRectMake(8, 15.0f, 84, 66)];
         defaultView.backgroundColor = DEFAULTCOLOR;
         
         UIImageView *defaultImage = [[UIImageView alloc]init];
-        defaultImage.frame = CGRectMake(22.5f, 15.5f, 27, 27);
+        defaultImage.frame = CGRectMake(28.5f, 19.5f, 27, 27);
         [defaultImage setImage:[UIImage imageNamed:@"newsBigBg.png"]];
         [defaultView addSubview:defaultImage];
         [self addSubview:defaultView];
         
         UIImageView *pic = [[UIImageView alloc]init];
-        pic.frame = CGRectMake(8, 11.5f, 72, 58);
+        pic.frame = CGRectMake(8, 15.0f, 84, 66);
         pic.contentMode = UIViewContentModeScaleAspectFill;
         [pic setContentScaleFactor:[[UIScreen mainScreen]scale]];
         pic.clipsToBounds  = YES;
@@ -81,13 +81,6 @@
     }
     
     self.cellName.text = data.newsTitle;
-    NSString *strs;
-    if ([data.source isEqual:@""]) {
-        strs = data.createTime;
-    }else{
-        strs = [data.source stringByAppendingString:@"  "];
-        strs = [strs stringByAppendingString:data.createTime];
-    }
 }
 
 

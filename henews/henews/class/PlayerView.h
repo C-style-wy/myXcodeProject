@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "APIStringMacros.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface PlayerView : UIView
 
@@ -16,5 +17,9 @@
 @property (nonatomic, retain)UIView *bottomControlView;
 @property (nonatomic, retain)UILabel *timeLabel;
 @property (nonatomic, retain)UISlider *progressSlider;
+
+@property (nonatomic, retain)UIView *voiceView;
+
+- (void)setPlayUrlAndPlay:(NSString*)url;
 
 @end

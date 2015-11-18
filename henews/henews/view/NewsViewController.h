@@ -12,6 +12,8 @@
 #import "MJRefresh.h"
 #import "ClassDataStru.h"
 #import "CellData.h"
+#import "BannersData.h"
+#import "BannersCell.h"
 
 @interface NewsViewController : UIViewController<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
