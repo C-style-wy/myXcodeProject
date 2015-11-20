@@ -14,6 +14,7 @@
 #import "CellData.h"
 #import "BannersData.h"
 #import "BannersCell.h"
+#import "ChannelManageView.h"
 
 @interface NewsViewController : UIViewController<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -31,6 +32,9 @@
 @property (nonatomic, retain) UITableView *firstTableView;
 @property (nonatomic, retain) UITableView *middleTableView;
 @property (nonatomic, retain) UITableView *lastTableView;
+
+//栏目管理view
+@property (nonatomic, retain) ChannelManageView *channelView;
 
 @property (nonatomic, retain) NSMutableArray *classAry;
 

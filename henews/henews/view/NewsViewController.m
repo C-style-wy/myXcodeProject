@@ -34,12 +34,31 @@
     self.navigationController.navigationBarHidden = YES;
 }
 
+
+//为了解决应用从后台切换到前台，列表闪动问题
+- (void)appHasGoneInForeground{
+    if (_curClass == 0 || (_curClass == (_classAry.count-1))) {
+        if (_middleTableView) {
+            [_middleTableView reloadData];
+        }
+    }else{
+        if (_firstTableView) {
+            [_firstTableView reloadData];
+        }
+        if (_lastTableView) {
+            [_lastTableView reloadData];
+        }
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self initUI];
     //读取本地栏目数据，如果本地没有，则发送网络请求
     [self readLocalProDataOrRequest];
+    //添加监听方法，监听应用从后台切换到前台
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appHasGoneInForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -317,7 +336,17 @@
 }
 
 - (void)channelManage:(UIButton *)button {
-
+    NSLog(@"栏目管理");
+//    if (!_channelView) {
+//        _channelView = [[ChannelManageView alloc]initWithFrame:CGRectMake(0, 58, SCREEN_WIDTH, SCREEN_HEIGHT-58)];
+//        [self.view addSubview:_channelView];
+//    }
+//    float h = _channelView.mainView.frame.size.height;
+//    if (h == 0) {
+//        [_channelView openChannel];
+//    }else{
+//        [_channelView closeChannel];
+//    }
 }
 
 #pragma mark - 下拉、上拉刷新
@@ -445,8 +474,7 @@
 {
     return [(NSMutableArray*)[[_classAry objectAtIndex:tableView.tag] data] count];
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:tableView.tag] data];
     if ([[tempAry objectAtIndex:indexPath.row] isKindOfClass:[BannersData class]]) {
         BannersData *oneCell = [tempAry objectAtIndex:indexPath.row];

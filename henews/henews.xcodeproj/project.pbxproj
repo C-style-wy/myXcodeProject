@@ -85,6 +85,7 @@
 		D3B54EE81BF0983300F41F03 /* class_add.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B54EE71BF0983300F41F03 /* class_add.png */; };
 		D3B609F61BFC0613001AF038 /* OneBannerData.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B609F51BFC0613001AF038 /* OneBannerData.m */; };
 		D3B609F91BFC0911001AF038 /* BannersData.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B609F81BFC0911001AF038 /* BannersData.m */; };
+		D3B67A031BFEB4E50097118A /* ModulData.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B67A021BFEB4E50097118A /* ModulData.m */; };
 		D3B970011BF2EDD300B48EFE /* NewsTitleCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B970001BF2EDD300B48EFE /* NewsTitleCellData.m */; };
 		D3B970041BF2FEEA00B48EFE /* NewsTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B970031BF2FEEA00B48EFE /* NewsTitleCell.m */; };
 		D3B9700A1BF313CE00B48EFE /* shareFriend.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3B970051BF313CE00B48EFE /* shareFriend.jpg */; };
@@ -99,6 +100,7 @@
 		D3B9701F1BF321B600B48EFE /* NewsPicCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B9701E1BF321B600B48EFE /* NewsPicCellData.m */; };
 		D3B970221BF324D000B48EFE /* NewsPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B970211BF324D000B48EFE /* NewsPicCell.m */; };
 		D3B970251BF3493700B48EFE /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B970241BF3493700B48EFE /* PlayViewController.m */; };
+		D3BA37F41BFD6C4900FD9D71 /* ChannelManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BA37F31BFD6C4900FD9D71 /* ChannelManageView.m */; };
 		D3BCF7271BF41BC6005FD3CF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BCF7261BF41BC6005FD3CF /* MediaPlayer.framework */; };
 		D3C795871BDE02D800322D3C /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3C795771BDE02D800322D3C /* MJRefresh.bundle */; };
 		D3C795881BDE02D800322D3C /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C7957A1BDE02D800322D3C /* MJRefreshBaseView.m */; };
@@ -267,6 +269,8 @@
 		D3B609F51BFC0613001AF038 /* OneBannerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneBannerData.m; sourceTree = "<group>"; };
 		D3B609F71BFC0911001AF038 /* BannersData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannersData.h; sourceTree = "<group>"; };
 		D3B609F81BFC0911001AF038 /* BannersData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannersData.m; sourceTree = "<group>"; };
+		D3B67A011BFEB4E50097118A /* ModulData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModulData.h; sourceTree = "<group>"; };
+		D3B67A021BFEB4E50097118A /* ModulData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModulData.m; sourceTree = "<group>"; };
 		D3B96FFF1BF2EDD300B48EFE /* NewsTitleCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTitleCellData.h; sourceTree = "<group>"; };
 		D3B970001BF2EDD300B48EFE /* NewsTitleCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTitleCellData.m; sourceTree = "<group>"; };
 		D3B970021BF2FEEA00B48EFE /* NewsTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTitleCell.h; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 		D3B970211BF324D000B48EFE /* NewsPicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPicCell.m; sourceTree = "<group>"; };
 		D3B970231BF3493700B48EFE /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
 		D3B970241BF3493700B48EFE /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		D3BA37F21BFD6C4900FD9D71 /* ChannelManageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelManageView.h; sourceTree = "<group>"; };
+		D3BA37F31BFD6C4900FD9D71 /* ChannelManageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelManageView.m; sourceTree = "<group>"; };
 		D3BCF7261BF41BC6005FD3CF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		D3C795771BDE02D800322D3C /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		D3C795781BDE02D800322D3C /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
@@ -469,6 +475,8 @@
 				D376B4FB1BE99BA800806179 /* WHScrollAndPageView.m */,
 				D3D4436E1BF9C53C00460351 /* PlayerView.h */,
 				D3D4436F1BF9C53C00460351 /* PlayerView.m */,
+				D3BA37F21BFD6C4900FD9D71 /* ChannelManageView.h */,
+				D3BA37F31BFD6C4900FD9D71 /* ChannelManageView.m */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -654,6 +662,8 @@
 				D3B609F51BFC0613001AF038 /* OneBannerData.m */,
 				D3B609F71BFC0911001AF038 /* BannersData.h */,
 				D3B609F81BFC0911001AF038 /* BannersData.m */,
+				D3B67A011BFEB4E50097118A /* ModulData.h */,
+				D3B67A021BFEB4E50097118A /* ModulData.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -849,6 +859,7 @@
 				D36510C71BCF9340004AEA98 /* AppDelegate.m in Sources */,
 				D390C86E1BE066170093C76A /* AFHTTPSessionManager.m in Sources */,
 				D3D443701BF9C53C00460351 /* PlayerView.m in Sources */,
+				D3BA37F41BFD6C4900FD9D71 /* ChannelManageView.m in Sources */,
 				D3B970251BF3493700B48EFE /* PlayViewController.m in Sources */,
 				D36510C41BCF9340004AEA98 /* main.m in Sources */,
 				D36510F71BCF93A1004AEA98 /* IndexViewController.m in Sources */,
@@ -873,6 +884,7 @@
 				D3C795891BDE02D800322D3C /* MJRefreshConst.m in Sources */,
 				D390C86F1BE066170093C76A /* AFNetworkReachabilityManager.m in Sources */,
 				D3B609F91BFC0911001AF038 /* BannersData.m in Sources */,
+				D3B67A031BFEB4E50097118A /* ModulData.m in Sources */,
 				D3B970221BF324D000B48EFE /* NewsPicCell.m in Sources */,
 				D390C8731BE066170093C76A /* AFURLResponseSerialization.m in Sources */,
 				D390C8721BE066170093C76A /* AFURLRequestSerialization.m in Sources */,

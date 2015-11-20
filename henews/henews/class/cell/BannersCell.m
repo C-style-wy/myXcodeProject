@@ -97,7 +97,7 @@
         [image setContentScaleFactor:[[UIScreen mainScreen]scale]];
         image.clipsToBounds  = YES;
         
-        [image setImage:[UIImage imageNamed:@""]];
+//        [image setImage:[UIImage imageNamed:@""]];
         if (![oneBanner.imageUrl isEqual:@""]) {
             [image setImageWithURL:[NSURL URLWithString:oneBanner.imageUrl]];
         }

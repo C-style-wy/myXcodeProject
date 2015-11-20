@@ -31,7 +31,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
     [self initUi];
     
-//    [self.tableView headerBeginRefreshing];
+    [self.tableView headerBeginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,10 +86,6 @@
     
     self.tableViewData = [[NSMutableArray alloc]init];
     
-    //    for (int i = 0; i < 5; i++) {
-    //        [self.tableViewData addObject:[NSString stringWithFormat:@"这是第%d条",i + 1]];
-    //    }
-    
     self.tableView = [[UITableView alloc]init];
     self.tableView.frame = CGRectMake(0, 59, screenW, screenH-102);
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -105,30 +101,9 @@
 #pragma mark - 网络请求返回
 -(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg;{
     if ([tag isEqual:@"homeData"]) {
-        [_tableViewData removeAllObjects];
-        [_tableCellHeightArray removeAllObjects];
-        
-        [_tableViewData addObject:[returnJson objectForKey:@"banners"]];
-        
-        NSArray *newsList = [returnJson objectForKey:@"newsList"];
-        for (int i = 0; i < newsList.count; i++) {
-            if ([[[newsList objectAtIndex:i] objectForKey:@"displayType"] isEqual:@"11"] || [[[newsList objectAtIndex:i] objectForKey:@"displayType"] isEqual:@"0"]) {
-                [_tableViewData addObject:[newsList objectAtIndex:i]];
-            }
-        }
-        [self.tableView reloadData];
+        NSLog(@"returnJson===%@", returnJson);
         [self.tableView headerEndRefreshing];
-        self.nextUrl = [returnJson objectForKey:@"nextUrl"];
-    }else if ([tag isEqual:@"addHomeData"]){
-        NSArray *newsList = [returnJson objectForKey:@"newsList"];
-        for (int i = 0; i < newsList.count; i++) {
-            if ([[[newsList objectAtIndex:i] objectForKey:@"displayType"] isEqual:@"11"] || [[[newsList objectAtIndex:i] objectForKey:@"displayType"] isEqual:@"0"]) {
-                [_tableViewData addObject:[newsList objectAtIndex:i]];
-            }
-        }
-        [self.tableView reloadData];
-        [self.tableView footerEndRefreshing];
-        self.nextUrl = [returnJson objectForKey:@"nextUrl"];
+        [_tableView reloadData];
     }
 }
 
@@ -138,76 +113,54 @@
     // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
     [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
     // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
-    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
+//    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
 }
 
 //下拉刷新
 - (void)headerRereshing
 {
-//    NSString *url = @"http://wap.cmread.com/clt/publish/clt/resource/portal/v1/contentList.jsp?n=26391&city=合肥";
-//    [Request requestPostForJSON:@"homeData" url:url delegate:self paras:nil msg:0];
-}
-
-//上拉加载
-- (void)footerRereshing
-{
-//    NSString *url = self.nextUrl;
-//    [Request requestPostForJSON:@"addHomeData" url:url delegate:self paras:nil msg:0];
+    NSString *addHead = [GET_SERVER stringByAppendingString:GET_HOME_URL];
+    NSString *url = [addHead stringByAppendingString:@"合肥"];
+    [Request requestPostForJSON:@"homeData" url:url delegate:self paras:nil msg:0];
 }
 
 #pragma mark - tableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 4;
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [_tableViewData count];
+
+//返回没个分区的标题
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"测试";
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    if ([_tableViewData objectAtIndex:indexPath.row] && [[_tableViewData objectAtIndex:indexPath.row]objectForKey:@"banners"]) {
-    //        OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
-    //        return cell;
-    //    }
-    if (0 == indexPath.row) {
-        BannersCell *cell = [BannersCell cellWithTableView:tableView];
-        [cell loadTableCell:[_tableViewData objectAtIndex:indexPath.row]];
-        return cell;
-    }
-    if ([[[_tableViewData objectAtIndex:indexPath.row] objectForKey:@"displayType"] isEqual:@"11"]) {
-        OneSmallPicCell *cell = [OneSmallPicCell cellWithTableView:tableView];
-        [cell loadTableCell:[_tableViewData objectAtIndex:indexPath.row]];
-        return cell;
-    }else{
-        OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
-        [cell loadTableCell:[_tableViewData objectAtIndex:indexPath.row]];
-        return cell;
-    }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *sectionHead = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, 100)];
+    sectionHead.backgroundColor = ROSERED;
+    return sectionHead;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 50;
+}
+
+//指定每个分区中有多少行，默认为1
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //    if ([_tableViewData objectAtIndex:indexPath.row] && [[_tableViewData objectAtIndex:indexPath.row]objectForKey:@"banners"]) {
-    //        return 180.0f;
-    //    }
-    if (0 == indexPath.row) {
-        return 185.0f;
-    }
-    if ([[[_tableViewData objectAtIndex:indexPath.row] objectForKey:@"displayType"] isEqual:@"11"]) {
-        return 88.0f;
-    }else{
-        return 80.0f;
-    }
+    return 90;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    DetailViewController *detail = [[DetailViewController alloc] init];
-    self.delegate = detail;
-    [self.delegate getUrl:[[_tableViewData objectAtIndex:indexPath.row] objectForKey:@"url"]];
-    
-    [self.navigationController pushViewController:detail animated:YES];
 }
 
 @end
