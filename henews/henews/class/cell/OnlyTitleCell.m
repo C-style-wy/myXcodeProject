@@ -42,6 +42,7 @@
         line.frame = CGRectMake(0, 79.5f, SCREEN_WIDTH, 0.5f);
         line.image = [UIImage imageNamed:@"menuFenge.png"];
         [self addSubview:line];
+        _line = line;
         
         UILabel *name = [[UILabel alloc]init];
         name.font = [UIFont systemFontOfSize:15.0f];
@@ -74,7 +75,7 @@
     return self;
 }
 
--(void)loadTableCell:(CellData*)data{
+-(void)loadTableCell:(CellData*)data isShortLine:(BOOL)isShort isWhiteBg:(BOOL)isWhite isHideLine:(BOOL)hide{
     self.cellName.text = data.newsTitle;
     self.cellName.frame = CGRectMake(8, 11, SCREEN_WIDTH-16, 18);
     
@@ -92,6 +93,15 @@
     NSString *pvLabel = [data.pv stringByAppendingString:@"阅"];
     self.pv.frame = CGRectMake(8, 55, SCREEN_WIDTH-18, 15);
     self.pv.text = pvLabel;
+    if (isShort) {
+        _line.frame = CGRectMake(8, 79.5f, SCREEN_WIDTH-16, 0.5f);
+    }
+    if (isWhite) {
+        self.backgroundColor = [UIColor whiteColor];
+    }else{
+        self.backgroundColor = VIEWBACKGROUND_COLOR;
+    }
+    _line.hidden = hide;
 }
 
 @end

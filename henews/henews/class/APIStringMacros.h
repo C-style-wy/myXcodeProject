@@ -72,6 +72,9 @@
 //一张小图
 #define ONE_SMALL_PIC (@"11")
 
+//模块样式
+#define EditorRecommend (@"12")
+
 
 #pragma mark - protocol
 @protocol detailViewDelege

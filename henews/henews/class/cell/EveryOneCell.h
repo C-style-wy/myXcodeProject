@@ -14,9 +14,10 @@
 @property (nonatomic, retain) UIImageView *cellPic;
 @property (nonatomic, retain) UILabel *cellName;
 @property (nonatomic, retain) UILabel *cellSummary;
+@property (nonatomic, retain) UIImageView *line;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
--(void)loadTableCell:(id)data;
+-(void)loadTableCell:(CellData*)data isShortLine:(BOOL)isShort isWhiteBg:(BOOL)isWhite isHideLine:(BOOL)hide;
 
 @end

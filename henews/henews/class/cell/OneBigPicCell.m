@@ -43,6 +43,7 @@
         line.frame = CGRectMake(0, 170.5f, SCREEN_WIDTH, 0.5f);
         line.image = [UIImage imageNamed:@"menuFenge.png"];
         [self addSubview:line];
+        _line = line;
         
         UIView *defaultView = [[UIView alloc]initWithFrame:CGRectMake(8, 35.5f, SCREEN_WIDTH-16, 101)];
         defaultView.backgroundColor = DEFAULTCOLOR;
@@ -95,7 +96,7 @@
     return self;
 }
 
--(void)loadTableCell:(CellData*)data{
+-(void)loadTableCell:(CellData*)data isShortLine:(BOOL)isShort isWhiteBg:(BOOL)isWhite isHideLine:(BOOL)hide{
     [self.cellPic setImage:[UIImage imageNamed:@""]];
     if (![data.images isEqual:@""]) {
         [self.cellPic setImageWithURL:[NSURL URLWithString:data.images]];
@@ -118,6 +119,15 @@
     }else{
         self.busIcon.hidden = YES;
     }
+    if (isShort) {
+        _line.frame = CGRectMake(8, 170.5f, SCREEN_WIDTH-16, 0.5f);
+    }
+    if (isWhite) {
+        self.backgroundColor = [UIColor whiteColor];
+    }else{
+        self.backgroundColor = VIEWBACKGROUND_COLOR;
+    }
+    _line.hidden = hide;
 }
 
 @end

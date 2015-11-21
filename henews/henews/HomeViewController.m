@@ -45,6 +45,14 @@
     [self.navigationController pushViewController:detail animated:YES];
 }
 
+- (void)jumpChannelBntSelect:(UIButton*)button{
+    NSLog(@"jump==button===");
+}
+
+- (void)exchangeButtonBntSelect:(UIButton*)button{
+    NSLog(@"exchange==button===");
+}
+
 #pragma mark - 页面初始化
 - (void)initUi {
     int screenW = [[UIScreen mainScreen] bounds].size.width;
@@ -84,8 +92,6 @@
     
     [self.view addSubview:topView];
     
-    self.tableViewData = [[NSMutableArray alloc]init];
-    
     self.tableView = [[UITableView alloc]init];
     self.tableView.frame = CGRectMake(0, 59, screenW, screenH-102);
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -103,6 +109,20 @@
     if ([tag isEqual:@"homeData"]) {
         NSLog(@"returnJson===%@", returnJson);
         [self.tableView headerEndRefreshing];
+        
+        if (!_tableViewData) {
+            _tableViewData = [[NSMutableArray alloc]init];
+        }
+        NSArray *node = [returnJson objectForKey:@"nodes"];
+        if (node && node.count > 0) {
+            for (int i = 0; i<node.count; i++) {
+                ModulData *modul = [[ModulData alloc]init];
+                [modul initWithData:[node objectAtIndex:i]];
+                if (![modul.nodeName isEqual:@""]) {
+                    [_tableViewData addObject:modul];
+                }
+            }
+        }
         [_tableView reloadData];
     }
 }
@@ -124,39 +144,142 @@
     [Request requestPostForJSON:@"homeData" url:url delegate:self paras:nil msg:0];
 }
 
+-(UIView*)getSecHeadView:(NSString*)modulName isWhite:(BOOL)white{
+    UIView *modulHead = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 35.0f)];
+    if (white) {
+        modulHead.backgroundColor = [UIColor whiteColor];
+    }else{
+        modulHead.backgroundColor = VIEWBACKGROUND_COLOR;
+    }
+    
+    UIImageView *line = [[UIImageView alloc]init];
+    line.frame = CGRectMake(8, 34.5f, SCREEN_WIDTH-16, 0.5f);
+    line.image = [UIImage imageNamed:@"menuFenge.png"];
+    [modulHead addSubview:line];
+    
+    UILabel *name = [[UILabel alloc]init];
+    name.textColor = [UIColor colorWithRed:0.02 green:0.02 blue:0.02 alpha:1];
+    name.frame = CGRectMake(8, 0, SCREEN_WIDTH-16, 35);
+    name.numberOfLines = 1;
+    name.text = modulName;
+    
+    UIButton *jumpButton = [[UIButton alloc]init];
+    jumpButton.backgroundColor = [UIColor clearColor];
+    [jumpButton addTarget:self action:@selector(jumpChannelBntSelect:) forControlEvents:UIControlEventTouchUpInside];
+    [jumpButton addSubview:name];
+    [modulHead addSubview:jumpButton];
+    
+    UIFont *fnt = [UIFont systemFontOfSize:16.0f];
+    name.font = fnt;
+    NSDictionary *attribute = @{NSFontAttributeName: fnt};
+    CGFloat nameWidth = TEXTWIDTH(modulName, attribute, 35.0f);
+    name.frame = CGRectMake(0, 0, nameWidth, 35);
+    
+    UIImageView *arrow = [[UIImageView alloc]initWithFrame:CGRectMake(nameWidth+10, 11.25f, 17, 12.5f)];
+    arrow.image = [UIImage imageNamed:@"f_arrow.png"];
+    [jumpButton addSubview:arrow];
+    
+    jumpButton.frame = CGRectMake(8, 0, nameWidth+27, 35);
+    
+    
+    UIButton *exchangeButton = [[UIButton alloc]init];
+    exchangeButton.backgroundColor = [UIColor clearColor];
+    [exchangeButton addTarget:self action:@selector(exchangeButtonBntSelect:) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSString *exchangeLabel = @"换一批";
+    
+    UIFont *fnt1 = [UIFont systemFontOfSize:12];
+    NSDictionary *attribute1 = @{NSFontAttributeName: fnt1};
+    CGFloat exchangeLabelWidth = TEXTWIDTH(exchangeLabel, attribute1, 35);
+    
+    UILabel *exchange = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, exchangeLabelWidth, 35)];
+    exchange.text = exchangeLabel;
+    exchange.textAlignment = NSTextAlignmentRight;
+    exchange.font = fnt1;
+    exchange.textColor = [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1];
+    [exchangeButton addSubview:exchange];
+    
+    UIImageView *exchangeImg = [[UIImageView alloc]initWithFrame:CGRectMake(exchangeLabelWidth+10, 8, 19, 19)];
+    exchangeImg.image = [UIImage imageNamed:@"change_batch_icon.png"];
+    [exchangeButton addSubview:exchangeImg];
+    exchangeButton.frame = CGRectMake(SCREEN_WIDTH-exchangeLabelWidth-36, 0, exchangeLabelWidth+28, 35);
+    
+    [modulHead addSubview:exchangeButton];
+    
+    return modulHead;
+}
+
 #pragma mark - tableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return _tableViewData.count;
 }
 
 //返回没个分区的标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"测试";
+    return @"";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *sectionHead = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, 100)];
-    sectionHead.backgroundColor = ROSERED;
-    return sectionHead;
+    ModulData *modul = [_tableViewData objectAtIndex:section];
+    if (section%2 == 0) {
+        return [self getSecHeadView:modul.nodeName isWhite:NO];
+    }else{
+        return [self getSecHeadView:modul.nodeName isWhite:YES];
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50;
+    return 35;
 }
 
 //指定每个分区中有多少行，默认为1
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    ModulData *modul = [_tableViewData objectAtIndex:section];
+    return modul.newsList.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
-    return cell;
+    ModulData *modul = [_tableViewData objectAtIndex:indexPath.section];
+    BOOL isWhite = true;
+    if ((indexPath.section)%2 == 0) {
+        isWhite = NO;
+    }
+    NSMutableArray *tempAry = modul.newsList;
+    CellData *oneCell = [tempAry objectAtIndex:indexPath.row];
+    BOOL isHide = NO;
+    if (indexPath.row == tempAry.count-1) {
+        isHide = YES;
+    }
+    if ([oneCell.displayType isEqual:ONE_SMALL_PIC]) {   //一张小图
+        OneSmallPicCell *cell = [OneSmallPicCell cellWithTableView:tableView];
+        [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+        return cell;
+    }else if ([oneCell.displayType isEqual:ONE_BIG_PIC] || [oneCell.displayType isEqual:NEWS_EARLY_BUS]){                        //一张大图和新闻早班车
+        OneBigPicCell *cell = [OneBigPicCell cellWithTableView:tableView];
+        [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+        return cell;
+    }else if ([oneCell.displayType isEqual:EVERY_ONE] || [oneCell.displayType isEqual:EVERY_ONE_G]){                                 //大家和感性
+        EveryOneCell *cell = [EveryOneCell cellWithTableView:tableView];
+        [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+        return cell;
+    }else if ([oneCell.displayType isEqual:THREE_SMALL_PIC]){  //三张小图
+        ThreePicCell *cell = [ThreePicCell cellWithTableView:tableView];
+        [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+        return cell;
+    }
+    else{                          //无图
+        OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
+        [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+        return cell;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 90;
+    ModulData *modul = [_tableViewData objectAtIndex:indexPath.section];
+    CellData *data = [modul.newsList objectAtIndex:indexPath.row];
+    return data.height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

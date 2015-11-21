@@ -337,16 +337,17 @@
 
 - (void)channelManage:(UIButton *)button {
     NSLog(@"栏目管理");
-//    if (!_channelView) {
-//        _channelView = [[ChannelManageView alloc]initWithFrame:CGRectMake(0, 58, SCREEN_WIDTH, SCREEN_HEIGHT-58)];
-//        [self.view addSubview:_channelView];
-//    }
-//    float h = _channelView.mainView.frame.size.height;
-//    if (h == 0) {
-//        [_channelView openChannel];
-//    }else{
-//        [_channelView closeChannel];
-//    }
+    if (!_channelView) {
+        _channelView = [[ChannelManageView alloc]initWithFrame:CGRectMake(0, 58, SCREEN_WIDTH, SCREEN_HEIGHT-58)];
+    }
+    [self.view addSubview:_channelView];
+    float h = _channelView.mainView.frame.size.height;
+    if (h == 0) {
+        [_channelView openChannel];
+    }else{
+        [_channelView closeChannel];
+        [_channelView removeFromSuperview];
+    }
 }
 
 #pragma mark - 下拉、上拉刷新
@@ -485,24 +486,24 @@
         CellData *oneCell = [tempAry objectAtIndex:indexPath.row];
         if ([oneCell.displayType isEqual:ONE_SMALL_PIC]) {   //一张小图
             OneSmallPicCell *cell = [OneSmallPicCell cellWithTableView:tableView];
-            [cell loadTableCell:oneCell];
+            [cell loadTableCell:oneCell isShortLine:NO isWhiteBg:NO isHideLine:NO];
             return cell;
         }else if ([oneCell.displayType isEqual:ONE_BIG_PIC] || [oneCell.displayType isEqual:NEWS_EARLY_BUS]){                        //一张大图和新闻早班车
             OneBigPicCell *cell = [OneBigPicCell cellWithTableView:tableView];
-            [cell loadTableCell:oneCell];
+            [cell loadTableCell:oneCell isShortLine:NO isWhiteBg:NO isHideLine:NO];
             return cell;
         }else if ([oneCell.displayType isEqual:EVERY_ONE] || [oneCell.displayType isEqual:EVERY_ONE_G]){                                 //大家和感性
             EveryOneCell *cell = [EveryOneCell cellWithTableView:tableView];
-            [cell loadTableCell:oneCell];
+            [cell loadTableCell:oneCell isShortLine:NO isWhiteBg:NO isHideLine:NO];
             return cell;
         }else if ([oneCell.displayType isEqual:THREE_SMALL_PIC]){  //三张小图
             ThreePicCell *cell = [ThreePicCell cellWithTableView:tableView];
-            [cell loadTableCell:oneCell];
+            [cell loadTableCell:oneCell isShortLine:NO isWhiteBg:NO isHideLine:NO];
             return cell;
         }
         else{                          //无图
             OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
-            [cell loadTableCell:oneCell];
+            [cell loadTableCell:oneCell isShortLine:NO isWhiteBg:NO isHideLine:NO];
             return cell;
         }
     }

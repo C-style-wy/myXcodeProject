@@ -11,12 +11,13 @@
 
 @interface OneSmallPicCell : UITableViewCell
 
-@property (nonatomic, weak) UIImageView *cellPic;
-@property (nonatomic, weak) UILabel *cellName;
-@property (nonatomic, weak) UILabel *pubTime;
-@property (nonatomic, weak) UILabel *pv;
+@property (nonatomic, retain) UIImageView *cellPic;
+@property (nonatomic, retain) UILabel *cellName;
+@property (nonatomic, retain) UILabel *pubTime;
+@property (nonatomic, retain) UILabel *pv;
+@property (nonatomic, retain) UIImageView *line;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
--(void)loadTableCell:(id)data;
+-(void)loadTableCell:(CellData*)data isShortLine:(BOOL)isShort isWhiteBg:(BOOL)isWhite isHideLine:(BOOL)hide;
 @end

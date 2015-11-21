@@ -26,6 +26,9 @@
     
     UIView *moveView = [[UIView alloc]initWithFrame:CGRectMake(8, 20, 50, 50)];
     moveView.backgroundColor = ROSERED;
+    
+    moveView.layer.borderWidth = 2;
+    moveView.layer.borderColor = [UIColor greenColor].CGColor;
     [self.view addSubview:moveView];
     
     [UIView animateWithDuration:0.7f animations:^{

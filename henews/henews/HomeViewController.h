@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "APIStringMacros.h"
+#import "ModulData.h"
+#import "OneSmallPicCell.h"
+#import "OnlyTitleCell.h"
+#import "OneBigPicCell.h"
+#import "EveryOneCell.h"
+#import "ThreePicCell.h"
 
 @interface HomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *tableViewData;
-@property (nonatomic, retain) NSString *nextUrl;
-@property (nonatomic, retain) NSMutableArray *tableCellHeightArray;
 
 @property (nonatomic, retain)id<detailViewDelege> delegate;
 @end

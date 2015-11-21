@@ -39,6 +39,19 @@
     myHeadBg.image = [UIImage imageNamed:@"my_head_bg.png"];
     [self.view addSubview:myHeadBg];
     
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"headeriocn.png"]];
+    imageView.frame = CGRectMake((SCREEN_WIDTH-43)/2, 60.5f, 43, 43);
+    imageView.layer.cornerRadius = 21.5f;
+    imageView.clipsToBounds = YES;
+    [self.view addSubview:imageView];
+    
+    UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, SCREEN_WIDTH, 19)];
+    userName.text = @"点击登陆";
+    [self.view addSubview:userName];
+    userName.textColor = [UIColor whiteColor];
+    userName.font = [UIFont systemFontOfSize:13.0f];
+    userName.textAlignment = NSTextAlignmentCenter;
+    
     for (int i = 0; i < 4; i++) {
         UIView *view1 = [[UIView alloc]init];
         CGFloat initY = 164 + 39*i;

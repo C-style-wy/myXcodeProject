@@ -18,8 +18,10 @@
 @property (nonatomic, retain) UILabel *pubTime;
 @property (nonatomic, retain) UILabel *pv;
 
+@property (nonatomic, retain) UIImageView *line;
+
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
--(void)loadTableCell:(id)data;
+-(void)loadTableCell:(CellData*)data isShortLine:(BOOL)isShort isWhiteBg:(BOOL)isWhite isHideLine:(BOOL)hide;
 
 @end

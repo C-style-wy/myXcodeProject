@@ -43,6 +43,7 @@
         line.frame = CGRectMake(0, 145.5f, SCREEN_WIDTH, 0.5f);
         line.image = [UIImage imageNamed:@"menuFenge.png"];
         [self addSubview:line];
+        _line = line;
         
         float picW = (SCREEN_WIDTH - 34)/3;
         
@@ -125,7 +126,7 @@
     return self;
 }
 
--(void)loadTableCell:(CellData*)data{
+-(void)loadTableCell:(CellData*)data isShortLine:(BOOL)isShort isWhiteBg:(BOOL)isWhite isHideLine:(BOOL)hide{
     [self.cellPic1 setImage:[UIImage imageNamed:@""]];
     if (![data.images isEqual:@""]) {
         [self.cellPic1 setImageWithURL:[NSURL URLWithString:data.images]];
@@ -153,6 +154,16 @@
     self.pubTime.text = strs;
     
     self.pv.text = [data.pv stringByAppendingString:@"阅"];
+    if (isShort) {
+        _line.frame = CGRectMake(8, 145.5f, SCREEN_WIDTH-16, 0.5f);
+    }
+    
+    if (isWhite) {
+        self.backgroundColor = [UIColor whiteColor];
+    }else{
+        self.backgroundColor = VIEWBACKGROUND_COLOR;
+    }
+    _line.hidden = hide;
 }
 
 @end
