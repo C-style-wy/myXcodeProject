@@ -99,6 +99,7 @@
     addImg.image = [UIImage imageNamed:@"class_add.png"];
     [channelBtn addSubview:addImg];
     [titleView addSubview:channelBtn];
+    _addChannelImage = addImg;
     
     self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 58, SCREEN_WIDTH, SCREEN_HEIGHT-101)];
     [self.view addSubview:self.mainView];
@@ -151,9 +152,9 @@
     if ([tag isEqual:@"newsData"]) {
         NSArray *newsAry = [returnJson objectForKey:@"nodes"];
         ProgramaStructure *stru = [[ProgramaStructure alloc]init];
-        [stru compareAndSave:newsAry];
+        [stru compareAndSave:newsAry OrderName:NEWS_ORDER NotOrderName:NEWS_NOT_ORDER];
         
-        _columAry = [stru readLocadPrograma:@"newsOrder"];
+        _columAry = [stru readLocadPrograma:NEWS_ORDER];
         //如果_classAry没有alloc，则alloc
         if (!_classAry) {
             _classAry = [[NSMutableArray alloc]init];
@@ -162,6 +163,7 @@
             ClassDataStru *oneClass = [[ClassDataStru alloc]init];
             columStruct *node = [_columAry objectAtIndex:i];
             oneClass.reflushUrl = node.url;
+            oneClass.nodeId = node.nodeId;
             [_classAry addObject:oneClass];
         }
         [self columScrollViewShowData];
@@ -230,8 +232,8 @@
 #pragma mark - 读取本地栏目数据或者发送请求
 -(void)readLocalProDataOrRequest{
     ProgramaStructure *proStru = [[ProgramaStructure alloc]init];
-    if ([proStru readLocadPrograma:@"newsOrder"]) {
-        _columAry = [proStru readLocadPrograma:@"newsOrder"];
+    if ([proStru readLocadPrograma:NEWS_ORDER]) {
+        _columAry = [proStru readLocadPrograma:NEWS_ORDER];
         //如果_classAry没有alloc，则alloc
         if (!_classAry) {
             _classAry = [[NSMutableArray alloc]init];
@@ -259,6 +261,7 @@
         CGFloat labelX = 0;
         //每个栏目的宽度
         CGFloat labelW = 0;
+        [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         for (int i = 0; i<_columAry.count; i++) {
             UIButton *button = [[UIButton alloc]init];
             
@@ -339,21 +342,29 @@
     NSLog(@"栏目管理");
     if (!_channelView) {
         _channelView = [[ChannelManageView alloc]initWithFrame:CGRectMake(0, 58, SCREEN_WIDTH, SCREEN_HEIGHT-58)];
+        _channelView.delegate = self;
     }
+    //因为每次关闭的时候，都会把_channelView从父视图中移除，所以每次打开时要添加
     [self.view addSubview:_channelView];
-    float h = _channelView.mainView.frame.size.height;
-    if (h == 0) {
-        [_channelView openChannel];
-    }else{
-        [_channelView closeChannel];
-        [_channelView removeFromSuperview];
-    }
+
+//    [_channelView openChannel:_curClass Order:NEWS_ORDER NotOrder:NEWS_NOT_ORDER];
+    [_channelView openChannel:_curClass Order:NEWS_ORDER NotOrder:NEWS_NOT_ORDER];
+    //加按钮的旋转动画
+    CABasicAnimation *theAnimation;
+    theAnimation=[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    theAnimation.duration=0.35f;
+    theAnimation.removedOnCompletion = YES;
+    //    theAnimation.
+    theAnimation.fromValue = [NSNumber numberWithFloat:0];
+    theAnimation.toValue = [NSNumber numberWithFloat:PI*3/4];
+    [_addChannelImage.layer addAnimation:theAnimation forKey:@"animateTransform"];
 }
 
 #pragma mark - 下拉、上拉刷新
 //下拉刷新
 - (void)headerRereshing
 {
+    NSLog(@"headerRereshing=====");
     NSString *url = [[_classAry objectAtIndex:_curClass] reflushUrl];
     [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass];
 }
@@ -445,6 +456,7 @@
     [_lastTableView reloadData];
     if ([[_classAry objectAtIndex:index1] needReflush]) {
         if (_curClass == 0) {
+            NSLog(@"_firstTableView===reflush=====");
             [_firstTableView headerBeginRefreshing];
         }
     }else{
@@ -452,18 +464,55 @@
     }
     
     if ([[_classAry objectAtIndex:index2] needReflush]) {
-        [_middleTableView headerBeginRefreshing];
+        if ((_curClass != [_classAry count] - 1) && (_curClass != 0)) {
+            NSLog(@"_middleTableView===reflush=====");
+            [_middleTableView headerBeginRefreshing];
+        }
     }else{
         _middleTableView.contentOffset = CGPointMake(0, [[_classAry objectAtIndex:index2] curPosition]);
     }
     
     if ([[_classAry objectAtIndex:index3] needReflush]) {
         if (_curClass == [_classAry count] - 1) {
+            NSLog(@"_lastTableView===reflush=====");
             [_lastTableView headerBeginRefreshing];
         }
     }else{
         _lastTableView.contentOffset = CGPointMake(0, [[_classAry objectAtIndex:index3] curPosition]);
     }
+}
+
+//ChannelManageView 代理
+-(void)dealChannelChange:(ChannelManageView *)view returnClass:(NSInteger)class{
+    NSLog(@"ChannelManageView 代理=%li", (long)class);
+    ProgramaStructure *pro = [[ProgramaStructure alloc]init];
+    _columAry = [pro readLocadPrograma:NEWS_ORDER];
+    [self columScrollViewShowData];
+    NSMutableArray *temp = [[NSMutableArray alloc]init];
+    
+    BOOL flag = false;
+    for (int i = 0; i < _columAry.count; i++) {
+        columStruct *oneColum = [_columAry objectAtIndex:i];
+        flag = false;
+        for (int j = 0; j < _classAry.count; j++) {
+            ClassDataStru *oneClass = [_classAry objectAtIndex:j];
+            if ([oneColum.nodeId isEqual:oneClass.nodeId]) {
+                [temp addObject:oneClass];
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            ClassDataStru *one = [[ClassDataStru alloc]init];
+            one.nodeId = oneColum.nodeId;
+            one.reflushUrl = oneColum.url;
+            [temp addObject:one];
+        }
+    }
+    _classAry = temp;
+    _curClass = class;
+    UIButton *btn = (UIButton *)[_scrollView viewWithTag:_curClass];
+    [self classBtnClick:btn];
 }
 
 #pragma mark - tableView

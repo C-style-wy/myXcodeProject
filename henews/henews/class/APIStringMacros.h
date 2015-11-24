@@ -81,4 +81,11 @@
 -(void)getUrl:(NSString *)urlString;
 @end
 
+#pragma mark - PI
+#define PI (3.14159265358979323846264338327950288)
+
+#pragma mark - 栏目存储名
+#define NEWS_ORDER (@"newsOrder")
+#define NEWS_NOT_ORDER (@"newsNotOrder")
+
 #endif /* APIStringMacros_h */

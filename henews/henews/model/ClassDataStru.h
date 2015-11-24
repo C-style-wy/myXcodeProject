@@ -10,6 +10,8 @@
 
 @interface ClassDataStru : NSObject
 
+//nodeId
+@property (nonatomic, retain) NSString *nodeId;
 //表示是否已经有数据了，切换到当前目录是否需要主动刷新
 @property (nonatomic, assign) BOOL needReflush;
 //tableView当前位置(y值)

@@ -7,13 +7,50 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIStringMacros.h"
+#import "ChannelCell.h"
+#import "ProgramaStructure.h"
 
-@interface ChannelManageView : UIView
+@protocol ChannelManageViewDelegate;
+
+@interface ChannelManageView : UIView<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, retain) id <ChannelManageViewDelegate> delegate;
 
 @property (nonatomic, retain) UIView *mainView;
 
--(void)openChannel;
+@property (nonatomic, retain) UIButton *channelBtn;
+@property (nonatomic, retain) UIButton *finishBtn;
+
+@property (nonatomic, retain) UIView *layoutHead;
+@property (nonatomic, retain) UICollectionView *myCollectionView;
+@property (nonatomic, retain) NSMutableArray *myChannelAry;
+@property (nonatomic, retain) UILabel *myTipsLabel;
+
+@property (nonatomic, retain) UIView *headView;
+
+@property (nonatomic, retain) UICollectionView *otherCollectionView;
+@property (nonatomic, retain) NSMutableArray *otherChannelAry;
+@property (nonatomic, retain) UILabel *otherTipsLabel;
+
+@property (nonatomic, retain) UIImageView *addImageView;
+
+//是否处于编辑状态
+@property (nonatomic, assign) BOOL isEditStatu;
+//class
+@property (nonatomic, assign) NSInteger returnClass;
+
+
+-(void)openChannel:(NSInteger)class Order:(NSString*)orderName NotOrder:(NSString*)notOrderName;
 
 -(void)closeChannel;
+
+@end
+
+
+@protocol ChannelManageViewDelegate <NSObject>
+
+@optional
+-(void)dealChannelChange:(ChannelManageView*)view returnClass:(NSInteger)class;
 
 @end

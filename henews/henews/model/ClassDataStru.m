@@ -13,6 +13,7 @@
 -(id)init{
     self = [super init];
     if (self) {
+        self.nodeId = @"";
         self.needReflush = YES;
         self.curPosition = 0.0f;
         self.data = [[NSMutableArray alloc]init];

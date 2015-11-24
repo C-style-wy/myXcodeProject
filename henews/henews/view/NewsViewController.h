@@ -16,7 +16,7 @@
 #import "BannersCell.h"
 #import "ChannelManageView.h"
 
-@interface NewsViewController : UIViewController<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface NewsViewController : UIViewController<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, ChannelManageViewDelegate>
 
 @property (nonatomic, retain) UIScrollView *scrollView;
 
@@ -35,6 +35,7 @@
 
 //栏目管理view
 @property (nonatomic, retain) ChannelManageView *channelView;
+@property (nonatomic, retain) UIImageView *addChannelImage;
 
 @property (nonatomic, retain) NSMutableArray *classAry;
 

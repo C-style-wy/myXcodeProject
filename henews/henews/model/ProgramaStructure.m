@@ -11,10 +11,10 @@
 
 @implementation ProgramaStructure
 
--(void)compareAndSave:(NSArray*)serverData{
+-(void)compareAndSave:(NSArray*)serverData OrderName:(NSString *)orderName NotOrderName:(NSString *)notOrderName{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSArray *newsOrder = [userDefaults arrayForKey:@"newsOrder"];
-    NSArray *newsNotOrder = [userDefaults arrayForKey:@"newsNotOrder"];
+    NSArray *newsOrder = [userDefaults arrayForKey:orderName];
+    NSArray *newsNotOrder = [userDefaults arrayForKey:notOrderName];
     
     NSMutableArray *localNewsOrder = [[NSMutableArray alloc]init];
     NSMutableArray *localNewsNotOrder = [[NSMutableArray alloc]init];
@@ -34,8 +34,8 @@
     }else{
         newsOrder = [localNewsOrder copy];
         newsNotOrder = [localNewsNotOrder copy];
-        [userDefaults setObject:newsOrder forKey:@"newsOrder"];
-        [userDefaults setObject:newsNotOrder forKey:@"newsNotOrder"];
+        [userDefaults setObject:newsOrder forKey:orderName];
+        [userDefaults setObject:newsNotOrder forKey:notOrderName];
         [userDefaults synchronize];
     }
 }
@@ -53,6 +53,18 @@
         }
         return tempAry;
     }
+}
+
+-(void)saveData:(NSMutableArray*)ary Key:(NSString*)key{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *temp = [[NSMutableArray alloc]init];
+    for (int i = 0; i<ary.count; i++) {
+        columStruct *colum = [ary objectAtIndex:i];
+        NSData *udObject = [NSKeyedArchiver archivedDataWithRootObject:colum];
+        [temp addObject:udObject];
+    }
+    [userDefaults setObject:[temp copy] forKey:key];
+    [userDefaults synchronize];
 }
 
 @end

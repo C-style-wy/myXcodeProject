@@ -40,9 +40,11 @@
     [self.view addSubview:myHeadBg];
     
     UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"headeriocn.png"]];
-    imageView.frame = CGRectMake((SCREEN_WIDTH-43)/2, 60.5f, 43, 43);
-    imageView.layer.cornerRadius = 21.5f;
+    imageView.frame = CGRectMake((SCREEN_WIDTH-45)/2, 59.5f, 45, 45);
+    imageView.layer.cornerRadius = 22.5f;
     imageView.clipsToBounds = YES;
+    imageView.layer.borderWidth = 2;
+    imageView.layer.borderColor = [UIColor whiteColor].CGColor;
     [self.view addSubview:imageView];
     
     UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, SCREEN_WIDTH, 19)];
@@ -97,6 +99,30 @@
         
         [self.view addSubview:view1];
     }
+    
+    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 320, SCREEN_WIDTH, SCREEN_HEIGHT-363)];
+    [self.view addSubview:bottomView];
+    bottomView.backgroundColor = [UIColor clearColor];
+    for (int i = 0; i < 5; i++) {
+        int line = (int)i/3;
+        int row = i%3;
+        float itemX = (bottomView.frame.size.width/3)*row;
+        float itemY = (bottomView.frame.size.height/2)*line;
+        
+        UIView *itemView = [[UIView alloc]initWithFrame:CGRectMake(itemX, itemY, bottomView.frame.size.width/3, bottomView.frame.size.height/2)];
+        [bottomView addSubview:itemView];
+        
+        
+        NSLog(@"itemX=%f", itemX);
+        NSLog(@"itemY=%f", itemY);
+        
+        NSString *imageName = [NSString stringWithFormat:@"my_b_%i", i+1];
+//        NSString *imageNameSel = [NSString stringWithFormat:@"my_b_s_%i", i+1];
+        
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((itemView.frame.size.width-45)/2, 25.5f, 45, 45)];
+        [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+        [itemView addSubview:button];
+    }
 }
 
 - (void)myBtnClick:(UIButton *)button {
@@ -113,14 +139,7 @@
     [self.navigationController pushViewController:detail animated:YES];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - UICollectionView
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
