@@ -138,6 +138,8 @@
 		D3EC3DF11BD1FDC700D32364 /* launch750_1334.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EC3DED1BD1FDC700D32364 /* launch750_1334.png */; };
 		D3EC3DF21BD1FDC700D32364 /* launch1242_2208.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EC3DEE1BD1FDC700D32364 /* launch1242_2208.png */; };
 		D3F75E771BEB59DE005A8586 /* columStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F75E761BEB59DE005A8586 /* columStruct.m */; };
+		D3FE42AC1C0802BD00DBA6AA /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FE42AB1C0802BD00DBA6AA /* LoadingView.m */; };
+		D3FE42AE1C082EDC00DBA6AA /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FE42AD1C082EDC00DBA6AA /* loading.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,6 +364,9 @@
 		D3EC3DEE1BD1FDC700D32364 /* launch1242_2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch1242_2208.png; sourceTree = "<group>"; };
 		D3F75E751BEB59DE005A8586 /* columStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = columStruct.h; sourceTree = "<group>"; };
 		D3F75E761BEB59DE005A8586 /* columStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = columStruct.m; sourceTree = "<group>"; };
+		D3FE42AA1C0802BD00DBA6AA /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		D3FE42AB1C0802BD00DBA6AA /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		D3FE42AD1C082EDC00DBA6AA /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,10 +427,8 @@
 		D36510C11BCF9340004AEA98 /* henews */ = {
 			isa = PBXGroup;
 			children = (
-				D390C8571BE066030093C76A /* networking */,
-				D3C795761BDE02D800322D3C /* MJRefresh */,
+				D3FE429E1C07FE0B00DBA6AA /* Libraries */,
 				D378A80B1BD9FF4F00D21B13 /* class */,
-				D36B1CFA1BD4CA1000B03864 /* FDFullscreenPopGestureDemo */,
 				D3F75E741BEB58A6005A8586 /* model */,
 				D36B1CFE1BD4D2DA00B03864 /* view */,
 				D36510C51BCF9340004AEA98 /* AppDelegate.h */,
@@ -471,7 +474,8 @@
 				D36B1CFB1BD4CA5700B03864 /* UINavigationController+FDFullscreenPopGesture.h */,
 				D36B1CFC1BD4CA5700B03864 /* UINavigationController+FDFullscreenPopGesture.m */,
 			);
-			path = FDFullscreenPopGestureDemo;
+			name = FDFullscreenPopGestureDemo;
+			path = ../FDFullscreenPopGestureDemo;
 			sourceTree = "<group>";
 		};
 		D36B1CFE1BD4D2DA00B03864 /* view */ = {
@@ -578,7 +582,8 @@
 				D381BE671BE1C1B0005B00E7 /* Request.h */,
 				D381BE681BE1C1B0005B00E7 /* Request.m */,
 			);
-			path = networking;
+			name = networking;
+			path = ../networking;
 			sourceTree = "<group>";
 		};
 		D390C8581BE066170093C76A /* AFNetworking */ = {
@@ -627,12 +632,14 @@
 				D3C795851BDE02D800322D3C /* UIView+MJExtension.h */,
 				D3C795861BDE02D800322D3C /* UIView+MJExtension.m */,
 			);
-			path = MJRefresh;
+			name = MJRefresh;
+			path = ../MJRefresh;
 			sourceTree = "<group>";
 		};
 		D3EC3DE81BD1F8A000D32364 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D3FE42AD1C082EDC00DBA6AA /* loading.png */,
 				D3CDC32A1C07168800D0C0FD /* change_batch_icon.png */,
 				D3185D6C1C04936300DBE184 /* delete.png */,
 				D3185D6A1C04465400DBE184 /* noEdit.png */,
@@ -722,6 +729,26 @@
 				D3B67A021BFEB4E50097118A /* ModulData.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		D3FE429E1C07FE0B00DBA6AA /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				D3FE42A61C0802A400DBA6AA /* Loading */,
+				D390C8571BE066030093C76A /* networking */,
+				D36B1CFA1BD4CA1000B03864 /* FDFullscreenPopGestureDemo */,
+				D3C795761BDE02D800322D3C /* MJRefresh */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		D3FE42A61C0802A400DBA6AA /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				D3FE42AA1C0802BD00DBA6AA /* LoadingView.h */,
+				D3FE42AB1C0802BD00DBA6AA /* LoadingView.m */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -843,6 +870,7 @@
 				D378A81C1BDA051C00D21B13 /* menu4.png in Resources */,
 				D3D4436D1BF9BBB300460351 /* progress_point.png in Resources */,
 				D36510D21BCF9340004AEA98 /* LaunchScreen.storyboard in Resources */,
+				D3FE42AE1C082EDC00DBA6AA /* loading.png in Resources */,
 				D3185D691C04433300DBE184 /* hot.png in Resources */,
 				D3CDC32B1C07168800D0C0FD /* change_batch_icon.png in Resources */,
 				D378A8321BDA357200D21B13 /* menuFenge.png in Resources */,
@@ -913,6 +941,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D382D2161BE87463009BA398 /* BannersCell.m in Sources */,
+				D3FE42AC1C0802BD00DBA6AA /* LoadingView.m in Sources */,
 				D3B970041BF2FEEA00B48EFE /* NewsTitleCell.m in Sources */,
 				D3B970141BF314BB00B48EFE /* NewsShareCell.m in Sources */,
 				D36B1CFD1BD4CA5700B03864 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,

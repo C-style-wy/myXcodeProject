@@ -25,6 +25,12 @@
     [super viewDidLoad];
     self.view.backgroundColor = VIEWBACKGROUND_COLOR;
     [self UIInit];
+    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loading.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    loading.hidesWhenStopped = YES;
+    [self.view addSubview:loading];
+    [loading startAnimating];
+    _loading = loading;
 }
 
 -(void)UIInit{
@@ -72,6 +78,7 @@
 }
 
 -(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg;{
+    [_loading stopAnimating];
     if ([tag isEqual:@"detailData"]) {
         [self dealDetailDataBack:returnJson];
     }

@@ -102,7 +102,11 @@
 //    [view addSubview:testScroll];
 //    [self.view addSubview:view];
     
-    
+    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loading.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    loading.hidesWhenStopped = YES;
+    [self.view addSubview:loading];
+    [loading startAnimating];
 }
 
 -(void)didClickPage:(WHScrollAndPageView *)view atIndex:(NSInteger)index{

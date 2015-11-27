@@ -25,4 +25,6 @@
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *tableViewData;
+
+@property (nonatomic, retain) UIActivityIndicatorView *loading;
 @end
