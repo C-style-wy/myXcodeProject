@@ -125,8 +125,8 @@
 		D3C7958C1BDE02D800322D3C /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C795821BDE02D800322D3C /* UIScrollView+MJExtension.m */; };
 		D3C7958D1BDE02D800322D3C /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C795841BDE02D800322D3C /* UIScrollView+MJRefresh.m */; };
 		D3C7958E1BDE02D800322D3C /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C795861BDE02D800322D3C /* UIView+MJExtension.m */; };
+		D3CDC32B1C07168800D0C0FD /* change_batch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CDC32A1C07168800D0C0FD /* change_batch_icon.png */; };
 		D3CED3461C00B99200CAF034 /* f_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CED3451C00B99200CAF034 /* f_arrow.png */; };
-		D3CED3481C00C13E00CAF034 /* change_batch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CED3471C00C13E00CAF034 /* change_batch_icon.png */; };
 		D3CED34A1C00EAB600CAF034 /* headeriocn.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CED3491C00EAB600CAF034 /* headeriocn.png */; };
 		D3D4436D1BF9BBB300460351 /* progress_point.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D4436C1BF9BBB300460351 /* progress_point.png */; };
 		D3D443701BF9C53C00460351 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D4436F1BF9C53C00460351 /* PlayerView.m */; };
@@ -347,8 +347,8 @@
 		D3C795841BDE02D800322D3C /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		D3C795851BDE02D800322D3C /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		D3C795861BDE02D800322D3C /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		D3CDC32A1C07168800D0C0FD /* change_batch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_batch_icon.png; sourceTree = "<group>"; };
 		D3CED3451C00B99200CAF034 /* f_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f_arrow.png; sourceTree = "<group>"; };
-		D3CED3471C00C13E00CAF034 /* change_batch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_batch_icon.png; sourceTree = "<group>"; };
 		D3CED3491C00EAB600CAF034 /* headeriocn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headeriocn.png; sourceTree = "<group>"; };
 		D3D4436C1BF9BBB300460351 /* progress_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_point.png; sourceTree = "<group>"; };
 		D3D4436E1BF9C53C00460351 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
@@ -633,6 +633,7 @@
 		D3EC3DE81BD1F8A000D32364 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D3CDC32A1C07168800D0C0FD /* change_batch_icon.png */,
 				D3185D6C1C04936300DBE184 /* delete.png */,
 				D3185D6A1C04465400DBE184 /* noEdit.png */,
 				D3185D681C04433300DBE184 /* hot.png */,
@@ -648,7 +649,6 @@
 				D303E2041C02AA73003B7F27 /* my_b_1.png */,
 				D303E2051C02AA73003B7F27 /* my_b_s_1.png */,
 				D3CED3491C00EAB600CAF034 /* headeriocn.png */,
-				D3CED3471C00C13E00CAF034 /* change_batch_icon.png */,
 				D3CED3451C00B99200CAF034 /* f_arrow.png */,
 				D3D443731BF9CE9400460351 /* fullscreen.png */,
 				D3D443711BF9CCFE00460351 /* play_icon.png */,
@@ -844,9 +844,9 @@
 				D3D4436D1BF9BBB300460351 /* progress_point.png in Resources */,
 				D36510D21BCF9340004AEA98 /* LaunchScreen.storyboard in Resources */,
 				D3185D691C04433300DBE184 /* hot.png in Resources */,
+				D3CDC32B1C07168800D0C0FD /* change_batch_icon.png in Resources */,
 				D378A8321BDA357200D21B13 /* menuFenge.png in Resources */,
 				D36B1D071BD4F87D00B03864 /* home_dw_icon.png in Resources */,
-				D3CED3481C00C13E00CAF034 /* change_batch_icon.png in Resources */,
 				D378A8301BDA2F8800D21B13 /* my_head_bg.png in Resources */,
 				D303E20B1C02AB4B003B7F27 /* my_b_s_2.png in Resources */,
 				D36B1D031BD4E76400B03864 /* home_icon.png in Resources */,

@@ -105,18 +105,28 @@ static NSString *indentify = @"indentify";
         longPressGR.allowableMovement=NO;
         longPressGR.minimumPressDuration = 0.5f;
         [_myCollectionView addGestureRecognizer:longPressGR];
+        
     }
     return self;
 }
 
-//响应的事件
--(void)handleLongPress:(id)sender{
-    NSLog(@"长按=====");
+//长按响应的事件
+-(void)handleLongPress:(UILongPressGestureRecognizer*)gesture{
     _isEditStatu = true;
     //加上完成按钮
     [_layoutHead addSubview:_finishBtn];
     [_channelBtn removeFromSuperview];
     [_myCollectionView reloadData];
+    
+//    switch (gesture.state) {
+//        case UIGestureRecognizerStateBegan:
+//            
+//            break;
+//        case UIGestureRecognizerStateChanged:
+//            _myCollectionView.update
+//        default:
+//            break;
+//    }
 }
 
 - (void)closeChannelBtnSelect:(UIButton*)button{
@@ -288,6 +298,11 @@ static NSString *indentify = @"indentify";
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
+}
+
+//Moves an item from one location to another in the collection view.
+- (void)moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath{
+    NSLog(@"moveItemAtIndexPath=======");
 }
 
 @end

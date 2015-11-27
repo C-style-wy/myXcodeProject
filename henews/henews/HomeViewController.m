@@ -193,16 +193,17 @@
     CGFloat exchangeLabelWidth = TEXTWIDTH(exchangeLabel, attribute1, 35);
     
     UILabel *exchange = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, exchangeLabelWidth, 35)];
+
     exchange.text = exchangeLabel;
     exchange.textAlignment = NSTextAlignmentRight;
     exchange.font = fnt1;
     exchange.textColor = [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1];
     [exchangeButton addSubview:exchange];
     
-    UIImageView *exchangeImg = [[UIImageView alloc]initWithFrame:CGRectMake(exchangeLabelWidth+10, 8, 19, 19)];
+    UIImageView *exchangeImg = [[UIImageView alloc]initWithFrame:CGRectMake(exchangeLabelWidth+8, 9.5f, 16, 16)];
     exchangeImg.image = [UIImage imageNamed:@"change_batch_icon.png"];
     [exchangeButton addSubview:exchangeImg];
-    exchangeButton.frame = CGRectMake(SCREEN_WIDTH-exchangeLabelWidth-36, 0, exchangeLabelWidth+28, 35);
+    exchangeButton.frame = CGRectMake(SCREEN_WIDTH-exchangeLabelWidth-32, 0, exchangeLabelWidth+24, 35);
     
     [modulHead addSubview:exchangeButton];
     
