@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "APIStringMacros.h"
 #import "ProgramaStructure.h"
+#import "AdviceData.h"
 
 @interface IndexViewController : UIViewController<UIScrollViewDelegate>
 
+@property (nonatomic, retain)UIView *adviceView;
+@property (nonatomic, retain)AdviceData *adviceData;
 @end

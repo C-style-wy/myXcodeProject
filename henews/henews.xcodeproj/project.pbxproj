@@ -22,6 +22,8 @@
 		D3185D691C04433300DBE184 /* hot.png in Resources */ = {isa = PBXBuildFile; fileRef = D3185D681C04433300DBE184 /* hot.png */; };
 		D3185D6B1C04465400DBE184 /* noEdit.png in Resources */ = {isa = PBXBuildFile; fileRef = D3185D6A1C04465400DBE184 /* noEdit.png */; };
 		D3185D6D1C04936300DBE184 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = D3185D6C1C04936300DBE184 /* delete.png */; };
+		D33F381E1C0EC77700DDB6F2 /* AdviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = D33F381D1C0EC77700DDB6F2 /* AdviceData.m */; };
+		D351702A1C0BEF3000E6F90E /* PicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35170291C0BEF3000E6F90E /* PicDetailViewController.m */; };
 		D36510C41BCF9340004AEA98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D36510C31BCF9340004AEA98 /* main.m */; };
 		D36510C71BCF9340004AEA98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D36510C61BCF9340004AEA98 /* AppDelegate.m */; };
 		D36510CF1BCF9340004AEA98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36510CE1BCF9340004AEA98 /* Assets.xcassets */; };
@@ -133,6 +135,7 @@
 		D3D443721BF9CCFE00460351 /* play_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D443711BF9CCFE00460351 /* play_icon.png */; };
 		D3D443741BF9CE9400460351 /* fullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D443731BF9CE9400460351 /* fullscreen.png */; };
 		D3E6B5C61BE8F22200740A02 /* newsBigBg.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E6B5C51BE8F22200740A02 /* newsBigBg.png */; };
+		D3E77E321C112782001DA80F /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E77E311C112782001DA80F /* MD5.m */; };
 		D3EC3DEA1BD1F8B800D32364 /* launch640_1136.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EC3DE91BD1F8B800D32364 /* launch640_1136.png */; };
 		D3EC3DEF1BD1FDC700D32364 /* launch640_960.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EC3DEB1BD1FDC700D32364 /* launch640_960.png */; };
 		D3EC3DF11BD1FDC700D32364 /* launch750_1334.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EC3DED1BD1FDC700D32364 /* launch750_1334.png */; };
@@ -176,6 +179,10 @@
 		D3185D681C04433300DBE184 /* hot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hot.png; sourceTree = "<group>"; };
 		D3185D6A1C04465400DBE184 /* noEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noEdit.png; sourceTree = "<group>"; };
 		D3185D6C1C04936300DBE184 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		D33F381C1C0EC77700DDB6F2 /* AdviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdviceData.h; sourceTree = "<group>"; };
+		D33F381D1C0EC77700DDB6F2 /* AdviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdviceData.m; sourceTree = "<group>"; };
+		D35170281C0BEF3000E6F90E /* PicDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicDetailViewController.h; sourceTree = "<group>"; };
+		D35170291C0BEF3000E6F90E /* PicDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicDetailViewController.m; sourceTree = "<group>"; };
 		D36510BF1BCF9340004AEA98 /* 和新闻.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "和新闻.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36510C31BCF9340004AEA98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D36510C51BCF9340004AEA98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -358,6 +365,8 @@
 		D3D443711BF9CCFE00460351 /* play_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_icon.png; sourceTree = "<group>"; };
 		D3D443731BF9CE9400460351 /* fullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullscreen.png; sourceTree = "<group>"; };
 		D3E6B5C51BE8F22200740A02 /* newsBigBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newsBigBg.png; sourceTree = "<group>"; };
+		D3E77E301C112782001DA80F /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
+		D3E77E311C112782001DA80F /* MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5.m; sourceTree = "<group>"; };
 		D3EC3DE91BD1F8B800D32364 /* launch640_1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch640_1136.png; sourceTree = "<group>"; };
 		D3EC3DEB1BD1FDC700D32364 /* launch640_960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch640_960.png; sourceTree = "<group>"; };
 		D3EC3DED1BD1FDC700D32364 /* launch750_1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch750_1334.png; sourceTree = "<group>"; };
@@ -499,6 +508,8 @@
 				D36B1D001BD4D30800B03864 /* DetailViewController.m */,
 				D3B970231BF3493700B48EFE /* PlayViewController.h */,
 				D3B970241BF3493700B48EFE /* PlayViewController.m */,
+				D35170281C0BEF3000E6F90E /* PicDetailViewController.h */,
+				D35170291C0BEF3000E6F90E /* PicDetailViewController.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -581,6 +592,8 @@
 				D390C8581BE066170093C76A /* AFNetworking */,
 				D381BE671BE1C1B0005B00E7 /* Request.h */,
 				D381BE681BE1C1B0005B00E7 /* Request.m */,
+				D3E77E301C112782001DA80F /* MD5.h */,
+				D3E77E311C112782001DA80F /* MD5.m */,
 			);
 			name = networking;
 			path = ../networking;
@@ -727,6 +740,8 @@
 				D3B609F81BFC0911001AF038 /* BannersData.m */,
 				D3B67A011BFEB4E50097118A /* ModulData.h */,
 				D3B67A021BFEB4E50097118A /* ModulData.m */,
+				D33F381C1C0EC77700DDB6F2 /* AdviceData.h */,
+				D33F381D1C0EC77700DDB6F2 /* AdviceData.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -973,6 +988,7 @@
 				D36B1CF91BD494B700B03864 /* HomeViewController.m in Sources */,
 				D3B9701C1BF31FA400B48EFE /* NewsContentCell.m in Sources */,
 				D378A8251BDA27D600D21B13 /* NewsViewController.m in Sources */,
+				D351702A1C0BEF3000E6F90E /* PicDetailViewController.m in Sources */,
 				D390C86D1BE066170093C76A /* AFHTTPRequestOperationManager.m in Sources */,
 				D3A986D81BF1EA5F003EF1B6 /* OneBigPicCell.m in Sources */,
 				D381BE661BE1AA4F005B00E7 /* UIWebView+AFNetworking.m in Sources */,
@@ -989,7 +1005,9 @@
 				D3B67A031BFEB4E50097118A /* ModulData.m in Sources */,
 				D3B970221BF324D000B48EFE /* NewsPicCell.m in Sources */,
 				D390C8731BE066170093C76A /* AFURLResponseSerialization.m in Sources */,
+				D3E77E321C112782001DA80F /* MD5.m in Sources */,
 				D390C8721BE066170093C76A /* AFURLRequestSerialization.m in Sources */,
+				D33F381E1C0EC77700DDB6F2 /* AdviceData.m in Sources */,
 				D3B970111BF3144C00B48EFE /* NewsShareCellData.m in Sources */,
 				D378A82B1BDA280100D21B13 /* SearchViewController.m in Sources */,
 				D3C7958D1BDE02D800322D3C /* UIScrollView+MJRefresh.m in Sources */,

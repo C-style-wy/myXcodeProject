@@ -105,14 +105,19 @@
 }
 
 #pragma mark - 网络请求返回
--(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg;{
+-(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     if ([tag isEqual:@"homeData"]) {
-        NSLog(@"returnJson===%@", returnJson);
-        [self.tableView headerEndRefreshing];
+        if (!flag) {
+            [self.tableView headerEndRefreshing];
+            NSLog(@"requestDidReturn===not==cache===");
+        }else{
+            NSLog(@"requestDidReturn===cache===");
+        }
         
         if (!_tableViewData) {
             _tableViewData = [[NSMutableArray alloc]init];
         }
+        [_tableViewData removeAllObjects];
         NSArray *node = [returnJson objectForKey:@"nodes"];
         if (node && node.count > 0) {
             for (int i = 0; i<node.count; i++) {
@@ -141,7 +146,7 @@
 {
     NSString *addHead = [GET_SERVER stringByAppendingString:GET_HOME_URL];
     NSString *url = [addHead stringByAppendingString:@"合肥"];
-    [Request requestPostForJSON:@"homeData" url:url delegate:self paras:nil msg:0];
+    [Request requestPostForJSON:@"homeData" url:url delegate:self paras:nil msg:0 useCache:YES];
 }
 
 -(UIView*)getSecHeadView:(NSString*)modulName isWhite:(BOOL)white{

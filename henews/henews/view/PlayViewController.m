@@ -54,10 +54,10 @@
 */
 
 -(void)getUrl:(NSString *)urlString{
-    [Request requestPostForJSON:@"playData" url:urlString delegate:self paras:nil msg:0];
+    [Request requestPostForJSON:@"playData" url:urlString delegate:self paras:nil msg:0 useCache:YES];
 }
 
--(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg;{
+-(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     if ([tag isEqual:@"playData"]) {
         [self dealPlayDataBack:returnJson];
     }else if ([tag isEqual:@"playUrl"]){
@@ -90,7 +90,7 @@
 
 -(void)dealPlayDataBack:(NSDictionary*)jsonData{
     NSString *getPlayUrl = [jsonData objectForKey:@"getPlayUrl"];
-    [Request requestPostForJSON:@"playUrl" url:getPlayUrl delegate:self paras:nil msg:0];
+    [Request requestPostForJSON:@"playUrl" url:getPlayUrl delegate:self paras:nil msg:0 useCache:NO];
 }
 
 @end

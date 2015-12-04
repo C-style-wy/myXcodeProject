@@ -18,6 +18,7 @@
 
 #import "DetailViewController.h"
 #import "PlayViewController.h"
+#import "PicDetailViewController.h"
 
 #import "ProgramaStructure.h"
 
@@ -33,7 +34,6 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
 }
-
 
 //为了解决应用从后台切换到前台，列表闪动问题
 - (void)appHasGoneInForeground{
@@ -148,7 +148,7 @@
 }
 
 #pragma mark - 网络请求返回
--(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg;{
+-(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     if ([tag isEqual:@"newsData"]) {
         NSArray *newsAry = [returnJson objectForKey:@"nodes"];
         ProgramaStructure *stru = [[ProgramaStructure alloc]init];
@@ -189,14 +189,20 @@
             }
         }
         if (_firstTableView.tag == msg) {
+            if (!flag) {
+                [_firstTableView headerEndRefreshing];
+            }
             [_firstTableView reloadData];
-            [_firstTableView headerEndRefreshing];
         }else if (_middleTableView.tag == msg){
+            if (!flag) {
+                [_middleTableView headerEndRefreshing];
+            }
             [_middleTableView reloadData];
-            [_middleTableView headerEndRefreshing];
         }else if (_lastTableView.tag == msg){
+            if (!flag) {
+                [_lastTableView headerEndRefreshing];
+            }
             [_lastTableView reloadData];
-            [_lastTableView headerEndRefreshing];
         }
         //把是否需要主动刷新标志设为false
         ClassDataStru *cds = [_classAry objectAtIndex:msg];
@@ -250,7 +256,7 @@
         }
     }else{
         NSString *url = [GET_SERVER stringByAppendingString:GET_NEWS_URL];
-        [Request requestPostForJSON:@"newsData" url:url delegate:self paras:nil msg:0];
+        [Request requestPostForJSON:@"newsData" url:url delegate:self paras:nil msg:0 useCache:NO];
     }
 }
 
@@ -366,14 +372,14 @@
 {
     NSLog(@"headerRereshing=====");
     NSString *url = [[_classAry objectAtIndex:_curClass] reflushUrl];
-    [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass];
+    [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass useCache:YES];
 }
 
 //上拉加载
 - (void)footerRereshing
 {
     NSString *url = [[_classAry objectAtIndex:_curClass] loadingMoreUrl];
-    [Request requestPostForJSON:@"addNewsData" url:url delegate:self paras:nil msg:_curClass];
+    [Request requestPostForJSON:@"addNewsData" url:url delegate:self paras:nil msg:_curClass useCache:NO];
 }
 
 #pragma mark - scrollView
@@ -456,7 +462,6 @@
     [_lastTableView reloadData];
     if ([[_classAry objectAtIndex:index1] needReflush]) {
         if (_curClass == 0) {
-            NSLog(@"_firstTableView===reflush=====");
             [_firstTableView headerBeginRefreshing];
         }
     }else{
@@ -579,7 +584,14 @@
             [self.delegate getUrl:url];
             
             [self.navigationController pushViewController:play animated:YES];
-        }else{
+        }else if ([cell.newsType isEqual:@"4"]){
+            PicDetailViewController *picDetail = [[PicDetailViewController alloc] init];
+            self.delegate = picDetail;
+            [self.delegate getUrl:url];
+            
+            [self.navigationController pushViewController:picDetail animated:YES];
+        }
+        else{
             DetailViewController *detail = [[DetailViewController alloc] init];
             self.delegate = detail;
             [self.delegate getUrl:url];

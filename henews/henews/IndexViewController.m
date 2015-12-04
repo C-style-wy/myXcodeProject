@@ -46,17 +46,21 @@
     [self firstEnterShowGuidePage];
     NSString *addHead = [GET_SERVER stringByAppendingString:GET_INDEX_URL];
     NSString *url = [addHead stringByAppendingString:@"合肥"];
-    [Request requestPostForJSON:@"indexData" url:url delegate:self paras:nil msg:0];
+    [Request requestPostForJSON:@"indexData" url:url delegate:self paras:nil msg:0 useCache:NO];
 }
 
--(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg;{
+-(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{    
+    //处理广告
+    _adviceData = [[AdviceData alloc]init];
+    [_adviceData initWithData:[returnJson objectForKey:@"pic"] start:[returnJson objectForKey:@"startTime"] end:[returnJson objectForKey:@"endTime"] showTime:[returnJson objectForKey:@"displayTime"]];
+    
     NSArray *newsAry = [returnJson objectForKey:@"hNewsNodes"];
     ProgramaStructure *stru = [[ProgramaStructure alloc]init];
     [stru compareAndSave:newsAry OrderName:NEWS_ORDER NotOrderName:NEWS_NOT_ORDER];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([[userDefaults stringForKey:@"isNotFirstOpen"] isEqual: @"1"]){
         XNTabBarView *tabBar = [[XNTabBarView alloc] init];
-        [self.navigationController setViewControllers: [NSArray arrayWithObject:tabBar]animated: YES];
+        [self.navigationController setViewControllers: [NSArray arrayWithObject:tabBar]animated: NO];
     }
 }
 

@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "APIStringMacros.h"
+#import "MD5.h"
 
 @protocol RequestDelegate<NSObject>
 
 @required
--(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg;
+-(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg isCacheReturn:(BOOL)flag;
 
 @end
 
@@ -20,5 +21,6 @@
     
 }
 
-+(void)requestPostForJSON:(NSString*)tag url:(NSString*)urlString delegate:(id)delegate paras:(NSDictionary*)paras msg:(NSInteger)msg;
+
++(void)requestPostForJSON:(NSString*)tag url:(NSString*)urlString delegate:(id)delegate paras:(NSDictionary*)paras msg:(NSInteger)msg useCache:(BOOL)use;
 @end
