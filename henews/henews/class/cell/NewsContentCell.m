@@ -25,7 +25,8 @@
 {
     static NSString *identifier = @"NewsContentCell";
     // 1.缓存中取
-    NewsContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+//    NewsContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    NewsContentCell *cell = nil;
     // 2.创建
     if (cell == nil) {
         cell = [[NewsContentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -39,7 +40,7 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
-        UILabel *label1 = [[UILabel alloc]init];
+        SHLUILabel *label1 = [[SHLUILabel alloc]init];
         label1.font = NEWS_CONTENT_SIZE;
         label1.textColor = [UIColor colorWithHue:0 saturation:0 brightness:0.2 alpha:1];
         label1.textAlignment = NSTextAlignmentJustified;
@@ -57,15 +58,16 @@
 -(void)loadTableCell:(NewsContentCellData*)data{
     _content.text = data.content;
     _content.frame = data.contentFrame;
+//    _content.backgroundColor = [UIColor greenColor];
     
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:data.content];
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    [paragraphStyle setLineSpacing:NEWS_CONTENT_DIS];//调整行间距
-    
-    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [data.content length])];
-    _content.attributedText = attributedString;
-
-    [_content sizeToFit];
+//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:data.content];
+//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//    [paragraphStyle setLineSpacing:NEWS_CONTENT_DIS];//调整行间距
+//    
+//    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [data.content length])];
+//    _content.attributedText = attributedString;
+//
+//    [_content sizeToFit];
 }
 
 @end

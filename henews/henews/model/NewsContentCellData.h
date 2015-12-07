@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "APIStringMacros.h"
+#import "SHLUILabel.h"
 
 @interface NewsContentCellData : NSObject
 

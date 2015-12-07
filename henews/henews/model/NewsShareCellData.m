@@ -14,7 +14,7 @@
     self = [super init];
     if (self) {
         
-        _height = 48.0f;
+        _height = 39.0f;
     }
     return self;
 }

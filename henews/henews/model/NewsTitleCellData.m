@@ -45,7 +45,7 @@
     
     _titleFrame = CGRectMake(8, 10, SCREEN_WIDTH-16, titleHeight);
     _timeFrame = CGRectMake(8, 16+titleHeight, SCREEN_WIDTH-16, 12);
-    _height = titleHeight+28;
+    _height = titleHeight+28+8;
 }
 
 @end

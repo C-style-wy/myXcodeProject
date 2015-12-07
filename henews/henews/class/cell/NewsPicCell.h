@@ -13,6 +13,9 @@
 
 @property (nonatomic, retain) UIImageView *pic;
 
+@property (nonatomic, retain) UIView *defaultView;
+@property (nonatomic, retain) UIImageView *defaultImage;
+
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
 -(void)loadTableCell:(NewsPicCellData*)data;

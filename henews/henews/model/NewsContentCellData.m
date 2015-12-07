@@ -21,9 +21,25 @@
 }
 
 -(void)initWithData:(NSString*)content{
-    _content = content;
+    NSString *copyStr = [content stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    copyStr = [copyStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+    content = [content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (![copyStr isEqual:@""]) {
+        _content = content;
+        SHLUILabel *contentLab = [[SHLUILabel alloc] init];
+        contentLab.font = NEWS_CONTENT_SIZE;
+        contentLab.text = content;
+        
+        //设置字体颜色
+        contentLab.lineBreakMode = NSLineBreakByWordWrapping;
+        contentLab.numberOfLines = 0;
+        //根据字符串长度和Label显示的宽度计算出contentLab的高
+        float labelHeight = [contentLab getAttributedStringHeightWidthValue:SCREEN_WIDTH-16];
+        _contentFrame = CGRectMake(8, 0, SCREEN_WIDTH-16, labelHeight);
+        _height = labelHeight+9;
+    }
     
-    UIFont *fnt = NEWS_CONTENT_SIZE;
+//    UIFont *fnt = NEWS_CONTENT_SIZE;
     
 //    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:_content];
 //    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -31,11 +47,8 @@
 //    
 //    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [_content length])];
     
-    NSDictionary *attribute = @{NSFontAttributeName: fnt};
-    CGFloat titleHeight = TEXTHEIGHT(_content, attribute, SCREEN_WIDTH-16);
-    
-    _contentFrame = CGRectMake(8, 0, SCREEN_WIDTH-16, titleHeight);
-    _height = titleHeight+9;
+//    NSDictionary *attribute = @{NSFontAttributeName: fnt};
+//    CGFloat titleHeight = TEXTHEIGHT(_content, attribute, SCREEN_WIDTH-16);
 }
 
 @end

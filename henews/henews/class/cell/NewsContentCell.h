@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "NewsContentCellData.h"
+#import "SHLUILabel.h"
 
 @interface NewsContentCell : UITableViewCell
 
-@property (nonatomic, retain) UILabel *content;
+@property (nonatomic, retain) SHLUILabel *content;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 

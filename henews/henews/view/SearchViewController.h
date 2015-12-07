@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIStringMacros.h"
 
 @interface SearchViewController : UIViewController
 

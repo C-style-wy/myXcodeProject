@@ -41,7 +41,8 @@
 //新闻详情页，新闻标题大小
 #define NEWS_TITLE_SIZE ([UIFont systemFontOfSize:17.5f])
 //新闻内容字体大小
-#define NEWS_CONTENT_SIZE ([UIFont systemFontOfSize:17.0f])
+//#define NEWS_CONTENT_SIZE ([UIFont systemFontOfSize:17.0f])
+#define NEWS_CONTENT_SIZE ([UIFont fontWithName:@"Helvetica" size:17])
 //新闻内容的行间距
 #define NEWS_CONTENT_DIS (0.0f)
 

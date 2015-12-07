@@ -41,7 +41,7 @@
         float btnW = (SCREEN_WIDTH - 46)/5;
         float btnH = 30;
         for (int i = 0; i < 5; i++) {
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(btnX, (48-btnH)/2, btnW, btnH)];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(btnX, 0, btnW, btnH)];
             btnX = btnX+btnW+7.5f;
             UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, btnW, btnH)];
             if (0 == i) {
