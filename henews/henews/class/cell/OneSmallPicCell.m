@@ -106,6 +106,19 @@
     self.cellName.text = data.newsTitle;
     self.summary.text = data.newsIntro;
     
+    UIFont *fnt = self.cellName.font;
+    NSDictionary *attribute = @{NSFontAttributeName: fnt};
+    CGFloat height = TEXTHEIGHT(data.newsTitle, attribute, self.cellName.frame.size.width);
+    if (height > 18) {
+        self.cellName.frame = CGRectMake(101, 11, 211, 36);
+        self.summary.hidden = YES;
+    }else{
+        self.cellName.frame = CGRectMake(101, 10.5f, 211, 18);
+        self.summary.hidden = NO;
+    }
+    
+    
+    
     NSString *strs;
     if ([data.source isEqual:@""]) {
         strs = data.createTime;

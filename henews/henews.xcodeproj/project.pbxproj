@@ -19,6 +19,7 @@
 		D303E2171C02ABCF003B7F27 /* my_b_s_5.png in Resources */ = {isa = PBXBuildFile; fileRef = D303E2151C02ABCF003B7F27 /* my_b_s_5.png */; };
 		D303E21A1C02DD38003B7F27 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D303E2191C02DD38003B7F27 /* ChannelCell.m */; };
 		D30F8C0B1C155CB70077D556 /* SHLUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D30F8C0A1C155CB70077D556 /* SHLUILabel.m */; };
+		D30F8C0E1C15C65A0077D556 /* APIMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D30F8C0D1C15C65A0077D556 /* APIMethod.m */; };
 		D3185D671C043B1000DBE184 /* btn_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D3185D661C043B1000DBE184 /* btn_bg.png */; };
 		D3185D691C04433300DBE184 /* hot.png in Resources */ = {isa = PBXBuildFile; fileRef = D3185D681C04433300DBE184 /* hot.png */; };
 		D3185D6B1C04465400DBE184 /* noEdit.png in Resources */ = {isa = PBXBuildFile; fileRef = D3185D6A1C04465400DBE184 /* noEdit.png */; };
@@ -178,6 +179,8 @@
 		D303E2191C02DD38003B7F27 /* ChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
 		D30F8C091C155CB70077D556 /* SHLUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLUILabel.h; sourceTree = "<group>"; };
 		D30F8C0A1C155CB70077D556 /* SHLUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLUILabel.m; sourceTree = "<group>"; };
+		D30F8C0C1C15C65A0077D556 /* APIMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIMethod.h; sourceTree = "<group>"; };
+		D30F8C0D1C15C65A0077D556 /* APIMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIMethod.m; sourceTree = "<group>"; };
 		D3185D661C043B1000DBE184 /* btn_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_bg.png; sourceTree = "<group>"; };
 		D3185D681C04433300DBE184 /* hot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hot.png; sourceTree = "<group>"; };
 		D3185D6A1C04465400DBE184 /* noEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noEdit.png; sourceTree = "<group>"; };
@@ -541,6 +544,8 @@
 				D3D4436F1BF9C53C00460351 /* PlayerView.m */,
 				D3BA37F21BFD6C4900FD9D71 /* ChannelManageView.h */,
 				D3BA37F31BFD6C4900FD9D71 /* ChannelManageView.m */,
+				D30F8C0C1C15C65A0077D556 /* APIMethod.h */,
+				D30F8C0D1C15C65A0077D556 /* APIMethod.m */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -986,6 +991,7 @@
 				D3A986DB1BF1F5BD003EF1B6 /* EveryOneCell.m in Sources */,
 				D3977ACC1BEC6E0400F249B8 /* ClassDataStru.m in Sources */,
 				D381BE641BE1AA4E005B00E7 /* UIProgressView+AFNetworking.m in Sources */,
+				D30F8C0E1C15C65A0077D556 /* APIMethod.m in Sources */,
 				D381BE691BE1C1B0005B00E7 /* Request.m in Sources */,
 				D36510C71BCF9340004AEA98 /* AppDelegate.m in Sources */,
 				D390C86E1BE066170093C76A /* AFHTTPSessionManager.m in Sources */,
