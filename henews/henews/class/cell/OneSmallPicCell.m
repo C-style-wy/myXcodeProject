@@ -65,10 +65,18 @@
          UILabel *name = [[UILabel alloc]init];
          name.font = [UIFont systemFontOfSize:15.0f];
          name.textColor = [UIColor colorWithRed:0.02 green:0.02 blue:0.02 alpha:1];
-         name.frame = CGRectMake(101, 12, 211, 36);
+         name.frame = CGRectMake(101, 10.5f, 211, 18);
          name.numberOfLines = 2;
          [self addSubview:name];
          self.cellName = name;
+         
+         UILabel *summary = [[UILabel alloc]init];
+         summary.font = [UIFont systemFontOfSize:12.5f];
+         summary.textColor = [UIColor colorWithRed:0.58 green:0.58 blue:0.58 alpha:1];
+         summary.frame = CGRectMake(101, 31, 211, 18);
+         summary.numberOfLines = 2;
+         [self addSubview:summary];
+         self.summary = summary;
          
          UILabel *time = [[UILabel alloc]init];
          time.font = [UIFont systemFontOfSize:12.5f];
@@ -96,6 +104,8 @@
         [self.cellPic setImageWithURL:[NSURL URLWithString:data.images]];
     }
     self.cellName.text = data.newsTitle;
+    self.summary.text = data.newsIntro;
+    
     NSString *strs;
     if ([data.source isEqual:@""]) {
         strs = data.createTime;

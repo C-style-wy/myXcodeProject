@@ -13,6 +13,8 @@
 
 @property (nonatomic, retain) UIImageView *cellPic;
 @property (nonatomic, retain) UILabel *cellName;
+@property (nonatomic, retain) UILabel *summary;
+
 @property (nonatomic, retain) UILabel *pubTime;
 @property (nonatomic, retain) UILabel *pv;
 @property (nonatomic, retain) UIImageView *line;
