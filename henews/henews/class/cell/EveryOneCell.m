@@ -65,10 +65,17 @@
         UILabel *name = [[UILabel alloc]init];
         name.font = [UIFont systemFontOfSize:15.0f];
         name.textColor = [UIColor colorWithRed:0.02 green:0.02 blue:0.02 alpha:1];
-        name.frame = CGRectMake(101, 12, 211, 36);
+        name.frame = CGRectMake(101, 12, 211, 18);
         name.numberOfLines = 2;
         [self addSubview:name];
         self.cellName = name;
+        
+        UILabel *summary = [[UILabel alloc]init];
+        summary.numberOfLines = 3;
+        summary.font = [UIFont systemFontOfSize:12.5f];
+        summary.textColor = [UIColor colorWithRed:0.58 green:0.58 blue:0.58 alpha:1];
+        [self addSubview:summary];
+        self.cellSummary = summary;
     }
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
     self.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1];
@@ -82,6 +89,7 @@
     }
     
     self.cellName.text = data.newsTitle;
+    self.cellSummary.text = data.newsIntro;
     if (isShort) {
         _line.frame = CGRectMake(8, 95.5f, SCREEN_WIDTH-16, 0.5f);
     }
@@ -91,6 +99,17 @@
         self.backgroundColor = VIEWBACKGROUND_COLOR;
     }
     _line.hidden = hide;
+    
+    UIFont *fnt = self.cellName.font;
+    NSDictionary *attribute = @{NSFontAttributeName: fnt};
+    CGFloat height = TEXTHEIGHT(data.newsTitle, attribute, self.cellName.frame.size.width);
+    if (height > 18) {
+        self.cellName.frame = CGRectMake(101, 12, 211, 36);
+        self.cellSummary.frame = CGRectMake(101, 50, 211, 32);
+    }else{
+        self.cellName.frame = CGRectMake(101, 12, 211, 18);
+        self.cellSummary.frame = CGRectMake(101, 32, 211, 50);
+    }
 }
 
 
