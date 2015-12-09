@@ -10,7 +10,11 @@
 #import "BannersData.h"
 #import "UIImageView+AFNetworking.h"
 
+@protocol BannersDelegate;
+
 @interface BannersCell : UITableViewCell<UIScrollViewDelegate>
+
+@property (nonatomic, retain) id <BannersDelegate> delegate;
 
 @property (nonatomic, retain) UIScrollView *bannersScrollView;
 @property (nonatomic, retain) UIPageControl *pageContrl;
@@ -26,4 +30,12 @@
 
 
 -(void)loadTableCell:(BannersData*)data;
+@end
+
+
+@protocol BannersDelegate <NSObject>
+
+@optional
+-(void)dealBannersDelegate:(BannersCell*)view return:(OneBannerData*)one;
+
 @end

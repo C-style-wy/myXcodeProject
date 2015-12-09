@@ -163,6 +163,7 @@ static NSString *indentify = @"indentify";
 -(void)closeChannel{
     _mainView.clipsToBounds = YES;
     self.clipsToBounds = YES;
+    [_delegate dealChannelChange:self returnClass:_returnClass];
     [UIView animateWithDuration:openOrCloseTime
                      animations:^{
                          [_mainView setFrame:CGRectMake(0, -self.frame.size.height, self.frame.size.width, self.frame.size.height)];
@@ -170,8 +171,6 @@ static NSString *indentify = @"indentify";
                      completion:^(BOOL finished){
                          [self removeFromSuperview];
                          [_layoutHead removeFromSuperview];
-                         
-                         [_delegate dealChannelChange:self returnClass:_returnClass];
                      }];
     CABasicAnimation *theAnimation;
     theAnimation=[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];

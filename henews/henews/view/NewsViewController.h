@@ -16,7 +16,7 @@
 #import "BannersCell.h"
 #import "ChannelManageView.h"
 
-@interface NewsViewController : UIViewController<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, ChannelManageViewDelegate>
+@interface NewsViewController : UIViewController<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, ChannelManageViewDelegate, BannersDelegate>
 
 @property (nonatomic, retain) UIScrollView *scrollView;
 

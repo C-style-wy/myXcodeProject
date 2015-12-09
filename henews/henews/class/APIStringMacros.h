@@ -89,4 +89,7 @@
 #define NEWS_ORDER (@"newsOrder")
 #define NEWS_NOT_ORDER (@"newsNotOrder")
 
+#define VIEW_ORDER (@"viewOrder")
+#define VIEW_NOT_ORDER (@"viewNotOrder")
+
 #endif /* APIStringMacros_h */

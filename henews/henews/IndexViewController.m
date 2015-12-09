@@ -57,6 +57,10 @@
     NSArray *newsAry = [returnJson objectForKey:@"hNewsNodes"];
     ProgramaStructure *stru = [[ProgramaStructure alloc]init];
     [stru compareAndSave:newsAry OrderName:NEWS_ORDER NotOrderName:NEWS_NOT_ORDER];
+    
+    NSArray *viewAry = [returnJson objectForKey:@"videoNodes"];
+    [stru compareAndSave:viewAry OrderName:VIEW_ORDER NotOrderName:VIEW_NOT_ORDER];
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([[userDefaults stringForKey:@"isNotFirstOpen"] isEqual: @"1"]){
         XNTabBarView *tabBar = [[XNTabBarView alloc] init];

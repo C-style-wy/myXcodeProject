@@ -23,6 +23,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor blackColor];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (SCREEN_HEIGHT-100)/2, 320, 100)];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = @"图集页";
+    label.font = [UIFont systemFontOfSize:20];
+    [self.view addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning {

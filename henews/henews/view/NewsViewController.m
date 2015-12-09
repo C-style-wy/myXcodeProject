@@ -248,6 +248,7 @@
             ClassDataStru *oneClass = [[ClassDataStru alloc]init];
             columStruct *node = [_columAry objectAtIndex:i];
             oneClass.reflushUrl = node.url;
+            oneClass.nodeId = node.nodeId;
             [_classAry addObject:oneClass];
         }
         [self columScrollViewShowData];
@@ -459,7 +460,7 @@
     int index3 = (int)_lastTableView.tag;
     [_firstTableView reloadData];
     [_middleTableView reloadData];
-    [_lastTableView reloadData];
+    [_lastTableView reloadData];    
     if ([[_classAry objectAtIndex:index1] needReflush]) {
         if (_curClass == 0) {
             [_firstTableView headerBeginRefreshing];
@@ -470,7 +471,6 @@
     
     if ([[_classAry objectAtIndex:index2] needReflush]) {
         if ((_curClass != [_classAry count] - 1) && (_curClass != 0)) {
-            NSLog(@"_middleTableView===reflush=====");
             [_middleTableView headerBeginRefreshing];
         }
     }else{
@@ -479,7 +479,6 @@
     
     if ([[_classAry objectAtIndex:index3] needReflush]) {
         if (_curClass == [_classAry count] - 1) {
-            NSLog(@"_lastTableView===reflush=====");
             [_lastTableView headerBeginRefreshing];
         }
     }else{
@@ -518,6 +517,35 @@
     _curClass = class;
     UIButton *btn = (UIButton *)[_scrollView viewWithTag:_curClass];
     [self classBtnClick:btn];
+    
+    
+    
+}
+
+-(void)dealBannersDelegate:(BannersCell*)view return:(OneBannerData*)one{
+    NSLog(@"dealBannersDelegate=====");
+    NSString *newsType = one.newsType;
+    NSString *url = one.url;
+    if ([newsType isEqual:@"1"]) {
+        PlayViewController *play = [[PlayViewController alloc] init];
+        self.delegate = play;
+        [self.delegate getUrl:url];
+        
+        [self.navigationController pushViewController:play animated:YES];
+    }else if ([newsType isEqual:@"4"]){
+        PicDetailViewController *picDetail = [[PicDetailViewController alloc] init];
+        self.delegate = picDetail;
+        [self.delegate getUrl:url];
+        
+        [self.navigationController pushViewController:picDetail animated:YES];
+    }
+    else{
+        DetailViewController *detail = [[DetailViewController alloc] init];
+        self.delegate = detail;
+        [self.delegate getUrl:url];
+        
+        [self.navigationController pushViewController:detail animated:YES];
+    }
 }
 
 #pragma mark - tableView
@@ -534,6 +562,7 @@
     if ([[tempAry objectAtIndex:indexPath.row] isKindOfClass:[BannersData class]]) {
         BannersData *oneCell = [tempAry objectAtIndex:indexPath.row];
         BannersCell *cell = [BannersCell cellWithTableView:tableView];
+        cell.delegate = self;
         [cell loadTableCell:oneCell];
         return cell;
     }else{

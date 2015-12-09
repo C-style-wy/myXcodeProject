@@ -125,7 +125,7 @@
                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse * __nullable response, NSError *error))failure
 {
     [self cancelImageRequestOperation];
-
+    
     UIImage *cachedImage = [[[self class] sharedImageCache] cachedImageForRequest:urlRequest];
     if (cachedImage) {
         if (success) {
@@ -139,7 +139,6 @@
         if (placeholderImage) {
             self.image = placeholderImage;
         }
-
         __weak __typeof(self)weakSelf = self;
         self.af_imageRequestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
         self.af_imageRequestOperation.responseSerializer = self.imageResponseSerializer;
@@ -150,6 +149,11 @@
                     success(urlRequest, operation.response, responseObject);
                 } else if (responseObject) {
                     strongSelf.image = responseObject;
+                    //添加图片淡入的动画
+                    weakSelf.alpha = 0;
+                    [UIView animateWithDuration:0.4f animations:^{
+                        weakSelf.alpha = 1;
+                    }];
                 }
 
                 if (operation == strongSelf.af_imageRequestOperation){

@@ -60,6 +60,11 @@
         [self addSubview:scro];
         scro.delegate = self;
         self.bannersScrollView = scro;
+        //设置单击手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
+        tap.numberOfTapsRequired = 1;
+        tap.numberOfTouchesRequired = 1;
+        [self.bannersScrollView addGestureRecognizer:tap];
         
         UIPageControl *pageControl = [[UIPageControl alloc]init];
         [self addSubview:pageControl];
@@ -75,6 +80,12 @@
 //    self.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1];
     self.selectedBackgroundView.backgroundColor = [UIColor clearColor];
     return self;
+}
+
+#pragma mark - 单击手势
+-(void)handleTap:(UITapGestureRecognizer*)sender{
+    OneBannerData *one = [_bannersData.bannersAry objectAtIndex:_curPage];
+    [_delegate dealBannersDelegate:self return:one];
 }
 
 -(void)loadTableCell:(BannersData*)data{

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Request.h"
+#import "APIStringMacros.h"
 
 @interface PicDetailViewController : UIViewController<detailViewDelege>
 

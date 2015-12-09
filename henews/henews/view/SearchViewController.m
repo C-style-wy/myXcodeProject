@@ -16,12 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = VIEWBACKGROUND_COLOR;
     
     //创建UILabel
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 0)];
     label.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:label];
+//    [self.view addSubview:label];
     //自动换行
     label.numberOfLines = 0;
     //设置label内容宽度
