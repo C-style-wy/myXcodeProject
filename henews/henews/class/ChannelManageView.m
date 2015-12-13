@@ -102,8 +102,9 @@ static NSString *indentify = @"indentify";
         UILongPressGestureRecognizer *longPressGR =
         [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                       action:@selector(handleLongPress:)];
-        longPressGR.allowableMovement=NO;
+        longPressGR.allowableMovement=YES;
         longPressGR.minimumPressDuration = 0.5f;
+        longPressGR.delegate = self;
         [_myCollectionView addGestureRecognizer:longPressGR];
         
     }
@@ -117,15 +118,23 @@ static NSString *indentify = @"indentify";
     [_layoutHead addSubview:_finishBtn];
     [_channelBtn removeFromSuperview];
     [_myCollectionView reloadData];
-    
+//    NSLog(@"长按======");
 //    switch (gesture.state) {
 //        case UIGestureRecognizerStateBegan:
-//            
-//            break;
+//        {
+//            NSLog(@"长按==Began====");
+//            NSIndexPath *selectedIndexPath = [_myCollectionView indexPathForItemAtPoint:[gesture locationInView:_myCollectionView]];
+//            [_myCollectionView beginInteractiveMovementForItemAtIndexPath:selectedIndexPath];
+////            break;
+//        }
 //        case UIGestureRecognizerStateChanged:
-//            _myCollectionView.update
+//        {
+//            NSLog(@"长按==Changed====");
+//            [_myCollectionView updateInteractiveMovementTargetPosition:[gesture locationInView:[gesture view]]];
+//        }
 //        default:
-//            break;
+//            NSLog(@"长按==end====");
+//            [_myCollectionView cancelInteractiveMovement];
 //    }
 }
 

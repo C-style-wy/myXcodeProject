@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CellData.h"
+
+@class CellData;
 
 @interface OneSmallPicCell : UITableViewCell
 

@@ -9,6 +9,7 @@
 #import "OneSmallPicCell.h"
 #import "APIStringMacros.h"
 #import "UIImageView+AFNetworking.h"
+#import "CellData.h"
 
 @implementation OneSmallPicCell
 

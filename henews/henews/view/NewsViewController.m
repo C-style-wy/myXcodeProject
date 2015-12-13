@@ -214,20 +214,30 @@
         for (int i = 0; i < newsList.count; i++) {
             CellData *data = [[CellData alloc]init];
             [data initWithData:[newsList objectAtIndex:i]];
-            if (![data.newsTitle isEqual:@""]) {
+            BOOL isNotHave = true;
+            for (int j = 0; j < tempAry.count; j++) {
+                if ([[tempAry objectAtIndex:j] isKindOfClass:[CellData class]]) {
+                    CellData *tempCell = [tempAry objectAtIndex:j];
+                    if ([tempCell.newsId isEqual:data.newsId]) {
+                        isNotHave = false;
+                        break;
+                    }
+                }
+            }
+            if (![data.newsTitle isEqual:@""]&&isNotHave) {
                 [tempAry addObject:data];
             }
         }
         
         if (_firstTableView.tag == msg) {
-            [_firstTableView reloadData];
             [_firstTableView footerEndRefreshing];
+            [_firstTableView reloadData];
         }else if (_middleTableView.tag == msg){
-            [_middleTableView reloadData];
             [_middleTableView footerEndRefreshing];
+            [_middleTableView reloadData];
         }else if (_lastTableView.tag == msg){
-            [_lastTableView reloadData];
             [_lastTableView footerEndRefreshing];
+            [_lastTableView reloadData];
         }
         //把是否需要主动刷新标志设为false
         ClassDataStru *cds = [_classAry objectAtIndex:msg];

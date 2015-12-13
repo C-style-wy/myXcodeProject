@@ -13,7 +13,7 @@
 
 @protocol ChannelManageViewDelegate;
 
-@interface ChannelManageView : UIView<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface ChannelManageView : UIView<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 
 @property (nonatomic, retain) id <ChannelManageViewDelegate> delegate;
 
