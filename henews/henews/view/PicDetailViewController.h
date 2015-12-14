@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Request.h"
 #import "APIStringMacros.h"
+#import "picDetailData.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface PicDetailViewController : UIViewController<detailViewDelege>
 
+@property (nonatomic, retain) NSMutableArray *imagesAry;
+@property (nonatomic, retain) UIScrollView *imagesScrollView;
+
+@property (nonatomic, retain) UIActivityIndicatorView *loading;
 @end

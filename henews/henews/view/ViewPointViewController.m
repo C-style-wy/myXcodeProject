@@ -266,7 +266,7 @@
             [_firstTableView headerBeginRefreshing];
         }
     }else{
-        NSString *url = [GET_SERVER stringByAppendingString:GET_NEWS_URL];
+        NSString *url = [GET_SERVER stringByAppendingString:GET_VIEW_URL];
         [Request requestPostForJSON:@"newsData" url:url delegate:self paras:nil msg:0 useCache:NO];
     }
 }

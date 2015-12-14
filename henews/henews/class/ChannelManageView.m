@@ -25,7 +25,7 @@ static NSString *indentify = @"indentify";
         _mainView.clipsToBounds = YES;
         [self addSubview:_mainView];
         
-        UICollectionViewFlowLayout *myFlowLayout=[[UICollectionViewFlowLayout alloc] init];
+        DGReorderableCollectionViewFlowLayout *myFlowLayout=[[DGReorderableCollectionViewFlowLayout alloc] init];
         [myFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
         _myCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, frame.size.height) collectionViewLayout:myFlowLayout];
         _myCollectionView.backgroundColor = [UIColor clearColor];
@@ -99,13 +99,13 @@ static NSString *indentify = @"indentify";
         [_layoutHead addSubview:channelBtn];
         
         //给_myCollectionView添加长按事件
-        UILongPressGestureRecognizer *longPressGR =
-        [[UILongPressGestureRecognizer alloc] initWithTarget:self
-                                                      action:@selector(handleLongPress:)];
-        longPressGR.allowableMovement=YES;
-        longPressGR.minimumPressDuration = 0.5f;
-        longPressGR.delegate = self;
-        [_myCollectionView addGestureRecognizer:longPressGR];
+//        UILongPressGestureRecognizer *longPressGR =
+//        [[UILongPressGestureRecognizer alloc] initWithTarget:self
+//                                                      action:@selector(handleLongPress:)];
+//        longPressGR.allowableMovement=YES;
+//        longPressGR.minimumPressDuration = 0.5f;
+//        longPressGR.delegate = self;
+//        [_myCollectionView addGestureRecognizer:longPressGR];
         
     }
     return self;
