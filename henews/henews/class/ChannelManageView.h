@@ -10,7 +10,7 @@
 #import "APIStringMacros.h"
 #import "ChannelCell.h"
 #import "ProgramaStructure.h"
-#import "DGReorderableCollectionViewFlowLayout.h"
+#import "CustomCollectionViewFlowLayout.h"
 
 @protocol ChannelManageViewDelegate;
 

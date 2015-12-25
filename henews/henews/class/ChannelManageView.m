@@ -25,7 +25,7 @@ static NSString *indentify = @"indentify";
         _mainView.clipsToBounds = YES;
         [self addSubview:_mainView];
         
-        DGReorderableCollectionViewFlowLayout *myFlowLayout=[[DGReorderableCollectionViewFlowLayout alloc] init];
+        CustomCollectionViewFlowLayout *myFlowLayout=[[CustomCollectionViewFlowLayout alloc] init];
         [myFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
         _myCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, frame.size.height) collectionViewLayout:myFlowLayout];
         _myCollectionView.backgroundColor = [UIColor clearColor];

@@ -120,6 +120,11 @@
 //        NSString *imageNameSel = [NSString stringWithFormat:@"my_b_s_%i", i+1];
         
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((itemView.frame.size.width-45)/2, 25.5f, 45, 45)];
+        
+        button.tag = 4+i;
+        
+        [button addTarget:self action:@selector(myBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        
         [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
         [itemView addSubview:button];
     }
@@ -134,9 +139,20 @@
 
     }else if (3 == button.tag){
 
+    }else if (4 == button.tag){
+        
+    }else if (5 == button.tag){
+        
+    }else if (6 == button.tag){
+        
+    }else if (7 == button.tag){
+        
+    }else if (8 == button.tag){
+        DetailViewController *detail = [[DetailViewController alloc] init];
+        [self.navigationController pushViewController:detail animated:YES];
     }
-    DetailViewController *detail = [[DetailViewController alloc] init];
-    [self.navigationController pushViewController:detail animated:YES];
+//    DetailViewController *detail = [[DetailViewController alloc] init];
+//    [self.navigationController pushViewController:detail animated:YES];
 }
 
 #pragma mark - UICollectionView

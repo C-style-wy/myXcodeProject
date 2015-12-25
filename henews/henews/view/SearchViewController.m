@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import <objc/runtime.h>
 
 @interface SearchViewController ()
 
@@ -17,6 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = VIEWBACKGROUND_COLOR;
+    
+    
+    static char overviewKey;
+    NSArray *array = [[NSArray alloc]initWithObjects:@"One", @"Two", @"Three", nil];
+    NSLog(@"array=before===%@", array);
+    NSString *overview = [[NSString alloc] initWithFormat:@"%@", @"First three numbers"];
+    objc_setAssociatedObject(array, &overviewKey, overview, OBJC_ASSOCIATION_RETAIN);
+    NSLog(@"array=end===%@", array);
+    
+    NSString *associatedObject = (NSString*)objc_getAssociatedObject(array, &overviewKey);
+    NSLog(@"associatedObject==%@", associatedObject);
     
     //创建UILabel
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 0)];

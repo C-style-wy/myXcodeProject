@@ -38,7 +38,7 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager.requestSerializer setValue:[userDefaults stringForKey:@"clientName"] forHTTPHeaderField:@"clientName"];
+    [manager.requestSerializer setValue:[userDefaults stringForKey:@"clieclientNamentName"] forHTTPHeaderField:@"clientName"];
     [manager.requestSerializer setValue:[userDefaults stringForKey:@"WD_UUID"] forHTTPHeaderField:@"WD_UUID"];
     [manager.requestSerializer setValue:[userDefaults stringForKey:@"WD_CLIENT_TYPE"] forHTTPHeaderField:@"WD_CLIENT_TYPE"];
     [manager.requestSerializer setValue:[userDefaults stringForKey:@"WD_UA"] forHTTPHeaderField:@"WD_UA"];

@@ -11,12 +11,12 @@
 #import <objc/runtime.h>
 
 #ifndef CGGEOMETRY_LXSUPPORT_H_
-CG_INLINE CGPoint
-DGS_CGPointAdd(CGPoint point1, CGPoint point2){
+//CG_INLINE内连函数，作用就是两个CGPoint相加
+CG_INLINE CGPoint DGS_CGPointAdd(CGPoint point1, CGPoint point2){
     return CGPointMake(point1.x + point2.x, point1.y + point2.y);
 }
 #endif
-
+//枚举类型，分别表示滚动的方向
 typedef NS_ENUM(NSInteger, DGScrollingDirection) {
     DGScrollingDirectionUnknown = 0,
     DGScrollingDirectionUp,
@@ -24,10 +24,11 @@ typedef NS_ENUM(NSInteger, DGScrollingDirection) {
     DGScrollingDirectionLeft,
     DGScrollingDirectionRight
 };
-
+//全局静态常量
 static NSString * const kDGScrollingDirectionKey = @"DGScrollingDirection";
 static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 
+//CADisplayLink是一个能让我们以和屏幕刷新率同步的频率将特定的内容画到屏幕上的定时器类。
 @interface CADisplayLink (DG_userInfo)
 @property (nonatomic, copy) NSDictionary *DG_userInfo;
 @end
@@ -35,10 +36,12 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 @implementation CADisplayLink (DG_userInfo)
 
 - (void) setDG_userInfo:(NSDictionary *)DG_userInfo{
+    //objc_setAssociatedObject来把一个对象与另外一个对象进行关联。该函数需要四个参数：源对象，关键字，关联的对象和一个关联策略
     objc_setAssociatedObject(self, "DG_userInfo", DG_userInfo, OBJC_ASSOCIATION_COPY);
 }
 
 - (NSDictionary *) DG_userInfo {
+    //根据关键字获取关联对象
     return objc_getAssociatedObject(self, "DG_userInfo");
 }
 @end
@@ -52,11 +55,15 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 @implementation UICollectionViewCell (DGReorderableCollectionViewFlowLayout)
 
 - (UIView *)DG_snapshotView {
+    //-(BOOL) respondsToSelector: selector 用来判断是否有以某个名字命名的方法(被封装在一个selector的对象里传递)
+    //返回对应view的一个快照
     if ([self respondsToSelector:@selector(snapshotViewAfterScreenUpdates:)]) {
         return [self snapshotViewAfterScreenUpdates:YES];
     }else{
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0f);
+        
         [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+        
         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
         return [[UIImageView alloc] initWithImage:image];
     }
@@ -87,6 +94,8 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 - (void)setupCollectionView{
     _longPressGestureRecongnizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
     _longPressGestureRecongnizer.delegate = self;
+    
+    //requireGestureRecognizerToFail确定长按事件失败后才触发
     for (UIGestureRecognizer *gestureRecognizer in self.collectionView.gestureRecognizers) {
         if ([gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]]) {
             [gestureRecognizer requireGestureRecognizerToFail:_longPressGestureRecongnizer];
@@ -98,9 +107,11 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
     _panGestureRecognizer.delegate = self;
     [self.collectionView addGestureRecognizer:_panGestureRecognizer];
     
+    //监听是否触发home键挂起程序.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleApplicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
 }
 
+//
 - (void)tearDownCollectionView {
     // Tear down long press gesture
     if (_longPressGestureRecongnizer) {
@@ -126,15 +137,18 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 - (id)init {
+    NSLog(@"init");
     self = [super init];
     if (self) {
         [self setDefaults];
+        //kvo
         [self addObserver:self forKeyPath:kDGCollectionViewKeyPath options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
+    NSLog(@"initWithCoder");
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setDefaults];
@@ -144,26 +158,31 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 - (void)dealloc {
+    NSLog(@"dealloc");
     [self invalidatesScrollTimer];
     [self tearDownCollectionView];
     [self removeObserver:self forKeyPath:kDGCollectionViewKeyPath];
 }
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
+    NSLog(@"applyLayoutAttributes");
     if ([layoutAttributes.indexPath isEqual:self.selectedItemIndexPath]) {
         layoutAttributes.hidden = YES;
     }
 }
 
 - (id<DGReorderableCollectionViewDataSource>)dataSource {
+    NSLog(@"dataSource");
     return (id<DGReorderableCollectionViewDataSource>)self.collectionView.dataSource;
 }
 
 - (id<DGReorderableCollectionViewDelegateFlowLayout>)delegate {
+    NSLog(@"delegate");
     return (id<DGReorderableCollectionViewDelegateFlowLayout>)self.collectionView.delegate;
 }
 
 - (void)invalidateLayoutIfNecessary {
+    NSLog(@"invalidateLayoutIfNecessary");
     NSIndexPath *newIndexPath = [self.collectionView indexPathForItemAtPoint:self.currentView.center];
     NSIndexPath *previousIndexPath = self.selectedItemIndexPath;
     
@@ -195,8 +214,9 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
         }
     }];
 }
-
+//invalidates使作废，使无效
 - (void)invalidatesScrollTimer {
+    NSLog(@"invalidatesScrollTimer");
     if (!self.displayLink.paused) {
         [self.displayLink invalidate];
     }
@@ -204,6 +224,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 - (void)setupScrollTimerInDirection:(DGScrollingDirection)direction {
+    NSLog(@"setupScrollTimerInDirection");
     if (!self.displayLink.paused) {
         DGScrollingDirection oldDirection = [self.displayLink.DG_userInfo[kDGScrollingDirectionKey] integerValue];
         if (direction == oldDirection) {
@@ -220,6 +241,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 - (void)handleScroll:(CADisplayLink *)displayLink {
+    NSLog(@"handleScroll");
     DGScrollingDirection direction = (DGScrollingDirection)[displayLink.DG_userInfo[kDGScrollingDirectionKey] integerValue];
     if (direction == DGScrollingDirectionUnknown) {
         return;
@@ -282,6 +304,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 - (void)handleLongPressGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
+    NSLog(@"handleLongPressGesture");
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:{
             NSIndexPath *currentIndexPath = [self.collectionView indexPathForItemAtPoint:[gestureRecognizer locationInView:self.collectionView]];
@@ -382,6 +405,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 - (void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer {
+    NSLog(@"handlePanGesture");
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
         case UIGestureRecognizerStateChanged:{
@@ -428,8 +452,10 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 #pragma mark - UICollectionViewLayout overridden methods
-
+//返回rect中的所有的元素的布局属性
+//返回的是包含UICollectionViewLayoutAttributes的NSArray
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+    NSLog(@"layoutAttributesForElementsInRect");
     NSArray *layoutAttributesForElementsInRect = [super layoutAttributesForElementsInRect:rect];
     
     for (UICollectionViewLayoutAttributes *layoutAttributes in layoutAttributesForElementsInRect) {
@@ -447,6 +473,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"layoutAttributesForItemAtIndexPath");
     UICollectionViewLayoutAttributes *layoutAttributes = [super layoutAttributesForItemAtIndexPath:indexPath];
     
     switch (layoutAttributes.representedElementCategory) {
@@ -462,8 +489,10 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 #pragma mark - UIGestureRecognizerDelegate methods
-
+//gestureRecognizer手势识别
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    NSLog(@"gestureRecognizerShouldBegin=%@", self.selectedItemIndexPath);
+    NSLog(@"gestureRecognizerShouldBegin=%@", gestureRecognizer);
     if ([self.panGestureRecognizer isEqual:gestureRecognizer]) {
         return (self.selectedItemIndexPath != nil);
     }
@@ -471,6 +500,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    NSLog(@"gestureRecognizer");
     if ([self.longPressGestureRecongnizer isEqual:gestureRecognizer]) {
         return [self.panGestureRecognizer isEqual:otherGestureRecognizer];
     }
@@ -485,6 +515,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 #pragma mark - Key-Value Observing methods
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSLog(@"observeValueForKeyPath");
     if ([keyPath isEqualToString:kDGCollectionViewKeyPath]) {
         if (self.collectionView != nil) {
             [self setupCollectionView];
@@ -498,6 +529,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 #pragma mark - Notifications
 
 - (void)handleApplicationWillResignActive:(NSNotification *)notification {
+    NSLog(@"handleApplicationWillResignActive");
     self.panGestureRecognizer.enabled = NO;
     self.panGestureRecognizer.enabled = YES;
 }
@@ -506,6 +538,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
 
 #pragma mark Starting from 0.1.0
 - (void)setUpGestureRecognizersOnCollectionView {
+    NSLog(@"setUpGestureRecognizersOnCollectionView");
     // Do nothing...
 }
 @end

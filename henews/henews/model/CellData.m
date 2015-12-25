@@ -33,6 +33,7 @@
 }
 
 -(void)initWithData:(id)data{
+    NSAssert(data != nil, @"cellData must be non-nil");
     //新闻id
     NSString *newsId = [data objectForKey:@"newsId"];
     if (newsId && ![newsId isEqual:@""]) {
