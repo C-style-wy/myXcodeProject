@@ -76,7 +76,7 @@
     [Request requestPostForJSON:@"picData" url:urlString delegate:self paras:nil msg:0 useCache:NO];
 }
 
--(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
+-(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     [_loading stopAnimating];
     if ([tag isEqual:@"picData"]) {
         [self dealPicDataBack:returnJson];

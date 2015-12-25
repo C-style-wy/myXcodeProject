@@ -106,7 +106,7 @@
 }
 
 #pragma mark - 网络请求返回
--(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
+-(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     if ([tag isEqual:@"homeData"]) {
         if (!flag) {
             [self.tableView headerEndRefreshing];

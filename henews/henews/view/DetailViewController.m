@@ -78,7 +78,7 @@
     [Request requestPostForJSON:@"detailData" url:urlString delegate:self paras:nil msg:0 useCache:YES];
 }
 
--(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
+-(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     [_loading stopAnimating];
     if ([tag isEqual:@"detailData"]) {
 //        NSLog(@"detailData===%@", returnJson);

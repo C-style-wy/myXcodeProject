@@ -29,10 +29,10 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:filePath]&&use) {
         NSDictionary *cacheData = [[NSDictionary alloc]initWithContentsOfFile:filePath];
-        [delegate requestDidReturn:tag returnStr:nil returnJson:cacheData msg:msg isCacheReturn:YES];
+        [delegate requestDidReturn:tag returnJson:cacheData msg:msg isCacheReturn:YES];
     }
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
@@ -47,22 +47,18 @@
     [manager.requestSerializer setValue:[userDefaults stringForKey:@"WD_CHANNEL"] forHTTPHeaderField:@"WD_CHANNEL"];
     [manager.requestSerializer setValue:[userDefaults stringForKey:@"WD_RESOLUTION"] forHTTPHeaderField:@"WD_RESOLUTION"];
     [manager.requestSerializer setValue:[userDefaults stringForKey:@"WD_CP_ID"] forHTTPHeaderField:@"WD_CP_ID"];
-    [manager POST:urlString parameters:paras success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (operation.responseString.length <= 0) {
-//            [delegate requestDidReturn:tag returnStr:nil returnJson:nil msg:msg isCacheReturn:NO];
-        }else{
-            NSString *resultString = [NSString stringWithString:operation.responseString];
-            NSData *resData = [[NSData alloc] initWithData:[resultString dataUsingEncoding:NSUTF8StringEncoding]];
-            NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
-            
-            [delegate requestDidReturn:tag returnStr:resultString returnJson:resultDic
-                                   msg:msg isCacheReturn:NO];
-            if (use) {
-                [resultDic writeToFile:filePath atomically:YES];
-            }
+    
+    [manager POST:urlString parameters:paras progress:nil success:^(NSURLSessionDataTask *task, id responseObject){
+        NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        if (resultDic) {
+            [delegate requestDidReturn:tag returnJson:resultDic msg:msg isCacheReturn:NO];
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [delegate requestDidReturn:tag returnStr:nil returnJson:nil msg:msg isCacheReturn:NO];
+        if (use) {
+            [resultDic writeToFile:filePath atomically:YES];
+        }
+    }failure:^(NSURLSessionDataTask *task, NSError *error) {
+        //失败
+        [delegate requestDidReturn:tag returnJson:nil msg:msg isCacheReturn:NO];
     }];
 }
 

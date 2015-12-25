@@ -33,7 +33,8 @@
     
     
     NSURL *baseURL = [NSURL URLWithString:@"http://baidu.com/"];
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithBaseURL:baseURL];
     NSOperationQueue *operationQueue       = manager.operationQueue;
     [manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         switch (status) {

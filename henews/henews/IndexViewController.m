@@ -49,7 +49,7 @@
     [Request requestPostForJSON:@"indexData" url:url delegate:self paras:nil msg:0 useCache:NO];
 }
 
--(void)requestDidReturn:(NSString*)tag returnStr:(NSString*)returnStr returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{    
+-(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{    
     //处理广告
     _adviceData = [[AdviceData alloc]init];
     [_adviceData initWithData:[returnJson objectForKey:@"pic"] start:[returnJson objectForKey:@"startTime"] end:[returnJson objectForKey:@"endTime"] showTime:[returnJson objectForKey:@"displayTime"]];
