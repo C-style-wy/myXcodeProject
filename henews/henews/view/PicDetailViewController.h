@@ -12,10 +12,12 @@
 #import "picDetailData.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface PicDetailViewController : UIViewController<detailViewDelege>
+@interface PicDetailViewController : UIViewController
 
 @property (nonatomic, retain) NSMutableArray *imagesAry;
 @property (nonatomic, retain) UIScrollView *imagesScrollView;
 
 @property (nonatomic, retain) UIActivityIndicatorView *loading;
+
+@property (nonatomic, retain) NSString *picUrl;
 @end

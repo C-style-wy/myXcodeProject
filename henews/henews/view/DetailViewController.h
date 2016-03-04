@@ -21,10 +21,11 @@
 #import "NewsPicCell.h"
 #import "NewsPicCellData.h"
 
-@interface DetailViewController : UIViewController<detailViewDelege, UITableViewDelegate, UITableViewDataSource>
+@interface DetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *tableViewData;
-
 @property (nonatomic, retain) UIActivityIndicatorView *loading;
+
+@property (nonatomic, retain) NSString *detailUrl;
 @end

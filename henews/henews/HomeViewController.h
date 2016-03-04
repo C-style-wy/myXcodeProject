@@ -21,9 +21,6 @@
 
 @interface HomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
-
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *tableViewData;
-
-@property (nonatomic, retain)id<detailViewDelege> delegate;
 @end

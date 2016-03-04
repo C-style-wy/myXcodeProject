@@ -36,6 +36,8 @@
     
     _playView = [[PlayerView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 171)];
     [self.view addSubview:_playView];
+    
+    [Request requestPostForJSON:@"playData" url:_playUrl delegate:self paras:nil msg:0 useCache:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,10 +54,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
--(void)getUrl:(NSString *)urlString{
-    [Request requestPostForJSON:@"playData" url:urlString delegate:self paras:nil msg:0 useCache:YES];
-}
 
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     if ([tag isEqual:@"playData"]) {

@@ -39,6 +39,4 @@
 
 @property (nonatomic, retain) NSMutableArray *classAry;
 
-@property (nonatomic, retain)id<detailViewDelege> delegate;
-
 @end

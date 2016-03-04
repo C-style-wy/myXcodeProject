@@ -535,22 +535,18 @@
     NSString *url = one.url;
     if ([newsType isEqual:@"1"]) {
         PlayViewController *play = [[PlayViewController alloc] init];
-        self.delegate = play;
-        [self.delegate getUrl:url];
-        
+        play.playUrl = url;
         [self.navigationController pushViewController:play animated:YES];
     }else if ([newsType isEqual:@"4"]){
         PicDetailViewController *picDetail = [[PicDetailViewController alloc] init];
-        self.delegate = picDetail;
-        [self.delegate getUrl:url];
-        
+        picDetail.picUrl = url;
         [self.navigationController pushViewController:picDetail animated:YES];
     }
     else{
         DetailViewController *detail = [[DetailViewController alloc] init];
-        self.delegate = detail;
-        [self.delegate getUrl:url];
-        
+//        self.delegate = detail;
+//        [self.delegate getUrl:url];
+        detail.detailUrl = url;
         [self.navigationController pushViewController:detail animated:YES];
     }
 }
@@ -616,22 +612,19 @@
         
         if ([cell.newsType isEqual:@"1"]) {
             PlayViewController *play = [[PlayViewController alloc] init];
-            self.delegate = play;
-            [self.delegate getUrl:url];
-            
+            play.playUrl = url;
             [self.navigationController pushViewController:play animated:YES];
         }else if ([cell.newsType isEqual:@"4"]){
             PicDetailViewController *picDetail = [[PicDetailViewController alloc] init];
-            self.delegate = picDetail;
-            [self.delegate getUrl:url];
+            picDetail.picUrl = url;
             
             [self.navigationController pushViewController:picDetail animated:YES];
         }
         else{
             DetailViewController *detail = [[DetailViewController alloc] init];
-            self.delegate = detail;
-            [self.delegate getUrl:url];
-            
+//            self.delegate = detail;
+//            [self.delegate getUrl:url];
+            detail.detailUrl = url;
             [self.navigationController pushViewController:detail animated:YES];
         }
     }

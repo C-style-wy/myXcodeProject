@@ -67,21 +67,19 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:self.tableView];
+    
+    [Request requestPostForJSON:@"detailData" url:_detailUrl delegate:self paras:nil msg:0 useCache:YES];
 }
 
 - (void)backBtnSelect:(UIButton *)button {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)getUrl:(NSString *)urlString{
-    NSLog(@"detail==urlString===%@", urlString);
-    [Request requestPostForJSON:@"detailData" url:urlString delegate:self paras:nil msg:0 useCache:YES];
-}
-
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     [_loading stopAnimating];
     if ([tag isEqual:@"detailData"]) {
-//        NSLog(@"detailData===%@", returnJson);
+        //断言是为不满足表达式，则crash；即必须满足条件，不然就crash
+        NSAssert(returnJson != nil, @"返回值不为nil");
         [self dealDetailDataBack:returnJson];
     }
 }

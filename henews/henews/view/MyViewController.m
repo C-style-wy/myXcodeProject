@@ -148,11 +148,8 @@
     }else if (7 == button.tag){
         
     }else if (8 == button.tag){
-        DetailViewController *detail = [[DetailViewController alloc] init];
-        [self.navigationController pushViewController:detail animated:YES];
+        
     }
-//    DetailViewController *detail = [[DetailViewController alloc] init];
-//    [self.navigationController pushViewController:detail animated:YES];
 }
 
 #pragma mark - UICollectionView

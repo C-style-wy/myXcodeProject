@@ -78,12 +78,6 @@
 //模块样式
 #define EditorRecommend (@"12")
 
-
-#pragma mark - protocol
-@protocol detailViewDelege
--(void)getUrl:(NSString *)urlString;
-@end
-
 #pragma mark - PI
 #define PI (3.14159265358979323846264338327950288)
 

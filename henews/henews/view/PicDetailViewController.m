@@ -65,15 +65,13 @@
     [self.view addSubview:loading];
     [loading startAnimating];
     _loading = loading;
+    
+    [Request requestPostForJSON:@"picData" url:_picUrl delegate:self paras:nil msg:0 useCache:NO];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)getUrl:(NSString *)urlString{
-    [Request requestPostForJSON:@"picData" url:urlString delegate:self paras:nil msg:0 useCache:NO];
 }
 
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
