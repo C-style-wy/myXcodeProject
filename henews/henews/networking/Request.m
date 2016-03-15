@@ -22,7 +22,6 @@
     //获取缓存全路径
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = [paths objectAtIndex:0];
-    NSLog(@"cachePath==wy=%@", cachePath);
     cachePath = [cachePath stringByAppendingString:@"/"];
     NSString *filePath = [[cachePath stringByAppendingString:[MD5 encoding:urlString]] stringByAppendingString:@".txt"];
     

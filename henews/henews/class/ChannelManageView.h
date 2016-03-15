@@ -10,11 +10,11 @@
 #import "APIStringMacros.h"
 #import "ChannelCell.h"
 #import "ProgramaStructure.h"
-#import "CustomCollectionViewFlowLayout.h"
+#import "CTCollectionViewFlowLayout.h"
 
 @protocol ChannelManageViewDelegate;
 
-@interface ChannelManageView : UIView<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
+@interface ChannelManageView : UIView<UICollectionViewDelegate, CTCollectionViewDataSource, CTCollectionViewDelegateFlowLayout>
 
 @property (nonatomic, retain) id <ChannelManageViewDelegate> delegate;
 
@@ -40,7 +40,6 @@
 @property (nonatomic, assign) BOOL isEditStatu;
 //class
 @property (nonatomic, assign) NSInteger returnClass;
-
 
 -(void)openChannel:(NSInteger)class Order:(NSString*)orderName NotOrder:(NSString*)notOrderName;
 

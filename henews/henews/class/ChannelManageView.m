@@ -25,7 +25,7 @@ static NSString *indentify = @"indentify";
         _mainView.clipsToBounds = YES;
         [self addSubview:_mainView];
         
-        CustomCollectionViewFlowLayout *myFlowLayout=[[CustomCollectionViewFlowLayout alloc] init];
+        CTCollectionViewFlowLayout *myFlowLayout=[[CTCollectionViewFlowLayout alloc] init];
         [myFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
         _myCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, frame.size.height) collectionViewLayout:myFlowLayout];
         _myCollectionView.backgroundColor = [UIColor clearColor];
@@ -112,12 +112,12 @@ static NSString *indentify = @"indentify";
 }
 
 //长按响应的事件
--(void)handleLongPress:(UILongPressGestureRecognizer*)gesture{
-    _isEditStatu = true;
+//-(void)handleLongPress:(UILongPressGestureRecognizer*)gesture{
+//    _isEditStatu = true;
     //加上完成按钮
-    [_layoutHead addSubview:_finishBtn];
-    [_channelBtn removeFromSuperview];
-    [_myCollectionView reloadData];
+//    [_layoutHead addSubview:_finishBtn];
+//    [_channelBtn removeFromSuperview];
+//    [_myCollectionView reloadData];
 //    NSLog(@"长按======");
 //    switch (gesture.state) {
 //        case UIGestureRecognizerStateBegan:
@@ -136,7 +136,7 @@ static NSString *indentify = @"indentify";
 //            NSLog(@"长按==end====");
 //            [_myCollectionView cancelInteractiveMovement];
 //    }
-}
+//}
 
 - (void)closeChannelBtnSelect:(UIButton*)button{
     [self closeChannel];
@@ -308,9 +308,29 @@ static NSString *indentify = @"indentify";
     return YES;
 }
 
-//Moves an item from one location to another in the collection view.
-- (void)moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath{
-    NSLog(@"moveItemAtIndexPath=======");
+#pragma mark - CTCollectionViewDataSource
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"row=%li", indexPath.row);
+    
+    _isEditStatu = true;
+    //加上完成按钮
+    [_layoutHead addSubview:_finishBtn];
+    [_channelBtn removeFromSuperview];
+    [collectionView reloadData];
+    
+    columStruct *oneChannel = [_myChannelAry objectAtIndex:indexPath.row];
+    
+    NSLog(@"showAllTime==%@", oneChannel.showAllTime);
+    if ([oneChannel.showAllTime isEqualToString:@"1"]) {
+        return NO;
+    }
+    return YES;
 }
 
+#pragma mark - CTCollectionViewDelegateFlowLayout
+
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willBeginDraggingItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 @end

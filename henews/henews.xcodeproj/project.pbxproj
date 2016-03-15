@@ -21,6 +21,7 @@
 		D303E21A1C02DD38003B7F27 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D303E2191C02DD38003B7F27 /* ChannelCell.m */; };
 		D30F8C0B1C155CB70077D556 /* SHLUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D30F8C0A1C155CB70077D556 /* SHLUILabel.m */; };
 		D30F8C0E1C15C65A0077D556 /* APIMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D30F8C0D1C15C65A0077D556 /* APIMethod.m */; };
+		D3101A161C965881009A9DB9 /* CTCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D3101A151C965881009A9DB9 /* CTCollectionViewFlowLayout.m */; };
 		D3185D671C043B1000DBE184 /* btn_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D3185D661C043B1000DBE184 /* btn_bg.png */; };
 		D3185D691C04433300DBE184 /* hot.png in Resources */ = {isa = PBXBuildFile; fileRef = D3185D681C04433300DBE184 /* hot.png */; };
 		D3185D6B1C04465400DBE184 /* noEdit.png in Resources */ = {isa = PBXBuildFile; fileRef = D3185D6A1C04465400DBE184 /* noEdit.png */; };
@@ -172,6 +173,8 @@
 		D30F8C0A1C155CB70077D556 /* SHLUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLUILabel.m; sourceTree = "<group>"; };
 		D30F8C0C1C15C65A0077D556 /* APIMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIMethod.h; sourceTree = "<group>"; };
 		D30F8C0D1C15C65A0077D556 /* APIMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIMethod.m; sourceTree = "<group>"; };
+		D3101A141C965881009A9DB9 /* CTCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		D3101A151C965881009A9DB9 /* CTCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		D3185D661C043B1000DBE184 /* btn_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_bg.png; sourceTree = "<group>"; };
 		D3185D681C04433300DBE184 /* hot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hot.png; sourceTree = "<group>"; };
 		D3185D6A1C04465400DBE184 /* noEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noEdit.png; sourceTree = "<group>"; };
@@ -410,6 +413,8 @@
 				D33DB5BE1C1AA15F00186F8D /* DGReorderableCollectionViewFlowLayout.m */,
 				D3F5091F1C2800530071A267 /* CustomCollectionViewFlowLayout.h */,
 				D3F509201C2800530071A267 /* CustomCollectionViewFlowLayout.m */,
+				D3101A141C965881009A9DB9 /* CTCollectionViewFlowLayout.h */,
+				D3101A151C965881009A9DB9 /* CTCollectionViewFlowLayout.m */,
 			);
 			path = DGReorderableCollectionViewFlowLayout;
 			sourceTree = "<group>";
@@ -996,6 +1001,7 @@
 				D3C795881BDE02D800322D3C /* MJRefreshBaseView.m in Sources */,
 				D378A82E1BDA280E00D21B13 /* MyViewController.m in Sources */,
 				D3A986CF1BF185F4003EF1B6 /* ProgramaStructure.m in Sources */,
+				D3101A161C965881009A9DB9 /* CTCollectionViewFlowLayout.m in Sources */,
 				D36B1CF91BD494B700B03864 /* HomeViewController.m in Sources */,
 				D3B9701C1BF31FA400B48EFE /* NewsContentCell.m in Sources */,
 				D378A8251BDA27D600D21B13 /* NewsViewController.m in Sources */,
