@@ -93,7 +93,7 @@
     [self.view addSubview:topView];
     
     self.tableView = [[UITableView alloc]init];
-    self.tableView.frame = CGRectMake(0, 59, screenW, screenH-102);
+    self.tableView.frame = CGRectMake(0, 59, screenW, screenH-99);
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

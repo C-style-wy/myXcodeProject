@@ -9,9 +9,14 @@
 #import "DetailViewController.h"
 #import "Request.h"
 #import "UIImageView+AFNetworking.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
 
 @interface DetailViewController ()
-
+{
+    CGFloat lastContentOffset;
+    ShareMode *shareData;
+}
 @end
 
 @implementation DetailViewController
@@ -34,32 +39,16 @@
 }
 
 -(void)UIInit{
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 58)];
+    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 53)];
     headView.backgroundColor = [UIColor whiteColor];
-    UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 38)];
+    HeadInDetail *titleView = [[HeadInDetail alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 33)];
+    titleView.delegate = self;
     titleView.backgroundColor = [UIColor clearColor];
     [headView addSubview:titleView];
     [self.view addSubview:headView];
-    
-    UILabel *viewTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, titleView.frame.size.height)];
-    viewTitle.textAlignment = NSTextAlignmentCenter;
-    viewTitle.text = @"和新闻";
 
-    viewTitle.textColor = VIEWTITLECOLOR;
-    viewTitle.font = VIEWTITLEFONT;
-    [titleView addSubview:viewTitle];
-    
-    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, titleView.frame.size.height)];
-    
-    [backBtn addTarget:self action:@selector(backBtnSelect:) forControlEvents:UIControlEventTouchUpInside];
-    [titleView addSubview:backBtn];
-    
-    [backBtn setImage:[UIImage imageNamed:@"back_arrow.png"] forState:UIControlStateNormal];
-    [backBtn setImageEdgeInsets:UIEdgeInsetsMake(9.5f, 8, 9.5f, 41)];
-    
-    
     self.tableView = [[UITableView alloc]init];
-    self.tableView.frame = CGRectMake(0, 58, SCREEN_WIDTH, SCREEN_HEIGHT-58);
+    self.tableView.frame = CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53);
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -68,11 +57,12 @@
     
     [self.view addSubview:self.tableView];
     
+    BottomToolBarInDetail *toolBar = [[BottomToolBarInDetail alloc]init];
+    toolBar.delegate = self;
+    [self.view addSubview:toolBar];
+    self.toolBar = toolBar;
+    NSLog(@"_detailUrl=%@", _detailUrl);
     [Request requestPostForJSON:@"detailData" url:_detailUrl delegate:self paras:nil msg:0 useCache:YES];
-}
-
-- (void)backBtnSelect:(UIButton *)button {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
@@ -81,6 +71,7 @@
         //断言是为不满足表达式，则crash；即必须满足条件，不然就crash
         NSAssert(returnJson != nil, @"返回值不为nil");
         [self dealDetailDataBack:returnJson];
+        [self.toolBar openToolBar];
     }
 }
 
@@ -96,6 +87,8 @@
     NSString *source = [content objectForKey:@"source"];
     NSString *time = [content objectForKey:@"pubTime"];
     [titleCell initWithData:title source:source time:time];
+    
+    shareData = [[ShareMode alloc]initWithTitle:title text:[content objectForKey:@"weiboShareText"] url:[content objectForKey:@"shareUrl"] image:[content objectForKey:@"sharePic"]];
     
     [_tableViewData addObject:titleCell];
     
@@ -122,10 +115,6 @@
             [_tableViewData addObject:picData];
         }
     }
-    
-    NewsShareCellData *shareCell2 = [[NewsShareCellData alloc]init];
-    [_tableViewData addObject:shareCell2];
-    
     [_tableView reloadData];
 }
 
@@ -200,6 +189,70 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+
+//scrollView滑动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY > lastContentOffset) { //向上滑动
+        if (offsetY > 0) {
+            [self.toolBar closeToolBar];
+        }
+    }else{                             //向下滑动
+        CGFloat hight = scrollView.frame.size.height;
+        CGFloat distanceFromBottom = scrollView.contentSize.height - offsetY;
+        if (distanceFromBottom > hight + 25) {  //是否滑到底
+            [self.toolBar openToolBar];
+        }
+    }
+    lastContentOffset = offsetY;
+}
+
+#pragma mark - HeadInDetailDelegate
+- (void)headInDetail:(HeadInDetail*)head backButton:(UIButton *)button{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)headInDetail:(HeadInDetail*)head collectionButton:(UIButton *)button{
+    
+}
+
+- (void)headInDetail:(HeadInDetail*)head modeButton:(UIButton *)button isNight:(BOOL)night{
+    
+}
+
+#pragma mark - BottomToolBarInDetailDelegate
+- (void)toolBar:(BottomToolBarInDetail*)tool shareButton:(UIButton *)button{
+    //1、创建分享参数
+    //（注意：图片必须要在Xcode左边目录里面，名称必须要传正确，如果要分享网络图片，可以这样传iamge参数 images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]）
+    NSArray* imageArray = @[shareData.shareImage];
+    if (imageArray) {
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:shareData.shareText
+                                         images:imageArray
+                                            url:[NSURL URLWithString:shareData.shareUrl]
+                                          title:shareData.shareTitle
+                                           type:SSDKContentTypeAuto];
+        [ShareSDK showShareActionSheet:nil items:nil shareParams:shareParams onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end){
+            switch (state) {
+                case SSDKResponseStateSuccess:{
+//                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//                    [alertView show];
+                }break;
+                case SSDKResponseStateFail:{
+//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+//                                                                    message:[NSString stringWithFormat:@"%@",error]
+//                                                                   delegate:nil
+//                                                          cancelButtonTitle:@"OK"
+//                                                          otherButtonTitles:nil, nil];
+//                    [alert show];
+                }break;
+                default:
+                    break;
+            }
+        }];
+    }
+
 }
 
 @end

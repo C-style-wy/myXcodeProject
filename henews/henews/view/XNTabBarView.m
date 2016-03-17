@@ -30,7 +30,7 @@
     int screenH = [[UIScreen mainScreen] bounds].size.height;
     
     UIView *tabBarView = [[UIView alloc]init];
-    tabBarView.frame = CGRectMake(0, screenH-43, screenW, 43);
+    tabBarView.frame = CGRectMake(0, screenH-40, screenW, 40);
     tabBarView.backgroundColor = [UIColor whiteColor];
     
     UIImageView *line = [[UIImageView alloc]init];
@@ -49,32 +49,32 @@
         
         CGFloat bntWidth = tabBarView.frame.size.width / 5;
         CGFloat x = i * bntWidth;
-        bnt.frame = CGRectMake(x, 0, bntWidth, 43);
+        bnt.frame = CGRectMake(x, 0, bntWidth, 40);
         
         if (0 == i) {
             [bnt setTitle:@"推荐" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-22)/2, 21, (bntWidth-22)/2)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-22)/2, 19, (bntWidth-22)/2)];
             [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -49, 6, 0)];
             
         }else if (1 == i) {
             [bnt setTitle:@"资讯" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 21, (bntWidth-18)/2)];
-            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -39, 6, 0)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 19, (bntWidth-18)/2)];
+            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -37, 6, 0)];
         }else if (2 == i) {
             [bnt setTitle:@"视界" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 21, (bntWidth-18)/2)];
-            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -39, 6, 0)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 19, (bntWidth-18)/2)];
+            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -37, 6, 0)];
         }else if (3 == i) {
             [bnt setTitle:@"发现" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 21, (bntWidth-18)/2)];
-            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -39, 6, 0)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 19, (bntWidth-18)/2)];
+            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -37, 6, 0)];
         }else if (4 == i) {
             [bnt setTitle:@"我的" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 21, (bntWidth-18)/2)];
-            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -39, 6, 0)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 19, (bntWidth-18)/2)];
+            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -36, 6, 0)];
         }
         [bnt setTitleColor:[UIColor colorWithRed:0.88 green:0.02 blue:0.46 alpha:1] forState:UIControlStateSelected];
-        bnt.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+        bnt.titleLabel.font = [UIFont systemFontOfSize:12.0f];
         [bnt setTitleColor:[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1] forState:UIControlStateNormal];
         
         [tabBarView addSubview:bnt];

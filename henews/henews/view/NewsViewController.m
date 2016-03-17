@@ -101,7 +101,7 @@
     [titleView addSubview:channelBtn];
     _addChannelImage = addImg;
     
-    self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 58, SCREEN_WIDTH, SCREEN_HEIGHT-101)];
+    self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 58, SCREEN_WIDTH, SCREEN_HEIGHT-98)];
     [self.view addSubview:self.mainView];
     
     _firstTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, _mainView.frame.size.width, _mainView.frame.size.height)];

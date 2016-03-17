@@ -21,11 +21,17 @@
 #import "NewsPicCell.h"
 #import "NewsPicCellData.h"
 
-@interface DetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+#import "HeadInDetail.h"
+#import "BottomToolBarInDetail.h"
+#import "ShareMode.h"
+
+@interface DetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, HeadInDetailDelegate, BottomToolBarInDetailDelegate>
 
 @property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, retain) NSMutableArray *tableViewData;
 @property (nonatomic, retain) UIActivityIndicatorView *loading;
+@property (nonatomic, retain) BottomToolBarInDetail *toolBar;
 
+@property (nonatomic, retain) NSMutableArray *tableViewData;
 @property (nonatomic, retain) NSString *detailUrl;
+
 @end
