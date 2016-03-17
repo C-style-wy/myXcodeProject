@@ -53,25 +53,25 @@
         
         if (0 == i) {
             [bnt setTitle:@"推荐" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-22)/2, 19, (bntWidth-22)/2)];
-            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -49, 6, 0)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-22)/2, 18, (bntWidth-22)/2)];
+            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(28, -49, 6, 0)];
             
         }else if (1 == i) {
             [bnt setTitle:@"资讯" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 19, (bntWidth-18)/2)];
-            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -37, 6, 0)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-17)/2, 18, (bntWidth-17)/2)];
+            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(28, -37, 6, 0)];
         }else if (2 == i) {
             [bnt setTitle:@"视界" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 19, (bntWidth-18)/2)];
-            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -37, 6, 0)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 18, (bntWidth-18)/2)];
+            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(28, -37, 6, 0)];
         }else if (3 == i) {
             [bnt setTitle:@"发现" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 19, (bntWidth-18)/2)];
-            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -37, 6, 0)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 18, (bntWidth-18)/2)];
+            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(28, -37, 6, 0)];
         }else if (4 == i) {
             [bnt setTitle:@"我的" forState:UIControlStateNormal];
-            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 19, (bntWidth-18)/2)];
-            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(27, -36, 6, 0)];
+            [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-16)/2, 18, (bntWidth-16)/2)];
+            [bnt setTitleEdgeInsets:UIEdgeInsetsMake(28, -36, 6, 0)];
         }
         [bnt setTitleColor:[UIColor colorWithRed:0.88 green:0.02 blue:0.46 alpha:1] forState:UIControlStateSelected];
         bnt.titleLabel.font = [UIFont systemFontOfSize:12.0f];
