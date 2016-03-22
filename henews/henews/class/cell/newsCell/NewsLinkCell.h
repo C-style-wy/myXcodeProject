@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsLinkCellData.h"
 
 @interface NewsLinkCell : UITableViewCell
+
+@property (nonatomic, retain) NewsLinkCellData *data;
+@property (nonatomic, retain) UIViewController *controller;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
+-(void)loadTableCell:(NewsLinkCellData*)data controller:(UIViewController *)view;
 
 @end

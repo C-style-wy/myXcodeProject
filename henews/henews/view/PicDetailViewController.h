@@ -12,7 +12,7 @@
 #import "picDetailData.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface PicDetailViewController : UIViewController
+@interface PicDetailViewController : UIViewController<UIGestureRecognizerDelegate>
 
 @property (nonatomic, retain) NSMutableArray *imagesAry;
 @property (nonatomic, retain) UIScrollView *imagesScrollView;

@@ -10,4 +10,17 @@
 
 @implementation NewsLinkCellData
 
+-(id)init{
+    self = [super init];
+    if (self) {
+        self.linkUrl = @"";
+        self.height = 34.0f;
+    }
+    return self;
+}
+
+-(void)initWithData:(NSString*)url{
+    self.linkUrl = url;
+}
+
 @end

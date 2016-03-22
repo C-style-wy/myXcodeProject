@@ -26,21 +26,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor blackColor];
     [self UIInit];
 }
 
 -(void)UIInit{
     if (_imagesScrollView == nil) {
-        _imagesScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, SCREEN_HEIGHT-20)];
+        _imagesScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
         [self.view addSubview:_imagesScrollView];
         _imagesScrollView.pagingEnabled = YES;
         _imagesScrollView.showsHorizontalScrollIndicator = NO;
         _imagesScrollView.showsVerticalScrollIndicator = NO;
         _imagesScrollView.bounces = NO;
-//        _imagesScrollView.delegate = self;
+//        _imagesScrollView.backgroundColor = [UIColor redColor];
         _imagesScrollView.alwaysBounceVertical = YES;
+        self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
     
@@ -88,16 +88,18 @@
         _imagesAry = [[NSMutableArray alloc]init];
     }
     _imagesScrollView.contentSize = CGSizeMake(SCREEN_WIDTH*(images.count), 0);
-//    _imagesScrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 0);
     for (int i = 0; i < images.count; i++) {
         picDetailData *picCell = [[picDetailData alloc]init];
         [picCell initWithData:[images objectAtIndex:i]];
         [_imagesAry addObject:picCell];
         
-        UIImageView *pic = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*i, 0, SCREEN_WIDTH, SCREEN_HEIGHT-20)];
+        UIImageView *pic = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*i, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
         [_imagesScrollView addSubview:pic];
         [pic setImageWithURL:[NSURL URLWithString:picCell.url]];
         pic.contentMode = UIViewContentModeScaleAspectFit;
+        
+        
+        
     }
 }
 

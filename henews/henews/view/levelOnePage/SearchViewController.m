@@ -61,6 +61,38 @@
     //设置Label高度
 //    label.height = label.frame.size.height;
 //    [self conversionCharacterInterval:70 current:text withLabel:label];
+    
+    
+    
+    UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shareWeibo.jpg"]];
+    image.frame = self.view.frame;
+    image.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:image];
+    self.photoImage = image;
+
+    
+    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)];
+    
+//    [pinchRecognizer setDelegate:self];
+    [self.view addGestureRecognizer:pinchRecognizer];
+    
+}
+
+-(void)scale:(id)sender {
+    
+    if([(UIPinchGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan) {
+        _lastScale = 1.0;
+    }
+    
+    CGFloat scale = 1.0 - (_lastScale - [(UIPinchGestureRecognizer*)sender scale]);
+    
+    CGAffineTransform currentTransform = self.photoImage.transform;
+    CGAffineTransform newTransform = CGAffineTransformScale(currentTransform, scale, scale);
+    
+    [self.photoImage setTransform:newTransform];
+    
+    _lastScale = [(UIPinchGestureRecognizer*)sender scale];
+//    [self showOverlayWithFrame:photoImage.frame];
 }
 
 - (void)didReceiveMemoryWarning {

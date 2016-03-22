@@ -11,4 +11,7 @@
 
 @interface SearchViewController : UIViewController
 
+@property (nonatomic, retain) UIImageView *photoImage;
+@property (nonatomic, assign) CGFloat lastScale;
+
 @end

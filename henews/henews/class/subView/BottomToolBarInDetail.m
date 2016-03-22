@@ -23,6 +23,17 @@
         [commentBtn setImage:[UIImage imageNamed:@"detail_comment_box.png"] forState:UIControlStateNormal];
         [commentBtn setImageEdgeInsets:UIEdgeInsetsMake(4.0f, 0.0f, 4.0f, 0.0f)];
         [self addSubview:commentBtn];
+        
+        UIImageView *penImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"detail_comment_icon.png"]];
+        penImage.frame = CGRectMake(8.5f, (commentBtn.frame.size.height - 11)/2, 11, 11);
+        [commentBtn addSubview:penImage];
+        
+        UILabel *sayLabel = [[UILabel alloc]initWithFrame:CGRectMake(29.0f, 0, commentBtn.frame.size.width-29.0f, commentBtn.frame.size.height)];
+        sayLabel.text = @"我也说一句";
+        sayLabel.textAlignment = NSTextAlignmentLeft;
+        sayLabel.textColor = [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1];
+        sayLabel.font = [UIFont systemFontOfSize:14.0f];
+        [commentBtn addSubview:sayLabel];
         //评论数
         UIButton *commentNumBtn = [[UIButton alloc]initWithFrame:CGRectMake(185, 0, 58.5, 35)];
         [commentNumBtn addTarget:self action:@selector(handleCommentNumBtnSelectAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -30,6 +41,14 @@
         [commentNumBtn setImage:[UIImage imageNamed:@"detail_comment_bg.png"] forState:UIControlStateNormal];
         [commentNumBtn setImageEdgeInsets:UIEdgeInsetsMake(9.0f, 0.0f, 9.0f, 0.0f)];
         [self addSubview:commentNumBtn];
+        
+        UILabel *numLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, commentNumBtn.frame.size.width, commentBtn.frame.size.height)];
+        numLabel.text = @"0评论";
+        numLabel.textAlignment = NSTextAlignmentCenter;
+        numLabel.textColor = [UIColor whiteColor];
+        numLabel.font = [UIFont systemFontOfSize:11.0f];
+        [commentNumBtn addSubview:numLabel];
+        self.commentNumLabel = numLabel;
         //字体大小调整
         UIButton *fontSizeBtn = [[UIButton alloc]initWithFrame:CGRectMake(250.5f, 0, 35.5, 35)];
         [fontSizeBtn addTarget:self action:@selector(handleFontSizeBtnSelectAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -76,7 +95,9 @@
 
 //评论框按钮
 - (void)handleCommentBtnSelectAction:(UIButton *)button{
-    
+    if ([self.delegate respondsToSelector:@selector(toolBar:commentButton:)]) {
+        [self.delegate toolBar:self commentButton:button];
+    }
 }
 //评论数按钮
 - (void)handleCommentNumBtnSelectAction:(UIButton *)button{

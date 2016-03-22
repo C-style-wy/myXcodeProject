@@ -24,5 +24,6 @@
 @interface HeadInDetail : UIView
 
 @property (nonatomic, assign) id<HeadInDetailDelegate>delegate;
+@property (nonatomic, retain) UIButton *collectionBtn;
 
 @end

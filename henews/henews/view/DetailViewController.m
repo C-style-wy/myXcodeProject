@@ -11,11 +11,16 @@
 #import "UIImageView+AFNetworking.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
+#import "InputBox.h"
 
 @interface DetailViewController ()
 {
     CGFloat lastContentOffset;
     ShareMode *shareData;
+    BOOL hiddenStatusBar;
+    NSDictionary *detailData;
+    UIButton *collectionBtn;
+    BOOL haveCollection;//是否收藏
 }
 @end
 
@@ -24,6 +29,19 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    [self preferredStatusBarStyle];
+    hiddenStatusBar = NO;
+    [self prefersStatusBarHidden];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleDefault;
+    //UIStatusBarStyleDefault = 0 黑色文字，浅色背景时使用
+    //UIStatusBarStyleLightContent = 1 白色文字，深色背景时使用
+}
+
+- (BOOL)prefersStatusBarHidden{
+    return hiddenStatusBar; //返回NO表示要显示，返回YES将hiden
 }
 
 - (void)viewDidLoad {
@@ -45,6 +63,7 @@
     titleView.delegate = self;
     titleView.backgroundColor = [UIColor clearColor];
     [headView addSubview:titleView];
+    collectionBtn = titleView.collectionBtn;
     [self.view addSubview:headView];
 
     self.tableView = [[UITableView alloc]init];
@@ -62,17 +81,59 @@
     [self.view addSubview:toolBar];
     self.toolBar = toolBar;
     NSLog(@"_detailUrl=%@", _detailUrl);
-    [Request requestPostForJSON:@"detailData" url:_detailUrl delegate:self paras:nil msg:0 useCache:YES];
+    [Request requestPostForJSON:@"detailData" url:_detailUrl delegate:self paras:nil msg:0 useCache:NO];
 }
 
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     [_loading stopAnimating];
     if ([tag isEqual:@"detailData"]) {
         //断言是为不满足表达式，则crash；即必须满足条件，不然就crash
-        NSAssert(returnJson != nil, @"返回值不为nil");
+//        NSAssert(returnJson != nil, @"返回值不为nil");
+        detailData = returnJson;
         [self dealDetailDataBack:returnJson];
         [self.toolBar openToolBar];
+    }else if ([tag isEqual:@"newsDetailData"]){
+        [self dealNewsDetailDataBack:returnJson];
+    }else if ([tag isEqual:@"isFavoriteUrl"]){
+        if ([[returnJson objectForKey:@"resultCode"] isEqualToString:@"1"]) {
+            haveCollection = YES;
+            [collectionBtn setImage:[UIImage imageNamed:@"detail_collect_icon_s.png"] forState:UIControlStateNormal];
+        }else{
+            haveCollection = NO;
+            [collectionBtn setImage:[UIImage imageNamed:@"detail_collect_icon.png"] forState:UIControlStateNormal];
+        }
+    }else if ([tag isEqual:@"deleteFavoriteUrl"]){
+        if ([[returnJson objectForKey:@"resultCode"] isEqualToString:@"1"]) {
+            haveCollection = NO;
+            [collectionBtn setImage:[UIImage imageNamed:@"detail_collect_icon.png"] forState:UIControlStateNormal];
+        }
+    }else if ([tag isEqual:@"addFavoriteUrl"]){
+        if ([[returnJson objectForKey:@"resultCode"] isEqualToString:@"1"]) {
+            haveCollection = YES;
+            [collectionBtn setImage:[UIImage imageNamed:@"detail_collect_icon_s.png"] forState:UIControlStateNormal];
+        }
     }
+}
+
+- (void)dealNewsDetailDataBack:(NSDictionary*)jsonData{
+    NewsVoteCellMode *voteCellData = [[NewsVoteCellMode alloc]init];
+    [voteCellData initWithData:[detailData objectForKey:@"contentVoteUrl"] goodTimes:[jsonData objectForKey:@"goodTimes"] badTimes:[jsonData objectForKey:@"badTimes"]];
+    [self.tableViewData addObject:voteCellData];
+    if ([detailData objectForKey:@"relateConts"]) {
+        NSArray *relateConts = [detailData objectForKey:@"relateConts"];
+        if (relateConts.count > 0) {
+            NSString *relateNewsFlag = [[NSString alloc]init];
+            [self.tableViewData addObject:relateNewsFlag];
+            
+            for (int i=0; i < relateConts.count; i++) {
+                CellData *data = [[CellData alloc]init];
+                [data initWithData:[relateConts objectAtIndex:i]];
+                [self.tableViewData addObject:data];
+            }
+        }
+    }
+    self.toolBar.commentNumLabel.text = [[jsonData objectForKey:@"commentNum"] stringByAppendingString:@"评论"];
+    [self.tableView reloadData];
 }
 
 -(void)dealDetailDataBack:(NSDictionary*)jsonData{
@@ -115,7 +176,28 @@
             [_tableViewData addObject:picData];
         }
     }
+    if ([content objectForKey:@"link"] && ![[content objectForKey:@"link"] isEqualToString:@""]) {
+        NewsLinkCellData *linkData = [[NewsLinkCellData alloc]init];
+        [linkData initWithData:[content objectForKey:@"link"]];
+        [self.tableViewData addObject:linkData];
+    }
+    
+    if ([jsonData objectForKey:@"newsDetailDataUrl"] && ![[jsonData objectForKey:@"newsDetailDataUrl"] isEqualToString:@""]) {
+        NSString *newsDetailDataUrl = [jsonData objectForKey:@"newsDetailDataUrl"];
+        [Request requestPostForJSON:@"newsDetailData" url:newsDetailDataUrl delegate:self paras:nil msg:1 useCache:NO];
+    }
+    
+    if ([jsonData objectForKey:@"isFavoriteUrl"] && ![[jsonData objectForKey:@"isFavoriteUrl"] isEqualToString:@""]) {
+        NSString *isFavoriteUrl = [jsonData objectForKey:@"isFavoriteUrl"];
+        [Request requestPostForJSON:@"isFavoriteUrl" url:isFavoriteUrl delegate:self paras:nil msg:1 useCache:NO];
+    }
+    
+    //添加透明度的动画
+    self.tableView.alpha = 0.0f;
     [_tableView reloadData];
+    [UIView animateWithDuration:0.3f animations:^{
+        self.tableView.alpha = 1.0f;
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -162,11 +244,36 @@
         NewsPicCell *cell = [NewsPicCell cellWithTableView:tableView];
         [cell loadTableCell:one];
         return cell;
+    }else if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[NewsLinkCellData class]]){
+        NewsLinkCellData *one = [self.tableViewData objectAtIndex:indexPath.row];
+        NewsLinkCell *cell = [NewsLinkCell cellWithTableView:tableView];
+        [cell loadTableCell:one controller:self];
+        return cell;
+    }else if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[NewsVoteCellMode class]]){
+        NewsVoteCellMode *one = [self.tableViewData objectAtIndex:indexPath.row];
+        NewsVoteCell *cell = [NewsVoteCell cellWithTableView:tableView];
+        [cell loadTableCell:one];
+        return cell;
+    }else if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]){
+        relateNewsCell *cell = [relateNewsCell cellWithTableView:tableView];
+        return cell;
+    }else if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[CellData class]]){
+        CellData *one = [self.tableViewData objectAtIndex:indexPath.row];
+        if ([one.images isEqualToString:@""]) {
+            OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
+            [cell loadTableCell:one isShortLine:NO isWhiteBg:NO isHideLine:NO];
+            return cell;
+        }else{
+            OneSmallPicCell *cell = [OneSmallPicCell cellWithTableView:tableView];
+            [cell loadTableCell:one isShortLine:NO isWhiteBg:NO isHideLine:NO];
+            return cell;
+        }
     }
     else{
         return nil;
     }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[NewsTitleCellData class]]) {
         NewsTitleCellData *one = [_tableViewData objectAtIndex:indexPath.row];
@@ -183,13 +290,37 @@
     }else if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[NewsPicCellData class]]){
         NewsPicCellData *one = [_tableViewData objectAtIndex:indexPath.row];
         return one.height;
-    }else{
+    }else if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[NewsLinkCellData class]]){
+        NewsLinkCellData *one = [self.tableViewData objectAtIndex:indexPath.row];
+        return one.height;
+    }else if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[NewsVoteCellMode class]]){
+        NewsVoteCellMode *one = [self.tableViewData objectAtIndex:indexPath.row];
+        return one.height;
+    }else if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]){
+        return 44.0f;
+    }else if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[CellData class]]){
+        CellData *one = [self.tableViewData objectAtIndex:indexPath.row];
+        if ([one.images isEqualToString:@""]) {
+            return 80.0f;
+        }else{
+            return 88.0f;
+        }
+    }
+    else{
         return 0;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if ([[_tableViewData objectAtIndex:indexPath.row] isKindOfClass:[CellData class]]) {
+        CellData *cell = [self.tableViewData objectAtIndex:indexPath.row];
+        NSString *url = cell.url;
+        DetailViewController *detail = [[DetailViewController alloc] init];
+        detail.detailUrl = url;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
 }
+
 
 //scrollView滑动
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -214,11 +345,31 @@
 }
 
 - (void)headInDetail:(HeadInDetail*)head collectionButton:(UIButton *)button{
-    
+    if (haveCollection) {
+        if ([detailData objectForKey:@"deleteFavoriteUrl"] && ![[detailData objectForKey:@"deleteFavoriteUrl"] isEqualToString:@""]) {
+            NSString *deleteFavoriteUrl = [detailData objectForKey:@"deleteFavoriteUrl"];
+            [Request requestPostForJSON:@"deleteFavoriteUrl" url:deleteFavoriteUrl delegate:self paras:nil msg:1 useCache:NO];
+        }
+    }else{
+        if ([detailData objectForKey:@"addFavoriteUrl"] && ![[detailData objectForKey:@"addFavoriteUrl"] isEqualToString:@""]) {
+            NSString *addFavoriteUrl = [detailData objectForKey:@"addFavoriteUrl"];
+            [Request requestPostForJSON:@"addFavoriteUrl" url:addFavoriteUrl delegate:self paras:nil msg:1 useCache:NO];
+        }
+    }
 }
 
 - (void)headInDetail:(HeadInDetail*)head modeButton:(UIButton *)button isNight:(BOOL)night{
-    
+    if (night) {
+        hiddenStatusBar = YES;
+        [UIView animateWithDuration:0.3 animations:^{
+            [self setNeedsStatusBarAppearanceUpdate];
+        }];
+    }else{
+        hiddenStatusBar = NO;
+        [UIView animateWithDuration:0.3 animations:^{
+            [self setNeedsStatusBarAppearanceUpdate];
+        }];
+    }
 }
 
 #pragma mark - BottomToolBarInDetailDelegate
@@ -253,6 +404,11 @@
         }];
     }
 
+}
+
+- (void)toolBar:(BottomToolBarInDetail*)tool commentButton:(UIButton *)button{
+    InputBox *inputBox = [[InputBox alloc]init];
+    [inputBox openInputBox:self];
 }
 
 @end

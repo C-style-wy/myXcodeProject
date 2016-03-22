@@ -25,6 +25,7 @@
         UIButton *collectionBtn = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-78, 0, 40, frame.size.height)];
         collectionBtn.tag = 2;
         [collectionBtn addTarget:self action:@selector(handleBtnSelectAction:) forControlEvents:UIControlEventTouchUpInside];
+        self.collectionBtn = collectionBtn;
         [self addSubview:collectionBtn];
         [collectionBtn setImage:[UIImage imageNamed:@"detail_collect_icon.png"] forState:UIControlStateNormal];
         [collectionBtn setImageEdgeInsets:UIEdgeInsetsMake(5.0f, 17.0f, 5.0f, 0.0f)];
@@ -35,6 +36,11 @@
         [self addSubview:modeBtn];
         [modeBtn setImage:[UIImage imageNamed:@"detail_night_icon.png"] forState:UIControlStateNormal];
         [modeBtn setImageEdgeInsets:UIEdgeInsetsMake(5.0f, 0.0f, 5.0f, 8)];
+        
+        UIImageView *line = [[UIImageView alloc]init];
+        line.frame = CGRectMake(0, frame.size.height-0.5f, frame.size.width, 0.5f);
+        line.image = [UIImage imageNamed:@"menuFenge.png"];
+        [self addSubview:line];
     }
     return self;
 }

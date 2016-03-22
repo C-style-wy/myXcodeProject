@@ -21,6 +21,18 @@
 #import "NewsPicCell.h"
 #import "NewsPicCellData.h"
 
+#import "NewsLinkCell.h"
+#import "NewsLinkCellData.h"
+
+#import "NewsVoteCellMode.h"
+#import "NewsVoteCell.h"
+
+#import "relateNewsCell.h"
+
+#import "CellData.h"
+#import "OneSmallPicCell.h"
+#import "OnlyTitleCell.h"
+
 #import "HeadInDetail.h"
 #import "BottomToolBarInDetail.h"
 #import "ShareMode.h"
