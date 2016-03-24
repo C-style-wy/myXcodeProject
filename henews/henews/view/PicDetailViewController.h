@@ -11,8 +11,9 @@
 #import "APIStringMacros.h"
 #import "picDetailData.h"
 #import "UIImageView+AFNetworking.h"
+#import "HeadInPicDetail.h"
 
-@interface PicDetailViewController : UIViewController<UIGestureRecognizerDelegate>
+@interface PicDetailViewController : UIViewController<UIGestureRecognizerDelegate, HeadInPicDetailDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, retain) NSMutableArray *imagesAry;
 @property (nonatomic, retain) UIScrollView *imagesScrollView;

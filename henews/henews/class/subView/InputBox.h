@@ -11,6 +11,6 @@
 
 @interface InputBox : UIView
 
-- (void)openInputBox:(UIViewController *)controller;
+- (void)openInputBox:(UIViewController *)controller stickLabel:(UILabel*)label;
 
 @end

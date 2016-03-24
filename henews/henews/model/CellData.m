@@ -108,26 +108,30 @@
         }
     }
     //cell高度
-    if ([_displayType isEqual:ONLY_WORD]) {  //无图--
-        _height = 80.0f;
-    }else if ([_displayType isEqual:ONE_BIG_PIC]){  //单张大图--
-        _height = 171.0f;
-    }else if ([_displayType isEqual:ONE_SMALL_PIC_R]){  //单张小图在右边，现在不用了
-        _height = 88.0f;
-    }else if ([_displayType isEqual:THREE_SMALL_PIC]){  //三张小图
-        _height = 146.0f;
-    }else if ([_displayType isEqual:ONEBIG_TWOSMALL_PIC]){  //一张大图两张小图
-        _height = 216.0f;
-    }else if ([_displayType isEqual:EVERY_ONE]){  //大家样式--
-        _height = 96.0f;
-    }else if ([_displayType isEqual:EVERY_ONE_G]){  //感性样式--
-        _height = 96.0f;
-    }else if ([_displayType isEqual:NEWS_EARLY_BUS]){  //新闻早班车--
-        _height = 171.0f;
-    }else if ([_displayType isEqual:ONE_SMALL_PIC]){  //一张小图--
-        _height = 88.0f;
+    if ([self.newsType isEqualToString:@"1"]) {
+        _height = 217.0f;
     }else{
-        _height = 80.0f;
+        if ([_displayType isEqual:ONLY_WORD]) {  //无图--
+            _height = 80.0f;
+        }else if ([_displayType isEqual:ONE_BIG_PIC]){  //单张大图--
+            _height = 171.0f;
+        }else if ([_displayType isEqual:ONE_SMALL_PIC_R]){  //单张小图在右边，现在不用了
+            _height = 88.0f;
+        }else if ([_displayType isEqual:THREE_SMALL_PIC]){  //三张小图
+            _height = 146.0f;
+        }else if ([_displayType isEqual:ONEBIG_TWOSMALL_PIC]){  //一张大图两张小图
+            _height = 216.0f;
+        }else if ([_displayType isEqual:EVERY_ONE]){  //大家样式--
+            _height = 96.0f;
+        }else if ([_displayType isEqual:EVERY_ONE_G]){  //感性样式--
+            _height = 96.0f;
+        }else if ([_displayType isEqual:NEWS_EARLY_BUS]){  //新闻早班车--
+            _height = 171.0f;
+        }else if ([_displayType isEqual:ONE_SMALL_PIC]){  //一张小图--
+            _height = 88.0f;
+        }else{
+            _height = 80.0f;
+        }
     }
 }
 @end

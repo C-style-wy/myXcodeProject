@@ -28,6 +28,7 @@
 
 @property (nonatomic, assign) id<BottomToolBarInDetailDelegate>delegate;
 @property (nonatomic, retain) UILabel *commentNumLabel;
+@property (nonatomic, retain) UILabel *sayLabel;
 
 - (void)openToolBar;
 

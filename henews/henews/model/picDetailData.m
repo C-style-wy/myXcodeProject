@@ -24,12 +24,24 @@
 }
 
 -(void)initWithData:(id)data{
-    _url = [data objectForKey:@"url"];
-    _name = [data objectForKey:@"name"];
-    _desc = [data objectForKey:@"desc"];
-    _tags = [data objectForKey:@"tags"];
-    _width = [[data objectForKey:@"width"] floatValue];
-    _height = [[data objectForKey:@"height"] floatValue];
+    if ([data objectForKey:@"url"] && ![[data objectForKey:@"url"] isEqualToString:@""]) {
+        self.url = [data objectForKey:@"url"];
+    }
+    if ([data objectForKey:@"name"] && ![[data objectForKey:@"name"] isEqualToString:@""]) {
+        self.name = [data objectForKey:@"name"];
+    }
+    if ([data objectForKey:@"desc"] && ![[data objectForKey:@"desc"] isEqualToString:@""]) {
+        self.desc = [data objectForKey:@"desc"];
+    }
+    if ([data objectForKey:@"tags"] && ![[data objectForKey:@"tags"] isEqualToString:@""]) {
+        self.tags = [data objectForKey:@"tags"];
+    }
+    if ([data objectForKey:@"width"] && ![[data objectForKey:@"width"] isEqualToString:@""]) {
+        self.width = [[data objectForKey:@"width"] floatValue];
+    }
+    if ([data objectForKey:@"height"] && ![[data objectForKey:@"height"] isEqualToString:@""]) {
+        self.height = [[data objectForKey:@"height"] floatValue];
+    }
 }
 
 @end

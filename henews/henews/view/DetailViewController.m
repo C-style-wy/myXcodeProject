@@ -408,7 +408,7 @@
 
 - (void)toolBar:(BottomToolBarInDetail*)tool commentButton:(UIButton *)button{
     InputBox *inputBox = [[InputBox alloc]init];
-    [inputBox openInputBox:self];
+    [inputBox openInputBox:self stickLabel:tool.sayLabel];
 }
 
 @end

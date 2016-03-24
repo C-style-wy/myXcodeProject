@@ -12,6 +12,7 @@
 #import "Request.h"
 #import "OneSmallPicCell.h"
 #import "OnlyTitleCell.h"
+#import "VideoCell.h"
 #import "BannersCell.h"
 #import "UIImageView+AFNetworking.h"
 
@@ -150,21 +151,17 @@
 }
 
 -(UIView*)getSecHeadView:(NSString*)modulName isWhite:(BOOL)white{
-    UIView *modulHead = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 35.0f)];
+    CGFloat secHeadHeight = 26.5f;
+    UIView *modulHead = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, secHeadHeight)];
     if (white) {
         modulHead.backgroundColor = [UIColor whiteColor];
     }else{
         modulHead.backgroundColor = VIEWBACKGROUND_COLOR;
     }
     
-    UIImageView *line = [[UIImageView alloc]init];
-    line.frame = CGRectMake(8, 34.5f, SCREEN_WIDTH-16, 0.5f);
-    line.image = [UIImage imageNamed:@"menuFenge.png"];
-    [modulHead addSubview:line];
-    
     UILabel *name = [[UILabel alloc]init];
     name.textColor = [UIColor colorWithRed:0.02 green:0.02 blue:0.02 alpha:1];
-    name.frame = CGRectMake(8, 0, SCREEN_WIDTH-16, 35);
+    name.frame = CGRectMake(8, 0, SCREEN_WIDTH-16, secHeadHeight);
     name.numberOfLines = 1;
     name.text = modulName;
     
@@ -177,14 +174,14 @@
     UIFont *fnt = [UIFont systemFontOfSize:16.0f];
     name.font = fnt;
     NSDictionary *attribute = @{NSFontAttributeName: fnt};
-    CGFloat nameWidth = TEXTWIDTH(modulName, attribute, 35.0f);
-    name.frame = CGRectMake(0, 0, nameWidth, 35);
+    CGFloat nameWidth = TEXTWIDTH(modulName, attribute, secHeadHeight);
+    name.frame = CGRectMake(0, 0, nameWidth, secHeadHeight);
     
-    UIImageView *arrow = [[UIImageView alloc]initWithFrame:CGRectMake(nameWidth+10, 11.25f, 17, 12.5f)];
+    UIImageView *arrow = [[UIImageView alloc]initWithFrame:CGRectMake(nameWidth+10, (secHeadHeight-11.5f)/2, 8, 11.5f)];
     arrow.image = [UIImage imageNamed:@"f_arrow.png"];
     [jumpButton addSubview:arrow];
     
-    jumpButton.frame = CGRectMake(8, 0, nameWidth+27, 35);
+    jumpButton.frame = CGRectMake(8, 0, nameWidth+27, secHeadHeight);
     
     
     UIButton *exchangeButton = [[UIButton alloc]init];
@@ -195,9 +192,9 @@
     
     UIFont *fnt1 = [UIFont systemFontOfSize:12];
     NSDictionary *attribute1 = @{NSFontAttributeName: fnt1};
-    CGFloat exchangeLabelWidth = TEXTWIDTH(exchangeLabel, attribute1, 35);
+    CGFloat exchangeLabelWidth = TEXTWIDTH(exchangeLabel, attribute1, secHeadHeight);
     
-    UILabel *exchange = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, exchangeLabelWidth, 35)];
+    UILabel *exchange = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, exchangeLabelWidth, secHeadHeight)];
 
     exchange.text = exchangeLabel;
     exchange.textAlignment = NSTextAlignmentRight;
@@ -205,10 +202,10 @@
     exchange.textColor = [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1];
     [exchangeButton addSubview:exchange];
     
-    UIImageView *exchangeImg = [[UIImageView alloc]initWithFrame:CGRectMake(exchangeLabelWidth+8, 9.5f, 16, 16)];
+    UIImageView *exchangeImg = [[UIImageView alloc]initWithFrame:CGRectMake(exchangeLabelWidth+8, (secHeadHeight-16)/2, 16, 16)];
     exchangeImg.image = [UIImage imageNamed:@"change_batch_icon.png"];
     [exchangeButton addSubview:exchangeImg];
-    exchangeButton.frame = CGRectMake(SCREEN_WIDTH-exchangeLabelWidth-32, 0, exchangeLabelWidth+24, 35);
+    exchangeButton.frame = CGRectMake(SCREEN_WIDTH-exchangeLabelWidth-32, 0, exchangeLabelWidth+24, secHeadHeight);
     
     [modulHead addSubview:exchangeButton];
     
@@ -228,16 +225,16 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     ModulData *modul = [_tableViewData objectAtIndex:section];
-    if (section%2 == 0) {
+//    if (section%2 == 0) {
         return [self getSecHeadView:modul.nodeName isWhite:NO];
-    }else{
-        return [self getSecHeadView:modul.nodeName isWhite:YES];
-    }
+//    }else{
+//        return [self getSecHeadView:modul.nodeName isWhite:YES];
+//    }
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 35;
+    return 26.5f;
 }
 
 //指定每个分区中有多少行，默认为1
@@ -249,36 +246,42 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ModulData *modul = [_tableViewData objectAtIndex:indexPath.section];
     BOOL isWhite = true;
-    if ((indexPath.section)%2 == 0) {
-        isWhite = NO;
-    }
+//    if ((indexPath.section)%2 == 0) {
+//        isWhite = NO;
+//    }
     NSMutableArray *tempAry = modul.newsList;
     CellData *oneCell = [tempAry objectAtIndex:indexPath.row];
     BOOL isHide = NO;
     if (indexPath.row == tempAry.count-1) {
         isHide = YES;
     }
-    if ([oneCell.displayType isEqual:ONE_SMALL_PIC]) {   //一张小图
-        OneSmallPicCell *cell = [OneSmallPicCell cellWithTableView:tableView];
+    if ([oneCell.newsType isEqual:@"1"]) {
+        VideoCell *cell = [VideoCell cellWithTableView:tableView];
         [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
         return cell;
-    }else if ([oneCell.displayType isEqual:ONE_BIG_PIC] || [oneCell.displayType isEqual:NEWS_EARLY_BUS]){                        //一张大图和新闻早班车
-        OneBigPicCell *cell = [OneBigPicCell cellWithTableView:tableView];
-        [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
-        return cell;
-    }else if ([oneCell.displayType isEqual:EVERY_ONE] || [oneCell.displayType isEqual:EVERY_ONE_G]){                                 //大家和感性
-        EveryOneCell *cell = [EveryOneCell cellWithTableView:tableView];
-        [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
-        return cell;
-    }else if ([oneCell.displayType isEqual:THREE_SMALL_PIC]){  //三张小图
-        ThreePicCell *cell = [ThreePicCell cellWithTableView:tableView];
-        [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
-        return cell;
-    }
-    else{                          //无图
-        OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
-        [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
-        return cell;
+    }else{
+        if ([oneCell.displayType isEqual:ONE_SMALL_PIC]) {   //一张小图
+            OneSmallPicCell *cell = [OneSmallPicCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+            return cell;
+        }else if ([oneCell.displayType isEqual:ONE_BIG_PIC] || [oneCell.displayType isEqual:NEWS_EARLY_BUS]){                        //一张大图和新闻早班车
+            OneBigPicCell *cell = [OneBigPicCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+            return cell;
+        }else if ([oneCell.displayType isEqual:EVERY_ONE] || [oneCell.displayType isEqual:EVERY_ONE_G]){                                 //大家和感性
+            EveryOneCell *cell = [EveryOneCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+            return cell;
+        }else if ([oneCell.displayType isEqual:THREE_SMALL_PIC]){  //三张小图
+            ThreePicCell *cell = [ThreePicCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+            return cell;
+        }
+        else{                          //无图
+            OnlyTitleCell *cell = [OnlyTitleCell cellWithTableView:tableView];
+            [cell loadTableCell:oneCell isShortLine:YES isWhiteBg:isWhite isHideLine:isHide];
+            return cell;
+        }
     }
 }
 

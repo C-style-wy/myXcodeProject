@@ -71,6 +71,7 @@
 - (void)fullScreenClickBtn:(UIButton *)button {
     if (1 == button.tag) {  //小屏转大屏
         NSLog(@"fullScreenClickBtn");
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIDeviceOrientationLandscapeRight animated:YES];
         button.tag = 0;
     }else{                  //大屏转小屏
         NSLog(@"smallScreenClickBtn");
