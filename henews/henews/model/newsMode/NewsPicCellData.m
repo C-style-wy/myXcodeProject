@@ -23,15 +23,21 @@
 -(void)initWithData:(id)data{
     if ([data objectForKey:@"url"] && ![[data objectForKey:@"url"] isEqualToString:@""]) {
         _picUrl = [data objectForKey:@"url"];
-        NSString *picW = [data objectForKey:@"width"];
-        float width = [picW floatValue];
         
-        NSString *picH = [data objectForKey:@"height"];
-        float height = [picH floatValue];
-        
-        float picOnPhoneH = height*(SCREEN_WIDTH - 16)/width;
-        _picFrame = CGRectMake(8, 0, SCREEN_WIDTH-16, picOnPhoneH);
-        _height = picOnPhoneH + 9;
+        if ([[data objectForKey:@"width"] isEqualToString:@""] || [[data objectForKey:@"height"] isEqualToString:@""]) {
+            _picFrame = CGRectMake(8, 0, SCREEN_WIDTH-16, 200);
+            _height = 209.0f;
+        }else{
+            NSString *picW = [data objectForKey:@"width"];
+            float width = [picW floatValue];
+            
+            NSString *picH = [data objectForKey:@"height"];
+            float height = [picH floatValue];
+            
+            float picOnPhoneH = height*(SCREEN_WIDTH - 16)/width;
+            _picFrame = CGRectMake(8, 0, SCREEN_WIDTH-16, picOnPhoneH);
+            _height = picOnPhoneH + 9;
+        }
     }
 }
 

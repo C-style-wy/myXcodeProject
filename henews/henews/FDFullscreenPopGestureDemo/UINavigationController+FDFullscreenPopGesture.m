@@ -121,6 +121,10 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
 @end
 
 @implementation UINavigationController (FDFullscreenPopGesture)
+//是否旋转手机
+- (BOOL)shouldAutorotate{
+    return [self.visibleViewController shouldAutorotate];
+}
 
 + (void)load
 {

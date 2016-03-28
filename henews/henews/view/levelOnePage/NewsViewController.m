@@ -636,6 +636,7 @@
 //            [self.delegate getUrl:url];
             detail.detailUrl = url;
             [self.navigationController pushViewController:detail animated:YES];
+//            [self presentViewController:detail animated:YES completion:nil];
         }
     }
 }

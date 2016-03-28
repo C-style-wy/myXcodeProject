@@ -13,13 +13,7 @@
 #import "Request.h"
 #import "PlayerView.h"
 
-@interface PlayViewController : UIViewController
-
-@property (nonatomic, strong) AVPlayer *player;
-@property (nonatomic, strong) AVPlayerItem *playerItem;
-
-
-@property (nonatomic ,retain) PlayerView *playView;
+@interface PlayViewController : UIViewController<PlayerViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, retain) NSString *playUrl;
 

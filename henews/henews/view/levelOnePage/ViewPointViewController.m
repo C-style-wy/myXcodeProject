@@ -34,7 +34,18 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+//    [self preferredStatusBarStyle];
+//    [self prefersStatusBarHidden];
+//    [self setNeedsStatusBarAppearanceUpdate];
 }
+
+//- (UIStatusBarStyle)preferredStatusBarStyle{
+//    return UIStatusBarStyleDefault;
+//}
+//
+//- (BOOL)prefersStatusBarHidden{
+//    return NO;
+//}
 
 //为了解决应用从后台切换到前台，列表闪动问题
 - (void)appHasGoneInForeground{

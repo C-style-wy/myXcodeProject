@@ -72,6 +72,9 @@
     self.pic.frame = data.picFrame;
     self.defaultView.frame = data.picFrame;
     self.defaultImage.frame = CGRectMake((_defaultView.frame.size.width - 45)/2, (_defaultView.frame.size.height - 45)/2, 45, 45);
+    if (data.height == 0) {
+        self.defaultImage.hidden = YES;
+    }
 }
 
 @end
