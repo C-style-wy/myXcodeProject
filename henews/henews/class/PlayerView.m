@@ -8,13 +8,12 @@
 
 #import "PlayerView.h"
 #import "CDPButton.h"
+#import "PlayLoading.h"
 #import <MediaPlayer/MediaPlayer.h>
-
-#define CDPSWIDTH   [UIScreen mainScreen].bounds.size.width
-#define CDPSHEIGHT  [UIScreen mainScreen].bounds.size.height
+#import "UIImageView+AFNetworking.h"
 
 //上下导航栏高(全屏时上导航栏高+20)
-#define CDPTOPHEIGHT(FullScreen) ((FullScreen==YES)?60:40)
+#define CDPTOPHEIGHT(FullScreen) ((FullScreen==YES)?30.5f:40)
 #define CDPFOOTHEIGHT 32
 
 //导航栏上button的宽高
@@ -22,7 +21,7 @@
 #define CDPButtonHeight 30
 
 //导航栏隐藏前所需等待时间
-#define CDPHideBarIntervalTime 3
+#define CDPHideBarIntervalTime 5
 
 @implementation PlayerView{
     AVPlayerLayer *_playerLayer;//播放器layer
@@ -45,7 +44,7 @@
     BOOL _isShowBar;//导航栏是否显示
     
     UIView *_topBar;//顶部导航栏
-    CDPButton *_backButton;//返回button
+    UIButton *_backButton;//返回button
     UILabel *_titleLabel;//标题
     
     UIView *_footBar;//底部导航栏
@@ -57,6 +56,9 @@
     BOOL _dragSlider;//是否正在拖动slider
     UIProgressView *_progressView;//缓冲进度条
     
+    UIImageView *_baseImage;//底图
+    UIImageView *_middPlayImage;//播放界面中间的播放按钮
+    UIButton *_baseButton;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame url:(NSString *)url delegate:(id <PlayerViewDelegate>)delegate haveOriginalUI:(BOOL)haveOriginalUI{
@@ -72,6 +74,7 @@
         _lastShowBarTime=0;
         _haveOriginalUI=haveOriginalUI;
         _dragSlider=NO;
+        _isShowBar = YES;
         
         //添加手势
         [self addGR];
@@ -88,11 +91,75 @@
     return self;
 }
 
+- (void)setPlayerUrlAndPlay:(NSString*)url{
+    _urlStr=url;
+    
+    AVPlayerItem *playerItem=[self getPlayItemWithUrl:_urlStr];
+    _player=[AVPlayer playerWithPlayerItem:playerItem];
+    
+    _playerLayer=[AVPlayerLayer playerLayerWithPlayer:_player];
+    _playerLayer.frame=self.bounds;
+    //视频填充模式
+    [self.layer insertSublayer:_playerLayer atIndex:0];
+    //添加KVO监控
+    [self addObserver];
+    //进度监控
+    [self addProgressObserver];
+    //添加通知
+    [self addNotification];
+    //监控播放器
+    [_player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];
+    //开始播放
+    [self checkAndUpdateStatus:PlayerViewReadyPlay];
+    [_player play];
+    
+    //计时器
+    if (_timer==nil) {
+        //添加定时器时，就记住时间
+        _lastShowBarTime = [[NSDate date] timeIntervalSince1970];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeGo) userInfo:nil repeats:YES];
+    }
+}
+
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<PlayerViewDelegate>)delegate baseImageUrl:(NSString*)url{
+    if (self=[super initWithFrame:frame]) {
+        _initFrame=frame;
+        _delegate=delegate;
+        _currentTime=0;
+        _totalTime=0;
+        _isFullScreen=NO;
+        _isSwitch=NO;
+        _changeBar=NO;
+        _lastShowBarTime=0;
+        _dragSlider=NO;
+        _isShowBar = YES;
+        _haveOriginalUI = YES;
+        self.basePicUrl = url;
+        
+        _baseImage = [[UIImageView alloc]initWithFrame:self.bounds];
+        [self addSubview:_baseImage];
+        if (self.basePicUrl) {
+            [_baseImage setImageWithURL:[NSURL URLWithString:self.basePicUrl]];
+        }
+        
+        _baseButton = [[UIButton alloc]initWithFrame:CGRectMake((_initFrame.size.width-38)/2, (_initFrame.size.height-38)/2, 38, 38)];
+        [_baseButton setImage:[UIImage imageNamed:@"playIconNew.png"] forState:UIControlStateNormal];
+        [_baseButton addTarget:self action:@selector(playOrPause) forControlEvents:UIControlEventTouchUpInside];
+        [_baseButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        _baseButton.hidden = YES;
+        [self addSubview:_baseButton];
+        
+        //添加手势
+        [self addGR];
+        
+        [self createUIWithoutPlayer];
+    }
+    return self;
+}
+
 -(void)dealloc{
     [_player removeObserver:self forKeyPath:@"rate"];
-    
     [self closePlayer];
-    
     if (self.superview) {
         [self removeFromSuperview];
     }
@@ -148,8 +215,7 @@
     //判断是否隐藏导航栏
     if ([[NSDate date] timeIntervalSince1970]-_lastShowBarTime>=CDPHideBarIntervalTime) {
         [self hideBar];
-    }
-    else if(_lastShowBarTime==0){
+    }else if(_lastShowBarTime==0){
         [self hideBar];
     }
     
@@ -192,14 +258,18 @@
     __weak typeof (self) weakSelf=self;
     __weak typeof(_slider) weakSlider=_slider;
     
-    _playerTimeObserver=[_player addPeriodicTimeObserverForInterval:CMTimeMake(1.0,1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+    _playerTimeObserver=[_player addPeriodicTimeObserverForInterval:CMTimeMake(1.0,10.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
         CGFloat current=CMTimeGetSeconds(time);
         CGFloat total=CMTimeGetSeconds([playerItem duration]);
-        
+
         if (current) {
             _currentTime=current;
+            if (_currentTime>0) {
+                [PlayLoading loadingHide:weakSelf];
+                [weakSelf showOrHideBaseImage:YES];
+                _baseButton.hidden = YES;
+            }
             _totalTime=total;
-            
             if (_haveOriginalUI==YES&&weakSlider&&_dragSlider==NO) {
                 weakSlider.value=_currentTime/_totalTime;
                 
@@ -214,7 +284,6 @@
 //添加KVO监控
 -(void)addObserver{
     AVPlayerItem *playerItem=_player.currentItem;
-    
     //监控状态属性(AVPlayer也有一个status属性，通过监控它的status也可以获得播放状态)
     [playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     //监控网络加载情况属性
@@ -243,14 +312,12 @@
                 [_player play];
             }
         }
-    }
-    else if ([keyPath isEqualToString:@"rate"]) {
+    }else if ([keyPath isEqualToString:@"rate"]) {
         //监控播放器播放速率
         if(_player.rate==1){
             [self checkAndUpdateStatus:PlayerViewPlay];
         }
-    }
-    else if ([keyPath isEqualToString:@"status"]) {
+    }else if ([keyPath isEqualToString:@"status"]) {
         //监控状态属性
         AVPlayerStatus status= [[change objectForKey:@"new"] intValue];
         
@@ -275,8 +342,7 @@
             }
                 break;
         }
-    }
-    else if([keyPath isEqualToString:@"loadedTimeRanges"]){
+    }else if([keyPath isEqualToString:@"loadedTimeRanges"]){
         //监控网络加载情况属性
         NSArray *array=_player.currentItem.loadedTimeRanges;
         
@@ -305,6 +371,29 @@
     //播放器
     [self createPlayerWithContainView:self];
     
+    //音量
+    MPVolumeView *mpVolumeView=[[MPVolumeView alloc] initWithFrame:CGRectMake(50,50,40,40)];
+    for (UIView *view in [mpVolumeView subviews]){
+        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+            _volumeSlider=(UISlider*)view;
+            break;
+        }
+    }
+    [mpVolumeView setHidden:YES];
+    [mpVolumeView setShowsVolumeSlider:YES];
+    [mpVolumeView sizeToFit];
+}
+
+- (void)createUIWithoutPlayer{
+    //容器view
+    self.backgroundColor=[UIColor blackColor];
+    self.userInteractionEnabled=YES;
+    
+    [self createTopBar];
+    [self createFootBar];
+    [self createBufferView];
+    //添加loading
+    [PlayLoading loadingShow:self below:_topBar];
     //音量
     MPVolumeView *mpVolumeView=[[MPVolumeView alloc] initWithFrame:CGRectMake(50,50,40,40)];
     for (UIView *view in [mpVolumeView subviews]){
@@ -347,6 +436,8 @@
     
     //计时器
     if (_timer==nil) {
+        //添加定时器时，就记住时间
+        _lastShowBarTime=[[NSDate date] timeIntervalSince1970];
         _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeGo) userInfo:nil repeats:YES];
     }
     
@@ -382,73 +473,75 @@
 -(void)createTopBar{
     if (_topBar==nil) {
         _topBar=[[UIView alloc] initWithFrame:CGRectMake(0,0,_initFrame.size.width,CDPTOPHEIGHT(NO))];
-        _topBar.backgroundColor=[UIColor blackColor];
-        _topBar.alpha=0.5;
+        _topBar.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:0.5f];;
+//        _topBar.alpha=0.5;
         _topBar.userInteractionEnabled=YES;
         [self addSubview:_topBar];
-        
-        //返回
-        _backButton=[[CDPButton alloc] initWithFrame:CGRectMake(5,_topBar.frame.origin.y+CDPTOPHEIGHT(NO)/2-CDPButtonHeight/2,CDPButtonWidth,CDPButtonHeight)
-                                           imageRect:CGRectMake(CDPButtonWidth/2-4,CDPButtonHeight/2-8,8,16)
-                                           titleRect:CGRectZero];
+
+        _backButton = [[UIButton alloc]initWithFrame:CGRectMake(0, _topBar.frame.origin.y, 45, _topBar.frame.size.height)];
         [_backButton addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
-        [_backButton setImage:[UIImage imageNamed:@"CDPBack"] forState:UIControlStateNormal];
+        [_backButton setImage:[UIImage imageNamed:@"detail_back_night.png"] forState:UIControlStateNormal];
+        [_backButton setImage:[UIImage imageNamed:@"newBackSel_black.png"] forState:UIControlStateHighlighted];
+        [_backButton setImageEdgeInsets:UIEdgeInsetsMake((_backButton.frame.size.height-23)/2, 8.0f, (_backButton.frame.size.height-23)/2, _backButton.frame.size.width-8-23)];
         [self addSubview:_backButton];
         
         //标题
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxY(_backButton.frame),_topBar.frame.origin.y,_topBar.frame.size.width-CGRectGetMaxY(_backButton.frame)-5,CDPTOPHEIGHT(NO))];
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxY(_backButton.frame),0,_topBar.frame.size.width-CGRectGetMaxY(_backButton.frame)-5,_topBar.frame.size.height)];
         _titleLabel.textColor=[UIColor whiteColor];
         _titleLabel.font=[UIFont systemFontOfSize:14];
-        [self addSubview:_titleLabel];
+        [_topBar addSubview:_titleLabel];
+        
+        _topBar.hidden = YES;
     }
 }
 //创建footBar
 -(void)createFootBar{
     if (_footBar==nil) {
         _footBar=[[UIView alloc] initWithFrame:CGRectMake(0,_initFrame.size.height-CDPFOOTHEIGHT,_initFrame.size.width,CDPFOOTHEIGHT)];
-        _footBar.backgroundColor=[UIColor blackColor];
-        _footBar.alpha=0.5;
+        _footBar.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:0.5];;
         _footBar.userInteractionEnabled=YES;
         [self addSubview:_footBar];
         
         //播放\暂停
-        _playButton=[[UIButton alloc] initWithFrame:CGRectMake(5,_footBar.frame.origin.y+CDPFOOTHEIGHT/2-CDPButtonHeight/2,CDPButtonWidth,CDPButtonHeight)];
+        _playButton=[[UIButton alloc] initWithFrame:CGRectMake(0,0,31,_footBar.frame.size.height)];
         [_playButton addTarget:self action:@selector(playOrPause) forControlEvents:UIControlEventTouchUpInside];
-        [_playButton setImage:[UIImage imageNamed:@"CDPPlay"] forState:UIControlStateNormal];
-        [_playButton setImage:[UIImage imageNamed:@"CDPPause"] forState:UIControlStateSelected];
-        [self addSubview:_playButton];
+        [_playButton setImage:[UIImage imageNamed:@"startPlay_n.png"] forState:UIControlStateNormal];
+        [_playButton setImage:[UIImage imageNamed:@"pause_n.png"] forState:UIControlStateSelected];
+        [_playButton setImageEdgeInsets:UIEdgeInsetsMake((_playButton.frame.size.height-18)/2, 8.0f, (_playButton.frame.size.height-18)/2, _playButton.frame.size.width-8-18)];
+        [_footBar addSubview:_playButton];
         
         //切换全屏
-        _switchButton=[[UIButton alloc] initWithFrame:CGRectMake(_footBar.frame.size.width-35,_footBar.frame.origin.y+CDPFOOTHEIGHT/2-CDPButtonHeight/2,CDPButtonWidth,CDPButtonHeight)];
+        _switchButton=[[UIButton alloc] initWithFrame:CGRectMake(_footBar.frame.size.width-25,0,25,_footBar.frame.size.height)];
         [_switchButton addTarget:self action:@selector(switchClick) forControlEvents:UIControlEventTouchUpInside];
-        [_switchButton setImage:[UIImage imageNamed:@"CDPZoomIn"] forState:UIControlStateNormal];
-        [_switchButton setImage:[UIImage imageNamed:@"CDPZoomOut"] forState:UIControlStateSelected];
-        [self addSubview:_switchButton];
+        [_switchButton setImage:[UIImage imageNamed:@"fullscreen.png"] forState:UIControlStateNormal];
+        [_switchButton setImage:[UIImage imageNamed:@"smallscreen.png"] forState:UIControlStateSelected];
+        [_switchButton setImageEdgeInsets:UIEdgeInsetsMake((_switchButton.frame.size.height-13)/2, 0, (_switchButton.frame.size.height-13)/2, _switchButton.frame.size.width-16)];
+        [_footBar addSubview:_switchButton];
         
         //时间
-        _timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(_switchButton.frame.origin.x-80,_footBar.frame.origin.y,80,CDPFOOTHEIGHT)];
+        _timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(_switchButton.frame.origin.x-80,0,80,_footBar.frame.size.height)];
         _timeLabel.textAlignment=NSTextAlignmentCenter;
         _timeLabel.text=@"00:00/00:00";
-        _timeLabel.font=[UIFont systemFontOfSize:10];
+        _timeLabel.font=[UIFont systemFontOfSize:11];
         _timeLabel.numberOfLines=0;
         _timeLabel.textColor=[UIColor whiteColor];
-        [self addSubview:_timeLabel];
+        [_footBar addSubview:_timeLabel];
         
         //缓冲进度条
         _progressView=[[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        _progressView.frame=CGRectMake(CGRectGetMaxX(_playButton.frame),_footBar.frame.origin.y+CDPFOOTHEIGHT/2,CGRectGetMinX(_timeLabel.frame)-CGRectGetMaxX(_playButton.frame),2);
+        _progressView.frame=CGRectMake(CGRectGetMaxX(_playButton.frame)+8,(_footBar.frame.size.height-2)/2,CGRectGetMinX(_timeLabel.frame)-CGRectGetMaxX(_playButton.frame)-8, 2);
         _progressView.progressTintColor=[UIColor lightGrayColor];
         _progressView.trackTintColor=[UIColor darkGrayColor];
-        [self insertSubview:_progressView belowSubview:_playButton];
+        [_footBar insertSubview:_progressView belowSubview:_playButton];
         
         //进度条
-        _slider=[[UISlider alloc] initWithFrame:CGRectMake(_progressView.frame.origin.x-2,_progressView.frame.origin.y-14,_progressView.bounds.size.width+2,30)];
+        _slider=[[UISlider alloc] initWithFrame:CGRectMake(CGRectGetMinX(_progressView.frame)-2,(_footBar.frame.size.height-30)/2,_progressView.bounds.size.width+4,30)];
         [_slider setThumbImage:[UIImage imageNamed:@"CDPSlider"] forState:UIControlStateNormal];
-        _slider.minimumTrackTintColor=[UIColor whiteColor];
+        _slider.minimumTrackTintColor=ROSERED;
         _slider.maximumTrackTintColor=[UIColor clearColor];
         [_slider addTarget:self action:@selector(sliderChange) forControlEvents:UIControlEventValueChanged];
         [_slider addTarget:self action:@selector(sliderChangeEnd) forControlEvents:UIControlEventTouchUpInside];
-        [self insertSubview:_slider aboveSubview:_progressView];
+        [_footBar insertSubview:_slider aboveSubview:_progressView];
     }
 }
 #pragma mark - PlayerView外部交互
@@ -485,6 +578,7 @@
 }
 //切换\取消全屏状态
 -(void)setIsFullScreen:(BOOL)isFullScreen{
+    NSLog(@"setIsFullScreen==");
     //记录最后一次显示开始时间
     _lastShowBarTime=[[NSDate date] timeIntervalSince1970];
     
@@ -495,6 +589,8 @@
     
     _isSwitch=YES;
     if (_isFullScreen==YES) {
+        //全屏下显示标题
+        _topBar.hidden = NO;
         //全屏
         [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
         
@@ -504,8 +600,9 @@
         }completion:^(BOOL finished) {
             _isSwitch=NO;
         }];
-    }
-    else{
+    }else{
+        //非全屏下显示标题
+        _topBar.hidden = YES;
         //非全屏
         [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
         
@@ -558,6 +655,12 @@
                     //播放结束
                     _playButton.selected=NO;
                     [self removeBufferView];
+                    //进度设置为0，显示底图
+                    _slider.value = 0;
+                    [self showOrHideBaseImage:NO];
+                    [self updateTime:0.0f];
+                    [self showBar];
+                    _baseButton.hidden = NO;
                 }
                     break;
                 case PlayerViewUnknown:{
@@ -582,31 +685,26 @@
 }
 //更新播放器frame
 -(void)updateFrame{
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    if ([self.delegate respondsToSelector:@selector(hideOrShowStaBar:)]) {
+        [self.delegate hideOrShowStaBar:_isFullScreen];
+    }
     if (_isFullScreen==YES) {
         //全屏
-        self.frame=CGRectMake(0,0,CDPSHEIGHT,CDPSWIDTH);
+        self.frame=CGRectMake(0,0,SCREEN_HEIGHT,SCREEN_WIDTH);
         _playerLayer.frame=self.bounds;
         self.center=self.window.center;
-        
         if (_haveOriginalUI==YES&&_topBar&&_footBar) {
             [self restoreOrChangeAlpha:YES];
-            
             [self restoreOrChangeFrame:NO];
-            
             _switchButton.selected=YES;
         }
-    }
-    else{
+    }else{
         //非全屏
         self.frame=_initFrame;
         _playerLayer.frame=self.bounds;
-        
         if (_haveOriginalUI==YES&&_topBar&&_footBar) {
             [self restoreOrChangeTransForm:YES];
-            
             [self restoreOrChangeFrame:YES];
-            
             _switchButton.selected=NO;
         }
     }
@@ -622,13 +720,13 @@
         if (_haveOriginalUI==YES) {
             [self switchClick];
         }
-    }
-    else{
+    }else{
         //单击
         if (_isShowBar==YES) {
+            NSLog(@"hidebar====");
             [self hideBar];
-        }
-        else{
+        }else{
+            NSLog(@"showBar====");
             [self showBar];
         }
     }
@@ -664,8 +762,7 @@
         [_volumeSlider setValue:changedValue animated:YES];
         
         [_volumeSlider sendActionsForControlEvents:UIControlEventTouchUpInside];
-    }
-    else{
+    }else{
         if ([_delegate respondsToSelector:@selector(panGR:)]) {
             [_delegate panGR:panGR];
         }
@@ -788,9 +885,8 @@
     NSInteger b=_totalTime/60;
     NSInteger c=playTime-a*60;
     NSInteger d=_totalTime-b*60;
-    
     if (_timeLabel) {
-        _timeLabel.text=[NSString stringWithFormat:@"%d:%02d/%d:%02d",a,c,b,d];
+        _timeLabel.text=[NSString stringWithFormat:@"%ld:%02ld/%ld:%02ld",(long)a,(long)c,(long)b,(long)d];
     }
 }
 //显示导航栏
@@ -801,15 +897,11 @@
         return;
     }
     _isShowBar=YES;
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    
     if ([_delegate respondsToSelector:@selector(showBar)]) {
         [_delegate showBar];
     }
     if (_haveOriginalUI==YES&&_changeBar==NO) {
         _changeBar=YES;
-//        [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
-        
         [UIView animateWithDuration:0.3 animations:^{
             [self restoreOrChangeAlpha:YES];
             
@@ -819,7 +911,6 @@
             _changeBar=NO;
         }];
     }
-    
 }
 //隐藏导航栏
 -(void)hideBar{
@@ -827,9 +918,6 @@
         return;
     }
     _isShowBar=NO;
-    if (_isFullScreen==YES) {
-//        [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    }
     if ([_delegate respondsToSelector:@selector(hideBar)]) {
         [_delegate hideBar];
     }
@@ -837,14 +925,11 @@
         _changeBar=YES;
         
         [self restoreOrChangeTransForm:YES];
-        
         [UIView animateWithDuration:0.3 animations:^{
             if (_isFullScreen==YES) {
                 [self restoreOrChangeTransForm:NO];
-                
                 [self restoreOrChangeAlpha:YES];
-            }
-            else{
+            }else{
                 [self restoreOrChangeAlpha:NO];
             }
         }completion:^(BOOL finished) {
@@ -857,61 +942,32 @@
     CGAffineTransform oriTransform=CGAffineTransformIdentity;
     CGAffineTransform topTransform=CGAffineTransformMakeTranslation(0,-_topBar.bounds.size.height);
     CGAffineTransform footTransform=CGAffineTransformMakeTranslation(0,_footBar.bounds.size.height);
-    
     if (restore==YES) {
+        NSLog(@"restoreOrChangeTransForm====");
         _topBar.transform=oriTransform;
         _backButton.transform=oriTransform;
-        _titleLabel.transform=oriTransform;
         
         _footBar.transform=oriTransform;
-        _playButton.transform=oriTransform;
-        _switchButton.transform=oriTransform;
-        _progressView.transform=oriTransform;
-        _slider.transform=oriTransform;
-        _timeLabel.transform=oriTransform;
     }
     else{
         _topBar.transform=topTransform;
         _backButton.transform=topTransform;
-        _titleLabel.transform=topTransform;
-        
+
         _footBar.transform=footTransform;
-        _playButton.transform=footTransform;
-        _switchButton.transform=footTransform;
-        _progressView.transform=footTransform;
-        _slider.transform=footTransform;
-        _timeLabel.transform=footTransform;
     }
 }
 //恢复或改变alpha
 -(void)restoreOrChangeAlpha:(BOOL)restore{
     CGFloat a=0;
-    CGFloat b=0.5;
-    CGFloat c=1;
-    
+    CGFloat b=1;
     if (restore==YES) {
         _topBar.alpha=b;
-        _backButton.alpha=c;
-        _titleLabel.alpha=c;
-        
+        _backButton.alpha=b;
         _footBar.alpha=b;
-        _playButton.alpha=c;
-        _switchButton.alpha=c;
-        _progressView.alpha=c;
-        _slider.alpha=c;
-        _timeLabel.alpha=c;
-    }
-    else{
+    }else{
         _topBar.alpha=a;
         _backButton.alpha=a;
-        _titleLabel.alpha=a;
-        
         _footBar.alpha=a;
-        _playButton.alpha=a;
-        _switchButton.alpha=a;
-        _progressView.alpha=a;
-        _slider.alpha=a;
-        _timeLabel.alpha=a;
     }
 }
 //恢复或改变frame
@@ -920,25 +976,46 @@
         _topBar.frame=CGRectMake(0,0,_initFrame.size.width,CDPTOPHEIGHT(NO));
         _footBar.frame=CGRectMake(0,_initFrame.size.height-CDPFOOTHEIGHT,_initFrame.size.width,CDPFOOTHEIGHT);
         
-        _backButton.frame=CGRectMake(5,_topBar.frame.origin.y+CDPTOPHEIGHT(NO)/2-CDPButtonHeight/2,CDPButtonWidth,CDPButtonHeight);
-        _titleLabel.frame=CGRectMake(CGRectGetMaxY(_backButton.frame),_topBar.frame.origin.y,_topBar.frame.size.width-CGRectGetMaxY(_backButton.frame)-5,CDPTOPHEIGHT(NO));
-    }
-    else{
+        _baseButton.frame = CGRectMake((_initFrame.size.width-38)/2, (_initFrame.size.height-38)/2, 38, 38);
+    }else{
         _topBar.frame=CGRectMake(0,0,self.bounds.size.width,CDPTOPHEIGHT(YES));
         _footBar.frame=CGRectMake(0,self.bounds.size.height-CDPFOOTHEIGHT,self.bounds.size.width,CDPFOOTHEIGHT);
-        
-        _backButton.frame=CGRectMake(5,_topBar.frame.origin.y+CDPTOPHEIGHT(NO)/2-CDPButtonHeight/2+20,CDPButtonWidth,CDPButtonHeight);
-        _titleLabel.frame=CGRectMake(CGRectGetMaxY(_backButton.frame),_topBar.frame.origin.y+20,_topBar.frame.size.width-CGRectGetMaxY(_backButton.frame)-5,CDPTOPHEIGHT(NO));
+        _baseButton.frame = CGRectMake((SCREEN_WIDTH-38)/2, (SCREEN_HEIGHT-38)/2, 38, 38);
     }
+    
+    if ([PlayLoading loadingIsShow:self]) {
+        [PlayLoading loadingHide:self];
+        [PlayLoading loadingShow:self below:_topBar];
+    }
+    
+    _baseImage.frame = self.bounds;
+    
+    _backButton.frame = CGRectMake(0, _topBar.frame.origin.y, 45, _topBar.frame.size.height);
+    [_backButton setImageEdgeInsets:UIEdgeInsetsMake((_backButton.frame.size.height-23)/2, 8.0f, (_backButton.frame.size.height-23)/2, _backButton.frame.size.width-8-23)];
+    _titleLabel.frame = CGRectMake(CGRectGetMaxX(_backButton.frame),0,_topBar.frame.size.width-CGRectGetMaxY(_backButton.frame)-5,_topBar.frame.size.height);
+    
     _bufferView.frame=CGRectMake(self.bounds.size.width/2-60,self.bounds.size.height/2-30,120,60);
     _activityView.frame=CGRectMake(_bufferView.frame.origin.x+41,_bufferView.frame.origin.y+1,38,38);
     _bufferLabel.frame=CGRectMake(_bufferView.frame.origin.x,CGRectGetMaxY(_activityView.frame),120,20);
     
-    _playButton.frame=CGRectMake(5,_footBar.frame.origin.y+CDPFOOTHEIGHT/2-CDPButtonHeight/2,CDPButtonWidth,CDPButtonHeight);
-    _switchButton.frame=CGRectMake(_footBar.frame.size.width-35,_footBar.frame.origin.y+CDPFOOTHEIGHT/2-CDPButtonHeight/2,CDPButtonWidth,CDPButtonHeight);
-    _timeLabel.frame=CGRectMake(_switchButton.frame.origin.x-80,_footBar.frame.origin.y,80,CDPFOOTHEIGHT);
-    _progressView.frame=CGRectMake(CGRectGetMaxX(_playButton.frame),_footBar.frame.origin.y+CDPFOOTHEIGHT/2,CGRectGetMinX(_timeLabel.frame)-CGRectGetMaxX(_playButton.frame),2);
-    _slider.frame=CGRectMake(_progressView.frame.origin.x-2,_progressView.frame.origin.y-14,_progressView.bounds.size.width+2,30);
+    _playButton.frame = CGRectMake(0,0,31,_footBar.frame.size.height);
+    _switchButton.frame = CGRectMake(_footBar.frame.size.width-25,0,25,_footBar.frame.size.height);
+    _timeLabel.frame = CGRectMake(_switchButton.frame.origin.x-80,0,80,_footBar.frame.size.height);
+    _progressView.frame = CGRectMake(CGRectGetMaxX(_playButton.frame)+8,(_footBar.frame.size.height-2)/2,CGRectGetMinX(_timeLabel.frame)-CGRectGetMaxX(_playButton.frame)-8, 2);
+    _slider.frame = CGRectMake(CGRectGetMinX(_progressView.frame)-2,(_footBar.frame.size.height-30)/2,_progressView.bounds.size.width+4,30);
+}
+
+- (void)showOrHideBaseImage:(BOOL)hide{
+    if (hide) {
+        [UIView animateWithDuration:0.3 animations:^{
+            _baseImage.alpha = 0;
+        }];
+    }else{
+        [UIView animateWithDuration:0.3 animations:^{
+            _baseImage.alpha = 1;
+        }];
+    }
+    
 }
 
 @end

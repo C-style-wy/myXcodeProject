@@ -14,17 +14,26 @@
     UILabel *_introLabel;
     UILabel *_commentLabel;
     UIScrollView *_mainScrollView;
+    NSString *_playViewTitle;
+    //是否隐藏状态栏
+    BOOL _hideBar;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
-    [self preferredStatusBarStyle];
+    _hideBar = NO;
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+- (BOOL)prefersStatusBarHidden{
+    //    return !showToolBarAndText; //返回NO表示要显示，返回YES将hiden
+    return _hideBar;
 }
 
 -(BOOL)shouldAutorotate{
@@ -36,12 +45,10 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = VIEWBACKGROUND_COLOR;
     
-    [self createUI];
-    
-    UIView *statuView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+    UIView *statuView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20+171)];
     statuView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:statuView];
-
+    [self createUI];
     [Request requestPostForJSON:@"playData" url:_playUrl delegate:self paras:nil msg:0 useCache:NO];
 }
 
@@ -113,6 +120,10 @@
     label2.textAlignment = NSTextAlignmentCenter;
     label2.font = [UIFont systemFontOfSize:15.5f];
     [_mainScrollView addSubview:label2];
+    
+    //添加播放器UI
+    _playView = [[PlayerView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 171) delegate:self baseImageUrl:self.baseImageUrl];
+    [self.view addSubview:_playView];
 }
 
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
@@ -120,23 +131,32 @@
         [self dealPlayDataBack:returnJson];
     }else if ([tag isEqual:@"playUrl"]){
         NSString *filePath = [returnJson objectForKey:@"url"];
-        _playView = [[PlayerView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 171) url:filePath delegate:self haveOriginalUI:YES];
-        _playView.title = @"标题";
-        [self.view addSubview:_playView];
+//        _playView = [[PlayerView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 171) url:filePath delegate:self haveOriginalUI:YES];
+        [_playView setPlayerUrlAndPlay:filePath];
+        _playView.title = _playViewTitle;
+//        [self.view addSubview:_playView];
     }
 }
 
 -(void)dealPlayDataBack:(NSDictionary*)jsonData{
     NSString *getPlayUrl = [jsonData objectForKey:@"getPlayUrl"];
+    _playViewTitle = [[jsonData objectForKey:@"content"] objectForKey:@"name"];
     [Request requestPostForJSON:@"playUrl" url:getPlayUrl delegate:self paras:nil msg:0 useCache:NO];
 }
-
-#pragma mark - 点击事件
+#pragma mark - playViewDelegate
 //返回
 -(void)back{
     [self.navigationController popViewControllerAnimated:YES];
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    //    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)hideOrShowStaBar:(BOOL)hide{
+    _hideBar = hide;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+
+#pragma mark - 点击事件
 //两个按钮响应事件
 -(void)twoBtnClickEvent:(UIButton*)button{
     if (button.tag == 1) { //简介

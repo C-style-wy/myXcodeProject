@@ -637,6 +637,7 @@
         if ([cell.newsType isEqual:@"1"]) {
             PlayViewController *play = [[PlayViewController alloc] init];
             play.playUrl = url;
+            play.baseImageUrl = cell.images;
             [self.navigationController pushViewController:play animated:YES];
         }else if ([cell.newsType isEqual:@"4"]){
             PicDetailViewController *picDetail = [[PicDetailViewController alloc] init];

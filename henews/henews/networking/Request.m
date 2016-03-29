@@ -46,7 +46,7 @@
     [manager.requestSerializer setValue:[userDefaults stringForKey:@"WD_CHANNEL"] forHTTPHeaderField:@"WD_CHANNEL"];
     [manager.requestSerializer setValue:[userDefaults stringForKey:@"WD_RESOLUTION"] forHTTPHeaderField:@"WD_RESOLUTION"];
     [manager.requestSerializer setValue:[userDefaults stringForKey:@"WD_CP_ID"] forHTTPHeaderField:@"WD_CP_ID"];
-    
+    NSLog(@"httpUrl=%@", urlString);
     [manager POST:urlString parameters:paras progress:nil success:^(NSURLSessionDataTask *task, id responseObject){
         NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         if (resultDic) {

@@ -16,5 +16,6 @@
 @interface PlayViewController : UIViewController<PlayerViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, retain) NSString *playUrl;
+@property (nonatomic, retain) NSString *baseImageUrl;
 
 @end

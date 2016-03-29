@@ -53,6 +53,8 @@ typedef enum{
 //每次点击切换全屏键回调(仅限默认UI)
 - (void)switchSizeClick;
 
+//隐藏或显示状态栏
+- (void)hideOrShowStaBar:(BOOL)hide;
 @end
 
 @interface PlayerView : UIView
@@ -82,12 +84,17 @@ typedef enum{
 
 //总播放时间
 @property (nonatomic, assign, readonly) CGFloat totalTime;
+//底图url
+@property (nonatomic, strong) NSString *basePicUrl;
 
 @property (nonatomic, weak) id<PlayerViewDelegate> delegate;
 
 //初始化
 - (instancetype)initWithFrame:(CGRect)frame url:(NSString *)url delegate:(id<PlayerViewDelegate>)delegate haveOriginalUI:(BOOL)haveOriginalUI;
-
+//创建播放器UI
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<PlayerViewDelegate>)delegate baseImageUrl:(NSString*)url;
+//设置播放url并播放
+- (void)setPlayerUrlAndPlay:(NSString*)url;
 //播放并判断是否重新加载当前url资源
 - (void)play;
 
