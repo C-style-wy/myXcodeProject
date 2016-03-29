@@ -20,6 +20,7 @@
 #import "DetailViewController.h"
 #import "PlayViewController.h"
 #import "PicDetailViewController.h"
+#import "LinkViewController.h"
 
 #import "ProgramaStructure.h"
 
@@ -629,6 +630,12 @@
             PicDetailViewController *picDetail = [[PicDetailViewController alloc] init];
             picDetail.picUrl = url;
             [self.navigationController pushViewController:picDetail animated:YES];
+        }else if ([cell.newsType isEqual:@"5"]){
+            LinkViewController *linkDetail = [[LinkViewController alloc] init];
+            linkDetail.linkUrl = url;
+            linkDetail.shouldRequstAgain = YES;
+            linkDetail.showShareButton = YES;
+            [self.navigationController pushViewController:linkDetail animated:YES];
         }
         else{
             DetailViewController *detail = [[DetailViewController alloc] init];

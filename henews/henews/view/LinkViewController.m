@@ -53,8 +53,8 @@
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     [self.activityIndicator stopAnimating];
     if ([tag isEqual:@"linkData"]) {
-//        NSURL *url = [NSURL URLWithString:self.linkUrl];
-//        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+        NSURL *url = [NSURL URLWithString:[[returnJson objectForKey:@"content"] objectForKey:@"realUrl"]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
     }
 }
 
@@ -65,7 +65,7 @@
 
 #pragma mark - PageHeadDelegate
 - (void)pageHead:(PageHead *)head shareButton:(UIButton *)button{
-    NSLog(@"ssssss44444444");
+    
 }
 
 - (void)pageHead:(PageHead*)head backButton:(UIButton *)button{
