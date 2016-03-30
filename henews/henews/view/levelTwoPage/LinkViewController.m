@@ -82,13 +82,13 @@
 }
 
 //网页开始加载的时候调用
-- (void )webViewDidStartLoad:(UIWebView  *)webView{
+- (void )webViewDidStartLoad:(UIWebView *)webView{
     NSLog(@"webViewDidStartLoad====");
     
     [self.activityIndicator startAnimating];
 }
 //网页加载完成的时候调用
-- (void )webViewDidFinishLoad:(UIWebView  *)webView{
+- (void )webViewDidFinishLoad:(UIWebView *)webView{
     NSLog(@"webViewDidFinishLoad====");
     [self.activityIndicator stopAnimating];
 //    [self.activityIndicator removeFromSuperview];
