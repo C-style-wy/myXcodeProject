@@ -67,6 +67,7 @@
 
 @end
 
+//参数为UIViewController和BOOL类型，返回值为void的block, block可以看成一个变量;
 typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewController, BOOL animated);
 
 @interface UIViewController (FDFullscreenPopGesturePrivate)
@@ -82,7 +83,7 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];
-        
+        //@selector(viewWillAppear:)获取方法唯一Id，Id类型为SEL
         SEL originalSelector = @selector(viewWillAppear:);
         SEL swizzledSelector = @selector(fd_viewWillAppear:);
         
@@ -121,7 +122,7 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
 @end
 
 @implementation UINavigationController (FDFullscreenPopGesture)
-//是否旋转手机
+//是否旋转手机，wy add
 - (BOOL)shouldAutorotate{
     return [self.visibleViewController shouldAutorotate];
 }

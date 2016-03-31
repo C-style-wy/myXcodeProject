@@ -9,13 +9,14 @@
 #import "PlayViewController.h"
 #import "SHLUILabel.h"
 #import "InputBox.h"
+#import "CTUIScrollView.h"
 
 @implementation PlayViewController{
     PlayerView *_playView;
     UIView *_redLine;
     UILabel *_introLabel;
     UILabel *_commentLabel;
-    UIScrollView *_mainScrollView;
+    CTUIScrollView *_mainScrollView;
     NSString *_playViewTitle;
     //是否隐藏状态栏
     BOOL _hideBar;
@@ -26,7 +27,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
-    _hideBar = NO;
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
@@ -46,7 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _hideBar = NO;
     self.view.backgroundColor = VIEWBACKGROUND_COLOR;
     
     UIView *statuView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20+171)];
@@ -102,7 +102,7 @@
         [btn addSubview:label];
     }
     
-    _mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(twoButtonView.frame), SCREEN_WIDTH, SCREEN_HEIGHT-(twoButtonView.frame.origin.y+twoButtonView.frame.size.height)-35.5f)];
+    _mainScrollView = [[CTUIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(twoButtonView.frame), SCREEN_WIDTH, SCREEN_HEIGHT-(twoButtonView.frame.origin.y+twoButtonView.frame.size.height)-35.5f)];
     [self.view addSubview:_mainScrollView];
     _mainScrollView.delegate = self;
     _mainScrollView.backgroundColor = [UIColor clearColor];
@@ -117,7 +117,8 @@
     _introScrollView.showsHorizontalScrollIndicator = NO;
     _introScrollView.showsVerticalScrollIndicator = YES;
     _introScrollView.pagingEnabled = NO;
-    _introScrollView.bounces = YES;
+    _introScrollView.alwaysBounceHorizontal = NO;
+    _introScrollView.alwaysBounceVertical = YES;
     [_mainScrollView addSubview:_introScrollView];
 //    _introScrollView.backgroundColor = [UIColor redColor];
     

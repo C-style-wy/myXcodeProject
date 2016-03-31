@@ -157,6 +157,8 @@
 		D3E563971CACAF5300B5B930 /* OneSmallPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E5638E1CACAF5300B5B930 /* OneSmallPicCell.m */; };
 		D3E563981CACAF5300B5B930 /* OnlyTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E563901CACAF5300B5B930 /* OnlyTitleCell.m */; };
 		D3E563991CACAF5300B5B930 /* ThreePicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E563921CACAF5300B5B930 /* ThreePicCell.m */; };
+		D3E5639C1CACCCF100B5B930 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E5639B1CACCCF100B5B930 /* SettingViewController.m */; };
+		D3E563A01CACF1DE00B5B930 /* CTUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E5639F1CACF1DE00B5B930 /* CTUIScrollView.m */; };
 		D3E6B5C61BE8F22200740A02 /* newsBigBg.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E6B5C51BE8F22200740A02 /* newsBigBg.png */; };
 		D3E77E321C112782001DA80F /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E77E311C112782001DA80F /* MD5.m */; };
 		D3EC3DEA1BD1F8B800D32364 /* launch640_1136.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EC3DE91BD1F8B800D32364 /* launch640_1136.png */; };
@@ -432,6 +434,10 @@
 		D3E563901CACAF5300B5B930 /* OnlyTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyTitleCell.m; sourceTree = "<group>"; };
 		D3E563911CACAF5300B5B930 /* ThreePicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreePicCell.h; sourceTree = "<group>"; };
 		D3E563921CACAF5300B5B930 /* ThreePicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreePicCell.m; sourceTree = "<group>"; };
+		D3E5639A1CACCCF100B5B930 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		D3E5639B1CACCCF100B5B930 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		D3E5639E1CACF1DE00B5B930 /* CTUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTUIScrollView.h; sourceTree = "<group>"; };
+		D3E5639F1CACF1DE00B5B930 /* CTUIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTUIScrollView.m; sourceTree = "<group>"; };
 		D3E6B5C51BE8F22200740A02 /* newsBigBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newsBigBg.png; sourceTree = "<group>"; };
 		D3E77E301C112782001DA80F /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
 		D3E77E311C112782001DA80F /* MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5.m; sourceTree = "<group>"; };
@@ -727,6 +733,8 @@
 				D3FD23AA1CAB78B40047112A /* levelTwoPage */,
 				D36510F51BCF93A1004AEA98 /* IndexViewController.h */,
 				D36510F61BCF93A1004AEA98 /* IndexViewController.m */,
+				D3E5639A1CACCCF100B5B930 /* SettingViewController.h */,
+				D3E5639B1CACCCF100B5B930 /* SettingViewController.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -842,6 +850,15 @@
 				D3E563921CACAF5300B5B930 /* ThreePicCell.m */,
 			);
 			path = levelOneTableViewCell;
+			sourceTree = "<group>";
+		};
+		D3E5639D1CACF1BB00B5B930 /* CTUIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				D3E5639E1CACF1DE00B5B930 /* CTUIScrollView.h */,
+				D3E5639F1CACF1DE00B5B930 /* CTUIScrollView.m */,
+			);
+			path = CTUIScrollView;
 			sourceTree = "<group>";
 		};
 		D3EC3DE81BD1F8A000D32364 /* image */ = {
@@ -986,6 +1003,7 @@
 		D3FE429E1C07FE0B00DBA6AA /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D3E5639D1CACF1BB00B5B930 /* CTUIScrollView */,
 				D33DB5BC1C1AA10F00186F8D /* DGReorderableCollectionViewFlowLayout */,
 				D30F8C081C155CB70077D556 /* SHLUILabel */,
 				D3FE42A61C0802A400DBA6AA /* Loading */,
@@ -1290,6 +1308,7 @@
 				D3FD23B81CAB78E20047112A /* PicDetailViewController.m in Sources */,
 				D3F75E771BEB59DE005A8586 /* columStruct.m in Sources */,
 				D33DB5BF1C1AA15F00186F8D /* DGReorderableCollectionViewFlowLayout.m in Sources */,
+				D3E563A01CACF1DE00B5B930 /* CTUIScrollView.m in Sources */,
 				D3FD23B61CAB78E20047112A /* DetailViewController.m in Sources */,
 				D33ABB511C9AB89900125526 /* NewsViewController.m in Sources */,
 				D3FD23B71CAB78E20047112A /* LinkViewController.m in Sources */,
@@ -1331,6 +1350,7 @@
 				D320CFAA1CA0EB4200895E7F /* HeadInPicDetail.m in Sources */,
 				D31939A41C995664009AEAF1 /* ShareMode.m in Sources */,
 				D3C7958B1BDE02D800322D3C /* MJRefreshHeaderView.m in Sources */,
+				D3E5639C1CACCCF100B5B930 /* SettingViewController.m in Sources */,
 				D33ABB341C9AB55D00125526 /* NewsLinkCellData.m in Sources */,
 				D3E563941CACAF5300B5B930 /* EveryOneCell.m in Sources */,
 				D37F85811BE3055700E8CA06 /* IphoneParams.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "PicDetailViewController.h"
 #import "BottomTextInPicDetail.h"
+#import "CTUIScrollView.h"
 
 @interface PicDetailViewController ()
 {
@@ -25,7 +26,6 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
     [self preferredStatusBarStyle];
-    showToolBarAndText = true;
     [self prefersStatusBarHidden];
     [self setNeedsStatusBarAppearanceUpdate];
 }
@@ -47,20 +47,23 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     NSLog(@"url=%@", self.picUrl);
+    showToolBarAndText = true;
     [self UIInit];
 }
 
 -(void)UIInit{
     if (self.imagesScrollView == nil) {
-        self.imagesScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        self.imagesScrollView = [[CTUIScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
         [self.view addSubview:self.imagesScrollView];
         self.imagesScrollView.pagingEnabled = YES;
         self.imagesScrollView.showsHorizontalScrollIndicator = NO;
         self.imagesScrollView.showsVerticalScrollIndicator = NO;
-        self.imagesScrollView.bounces = NO;
+//        self.imagesScrollView.alwaysBounceHorizontal = NO;
         self.imagesScrollView.backgroundColor = [UIColor clearColor];
         self.imagesScrollView.delegate = self;
-        self.imagesScrollView.alwaysBounceVertical = YES;
+//        self.imagesScrollView.alwaysBounceVertical = NO;
+        self.imagesScrollView.bounces = NO;
+        
         self.automaticallyAdjustsScrollViewInsets = NO;
         
         UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];

@@ -9,6 +9,8 @@
 #import "MyViewController.h"
 #import "DetailViewController.h"
 
+#import "SettingViewController.h"
+
 @interface MyViewController ()
 
 @end
@@ -201,7 +203,8 @@
     }else if (3 == button.tag){  //新闻搜索
         
     }else if (4 == button.tag){  //设置
-        
+        SettingViewController *setting = [[SettingViewController alloc]init];
+        [self.navigationController pushViewController:setting animated:YES];
     }
 }
 
