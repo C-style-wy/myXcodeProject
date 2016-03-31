@@ -52,6 +52,11 @@
         _changeUrl = changeUrl;
     }
     
+    NSString *url = [data objectForKey:@"url"];
+    if (url && ![url isEqual:@""]) {
+        _changeUrl = url;
+    }
+    
     NSString *isMore = [data objectForKey:@"isMore"];
     if (isMore && ![isMore isEqual:@""]) {
         _isMore = isMore;

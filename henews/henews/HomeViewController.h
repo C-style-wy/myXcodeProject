@@ -16,7 +16,6 @@
 #import "ThreePicCell.h"
 
 #import "PicDetailViewController.h"
-#import "DetailViewController.h"
 #import "PlayViewController.h"
 
 @interface HomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>

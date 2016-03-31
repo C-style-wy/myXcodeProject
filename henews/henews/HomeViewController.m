@@ -9,10 +9,10 @@
 #import "HomeViewController.h"
 #import "DetailViewController.h"
 #import "LinkViewController.h"
+#import "TopicViewController.h"
 #import "MJRefresh.h"
 #import "Request.h"
-#import "OneSmallPicCell.h"
-#import "OnlyTitleCell.h"
+
 #import "VideoCell.h"
 #import "BannersCell.h"
 #import "UIImageView+AFNetworking.h"
@@ -300,7 +300,12 @@
     if ([cell.newsType isEqual:@"1"]) {
         PlayViewController *play = [[PlayViewController alloc] init];
         play.playUrl = url;
+        play.baseImageUrl = cell.images;
         [self.navigationController pushViewController:play animated:YES];
+    }else if ([cell.newsType isEqual:@"3"]){
+        TopicViewController *topic = [[TopicViewController alloc]init];
+        topic.topicUrl = url;
+        [self.navigationController pushViewController:topic animated:YES];
     }else if ([cell.newsType isEqual:@"4"]){
         PicDetailViewController *picDetail = [[PicDetailViewController alloc] init];
         picDetail.picUrl = url;
