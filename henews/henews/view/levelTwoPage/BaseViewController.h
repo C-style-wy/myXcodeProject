@@ -10,6 +10,7 @@
 #import "PageHead.h"
 #import "APIStringMacros.h"
 #import "Request.h"
+#import "Dialog.h"
 
 @interface BaseViewController : UIViewController<PageHeadDelegate>
 @property (nonatomic, retain)PageHead *head;

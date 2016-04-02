@@ -12,6 +12,9 @@
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 #import "InputBox.h"
+#import "UIView+Screen.h"
+
+#import "Dialog.h"
 
 @interface DetailViewController ()
 {
@@ -359,17 +362,36 @@
 }
 
 - (void)headInDetail:(HeadInDetail*)head modeButton:(UIButton *)button isNight:(BOOL)night{
-    if (night) {
-        hiddenStatusBar = YES;
-        [UIView animateWithDuration:0.3 animations:^{
-            [self setNeedsStatusBarAppearanceUpdate];
-        }];
-    }else{
-        hiddenStatusBar = NO;
-        [UIView animateWithDuration:0.3 animations:^{
-            [self setNeedsStatusBarAppearanceUpdate];
-        }];
-    }
+//    if (night) {
+//        hiddenStatusBar = YES;
+//        [UIView animateWithDuration:0.3 animations:^{
+//            [self setNeedsStatusBarAppearanceUpdate];
+//        }];
+//    }else{
+//        hiddenStatusBar = NO;
+//        [UIView animateWithDuration:0.3 animations:^{
+//            [self setNeedsStatusBarAppearanceUpdate];
+//        }];
+//    }
+    [Dialog showWithTipText:@"提示" descText:@"确定清空所有收藏!" LeftText:@"取消" rightText:@"注册" LeftBlock:^{
+        NSLog(@"取消");
+    } RightBlock:^{
+        NSLog(@"确定");
+    }];
+//    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+//    
+//    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//    
+//    UIVisualEffectView *view = [[UIVisualEffectView alloc]initWithEffect:beffect];
+//    
+//    view.frame = self.view.bounds;
+//    
+//    [self.view addSubview:view];
+//    view.alpha = 0.9;
+    
+//    UIImage *image = [self.view convertViewToImage];
+//    UIImage *mohuImage = [self.view blurryImage:image withBlurLevel:0.2];
+
 }
 
 #pragma mark - BottomToolBarInDetailDelegate

@@ -27,7 +27,7 @@
 - (id)initWithTotalNumPic:(int)num{
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
         
         nameLabel = [[UILabel alloc]init];
         nameLabel.textColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1];

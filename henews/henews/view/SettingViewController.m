@@ -34,6 +34,7 @@
     }else{
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -43,6 +44,26 @@
 - (void)fd_viewDidAppear:(BOOL)animated{
     [self fd_viewDidAppear:animated];
     NSLog(@"fd_viewDidAppear");
+    
+//    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+//    view.center = CGPointMake(160, 400);
+//    view.backgroundColor = ROSERED;
+//    [self.view addSubview:view];
+    
+    
+    
+//    CASpringAnimation *spring = [[CASpringAnimation alloc]init];
+//    spring.keyPath = @"position.x";
+//    spring.damping = 5;
+//    spring.stiffness = 100;
+//    spring.mass = 1;
+//    spring.initialVelocity = 0;
+////    spring.fromValue = (double)view.layer.position.x;
+////    spring.toValue = view.layer.position.x + 50;
+//    spring.duration = spring.settlingDuration;
+//    [view.layer addAnimation:spring forKey:spring.keyPath];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

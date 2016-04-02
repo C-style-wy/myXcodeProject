@@ -78,7 +78,7 @@
 
 #pragma mark - PageHeadDelegate
 - (void)pageHead:(PageHead *)head shareButton:(UIButton *)button{
-    
+    NSLog(@"ssss");
 }
 
 - (void)pageHead:(PageHead*)head backButton:(UIButton *)button{

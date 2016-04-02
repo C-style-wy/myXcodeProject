@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         self.frame = CGRectMake(0, 0, SCREEN_WIDTH, 58.0f);
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];;
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 25, SCREEN_WIDTH, 33.0f)];
         view.backgroundColor = [UIColor clearColor];
         [self addSubview:view];
