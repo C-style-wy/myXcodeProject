@@ -21,11 +21,14 @@
     for (int i = 0; i < serverData.count; i++) {
         columStruct *temp = [[columStruct alloc]init];
         [temp setData:[serverData objectAtIndex:i]];
-        NSData *udObject = [NSKeyedArchiver archivedDataWithRootObject:temp];
-        if ([temp.isMore isEqual:@"1"]) {
-            [localNewsNotOrder addObject:udObject];
-        }else{
-            [localNewsOrder addObject:udObject];
+        if (![temp.nodeName isEqualToString:@""]) {
+            NSData *udObject = [NSKeyedArchiver archivedDataWithRootObject:temp];
+            
+            if ([temp.isMore isEqual:@"1"]) {
+                [localNewsNotOrder addObject:udObject];
+            }else{
+                [localNewsOrder addObject:udObject];
+            }
         }
     }
     

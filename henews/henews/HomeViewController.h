@@ -14,11 +14,12 @@
 #import "OneBigPicCell.h"
 #import "EveryOneCell.h"
 #import "ThreePicCell.h"
+#import "BannersCell.h"
 
 #import "PicDetailViewController.h"
 #import "PlayViewController.h"
 
-@interface HomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface HomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, BannersDelegate>
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *tableViewData;

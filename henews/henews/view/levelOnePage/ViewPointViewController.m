@@ -181,26 +181,32 @@
             [_classAry addObject:oneClass];
         }
         [self columScrollViewShowData];
-        if (![[[_classAry objectAtIndex:_curClass] reflushUrl] isEqual:@""]) {
-            [_firstTableView headerBeginRefreshing];
-        }
+        [self reloadTableViewData];
     }else if ([tag isEqual:@"mainNewsData"]){
         NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:msg] data];
-        [tempAry removeAllObjects];
-        NSArray *newsList = [returnJson objectForKey:@"newsList"];
-        NSArray *banners = [returnJson objectForKey:@"banners"];
-        if (banners && (banners.count > 0)) {
-            BannersData *bannersData = [[BannersData alloc]init];
-            [bannersData initWithData:banners];
-            [tempAry addObject:bannersData];
-        }
-        
-        for (int i = 0; i < newsList.count; i++) {
-            CellData *data = [[CellData alloc]init];
-            [data initWithData:[newsList objectAtIndex:i]];
-            if (![data.newsTitle isEqual:@""]) {
-                [tempAry addObject:data];
+        if (returnJson != nil) {
+            [tempAry removeAllObjects];
+            NSArray *newsList = [returnJson objectForKey:@"newsList"];
+            NSArray *banners = [returnJson objectForKey:@"banners"];
+            if (banners && (banners.count > 0)) {
+                BannersData *bannersData = [[BannersData alloc]init];
+                [bannersData initWithData:banners];
+                [tempAry addObject:bannersData];
             }
+            
+            for (int i = 0; i < newsList.count; i++) {
+                CellData *data = [[CellData alloc]init];
+                [data initWithData:[newsList objectAtIndex:i]];
+                if (![data.newsTitle isEqual:@""]) {
+                    [tempAry addObject:data];
+                }
+            }
+            //把是否需要主动刷新标志设为false
+            ClassDataStru *cds = [_classAry objectAtIndex:msg];
+            if (!flag) {
+                cds.needReflush = NO;
+            }
+            cds.loadingMoreUrl = [returnJson objectForKey:@"nextUrl"];
         }
         if (_firstTableView.tag == msg) {
             if (!flag) {
@@ -218,10 +224,6 @@
             }
             [_lastTableView reloadData];
         }
-        //把是否需要主动刷新标志设为false
-        ClassDataStru *cds = [_classAry objectAtIndex:msg];
-        cds.needReflush = NO;
-        cds.loadingMoreUrl = [returnJson objectForKey:@"nextUrl"];
     }else if ([tag isEqual:@"addNewsData"]){
         NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:msg] data];
         NSArray *newsList = [returnJson objectForKey:@"newsList"];
@@ -276,9 +278,7 @@
             [_classAry addObject:oneClass];
         }
         [self columScrollViewShowData];
-        if (![[[_classAry objectAtIndex:_curClass] reflushUrl] isEqual:@""]) {
-            [_firstTableView headerBeginRefreshing];
-        }
+        [self reloadTableViewData];
     }else{
         NSString *url = [GET_SERVER stringByAppendingString:GET_VIEW_URL];
         [Request requestPostForJSON:@"newsData" url:url delegate:self paras:nil msg:0 useCache:NO];
@@ -485,9 +485,15 @@
     [_firstTableView reloadData];
     [_middleTableView reloadData];
     [_lastTableView reloadData];
+    
     if ([[_classAry objectAtIndex:index1] needReflush]) {
         if (_curClass == 0) {
             [_firstTableView headerBeginRefreshing];
+            
+            if ([[_classAry objectAtIndex:_curClass+1] needReflush]) {
+                NSString *url = [[_classAry objectAtIndex:_curClass+1] reflushUrl];
+                [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass+1 useCache:YES update:NO];
+            }
         }
     }else{
         _firstTableView.contentOffset = CGPointMake(0, [[_classAry objectAtIndex:index1] curPosition]);
@@ -496,6 +502,12 @@
     if ([[_classAry objectAtIndex:index2] needReflush]) {
         if ((_curClass != [_classAry count] - 1) && (_curClass != 0)) {
             [_middleTableView headerBeginRefreshing];
+            
+            NSString *url1 = [[_classAry objectAtIndex:_curClass+1] reflushUrl];
+            [Request requestPostForJSON:@"mainNewsData" url:url1 delegate:self paras:nil msg:_curClass+1 useCache:YES update:NO];
+            
+            NSString *url = [[_classAry objectAtIndex:_curClass-1] reflushUrl];
+            [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass-1 useCache:YES update:NO];
         }
     }else{
         _middleTableView.contentOffset = CGPointMake(0, [[_classAry objectAtIndex:index2] curPosition]);
@@ -504,6 +516,9 @@
     if ([[_classAry objectAtIndex:index3] needReflush]) {
         if (_curClass == [_classAry count] - 1) {
             [_lastTableView headerBeginRefreshing];
+            
+            NSString *url = [[_classAry objectAtIndex:_curClass-1] reflushUrl];
+            [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass-1 useCache:YES update:NO];
         }
     }else{
         _lastTableView.contentOffset = CGPointMake(0, [[_classAry objectAtIndex:index3] curPosition]);

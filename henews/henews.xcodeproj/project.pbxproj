@@ -95,6 +95,7 @@
 		D33ABB541C9AB89900125526 /* XNTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33ABB4F1C9AB89900125526 /* XNTabBarView.m */; };
 		D33DB5BF1C1AA15F00186F8D /* DGReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D33DB5BE1C1AA15F00186F8D /* DGReorderableCollectionViewFlowLayout.m */; };
 		D33F381E1C0EC77700DDB6F2 /* AdviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = D33F381D1C0EC77700DDB6F2 /* AdviceData.m */; };
+		D357BA2C1CAFD6BF00F09EB0 /* NewsNumberTip.m in Sources */ = {isa = PBXBuildFile; fileRef = D357BA2B1CAFD6BF00F09EB0 /* NewsNumberTip.m */; };
 		D36510C41BCF9340004AEA98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D36510C31BCF9340004AEA98 /* main.m */; };
 		D36510C71BCF9340004AEA98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D36510C61BCF9340004AEA98 /* AppDelegate.m */; };
 		D36510CF1BCF9340004AEA98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36510CE1BCF9340004AEA98 /* Assets.xcassets */; };
@@ -338,6 +339,8 @@
 		D33DB5BE1C1AA15F00186F8D /* DGReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		D33F381C1C0EC77700DDB6F2 /* AdviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdviceData.h; sourceTree = "<group>"; };
 		D33F381D1C0EC77700DDB6F2 /* AdviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdviceData.m; sourceTree = "<group>"; };
+		D357BA2A1CAFD6BF00F09EB0 /* NewsNumberTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsNumberTip.h; sourceTree = "<group>"; };
+		D357BA2B1CAFD6BF00F09EB0 /* NewsNumberTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsNumberTip.m; sourceTree = "<group>"; };
 		D36510BF1BCF9340004AEA98 /* 和新闻.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "和新闻.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36510C31BCF9340004AEA98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D36510C51BCF9340004AEA98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -574,6 +577,8 @@
 				D3E563A21CAD009200B5B930 /* Dialog.m */,
 				D319ED231CAE5DEE0035C2E6 /* UIView+Screen.h */,
 				D319ED241CAE5DEE0035C2E6 /* UIView+Screen.m */,
+				D357BA2A1CAFD6BF00F09EB0 /* NewsNumberTip.h */,
+				D357BA2B1CAFD6BF00F09EB0 /* NewsNumberTip.m */,
 			);
 			path = subView;
 			sourceTree = "<group>";
@@ -1380,6 +1385,7 @@
 				D33ABB501C9AB89900125526 /* MyViewController.m in Sources */,
 				D3FD23B91CAB78E20047112A /* PlayViewController.m in Sources */,
 				D33F381E1C0EC77700DDB6F2 /* AdviceData.m in Sources */,
+				D357BA2C1CAFD6BF00F09EB0 /* NewsNumberTip.m in Sources */,
 				D3E563831CACAEE900B5B930 /* topicHeadData.m in Sources */,
 				D3E563811CACAEE900B5B930 /* ModulData.m in Sources */,
 				D3E563961CACAF5300B5B930 /* OneBigPicInViewCell.m in Sources */,

@@ -22,7 +22,7 @@
 @property (nonatomic, assign) int bannersNum;
 @property (nonatomic, retain) UILabel *titleLable;
 @property (nonatomic, assign) NSInteger curPage;
-
+@property (nonatomic, retain) UIImageView *line;
 
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;

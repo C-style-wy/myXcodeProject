@@ -24,10 +24,12 @@
 #import "TopicViewController.h"
 
 #import "ProgramaStructure.h"
+#import "NewsNumberTip.h"
 
 @interface NewsViewController ()
 {
     CGFloat _beginScrollX;
+    NSTimer *_timer;
 }
 @end
 
@@ -146,13 +148,13 @@
     _mainScrollView.showsVerticalScrollIndicator = NO;
     _mainScrollView.pagingEnabled = YES;
     
-    _curClass = 0;
+    self.curClass = 0;
     _beginScrollX = 0;
 }
 
 #pragma mark - 网络请求返回
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
-    if ([tag isEqual:@"newsData"]) {
+    if ([tag isEqual:@"columData"]) {
         NSArray *newsAry = [returnJson objectForKey:@"nodes"];
         ProgramaStructure *stru = [[ProgramaStructure alloc]init];
         [stru compareAndSave:newsAry OrderName:NEWS_ORDER NotOrderName:NEWS_NOT_ORDER];
@@ -170,26 +172,32 @@
             [_classAry addObject:oneClass];
         }
         [self columScrollViewShowData];
-        if (![[[_classAry objectAtIndex:_curClass] reflushUrl] isEqual:@""]) {
-            [_firstTableView headerBeginRefreshing];
-        }
+        [self reloadTableViewData];
     }else if ([tag isEqual:@"mainNewsData"]){
         NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:msg] data];
-        [tempAry removeAllObjects];
-        NSArray *newsList = [returnJson objectForKey:@"newsList"];
-        NSArray *banners = [returnJson objectForKey:@"banners"];
-        if (banners && (banners.count > 0)) {
-            BannersData *bannersData = [[BannersData alloc]init];
-            [bannersData initWithData:banners];
-            [tempAry addObject:bannersData];
-        }
-        
-        for (int i = 0; i < newsList.count; i++) {
-            CellData *data = [[CellData alloc]init];
-            [data initWithData:[newsList objectAtIndex:i]];
-            if (![data.newsTitle isEqual:@""]) {
-                [tempAry addObject:data];
+        if (returnJson != nil) {
+            [tempAry removeAllObjects];
+            NSArray *newsList = [returnJson objectForKey:@"newsList"];
+            NSArray *banners = [returnJson objectForKey:@"banners"];
+            if (banners && (banners.count > 0)) {
+                BannersData *bannersData = [[BannersData alloc]init];
+                [bannersData initWithData:banners];
+                [tempAry addObject:bannersData];
             }
+            
+            for (int i = 0; i < newsList.count; i++) {
+                CellData *data = [[CellData alloc]init];
+                [data initWithData:[newsList objectAtIndex:i]];
+                if (![data.newsTitle isEqual:@""]) {
+                    [tempAry addObject:data];
+                }
+            }
+            //把是否需要主动刷新标志设为false
+            ClassDataStru *cds = [_classAry objectAtIndex:msg];
+            if (!flag) {
+                cds.needReflush = NO;
+            }
+            cds.loadingMoreUrl = [returnJson objectForKey:@"nextUrl"];
         }
         if (_firstTableView.tag == msg) {
             if (!flag) {
@@ -207,10 +215,6 @@
             }
             [_lastTableView reloadData];
         }
-        //把是否需要主动刷新标志设为false
-        ClassDataStru *cds = [_classAry objectAtIndex:msg];
-        cds.needReflush = NO;
-        cds.loadingMoreUrl = [returnJson objectForKey:@"nextUrl"];
     }else if ([tag isEqual:@"addNewsData"]){
         NSMutableArray *tempAry = (NSMutableArray*)[[_classAry objectAtIndex:msg] data];
         NSArray *newsList = [returnJson objectForKey:@"newsList"];
@@ -265,12 +269,10 @@
             [_classAry addObject:oneClass];
         }
         [self columScrollViewShowData];
-        if (![[[_classAry objectAtIndex:_curClass] reflushUrl] isEqual:@""]) {
-            [_firstTableView headerBeginRefreshing];
-        }
+        [self reloadTableViewData];
     }else{
         NSString *url = [GET_SERVER stringByAppendingString:GET_NEWS_URL];
-        [Request requestPostForJSON:@"newsData" url:url delegate:self paras:nil msg:0 useCache:NO];
+        [Request requestPostForJSON:@"columData" url:url delegate:self paras:nil msg:0 useCache:NO];
     }
 }
 
@@ -359,7 +361,6 @@
 }
 
 - (void)channelManage:(UIButton *)button {
-    NSLog(@"栏目管理");
     if (!_channelView) {
         _channelView = [[ChannelManageView alloc]initWithFrame:CGRectMake(0, 58, SCREEN_WIDTH, SCREEN_HEIGHT-58)];
         _channelView.delegate = self;
@@ -384,7 +385,6 @@
 //下拉刷新
 - (void)headerRereshing
 {
-    NSLog(@"headerRereshing=====");
     NSString *url = [[_classAry objectAtIndex:_curClass] reflushUrl];
     [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass useCache:YES];
 }
@@ -473,10 +473,16 @@
     int index3 = (int)_lastTableView.tag;
     [_firstTableView reloadData];
     [_middleTableView reloadData];
-    [_lastTableView reloadData];    
+    [_lastTableView reloadData];
+    
     if ([[_classAry objectAtIndex:index1] needReflush]) {
         if (_curClass == 0) {
             [_firstTableView headerBeginRefreshing];
+            
+            if ([[_classAry objectAtIndex:_curClass+1] needReflush]) {
+                NSString *url = [[_classAry objectAtIndex:_curClass+1] reflushUrl];
+                [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass+1 useCache:YES update:NO];
+            }
         }
     }else{
         _firstTableView.contentOffset = CGPointMake(0, [[_classAry objectAtIndex:index1] curPosition]);
@@ -485,6 +491,12 @@
     if ([[_classAry objectAtIndex:index2] needReflush]) {
         if ((_curClass != [_classAry count] - 1) && (_curClass != 0)) {
             [_middleTableView headerBeginRefreshing];
+            
+            NSString *url1 = [[_classAry objectAtIndex:_curClass+1] reflushUrl];
+            [Request requestPostForJSON:@"mainNewsData" url:url1 delegate:self paras:nil msg:_curClass+1 useCache:YES update:NO];
+            
+            NSString *url = [[_classAry objectAtIndex:_curClass-1] reflushUrl];
+            [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass-1 useCache:YES update:NO];
         }
     }else{
         _middleTableView.contentOffset = CGPointMake(0, [[_classAry objectAtIndex:index2] curPosition]);
@@ -493,6 +505,9 @@
     if ([[_classAry objectAtIndex:index3] needReflush]) {
         if (_curClass == [_classAry count] - 1) {
             [_lastTableView headerBeginRefreshing];
+            
+            NSString *url = [[_classAry objectAtIndex:_curClass-1] reflushUrl];
+            [Request requestPostForJSON:@"mainNewsData" url:url delegate:self paras:nil msg:_curClass-1 useCache:YES update:NO];
         }
     }else{
         _lastTableView.contentOffset = CGPointMake(0, [[_classAry objectAtIndex:index3] curPosition]);
@@ -501,7 +516,6 @@
 
 //ChannelManageView 代理
 -(void)dealChannelChange:(ChannelManageView *)view returnClass:(NSInteger)class{
-    NSLog(@"ChannelManageView 代理=%li", (long)class);
     ProgramaStructure *pro = [[ProgramaStructure alloc]init];
     _columAry = [pro readLocadPrograma:NEWS_ORDER];
     [self columScrollViewShowData];
@@ -536,7 +550,6 @@
 }
 
 -(void)dealBannersDelegate:(BannersCell*)view return:(OneBannerData*)one{
-    NSLog(@"dealBannersDelegate=====");
     NSString *newsType = one.newsType;
     NSString *url = one.url;
     if ([newsType isEqual:@"1"]) {
@@ -560,10 +573,7 @@
     }
     else{
         DetailViewController *detail = [[DetailViewController alloc] init];
-//        self.delegate = detail;
-//        [self.delegate getUrl:url];
         detail.detailUrl = url;
-        
         [self.navigationController pushViewController:detail animated:YES];
     }
 }
@@ -666,7 +676,8 @@
 
 #pragma mark - reflushDelegate
 -(void)reflushTableView{
-
+    NSLog(@"reflushTableView");
+    [self reloadTableViewData];
 }
 
 @end

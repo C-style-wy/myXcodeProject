@@ -12,13 +12,13 @@
 //服务端主地址
 #define GET_SERVER (@"http://wap.cmread.com/clt")
 //index页loading地址
-#define GET_INDEX_URL (@"/publish/clt/resource/portal/common/loading.jsp?city=")
+#define GET_INDEX_URL (@"/publish/clt/resource/portal/common/loading230.jsp?city=")
 //home
-#define GET_HOME_URL (@"/publish/clt/resource/portal/v2/home3.jsp?city=")
+#define GET_HOME_URL (@"/publish/clt/resource/portal/v230/home230.jsp?menu=shouye&city=")
 //资讯页请求地址
-#define GET_NEWS_URL (@"/publish/clt/resource/portal/v1/channelNav.jsp?channelType=1&city=合肥")
+#define GET_NEWS_URL (@"/publish/clt/resource/portal/v1/channelNav220.jsp?channelType=1&city=合肥")
 //视界页请求地址
-#define GET_VIEW_URL (@"/publish/clt/resource/portal/v1/channelNav.jsp?channelType=2&city=合肥")
+#define GET_VIEW_URL (@"/publish/clt/resource/portal/v1/channelNav220.jsp?channelType=2&city=合肥")
 
 #pragma size
 #define SCREEN_FRAME ([UIScreen mainScreen].bounds)

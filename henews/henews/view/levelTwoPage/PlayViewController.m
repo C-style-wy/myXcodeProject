@@ -170,6 +170,7 @@
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     if ([tag isEqual:@"playData"]) {
         [self dealPlayDataBack:returnJson];
+        
     }else if ([tag isEqual:@"playUrl"]){
         NSString *filePath = [returnJson objectForKey:@"url"];
 //        _playView = [[PlayerView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 171) url:filePath delegate:self haveOriginalUI:YES];
@@ -197,7 +198,13 @@
     
     SHLUILabel *introduction = [[SHLUILabel alloc]init];
     introduction.font = [UIFont systemFontOfSize:15.0f];
-    introduction.text = [[jsonData objectForKey:@"content"] objectForKey:@"summary"];
+    
+    NSString *summary = [[jsonData objectForKey:@"content"] objectForKey:@"summary"];
+    if ([summary isEqualToString:@""]) {
+        summary = @" ";
+    }
+    
+    introduction.text = summary;
     introduction.textColor = [UIColor colorWithRed:0.12 green:0.12 blue:0.12 alpha:1.00];
     
     introduction.lineBreakMode = NSLineBreakByWordWrapping;

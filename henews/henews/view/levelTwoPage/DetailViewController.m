@@ -377,6 +377,11 @@
         NSLog(@"取消");
     } RightBlock:^{
         NSLog(@"确定");
+        [Dialog showWithTipText:@"提示" descText:@"那我们就清空了？" LeftText:@"取消" rightText:@"确定" LeftBlock:^{
+            NSLog(@"取消");
+        } RightBlock:^{
+            NSLog(@"确定");
+        }];
     }];
 //    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
 //    

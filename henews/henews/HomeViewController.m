@@ -16,12 +16,15 @@
 #import "VideoCell.h"
 #import "BannersCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "NewsNumberTip.h"
 
 @interface HomeViewController ()
 
 @end
 
-@implementation HomeViewController
+@implementation HomeViewController{
+    NSTimer *_time;
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -111,7 +114,7 @@
     if ([tag isEqual:@"homeData"]) {
         if (!flag) {
             [self.tableView headerEndRefreshing];
-            NSLog(@"requestDidReturn===not==cache===");
+            _time =[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showTip) userInfo:nil repeats:NO];
         }else{
             NSLog(@"requestDidReturn===cache===");
         }
@@ -119,18 +122,34 @@
         if (!_tableViewData) {
             _tableViewData = [[NSMutableArray alloc]init];
         }
-        [_tableViewData removeAllObjects];
-        NSArray *node = [returnJson objectForKey:@"nodes"];
-        if (node && node.count > 0) {
-            for (int i = 0; i<node.count; i++) {
-                ModulData *modul = [[ModulData alloc]init];
-                [modul initWithData:[node objectAtIndex:i]];
-                if (![modul.nodeName isEqual:@""]) {
-                    [_tableViewData addObject:modul];
+        if (returnJson != nil) {
+            [_tableViewData removeAllObjects];
+            NSArray *banners = [returnJson objectForKey:@"banners"];
+            if (banners && (banners.count > 0)) {
+                BannersData *bannersData = [[BannersData alloc]init];
+                [bannersData initWithData:banners];
+                [_tableViewData addObject:bannersData];
+            }
+            NSArray *node = [returnJson objectForKey:@"nodes"];
+            if (node && node.count > 0) {
+                for (int i = 0; i<node.count; i++) {
+                    ModulData *modul = [[ModulData alloc]init];
+                    [modul initWithData:[node objectAtIndex:i]];
+                    if (![modul.nodeName isEqual:@""]) {
+                        [_tableViewData addObject:modul];
+                    }
                 }
             }
+            [_tableView reloadData];
         }
-        [_tableView reloadData];
+    }
+}
+
+- (void)showTip{
+    [NewsNumberTip showWithTipDesc:@"已为您推荐了新的内容" superView:self.view showY:59];
+    if (_time) {
+        [_time invalidate];
+        _time=nil;
     }
 }
 
@@ -225,26 +244,39 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[BannersData class]]) {
+        return nil;
+    }
     ModulData *modul = [_tableViewData objectAtIndex:section];
-//    if (section%2 == 0) {
-        return [self getSecHeadView:modul.nodeName isWhite:NO];
-//    }else{
-//        return [self getSecHeadView:modul.nodeName isWhite:YES];
-//    }
-    
+    return [self getSecHeadView:modul.nodeName isWhite:NO];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[BannersData class]]) {
+        return 0;
+    }
     return 26.5f;
 }
 
 //指定每个分区中有多少行，默认为1
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[BannersData class]]) {
+        return 1;
+    }
     ModulData *modul = [_tableViewData objectAtIndex:section];
     return modul.newsList.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[BannersData class]]) {
+        BannersData *oneCell = [_tableViewData objectAtIndex:indexPath.section];
+        BannersCell *cell = [BannersCell cellWithTableView:tableView];
+        cell.delegate = self;
+        cell.line.hidden = YES;
+        cell.backgroundColor = [UIColor whiteColor];
+        [cell loadTableCell:oneCell];
+        return cell;
+    }
     ModulData *modul = [_tableViewData objectAtIndex:indexPath.section];
     BOOL isWhite = true;
 //    if ((indexPath.section)%2 == 0) {
@@ -287,6 +319,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[BannersData class]]){
+        BannersData *data = [_tableViewData objectAtIndex:indexPath.section];
+        return data.height;
+    }
+    
     ModulData *modul = [_tableViewData objectAtIndex:indexPath.section];
     CellData *data = [modul.newsList objectAtIndex:indexPath.row];
     return data.height;
@@ -325,4 +362,33 @@
     }
 }
 
+
+-(void)dealBannersDelegate:(BannersCell*)view return:(OneBannerData*)one{
+    NSString *newsType = one.newsType;
+    NSString *url = one.url;
+    if ([newsType isEqual:@"1"]) {
+        PlayViewController *play = [[PlayViewController alloc] init];
+        play.playUrl = url;
+        [self.navigationController pushViewController:play animated:YES];
+    }else if ([one.newsType isEqual:@"3"]){
+        TopicViewController *topic = [[TopicViewController alloc]init];
+        topic.topicUrl = url;
+        [self.navigationController pushViewController:topic animated:YES];
+    }else if ([one.newsType isEqual:@"4"]){
+        PicDetailViewController *picDetail = [[PicDetailViewController alloc] init];
+        picDetail.picUrl = url;
+        [self.navigationController pushViewController:picDetail animated:YES];
+    }else if ([one.newsType isEqual:@"5"]){
+        LinkViewController *linkDetail = [[LinkViewController alloc] init];
+        linkDetail.linkUrl = url;
+        linkDetail.shouldRequstAgain = YES;
+        linkDetail.showShareButton = YES;
+        [self.navigationController pushViewController:linkDetail animated:YES];
+    }
+    else{
+        DetailViewController *detail = [[DetailViewController alloc] init];
+        detail.detailUrl = url;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
+}
 @end

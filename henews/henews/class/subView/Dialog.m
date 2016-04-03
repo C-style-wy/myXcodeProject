@@ -35,7 +35,7 @@
     UIButton *bgBtn = [[UIButton alloc]initWithFrame:self.bounds];
     [self addSubview:bgBtn];
     bgBtn.backgroundColor = [UIColor clearColor];
-    [bgBtn addTarget:self action:@selector(closeView) forControlEvents:UIControlEventTouchUpInside];
+    [bgBtn addTarget:self action:@selector(onlyCloseView) forControlEvents:UIControlEventTouchUpInside];
     
     UIViewController *currentViewController = [self getCurrentVC];
     UIImage *fuzzyImage = [currentViewController.view getFuzzyImage:0.2];
@@ -150,6 +150,17 @@
 - (void)rightBtnAction:(UIButton *)button{
     _leftAction = NO;
     [self closeView];
+}
+
+- (void)onlyCloseView{
+    [UIView animateWithDuration:0.3f animations:^{
+        self.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0];
+        [self.subviews objectAtIndex:2].alpha = 0;
+        [self.subviews objectAtIndex:2].transform = CGAffineTransformMakeScale(0.01, 0.01);
+        _bgImageView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
 }
 
 -(void)closeView{

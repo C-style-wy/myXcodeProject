@@ -45,10 +45,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
-        UIImageView *line = [[UIImageView alloc]init];
-        line.frame = CGRectMake(0, 195.5f, SCREEN_WIDTH, 0.5f);
-        line.image = [UIImage imageNamed:@"menuFenge.png"];
-        [self addSubview:line];
+        _line = [[UIImageView alloc]init];
+        _line.frame = CGRectMake(0, 195.5f, SCREEN_WIDTH, 0.5f);
+        _line.image = [UIImage imageNamed:@"menuFenge.png"];
+        [self addSubview:_line];
         
         
         UIScrollView *scro = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 166)];
