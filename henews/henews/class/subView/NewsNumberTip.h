@@ -10,6 +10,6 @@
 
 @interface NewsNumberTip : UIView
 
-+ (void)showWithTipDesc:(NSString *)desc superView:(UIView*)view showY:(float)y;
++ (void)showWithTipDesc:(NSString *)desc superView:(UIView*)view showX:(float)x showY:(float)y;
 
 @end

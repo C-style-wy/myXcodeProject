@@ -55,7 +55,7 @@
 
 - (void)exchangeButtonBntSelect:(UIButton*)button{
     NSLog(@"exchange==button===");
-    [_tableView reloadData];
+//    [_tableView reloadData];
 }
 
 #pragma mark - 页面初始化
@@ -140,13 +140,25 @@
                     }
                 }
             }
+            
+//            [UIView transitionWithView:_tableView
+//                              duration: 0.35f
+//                               options: UIViewAnimationOptionTransitionCrossDissolve
+//                            animations: ^(void)
+//             {
+//                 [_tableView reloadData];
+//             }
+//                            completion: ^(BOOL isFinished)
+//             {  
+//                 
+//             }];
             [_tableView reloadData];
         }
     }
 }
 
 - (void)showTip{
-    [NewsNumberTip showWithTipDesc:@"已为您推荐了新的内容" superView:self.view showY:59];
+    [NewsNumberTip showWithTipDesc:@"已为您推荐了新的内容" superView:self.view showX:0 showY:59];
     if (_time) {
         [_time invalidate];
         _time=nil;

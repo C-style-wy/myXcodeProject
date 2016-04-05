@@ -103,7 +103,11 @@
 
 - (void)clickBtn:(UIButton *)button {
     if (self.selectedBtn == button) {
-        [self->_reflushDelegate reflushTableView];
+//        if ([self.reflushDelegate respondsToSelector:@selector(reflushTableView)]) {
+//            
+//        }
+        
+//        [self.reflushDelegate reflushTableView];
     }else{
         self.selectedBtn.selected = NO;
         button.selected = YES;

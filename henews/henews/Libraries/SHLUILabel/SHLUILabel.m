@@ -27,17 +27,13 @@
 @synthesize paragraphSpacing = _paragraphSpacing;
 
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame{
     //初始化字间距、行间距
-    if(self =[super initWithFrame:frame])
-        
-    {
+    if(self =[super initWithFrame:frame]){
         self.characterSpacing = 0.5f;
         self.linesSpacing = 2.0f;
         self.paragraphSpacing = 2.0f;
     }
-    
     return self;
 }
 
@@ -51,34 +47,26 @@
 */
 
 //外部调用设置字间距
--(void)setCharacterSpacing:(CGFloat)characterSpacing
-{
+-(void)setCharacterSpacing:(CGFloat)characterSpacing{
     characterSpacing_ = characterSpacing;
     [self setNeedsDisplay];
 }
-
 //外部调用设置行间距
--(void)setLinesSpacing:(long)linesSpacing
-{
+-(void)setLinesSpacing:(long)linesSpacing{
     linesSpacing_ = linesSpacing;
     [self setNeedsDisplay];
 }
-
 /*
  *初始化AttributedString并进行相应设置
  */
-- (void) initAttributedString
-{
-    if(attributedString==nil){
+- (void)initAttributedString{
+    if(attributedString == nil){
         NSString *labelString = self.text;
-        
         //创建AttributeString
         attributedString =[[NSMutableAttributedString alloc]initWithString:labelString];
-        
         //设置字体及大小
         CTFontRef helveticaBold = CTFontCreateWithName((CFStringRef)self.font.fontName,self.font.pointSize,NULL);
         [attributedString addAttribute:(id)kCTFontAttributeName value:(__bridge id)helveticaBold range:NSMakeRange(0,[attributedString length])];
-        
         //设置字间距
         long number = self.characterSpacing;
         CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
@@ -93,10 +81,8 @@
          CFRelease(num);
          }
          */
-        
         //设置字体颜色
         [attributedString addAttribute:(id)kCTForegroundColorAttributeName value:(id)(self.textColor.CGColor) range:NSMakeRange(0,[attributedString length])];
-        
         //创建文本对齐方式
         CTTextAlignment alignment = kCTTextAlignmentJustified;
         if(self.textAlignment == NSTextAlignmentCenter)
@@ -146,21 +132,16 @@
 /*
  *覆写setText方法
  */
-- (void) setText:(NSString *)text
-{
+- (void) setText:(NSString *)text{
     [super setText:text];
     [self initAttributedString];
 }
-
 /*
  *开始绘制
  */
--(void) drawTextInRect:(CGRect)requestedRect
-{
+-(void) drawTextInRect:(CGRect)requestedRect{
     [self initAttributedString];
-    
     //排版
-    
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attributedString);
     
     CGMutablePathRef leftColumnPath = CGPathCreateMutable();
@@ -195,8 +176,7 @@
 /*
  *绘制前获取label高度
  */
-- (int)getAttributedStringHeightWidthValue:(int)width
-{
+- (int)getAttributedStringHeightWidthValue:(int)width{
     [self initAttributedString];
     
     int total_height = 0;

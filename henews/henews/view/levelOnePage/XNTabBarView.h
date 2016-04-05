@@ -10,14 +10,16 @@
 
 @protocol reflushDelegate
 
-@required
+@optional
 -(void)reflushTableView;
 
 @end
 
 @interface XNTabBarView : UITabBarController
-{
-    __unsafe_unretained id <reflushDelegate> _reflushDelegate;
-}
+//{
+//    __unsafe_unretained id <reflushDelegate> _reflushDelegate;
+//}
+
+@property (nonatomic, assign) id<reflushDelegate>reflushDelegate;
 
 @end

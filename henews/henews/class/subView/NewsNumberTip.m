@@ -13,8 +13,8 @@
     NSTimer *_timer;
 }
 
-+ (void)showWithTipDesc:(NSString *)desc superView:(UIView*)view showY:(float)y{
-    NewsNumberTip *tip = [[self alloc]initWithFrame:CGRectMake(0, y, SCREEN_WIDTH, 22.0f)];
++ (void)showWithTipDesc:(NSString *)desc superView:(UIView*)view showX:(float)x showY:(float)y{
+    NewsNumberTip *tip = [[self alloc]initWithFrame:CGRectMake(x, y, SCREEN_WIDTH, 22.0f)];
     tip.backgroundColor = [ROSERED colorWithAlphaComponent:0.8];
     tip.clipsToBounds = YES;
     [view addSubview:tip];
@@ -51,7 +51,7 @@
 -(void)closeView{
     [UIView animateWithDuration:0.4f animations:^{
         self.alpha = 0;
-        self.transform = CGAffineTransformMakeScale(0.01, 0.01);
+//        self.transform = CGAffineTransformMakeScale(0.01, 0.01);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
