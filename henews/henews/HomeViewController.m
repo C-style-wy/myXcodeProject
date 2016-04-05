@@ -55,7 +55,7 @@
 
 - (void)exchangeButtonBntSelect:(UIButton*)button{
     NSLog(@"exchange==button===");
-//    [_tableView reloadData];
+    [_tableView reloadData];
 }
 
 #pragma mark - 页面初始化
