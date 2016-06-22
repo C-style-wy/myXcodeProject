@@ -5,6 +5,7 @@
 //  Created by 汪洋 on 15/10/30.
 //  Copyright © 2015年 汪洋. All rights reserved.
 //
+#import "UIColor+hexColor.h"
 
 #ifndef APIStringMacros_h
 #define APIStringMacros_h
@@ -27,19 +28,19 @@
 
 #pragma color
 //页面背景色
-#define VIEWBACKGROUND_COLOR [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1]
+#define VIEWBACKGROUND_COLOR [UIColor colorWithHexColor:@"#eeeeee"]
 //和新闻主色调，玫红色
-#define ROSERED [UIColor colorWithRed:0.88 green:0.02 blue:0.46 alpha:1]
+#define ROSERED [UIColor colorWithHexColor:@"#e40177"]
 //页面标题字色值
-#define VIEWTITLECOLOR [UIColor colorWithRed:0.12 green:0.12 blue:0.12 alpha:1]
+#define VIEWTITLECOLOR [UIColor colorWithHexColor:@"#1e1e1e"]
 //默认图背景色
-#define DEFAULTCOLOR [UIColor colorWithRed:0.87 green:0.87 blue:0.87 alpha:1]
+#define DEFAULTCOLOR [UIColor colorWithHexColor:@"#dcdcdc"]
 
 //#define HEX2RGB(string) [AppUtily hex2RGB:string]
 
 #pragma textSize
 //页面标题字体大小
-#define VIEWTITLEFONT [UIFont systemFontOfSize:18.0f]
+#define VIEWTITLEFONT [UIFont systemFontOfSize:17.0f]
 //新闻详情页，新闻标题大小
 #define NEWS_TITLE_SIZE ([UIFont systemFontOfSize:17.5f])
 //新闻内容字体大小

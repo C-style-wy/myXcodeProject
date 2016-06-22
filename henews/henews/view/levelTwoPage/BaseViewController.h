@@ -11,6 +11,7 @@
 #import "APIStringMacros.h"
 #import "Request.h"
 #import "Dialog.h"
+#import "UIColor+hexColor.h"
 
 @interface BaseViewController : UIViewController<PageHeadDelegate>
 @property (nonatomic, retain)PageHead *head;

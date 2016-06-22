@@ -9,6 +9,7 @@
 #import "TopicViewController.h"
 #import "MJRefresh.h"
 #import "ModulData.h"
+#import <objc/runtime.h>
 
 #define secHeadHeight 26.5f
 
@@ -30,7 +31,7 @@
     self.head.shareButton.hidden = NO;
     NSString *str = @"和新闻 · 专题";
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:str];
-    [text addAttribute:NSForegroundColorAttributeName value:ROSERED range:NSMakeRange(4, 4)];
+    [text addAttribute:NSForegroundColorAttributeName value:ROSERED range:NSMakeRange(5, 3)];
     self.head.pageTitle.attributedText = text;
     _mainTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.head.frame), SCREEN_WIDTH, SCREEN_HEIGHT-CGRectGetMaxY(self.head.frame))];
     _mainTableView.delegate = self;
@@ -68,6 +69,7 @@
             }
         }
         [_mainTableView reloadData];
+//        objc_msgSend(_mainTableView, @selector(reloadData));
     }
 }
 

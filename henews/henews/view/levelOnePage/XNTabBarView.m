@@ -55,7 +55,6 @@
             [bnt setTitle:@"推荐" forState:UIControlStateNormal];
             [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-22)/2, 18, (bntWidth-22)/2)];
             [bnt setTitleEdgeInsets:UIEdgeInsetsMake(28, -49, 6, 0)];
-            
         }else if (1 == i) {
             [bnt setTitle:@"资讯" forState:UIControlStateNormal];
             [bnt setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-17)/2, 18, (bntWidth-17)/2)];

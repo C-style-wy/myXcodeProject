@@ -96,6 +96,7 @@
 		D33DB5BF1C1AA15F00186F8D /* DGReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D33DB5BE1C1AA15F00186F8D /* DGReorderableCollectionViewFlowLayout.m */; };
 		D33F381E1C0EC77700DDB6F2 /* AdviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = D33F381D1C0EC77700DDB6F2 /* AdviceData.m */; };
 		D357BA2C1CAFD6BF00F09EB0 /* NewsNumberTip.m in Sources */ = {isa = PBXBuildFile; fileRef = D357BA2B1CAFD6BF00F09EB0 /* NewsNumberTip.m */; };
+		D364BA671CC4ACCF00A2CA4D /* PhotoOperate.m in Sources */ = {isa = PBXBuildFile; fileRef = D364BA661CC4ACCF00A2CA4D /* PhotoOperate.m */; };
 		D36510C41BCF9340004AEA98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D36510C31BCF9340004AEA98 /* main.m */; };
 		D36510C71BCF9340004AEA98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D36510C61BCF9340004AEA98 /* AppDelegate.m */; };
 		D36510CF1BCF9340004AEA98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36510CE1BCF9340004AEA98 /* Assets.xcassets */; };
@@ -121,6 +122,8 @@
 		D3903DF11BF5AC7100EBF0F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3903DF01BF5AC7100EBF0F1 /* AVFoundation.framework */; };
 		D390C87A1BE067270093C76A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D390C8791BE067270093C76A /* SystemConfiguration.framework */; };
 		D3977ACC1BEC6E0400F249B8 /* ClassDataStru.m in Sources */ = {isa = PBXBuildFile; fileRef = D3977ACB1BEC6E0400F249B8 /* ClassDataStru.m */; };
+		D3A0FA011CC72C8E00A9EF2E /* RICHUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A0FA001CC72C8E00A9EF2E /* RICHUILabel.m */; };
+		D3A2D9161CB4FF1700F93F64 /* UIColor+hexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A2D9151CB4FF1700F93F64 /* UIColor+hexColor.m */; };
 		D3A986CF1BF185F4003EF1B6 /* ProgramaStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A986CE1BF185F4003EF1B6 /* ProgramaStructure.m */; };
 		D3A986DD1BF1FAF8003EF1B6 /* newsearlybus_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A986DC1BF1FAF8003EF1B6 /* newsearlybus_icon.png */; };
 		D3B223391CA8C490008AC84F /* CDPSlider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B2232D1CA8C490008AC84F /* CDPSlider@2x.png */; };
@@ -341,6 +344,8 @@
 		D33F381D1C0EC77700DDB6F2 /* AdviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdviceData.m; sourceTree = "<group>"; };
 		D357BA2A1CAFD6BF00F09EB0 /* NewsNumberTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsNumberTip.h; sourceTree = "<group>"; };
 		D357BA2B1CAFD6BF00F09EB0 /* NewsNumberTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsNumberTip.m; sourceTree = "<group>"; };
+		D364BA651CC4ACCF00A2CA4D /* PhotoOperate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoOperate.h; sourceTree = "<group>"; };
+		D364BA661CC4ACCF00A2CA4D /* PhotoOperate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoOperate.m; sourceTree = "<group>"; };
 		D36510BF1BCF9340004AEA98 /* 和新闻.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "和新闻.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36510C31BCF9340004AEA98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D36510C51BCF9340004AEA98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -382,6 +387,10 @@
 		D390C8791BE067270093C76A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D3977ACA1BEC6E0400F249B8 /* ClassDataStru.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassDataStru.h; sourceTree = "<group>"; };
 		D3977ACB1BEC6E0400F249B8 /* ClassDataStru.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassDataStru.m; sourceTree = "<group>"; };
+		D3A0F9FF1CC72C8E00A9EF2E /* RICHUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RICHUILabel.h; sourceTree = "<group>"; };
+		D3A0FA001CC72C8E00A9EF2E /* RICHUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RICHUILabel.m; sourceTree = "<group>"; };
+		D3A2D9141CB4FF1700F93F64 /* UIColor+hexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexColor.h"; sourceTree = "<group>"; };
+		D3A2D9151CB4FF1700F93F64 /* UIColor+hexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexColor.m"; sourceTree = "<group>"; };
 		D3A986CD1BF185F4003EF1B6 /* ProgramaStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramaStructure.h; sourceTree = "<group>"; };
 		D3A986CE1BF185F4003EF1B6 /* ProgramaStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramaStructure.m; sourceTree = "<group>"; };
 		D3A986DC1BF1FAF8003EF1B6 /* newsearlybus_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newsearlybus_icon.png; sourceTree = "<group>"; };
@@ -808,9 +817,29 @@
 				D381BE681BE1C1B0005B00E7 /* Request.m */,
 				D3E77E301C112782001DA80F /* MD5.h */,
 				D3E77E311C112782001DA80F /* MD5.m */,
+				D364BA651CC4ACCF00A2CA4D /* PhotoOperate.h */,
+				D364BA661CC4ACCF00A2CA4D /* PhotoOperate.m */,
 			);
 			name = networking;
 			path = ../networking;
+			sourceTree = "<group>";
+		};
+		D3A0F9FE1CC72C6900A9EF2E /* RICHUILabel */ = {
+			isa = PBXGroup;
+			children = (
+				D3A0F9FF1CC72C8E00A9EF2E /* RICHUILabel.h */,
+				D3A0FA001CC72C8E00A9EF2E /* RICHUILabel.m */,
+			);
+			path = RICHUILabel;
+			sourceTree = "<group>";
+		};
+		D3A2D9131CB4FEED00F93F64 /* UIColor+ hexColor */ = {
+			isa = PBXGroup;
+			children = (
+				D3A2D9141CB4FF1700F93F64 /* UIColor+hexColor.h */,
+				D3A2D9151CB4FF1700F93F64 /* UIColor+hexColor.m */,
+			);
+			path = "UIColor+ hexColor";
 			sourceTree = "<group>";
 		};
 		D3C795761BDE02D800322D3C /* MJRefresh */ = {
@@ -1026,6 +1055,8 @@
 		D3FE429E1C07FE0B00DBA6AA /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D3A0F9FE1CC72C6900A9EF2E /* RICHUILabel */,
+				D3A2D9131CB4FEED00F93F64 /* UIColor+ hexColor */,
 				D3E5639D1CACF1BB00B5B930 /* CTUIScrollView */,
 				D33DB5BC1C1AA10F00186F8D /* DGReorderableCollectionViewFlowLayout */,
 				D30F8C081C155CB70077D556 /* SHLUILabel */,
@@ -1365,11 +1396,14 @@
 				D33ABB521C9AB89900125526 /* SearchViewController.m in Sources */,
 				D36510F71BCF93A1004AEA98 /* IndexViewController.m in Sources */,
 				D3C795881BDE02D800322D3C /* MJRefreshBaseView.m in Sources */,
+				D3A0FA011CC72C8E00A9EF2E /* RICHUILabel.m in Sources */,
 				D3A986CF1BF185F4003EF1B6 /* ProgramaStructure.m in Sources */,
 				D334C5FE1CA3783A00737BB5 /* VideoCell.m in Sources */,
 				D3E5637F1CACAEE900B5B930 /* BannersData.m in Sources */,
 				D3E563971CACAF5300B5B930 /* OneSmallPicCell.m in Sources */,
 				D3101A161C965881009A9DB9 /* CTCollectionViewFlowLayout.m in Sources */,
+				D364BA671CC4ACCF00A2CA4D /* PhotoOperate.m in Sources */,
+				D3A2D9161CB4FF1700F93F64 /* UIColor+hexColor.m in Sources */,
 				D36B1CF91BD494B700B03864 /* HomeViewController.m in Sources */,
 				D320CFAA1CA0EB4200895E7F /* HeadInPicDetail.m in Sources */,
 				D31939A41C995664009AEAF1 /* ShareMode.m in Sources */,
@@ -1536,14 +1570,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = henews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nmgshoujibao.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shoujibao.cmread;
 				PRODUCT_NAME = "和新闻";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "cf9a9d64-ca89-49aa-b9e3-4d4c624142e5";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -1555,14 +1589,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = henews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nmgshoujibao.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shoujibao.cmread;
 				PRODUCT_NAME = "和新闻";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "cf9a9d64-ca89-49aa-b9e3-4d4c624142e5";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 			};

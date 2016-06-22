@@ -9,6 +9,8 @@
 #import "SHLUILabel.h"
 #import <CoreText/CoreText.h>
 
+//#define BoldRegular (@"<B>.</B>")
+
 @interface SHLUILabel ()
 {
 @private
@@ -83,6 +85,7 @@
          */
         //设置字体颜色
         [attributedString addAttribute:(id)kCTForegroundColorAttributeName value:(id)(self.textColor.CGColor) range:NSMakeRange(0,[attributedString length])];
+        
         //创建文本对齐方式
         CTTextAlignment alignment = kCTTextAlignmentJustified;
         if(self.textAlignment == NSTextAlignmentCenter)

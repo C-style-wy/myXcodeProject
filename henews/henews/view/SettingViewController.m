@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import <objc/runtime.h>
+#import "SHLUILabel.h"
 
 @interface SettingViewController ()
 
@@ -35,6 +36,35 @@
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
     
+    
+    UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 200)];
+    textLabel.backgroundColor = [UIColor colorWithHexColor:@"#d7f7f2"];
+    textLabel.font = [UIFont systemFontOfSize:15];
+    textLabel.numberOfLines = 0;
+    textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    [self.view addSubview:textLabel];
+//    textLabel.text = @"<B>我是传奇</B>";
+    NSString *textString = @"啊啊啊淡定的<B>我</B>是<B>传奇</B>定的wwwwwwww";
+    NSMutableAttributedString *attributedString =[[NSMutableAttributedString alloc]initWithString:textString];
+    
+//    NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:@"<B>(\\s)*(\\S)*<\\/B>" options:NSRegularExpressionCaseInsensitive error:nil];
+    
+    NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:@"<B>((?!</B>.<B>).)*<\\/B>" options:NSRegularExpressionCaseInsensitive error:nil];
+    
+    //        NSArray *match = [reg matchesInString:labelString options:NSMatchingCompleted range:NSMakeRange(0, [labelString length])];
+    NSArray *match = [reg matchesInString:textString options:NSMatchingReportCompletion range:NSMakeRange(0, [textString length])];
+    for (int i = 0; i < match.count; i++) {
+        NSTextCheckingResult *result = [match objectAtIndex:i];
+        
+        [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:textLabel.font.pointSize] range:NSMakeRange(result.range.location + 3, result.range.length - 7)];
+        
+//        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(result.range.location,result.range.length)];
+//        attributedString.string =  [textString substringToIndex:7];
+        
+    }
+    
+    
+    textLabel.attributedText = attributedString;
 }
 
 - (void)viewDidAppear:(BOOL)animated{

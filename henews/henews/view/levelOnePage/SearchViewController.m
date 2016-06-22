@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import <objc/runtime.h>
+#import "RICHUILabel.h"
 
 @interface SearchViewController ()
 
@@ -22,13 +23,13 @@
     
     static char overviewKey;
     NSArray *array = [[NSArray alloc]initWithObjects:@"One", @"Two", @"Three", nil];
-    NSLog(@"array=before===%@", array);
+//    NSLog(@"array=before===%@", array);
     NSString *overview = [[NSString alloc] initWithFormat:@"%@", @"First three numbers"];
     objc_setAssociatedObject(array, &overviewKey, overview, OBJC_ASSOCIATION_RETAIN);
-    NSLog(@"array=end===%@", array);
+//    NSLog(@"array=end===%@", array);
     
     NSString *associatedObject = (NSString*)objc_getAssociatedObject(array, &overviewKey);
-    NSLog(@"associatedObject==%@", associatedObject);
+//    NSLog(@"associatedObject==%@", associatedObject);
     
     //创建UILabel
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 0)];
@@ -64,18 +65,26 @@
     
     
     
-    UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shareWeibo.jpg"]];
-    image.frame = self.view.frame;
-    image.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:image];
-    self.photoImage = image;
-
+//    UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shareWeibo.jpg"]];
+//    image.frame = self.view.frame;
+//    image.contentMode = UIViewContentModeScaleAspectFit;
+//    [self.view addSubview:image];
+//    self.photoImage = image;
+//
+//    
+//    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)];
+//    [self.view addGestureRecognizer:pinchRecognizer];
     
-    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)];
     
-//    [pinchRecognizer setDelegate:self];
-    [self.view addGestureRecognizer:pinchRecognizer];
-    
+    RICHUILabel *testLabel = [[RICHUILabel alloc]initWithFrame:CGRectMake(8, 40, 304, 400)];
+    testLabel.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:testLabel];
+    testLabel.text = @"获取数据获取数据,获取数据获取7数据获取数据9获取［］数据获取rt6数据获［］取数据获取数据获取数据获取数据获取数据］、获取数据获取数据";
+    testLabel.numberOfLines = 0;
+    testLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    testLabel.characterSpacing = 10.0f;
+//    testLabel.frame = CGRectMake(8, 30, 304, 300);
+//    testLabel = [[RICHUILabel alloc]initWithFrame:CGRectMake(0, 40, 320, 200)];
 }
 
 -(void)scale:(id)sender {

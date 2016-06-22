@@ -7,6 +7,7 @@
 //
 
 #import "PageHead.h"
+#import "APIStringMacros.h"
 
 @implementation PageHead
 
@@ -25,8 +26,8 @@
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
         [view addSubview:label];
         self.pageTitle = label;
-        label.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
-        label.font = [UIFont systemFontOfSize:16.0f];
+        label.textColor = VIEWTITLECOLOR;
+        label.font = VIEWTITLEFONT;
         label.textAlignment = NSTextAlignmentCenter;
         label.text = @"和新闻";
         //返回按钮

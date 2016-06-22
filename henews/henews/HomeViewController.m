@@ -112,12 +112,10 @@
 #pragma mark - 网络请求返回
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     if ([tag isEqual:@"homeData"]) {
-        if (!flag) {
-            [self.tableView headerEndRefreshing];
-            _time =[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showTip) userInfo:nil repeats:NO];
-        }else{
-            NSLog(@"requestDidReturn===cache===");
-        }
+//        if (!flag) {
+//            [self.tableView headerEndRefreshing];
+//            _time =[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showTip) userInfo:nil repeats:NO];
+//        }
         
         if (!_tableViewData) {
             _tableViewData = [[NSMutableArray alloc]init];
@@ -141,18 +139,19 @@
                 }
             }
             
-//            [UIView transitionWithView:_tableView
-//                              duration: 0.35f
-//                               options: UIViewAnimationOptionTransitionCrossDissolve
-//                            animations: ^(void)
-//             {
-//                 [_tableView reloadData];
-//             }
-//                            completion: ^(BOOL isFinished)
-//             {  
-//                 
-//             }];
-            [_tableView reloadData];
+            [UIView transitionWithView:_tableView
+                              duration: 0.15f
+                               options: UIViewAnimationOptionTransitionCrossDissolve
+                            animations: ^(void){
+                 [_tableView reloadData];
+             }
+            completion: ^(BOOL isFinished){
+                if (!flag) {
+                    [self.tableView headerEndRefreshing];
+                    _time =[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showTip) userInfo:nil repeats:NO];
+                }
+             }];
+//            [_tableView reloadData];
         }
     }
 }
