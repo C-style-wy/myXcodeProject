@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D3B52FCA1D1A650B00545D85"
+               BlueprintIdentifier = "D3276A931D2A397D00A249C9"
                BuildableName = "henews250.app"
                BlueprintName = "henews250"
                ReferencedContainer = "container:henews250.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D3B52FDE1D1A650B00545D85"
+               BlueprintIdentifier = "D3276AAC1D2A397E00A249C9"
                BuildableName = "henews250Tests.xctest"
                BlueprintName = "henews250Tests"
                ReferencedContainer = "container:henews250.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D3B52FE91D1A650B00545D85"
+               BlueprintIdentifier = "D3276AB71D2A397E00A249C9"
                BuildableName = "henews250UITests.xctest"
                BlueprintName = "henews250UITests"
                ReferencedContainer = "container:henews250.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D3B52FCA1D1A650B00545D85"
+            BlueprintIdentifier = "D3276A931D2A397D00A249C9"
             BuildableName = "henews250.app"
             BlueprintName = "henews250"
             ReferencedContainer = "container:henews250.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D3B52FCA1D1A650B00545D85"
+            BlueprintIdentifier = "D3276A931D2A397D00A249C9"
             BuildableName = "henews250.app"
             BlueprintName = "henews250"
             ReferencedContainer = "container:henews250.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D3B52FCA1D1A650B00545D85"
+            BlueprintIdentifier = "D3276A931D2A397D00A249C9"
             BuildableName = "henews250.app"
             BlueprintName = "henews250"
             ReferencedContainer = "container:henews250.xcodeproj">
