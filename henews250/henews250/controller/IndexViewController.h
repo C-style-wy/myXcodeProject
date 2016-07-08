@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "GuidePage3.h"
 
-@interface IndexViewController : BaseViewController
-@property (weak, nonatomic) IBOutlet UIImageView *launchImageView;
+@interface IndexViewController : BaseViewController<EnterAppDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *launchImage;
+@property (weak, nonatomic) IBOutlet UIView *scrollBgView;
+@property (weak, nonatomic) IBOutlet UIScrollView *guideScrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *guiPageControl;
 
 @end

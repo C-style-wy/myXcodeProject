@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-f3-jbz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,26 +18,136 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="71h-3l-QYx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vnV-6L-Pmu" userLabel="launchImage">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyL-Wb-idd" userLabel="scrollBgView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GuideBg" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-lU-jGf" userLabel="guideBgImage">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                    </imageView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oc9-CA-Wrn" userLabel="guideScrollView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                    </scrollView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Zdu-4z-C2j">
+                                        <rect key="frame" x="140" y="443" width="39" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="39" id="ALy-mV-313"/>
+                                            <constraint firstAttribute="height" constant="37" id="cUE-eO-Dca"/>
+                                        </constraints>
+                                        <color key="pageIndicatorTintColor" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.96862745098039216" green="0.63529411764705879" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bGn-lU-jGf" secondAttribute="trailing" id="0HG-Hu-iRp"/>
+                                    <constraint firstItem="Oc9-CA-Wrn" firstAttribute="leading" secondItem="AyL-Wb-idd" secondAttribute="leading" id="7ER-1o-7jl"/>
+                                    <constraint firstItem="bGn-lU-jGf" firstAttribute="top" secondItem="AyL-Wb-idd" secondAttribute="top" id="APd-pb-RDv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Oc9-CA-Wrn" secondAttribute="trailing" id="LWM-42-moz"/>
+                                    <constraint firstItem="Oc9-CA-Wrn" firstAttribute="top" secondItem="AyL-Wb-idd" secondAttribute="top" id="Oau-Cw-L7u"/>
+                                    <constraint firstAttribute="bottom" secondItem="Oc9-CA-Wrn" secondAttribute="bottom" id="QCy-je-cbB"/>
+                                    <constraint firstItem="Zdu-4z-C2j" firstAttribute="centerX" secondItem="AyL-Wb-idd" secondAttribute="centerX" id="Xej-gb-NM8"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zdu-4z-C2j" secondAttribute="bottom" id="dFX-z8-Mii"/>
+                                    <constraint firstItem="bGn-lU-jGf" firstAttribute="leading" secondItem="AyL-Wb-idd" secondAttribute="leading" id="oIJ-wE-UA1"/>
+                                    <constraint firstAttribute="bottom" secondItem="bGn-lU-jGf" secondAttribute="bottom" id="zey-Kd-qgH"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="71h-3l-QYx" secondAttribute="trailing" constant="-20" id="CSE-I1-7r2"/>
-                            <constraint firstItem="71h-3l-QYx" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="Uhr-q3-iqA"/>
-                            <constraint firstItem="71h-3l-QYx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="sGN-5P-bzn"/>
-                            <constraint firstItem="71h-3l-QYx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="sSR-hb-rsr"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="AyL-Wb-idd" secondAttribute="bottom" id="0Sb-6q-hFV"/>
+                            <constraint firstItem="AyL-Wb-idd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1OS-r5-3zX"/>
+                            <constraint firstItem="vnV-6L-Pmu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6pj-N2-ZP0"/>
+                            <constraint firstItem="vnV-6L-Pmu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8KO-Uj-plS"/>
+                            <constraint firstItem="vnV-6L-Pmu" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="WHL-lf-RRd"/>
+                            <constraint firstItem="AyL-Wb-idd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="bIJ-S3-o3s"/>
+                            <constraint firstItem="vnV-6L-Pmu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="tim-Gc-tfU"/>
+                            <constraint firstItem="AyL-Wb-idd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="yJw-A2-WsI"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationItem key="navigationItem" id="8Eh-DF-mDM"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
                     <connections>
-                        <outlet property="launchImageView" destination="71h-3l-QYx" id="v50-Fs-u1a"/>
+                        <outlet property="guiPageControl" destination="Zdu-4z-C2j" id="fD6-8N-YW5"/>
+                        <outlet property="guideScrollView" destination="Oc9-CA-Wrn" id="eEC-tV-iUU"/>
+                        <outlet property="launchImage" destination="vnV-6L-Pmu" id="HyZ-R1-NqG"/>
+                        <outlet property="scrollBgView" destination="AyL-Wb-idd" id="68P-Ab-2p5"/>
+                        <segue destination="3Xr-NR-1tU" kind="push" identifier="showHome" animates="NO" id="ljf-oD-FjH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="230" y="224"/>
+            <point key="canvasLocation" x="29" y="35"/>
+        </scene>
+        <!--Tab Bar View-->
+        <scene sceneID="Mw7-16-fpB">
+            <objects>
+                <viewController storyboardIdentifier="rootStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Xr-NR-1tU" customClass="XNTabBarView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yGQ-h6-ehp"/>
+                        <viewControllerLayoutGuide type="bottom" id="qpv-AC-8WH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oqo-O0-0Kw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="08d-y9-s50">
+                                <rect key="frame" x="55" y="134" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.36470588240000001" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Rea-dG-Z5j"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jzd-rg-RdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="413" y="24"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="08j-qh-IOf">
+            <objects>
+                <navigationController id="CVY-f3-jbz" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="i0e-8E-T7N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OyT-5Y-hKq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ydc-7I-2df" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-315" y="111"/>
+        </scene>
+        <!--Home Controller-->
+        <scene sceneID="wur-oE-9Yp">
+            <objects>
+                <viewController id="hXA-aX-6TA" customClass="HomeController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HPt-cb-Sjx"/>
+                        <viewControllerLayoutGuide type="bottom" id="sPb-Db-UcC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uNr-vp-79G">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Va-Dj-ZOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="147"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GuideBg" width="720" height="1280"/>
+    </resources>
 </document>

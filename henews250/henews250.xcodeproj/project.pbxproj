@@ -10,12 +10,21 @@
 		48EE1F66F5C14B8FF4855FB6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB1D17144153DEA3E279AE3 /* libPods.a */; };
 		D31A339F1D2B506700401658 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31A339E1D2B506700401658 /* IndexViewController.m */; };
 		D31A33A21D2B538800401658 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31A33A11D2B538800401658 /* BaseViewController.m */; };
+		D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */ = {isa = PBXBuildFile; fileRef = D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */; };
+		D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */; };
 		D3276A991D2A397D00A249C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276A981D2A397D00A249C9 /* main.m */; };
 		D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276A9B1D2A397D00A249C9 /* AppDelegate.m */; };
 		D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3276AA01D2A397E00A249C9 /* Main.storyboard */; };
 		D3276AA41D2A397E00A249C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3276AA31D2A397E00A249C9 /* Assets.xcassets */; };
 		D3276AB21D2A397E00A249C9 /* henews250Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276AB11D2A397E00A249C9 /* henews250Tests.m */; };
 		D3276ABD1D2A397E00A249C9 /* henews250UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276ABC1D2A397E00A249C9 /* henews250UITests.m */; };
+		D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */; };
+		D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */ = {isa = PBXBuildFile; fileRef = D33265201D2E2FB1005C9D7D /* GuidePage2.m */; };
+		D33265231D2E2FC3005C9D7D /* GuidePage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33265221D2E2FC3005C9D7D /* GuidePage2.xib */; };
+		D33265251D2E49B1005C9D7D /* GuidePage3.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33265241D2E49B1005C9D7D /* GuidePage3.xib */; };
+		D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */ = {isa = PBXBuildFile; fileRef = D33265271D2E49C3005C9D7D /* GuidePage3.m */; };
+		D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D332652F1D2E5DAE005C9D7D /* HomeController.m */; };
+		D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33265321D2E6191005C9D7D /* XNTabBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +52,10 @@
 		D31A339E1D2B506700401658 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		D31A33A01D2B538800401658 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D31A33A11D2B538800401658 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		D3276A941D2A397D00A249C9 /* henews250.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = henews250.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D31DE9F21D2C8DBC00D2B0AB /* GuidePage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage1.h; sourceTree = "<group>"; };
+		D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePage1.m; sourceTree = "<group>"; };
+		D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidePage1.xib; sourceTree = "<group>"; };
+		D3276A941D2A397D00A249C9 /* 和新闻.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "和新闻.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3276A981D2A397D00A249C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3276A9A1D2A397D00A249C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D3276A9B1D2A397D00A249C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,6 +68,19 @@
 		D3276AB81D2A397E00A249C9 /* henews250UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = henews250UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3276ABC1D2A397E00A249C9 /* henews250UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = henews250UITests.m; sourceTree = "<group>"; };
 		D3276ABE1D2A397E00A249C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D332651C1D2E19B6005C9D7D /* UIView+LoadFromNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadFromNib.h"; sourceTree = "<group>"; };
+		D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadFromNib.m"; sourceTree = "<group>"; };
+		D332651F1D2E2FB1005C9D7D /* GuidePage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage2.h; sourceTree = "<group>"; };
+		D33265201D2E2FB1005C9D7D /* GuidePage2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePage2.m; sourceTree = "<group>"; };
+		D33265221D2E2FC3005C9D7D /* GuidePage2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidePage2.xib; sourceTree = "<group>"; };
+		D33265241D2E49B1005C9D7D /* GuidePage3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidePage3.xib; sourceTree = "<group>"; };
+		D33265261D2E49C3005C9D7D /* GuidePage3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage3.h; sourceTree = "<group>"; };
+		D33265271D2E49C3005C9D7D /* GuidePage3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePage3.m; sourceTree = "<group>"; };
+		D332652E1D2E5DAE005C9D7D /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
+		D332652F1D2E5DAE005C9D7D /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
+		D33265311D2E6191005C9D7D /* XNTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNTabBarView.h; sourceTree = "<group>"; };
+		D33265321D2E6191005C9D7D /* XNTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTabBarView.m; sourceTree = "<group>"; };
+		D3B693921D2BBF5D00F8D1C4 /* MacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +126,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D31DE9F01D2C8CB200D2B0AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D33265291D2E4F68005C9D7D /* SubView */,
+				D31DE9F11D2C8D0100D2B0AB /* GuidePage */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D31DE9F11D2C8D0100D2B0AB /* GuidePage */ = {
+			isa = PBXGroup;
+			children = (
+				D31DE9F21D2C8DBC00D2B0AB /* GuidePage1.h */,
+				D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */,
+				D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */,
+				D332651F1D2E2FB1005C9D7D /* GuidePage2.h */,
+				D33265201D2E2FB1005C9D7D /* GuidePage2.m */,
+				D33265221D2E2FC3005C9D7D /* GuidePage2.xib */,
+				D33265261D2E49C3005C9D7D /* GuidePage3.h */,
+				D33265271D2E49C3005C9D7D /* GuidePage3.m */,
+				D33265241D2E49B1005C9D7D /* GuidePage3.xib */,
+			);
+			path = GuidePage;
+			sourceTree = "<group>";
+		};
 		D3276A8B1D2A397D00A249C9 = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +166,7 @@
 		D3276A951D2A397D00A249C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D3276A941D2A397D00A249C9 /* henews250.app */,
+				D3276A941D2A397D00A249C9 /* 和新闻.app */,
 				D3276AAD1D2A397E00A249C9 /* henews250Tests.xctest */,
 				D3276AB81D2A397E00A249C9 /* henews250UITests.xctest */,
 			);
@@ -126,7 +176,10 @@
 		D3276A961D2A397D00A249C9 /* henews250 */ = {
 			isa = PBXGroup;
 			children = (
-				D3276ACD1D2A681A00A249C9 /* controller */,
+				D332651B1D2E0347005C9D7D /* Category */,
+				D31DE9F01D2C8CB200D2B0AB /* View */,
+				D3B693911D2BBEDD00F8D1C4 /* Util */,
+				D3276ACD1D2A681A00A249C9 /* Controller */,
 				D3276ACE1D2A681A00A249C9 /* Libraries */,
 				D3276A9A1D2A397D00A249C9 /* AppDelegate.h */,
 				D3276A9B1D2A397D00A249C9 /* AppDelegate.m */,
@@ -164,14 +217,16 @@
 			path = henews250UITests;
 			sourceTree = "<group>";
 		};
-		D3276ACD1D2A681A00A249C9 /* controller */ = {
+		D3276ACD1D2A681A00A249C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D332652D1D2E5D06005C9D7D /* PrimaryViewController */,
 				D31A339D1D2B506700401658 /* IndexViewController.h */,
 				D31A339E1D2B506700401658 /* IndexViewController.m */,
 				D31A33A01D2B538800401658 /* BaseViewController.h */,
 				D31A33A11D2B538800401658 /* BaseViewController.m */,
 			);
+			name = Controller;
 			path = controller;
 			sourceTree = "<group>";
 		};
@@ -180,6 +235,41 @@
 			children = (
 			);
 			path = Libraries;
+			sourceTree = "<group>";
+		};
+		D332651B1D2E0347005C9D7D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D332651C1D2E19B6005C9D7D /* UIView+LoadFromNib.h */,
+				D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D33265291D2E4F68005C9D7D /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		D332652D1D2E5D06005C9D7D /* PrimaryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D33265311D2E6191005C9D7D /* XNTabBarView.h */,
+				D33265321D2E6191005C9D7D /* XNTabBarView.m */,
+				D332652E1D2E5DAE005C9D7D /* HomeController.h */,
+				D332652F1D2E5DAE005C9D7D /* HomeController.m */,
+			);
+			path = PrimaryViewController;
+			sourceTree = "<group>";
+		};
+		D3B693911D2BBEDD00F8D1C4 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D3B693921D2BBF5D00F8D1C4 /* MacroDefinition.h */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +292,7 @@
 			);
 			name = henews250;
 			productName = henews250;
-			productReference = D3276A941D2A397D00A249C9 /* henews250.app */;
+			productReference = D3276A941D2A397D00A249C9 /* 和新闻.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D3276AAC1D2A397E00A249C9 /* henews250Tests */ = {
@@ -288,8 +378,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D33265231D2E2FC3005C9D7D /* GuidePage2.xib in Resources */,
 				D3276AA41D2A397E00A249C9 /* Assets.xcassets in Resources */,
+				D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */,
 				D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */,
+				D33265251D2E49B1005C9D7D /* GuidePage3.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,9 +456,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */,
+				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
 				D3276A991D2A397D00A249C9 /* main.m in Sources */,
 				D31A339F1D2B506700401658 /* IndexViewController.m in Sources */,
+				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
+				D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */,
+				D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */,
+				D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */,
+				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +603,7 @@
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shoujibao.cmread;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "cf9a9d64-ca89-49aa-b9e3-4d4c624142e5";
 			};
 			name = Debug;
@@ -519,7 +618,7 @@
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shoujibao.cmread;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "cf9a9d64-ca89-49aa-b9e3-4d4c624142e5";
 			};
 			name = Release;

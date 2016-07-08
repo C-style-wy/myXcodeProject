@@ -21,6 +21,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -54,6 +55,20 @@
     }else{
         return iPhone5;
     }
+}
+
+#pragma mark - get and set NSUserDefaults key-value
+- (NSString*)getUserData:(NSString*)key {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults stringForKey:key]){
+        return [userDefaults stringForKey:key];
+    }
+    return false;
+}
+
+- (void)setUserData:(NSString*)key value:(NSString*)value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:value forKey:key];
 }
 
 /*
