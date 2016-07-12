@@ -80,12 +80,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29" y="35"/>
+            <point key="canvasLocation" x="-79" y="411"/>
         </scene>
         <!--Tab Bar View-->
         <scene sceneID="Mw7-16-fpB">
             <objects>
-                <viewController storyboardIdentifier="rootStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Xr-NR-1tU" customClass="XNTabBarView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="XNTabBarView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Xr-NR-1tU" customClass="XNTabBarView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yGQ-h6-ehp"/>
                         <viewControllerLayoutGuide type="bottom" id="qpv-AC-8WH"/>
@@ -93,21 +93,22 @@
                     <view key="view" contentMode="scaleToFill" id="Oqo-O0-0Kw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="08d-y9-s50">
-                                <rect key="frame" x="55" y="134" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.36470588240000001" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rea-dG-Z5j"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
+                    <connections>
+                        <segue destination="hXA-aX-6TA" kind="push" id="rph-ey-gWw"/>
+                        <segue destination="Ny5-02-evm" kind="push" id="bm8-6j-dYO"/>
+                        <segue destination="DzH-ab-Ov0" kind="push" id="CJ9-jG-hzo"/>
+                        <segue destination="ga4-W3-D35" kind="push" id="fAB-eJ-hb0"/>
+                        <segue destination="b3T-Ni-EPU" kind="push" id="qYM-Px-S4a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzd-rg-RdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="413" y="24"/>
+            <point key="canvasLocation" x="340" y="411"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="08j-qh-IOf">
@@ -124,12 +125,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydc-7I-2df" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-315" y="111"/>
+            <point key="canvasLocation" x="-459" y="411"/>
         </scene>
         <!--Home Controller-->
         <scene sceneID="wur-oE-9Yp">
             <objects>
-                <viewController id="hXA-aX-6TA" customClass="HomeController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hXA-aX-6TA" customClass="HomeController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HPt-cb-Sjx"/>
                         <viewControllerLayoutGuide type="bottom" id="sPb-Db-UcC"/>
@@ -137,17 +138,179 @@
                     <view key="view" contentMode="scaleToFill" id="uNr-vp-79G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mj-iw-5R5" userLabel="topView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RxM-EZ-Hj1" userLabel="headView">
+                                        <rect key="frame" x="0.0" y="20" width="320" height="33"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eua-3s-wTC" userLabel="cityBtn">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="9fR-5G-4zB"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="cityBtnSelect:" destination="hXA-aX-6TA" eventType="touchUpInside" id="cvQ-m9-f6V"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合肥" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-No-Nmg" userLabel="cityName">
+                                                <rect key="frame" x="38" y="0.0" width="150" height="33"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="beA-hc-JW9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RS-Sb-jlG" userLabel="setBtn">
+                                                <rect key="frame" x="270" y="0.0" width="50" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="JrE-6C-kB3"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="setBtnSelect:" destination="hXA-aX-6TA" eventType="touchUpInside" id="s70-4O-ysU"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_icon" translatesAutoresizingMaskIntoConstraints="NO" id="V0G-gz-Cjn" userLabel="icon">
+                                                <rect key="frame" x="91" y="7" width="138" height="19"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="8RS-Sb-jlG" firstAttribute="top" secondItem="RxM-EZ-Hj1" secondAttribute="top" id="0HK-A8-idp"/>
+                                            <constraint firstItem="gfS-No-Nmg" firstAttribute="leading" secondItem="RxM-EZ-Hj1" secondAttribute="leading" constant="38" id="6dk-l4-dZt"/>
+                                            <constraint firstAttribute="bottom" secondItem="Eua-3s-wTC" secondAttribute="bottom" id="Hkv-xN-NJp"/>
+                                            <constraint firstAttribute="bottom" secondItem="8RS-Sb-jlG" secondAttribute="bottom" id="PJE-8l-0gR"/>
+                                            <constraint firstItem="V0G-gz-Cjn" firstAttribute="top" secondItem="RxM-EZ-Hj1" secondAttribute="top" constant="7" id="SDq-Z2-A1p"/>
+                                            <constraint firstItem="Eua-3s-wTC" firstAttribute="top" secondItem="RxM-EZ-Hj1" secondAttribute="top" id="UoE-2m-uKO"/>
+                                            <constraint firstItem="gfS-No-Nmg" firstAttribute="top" secondItem="RxM-EZ-Hj1" secondAttribute="top" id="dE0-tQ-SFe"/>
+                                            <constraint firstItem="V0G-gz-Cjn" firstAttribute="centerX" secondItem="RxM-EZ-Hj1" secondAttribute="centerX" id="eRy-Vg-Mvo"/>
+                                            <constraint firstAttribute="bottom" secondItem="V0G-gz-Cjn" secondAttribute="bottom" constant="7" id="ftb-Yo-skb"/>
+                                            <constraint firstAttribute="bottom" secondItem="gfS-No-Nmg" secondAttribute="bottom" id="k8e-Dz-ged"/>
+                                            <constraint firstItem="Eua-3s-wTC" firstAttribute="leading" secondItem="RxM-EZ-Hj1" secondAttribute="leading" id="pP3-lL-qgk"/>
+                                            <constraint firstAttribute="trailing" secondItem="8RS-Sb-jlG" secondAttribute="trailing" id="yLD-eI-2aO"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RxM-EZ-Hj1" secondAttribute="trailing" id="WLk-kg-v1r"/>
+                                    <constraint firstItem="RxM-EZ-Hj1" firstAttribute="top" secondItem="6mj-iw-5R5" secondAttribute="top" constant="20" id="fCM-Sl-2Zc"/>
+                                    <constraint firstItem="RxM-EZ-Hj1" firstAttribute="leading" secondItem="6mj-iw-5R5" secondAttribute="leading" id="nzz-ap-4xY"/>
+                                    <constraint firstAttribute="bottom" secondItem="RxM-EZ-Hj1" secondAttribute="bottom" id="rvt-yP-jIx"/>
+                                    <constraint firstAttribute="height" constant="53" id="xgw-nZ-KZq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6mj-iw-5R5" secondAttribute="trailing" id="0MG-pR-k8h"/>
+                            <constraint firstItem="6mj-iw-5R5" firstAttribute="leading" secondItem="uNr-vp-79G" secondAttribute="leading" id="Dqc-jd-SVR"/>
+                            <constraint firstItem="6mj-iw-5R5" firstAttribute="top" secondItem="uNr-vp-79G" secondAttribute="top" id="Fy4-OM-kx5"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Gwp-oC-Sb5"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
+                    <connections>
+                        <outlet property="cityBtn" destination="Eua-3s-wTC" id="gHR-EC-Fxc"/>
+                        <outlet property="cityName" destination="gfS-No-Nmg" id="dGp-pD-d53"/>
+                        <outlet property="setBtn" destination="8RS-Sb-jlG" id="GiS-Ua-6to"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Va-Dj-ZOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="147"/>
+            <point key="canvasLocation" x="923" y="-757"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="Ohv-6d-AVf">
+            <objects>
+                <viewController storyboardIdentifier="NewsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ny5-02-evm" customClass="NewsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UcV-km-moW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZPg-dX-3JQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IeH-B6-KTa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.36470588240000001" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Tcc-dd-KQL"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ak9-r9-aJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="923" y="-172"/>
+        </scene>
+        <!--View Point View Controller-->
+        <scene sceneID="dzN-DR-drL">
+            <objects>
+                <viewController storyboardIdentifier="ViewPointViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DzH-ab-Ov0" customClass="ViewPointViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uHo-id-ZmJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="2IL-oa-MpO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M3A-ja-O3y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xf0-Nr-6SH"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rnl-7C-6C3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="923" y="411"/>
+        </scene>
+        <!--Welfare View Controller-->
+        <scene sceneID="WOw-js-TU3">
+            <objects>
+                <viewController storyboardIdentifier="WelfareViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ga4-W3-D35" customClass="WelfareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sFH-xR-LFT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y50-iB-6pA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c5I-Eg-AgP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.63529411759999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cxz-Mj-MI1"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4RZ-bs-eYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="351" y="1119"/>
+        </scene>
+        <!--My View Controller-->
+        <scene sceneID="SU3-kK-IQq">
+            <objects>
+                <viewController storyboardIdentifier="MyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b3T-Ni-EPU" customClass="MyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="maJ-K0-0u6"/>
+                        <viewControllerLayoutGuide type="bottom" id="R2c-PK-uLL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QW8-it-tA0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pUF-75-JDf"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u1D-kV-nNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="1073"/>
         </scene>
     </scenes>
     <resources>
         <image name="GuideBg" width="720" height="1280"/>
+        <image name="home_icon" width="138" height="46"/>
     </resources>
 </document>

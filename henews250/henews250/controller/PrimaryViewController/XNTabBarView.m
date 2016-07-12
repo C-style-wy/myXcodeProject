@@ -7,8 +7,19 @@
 //
 
 #import "XNTabBarView.h"
+#import "UIViewController+LoadFromStoryboard.h"
+
+#import "HomeController.h"
+#import "NewsViewController.h"
+#import "ViewPointViewController.h"
+#import "WelfareViewController.h"
+#import "MyViewController.h"
+
+#import "XNTabBarButton.h"
 
 @interface XNTabBarView ()
+
+@property (nonatomic, weak) UIButton *selectedBtn;
 
 @end
 
@@ -16,8 +27,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    self.view.backgroundColor = [UIColor grayColor];
+    [self.tabBar removeFromSuperview];
+    [self addMenuView];
+    
+    HomeController *home = [HomeController loadFromStoryboard];
+    NewsViewController *news = [NewsViewController loadFromStoryboard];
+    ViewPointViewController *viewPoint = [ViewPointViewController loadFromStoryboard];
+    WelfareViewController *welfare = [WelfareViewController loadFromStoryboard];
+    MyViewController *my = [MyViewController loadFromStoryboard];
+    
+    self.viewControllers = @[home, news, viewPoint, welfare, my];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,6 +44,80 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - menuView
+- (void)addMenuView {
+    UIView *tabBarView = [[UIView alloc]init];
+    tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT-40, SCREEN_WIDTH, 40);
+    tabBarView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:tabBarView];
+    
+    UIImageView *line = [[UIImageView alloc]init];
+    line.frame = CGRectMake(0, 0, SCREEN_WIDTH, 0.5f);
+    line.image = [UIImage imageNamed:@"menuFengexian"];
+    [tabBarView addSubview:line];
+    
+    for (int i = 0; i < 5; i++) {
+        XNTabBarButton *btn = [[XNTabBarButton alloc]init];
+        
+        NSString *imageName = [NSString stringWithFormat:@"menu%d", i+1];
+        NSString *imageNameSel = [NSString stringWithFormat:@"menusel%d", i+1];
+        
+        [btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:imageNameSel] forState:UIControlStateSelected];
+        
+        CGFloat bntWidth = tabBarView.frame.size.width / 5;
+        CGFloat x = i * bntWidth;
+        btn.frame = CGRectMake(x, 0, bntWidth, 40);
+        
+        if (0 == i) {
+            [btn setTitle:@"推荐" forState:UIControlStateNormal];
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-22)/2, 18, (bntWidth-22)/2)];
+            [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -49, 6, 0)];
+        }else if (1 == i) {
+            [btn setTitle:@"资讯" forState:UIControlStateNormal];
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-17)/2, 18, (bntWidth-17)/2)];
+            [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -37, 6, 0)];
+        }else if (2 == i) {
+            [btn setTitle:@"视界" forState:UIControlStateNormal];
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-16)/2, 18, (bntWidth-16)/2)];
+            [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -36, 6, 0)];
+        }else if (3 == i) {
+            [btn setTitle:@"福利" forState:UIControlStateNormal];
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-22)/2, 18, (bntWidth-18)/2)];
+            [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -42, 6, 0)];
+        }else if (4 == i) {
+            [btn setTitle:@"我的" forState:UIControlStateNormal];
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-16)/2, 18, (bntWidth-16)/2)];
+            [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -36, 6, 0)];
+        }
+        [btn setTitleColor:[UIColor colorWithRed:0.88 green:0.02 blue:0.46 alpha:1] forState:UIControlStateSelected];
+        btn.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+        [btn setTitleColor:[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1] forState:UIControlStateNormal];
+        
+        [tabBarView addSubview:btn];
+        btn.tag = i;
+        [btn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+        if (0 == i) {
+            btn.selected = YES;
+            self.selectedBtn = btn;
+        }
+    }
+}
+
+- (void)clickBtn:(UIButton *)button {
+    if (self.selectedBtn == button) {
+        //        if ([self.reflushDelegate respondsToSelector:@selector(reflushTableView)]) {
+        //
+        //        }
+        
+        //        [self.reflushDelegate reflushTableView];
+    }else{
+        self.selectedBtn.selected = NO;
+        button.selected = YES;
+        self.selectedBtn = button;
+        self.selectedIndex = button.tag;
+    }
+}
 /*
 #pragma mark - Navigation
 

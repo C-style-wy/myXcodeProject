@@ -10,12 +10,16 @@
 #import "GuidePage1.h"
 #import "GuidePage2.h"
 #import "XNTabBarView.h"
+#import "UIViewController+LoadFromStoryboard.h"
+#import "XNTabBarView.h"
 
 @interface IndexViewController ()
 
 @end
 
-@implementation IndexViewController
+@implementation IndexViewController {
+    float guideScrollViewBeginOffsetX;
+}
 
 #pragma mark - viewDiaLoad,viewWillAppear,viewDidAppear,viewWillDisappear,viewDidDisappear
 - (void)viewDidLoad {
@@ -94,26 +98,42 @@
     }else{
         NSLog(@"不是第一次打开");
         self.scrollBgView.hidden = NO;
+        [self jumpeHome:NO];
     }
 }
 
 #pragma mark - scrollerView delegate
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scroll{
-    float x = scroll.contentOffset.x;
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    float x = scrollView.contentOffset.x;
     self.guiPageControl.currentPage = (int)(x/SCREEN_WIDTH);
 }
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    guideScrollViewBeginOffsetX = scrollView.contentOffset.x;
+//    NSLog(@"begin===x==%f", x);
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float x = scrollView.contentOffset.x;
+    if (guideScrollViewBeginOffsetX == SCREEN_WIDTH*2) {
+        if (x > SCREEN_WIDTH*2 + 0.5f) {
+            [self jumpeHome:YES];
+        }
+    }
+}
+
+//- (void)scrollView
 #pragma mark - EnterAppDelegate
 - (void)enterAppBtnSelect{
-//    XNTabBarView *rootView = [[XNTabBarView alloc]init];
-    
-    //获取storyboard: 通过bundle根据storyboard的名字来获取我们的storyboard,
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    //由storyboard根据myView的storyBoardID来获取我们要切换的视图
-    UIViewController *rootView = [story instantiateViewControllerWithIdentifier:@"rootStoryboard"];
-    [self.navigationController setViewControllers:[NSArray arrayWithObject:rootView] animated:NO];
-    
+    [self jumpeHome:NO];
 //    [self performSegueWithIdentifier:@"showHome" sender:self];
 //    self.navigationController.roo
+}
+
+#pragma mark - goHome
+- (void)jumpeHome:(BOOL)animated {
+    XNTabBarView *rootView = [XNTabBarView loadFromStoryboard];
+    [self.navigationController setViewControllers:[NSArray arrayWithObject:rootView] animated:animated];
 }
 /*
 #pragma mark - Navigation

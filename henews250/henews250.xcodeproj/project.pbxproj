@@ -18,6 +18,12 @@
 		D3276AA41D2A397E00A249C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3276AA31D2A397E00A249C9 /* Assets.xcassets */; };
 		D3276AB21D2A397E00A249C9 /* henews250Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276AB11D2A397E00A249C9 /* henews250Tests.m */; };
 		D3276ABD1D2A397E00A249C9 /* henews250UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276ABC1D2A397E00A249C9 /* henews250UITests.m */; };
+		D32C368D1D321B3300431829 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C368C1D321B3300431829 /* NewsViewController.m */; };
+		D32C36901D321B6200431829 /* ViewPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C368F1D321B6200431829 /* ViewPointViewController.m */; };
+		D32C36931D321B8100431829 /* WelfareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C36921D321B8100431829 /* WelfareViewController.m */; };
+		D32C36961D321B8E00431829 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C36951D321B8E00431829 /* MyViewController.m */; };
+		D32C36991D321D6C00431829 /* UIViewController+LoadFromStoryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C36981D321D6C00431829 /* UIViewController+LoadFromStoryboard.m */; };
+		D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C369B1D3223F800431829 /* XNTabBarButton.m */; };
 		D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */; };
 		D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */ = {isa = PBXBuildFile; fileRef = D33265201D2E2FB1005C9D7D /* GuidePage2.m */; };
 		D33265231D2E2FC3005C9D7D /* GuidePage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33265221D2E2FC3005C9D7D /* GuidePage2.xib */; };
@@ -25,6 +31,8 @@
 		D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */ = {isa = PBXBuildFile; fileRef = D33265271D2E49C3005C9D7D /* GuidePage3.m */; };
 		D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D332652F1D2E5DAE005C9D7D /* HomeController.m */; };
 		D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33265321D2E6191005C9D7D /* XNTabBarView.m */; };
+		D37007E21D34C9F0007E2AA3 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = D37007E11D34C9F0007E2AA3 /* Request.m */; };
+		D37007E51D34CA19007E2AA3 /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D37007E41D34CA19007E2AA3 /* MD5.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +76,18 @@
 		D3276AB81D2A397E00A249C9 /* henews250UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = henews250UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3276ABC1D2A397E00A249C9 /* henews250UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = henews250UITests.m; sourceTree = "<group>"; };
 		D3276ABE1D2A397E00A249C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D32C368B1D321B3300431829 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		D32C368C1D321B3300431829 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		D32C368E1D321B6200431829 /* ViewPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPointViewController.h; sourceTree = "<group>"; };
+		D32C368F1D321B6200431829 /* ViewPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPointViewController.m; sourceTree = "<group>"; };
+		D32C36911D321B8100431829 /* WelfareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareViewController.h; sourceTree = "<group>"; };
+		D32C36921D321B8100431829 /* WelfareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareViewController.m; sourceTree = "<group>"; };
+		D32C36941D321B8E00431829 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		D32C36951D321B8E00431829 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		D32C36971D321D6C00431829 /* UIViewController+LoadFromStoryboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadFromStoryboard.h"; sourceTree = "<group>"; };
+		D32C36981D321D6C00431829 /* UIViewController+LoadFromStoryboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadFromStoryboard.m"; sourceTree = "<group>"; };
+		D32C369A1D3223F800431829 /* XNTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNTabBarButton.h; sourceTree = "<group>"; };
+		D32C369B1D3223F800431829 /* XNTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTabBarButton.m; sourceTree = "<group>"; };
 		D332651C1D2E19B6005C9D7D /* UIView+LoadFromNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadFromNib.h"; sourceTree = "<group>"; };
 		D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadFromNib.m"; sourceTree = "<group>"; };
 		D332651F1D2E2FB1005C9D7D /* GuidePage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage2.h; sourceTree = "<group>"; };
@@ -80,6 +100,10 @@
 		D332652F1D2E5DAE005C9D7D /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		D33265311D2E6191005C9D7D /* XNTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNTabBarView.h; sourceTree = "<group>"; };
 		D33265321D2E6191005C9D7D /* XNTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTabBarView.m; sourceTree = "<group>"; };
+		D37007E01D34C9F0007E2AA3 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		D37007E11D34C9F0007E2AA3 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		D37007E31D34CA19007E2AA3 /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
+		D37007E41D34CA19007E2AA3 /* MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5.m; sourceTree = "<group>"; };
 		D3B693921D2BBF5D00F8D1C4 /* MacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,11 +200,11 @@
 		D3276A961D2A397D00A249C9 /* henews250 */ = {
 			isa = PBXGroup;
 			children = (
+				D3276ACE1D2A681A00A249C9 /* Libraries */,
 				D332651B1D2E0347005C9D7D /* Category */,
 				D31DE9F01D2C8CB200D2B0AB /* View */,
 				D3B693911D2BBEDD00F8D1C4 /* Util */,
 				D3276ACD1D2A681A00A249C9 /* Controller */,
-				D3276ACE1D2A681A00A249C9 /* Libraries */,
 				D3276A9A1D2A397D00A249C9 /* AppDelegate.h */,
 				D3276A9B1D2A397D00A249C9 /* AppDelegate.m */,
 				D3276AA01D2A397E00A249C9 /* Main.storyboard */,
@@ -233,6 +257,7 @@
 		D3276ACE1D2A681A00A249C9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D37007DF1D34C9BD007E2AA3 /* Networking */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -242,6 +267,8 @@
 			children = (
 				D332651C1D2E19B6005C9D7D /* UIView+LoadFromNib.h */,
 				D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */,
+				D32C36971D321D6C00431829 /* UIViewController+LoadFromStoryboard.h */,
+				D32C36981D321D6C00431829 /* UIViewController+LoadFromStoryboard.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -249,6 +276,8 @@
 		D33265291D2E4F68005C9D7D /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				D32C369A1D3223F800431829 /* XNTabBarButton.h */,
+				D32C369B1D3223F800431829 /* XNTabBarButton.m */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -260,8 +289,27 @@
 				D33265321D2E6191005C9D7D /* XNTabBarView.m */,
 				D332652E1D2E5DAE005C9D7D /* HomeController.h */,
 				D332652F1D2E5DAE005C9D7D /* HomeController.m */,
+				D32C368B1D321B3300431829 /* NewsViewController.h */,
+				D32C368C1D321B3300431829 /* NewsViewController.m */,
+				D32C368E1D321B6200431829 /* ViewPointViewController.h */,
+				D32C368F1D321B6200431829 /* ViewPointViewController.m */,
+				D32C36911D321B8100431829 /* WelfareViewController.h */,
+				D32C36921D321B8100431829 /* WelfareViewController.m */,
+				D32C36941D321B8E00431829 /* MyViewController.h */,
+				D32C36951D321B8E00431829 /* MyViewController.m */,
 			);
 			path = PrimaryViewController;
+			sourceTree = "<group>";
+		};
+		D37007DF1D34C9BD007E2AA3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D37007E01D34C9F0007E2AA3 /* Request.h */,
+				D37007E11D34C9F0007E2AA3 /* Request.m */,
+				D37007E31D34CA19007E2AA3 /* MD5.h */,
+				D37007E41D34CA19007E2AA3 /* MD5.m */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		D3B693911D2BBEDD00F8D1C4 /* Util */ = {
@@ -456,12 +504,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */,
+				D32C36931D321B8100431829 /* WelfareViewController.m in Sources */,
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
 				D3276A991D2A397D00A249C9 /* main.m in Sources */,
 				D31A339F1D2B506700401658 /* IndexViewController.m in Sources */,
+				D37007E21D34C9F0007E2AA3 /* Request.m in Sources */,
+				D32C36961D321B8E00431829 /* MyViewController.m in Sources */,
+				D32C368D1D321B3300431829 /* NewsViewController.m in Sources */,
 				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
+				D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */,
 				D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */,
+				D37007E51D34CA19007E2AA3 /* MD5.m in Sources */,
+				D32C36901D321B6200431829 /* ViewPointViewController.m in Sources */,
+				D32C36991D321D6C00431829 /* UIViewController+LoadFromStoryboard.m in Sources */,
 				D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */,
 				D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */,
 				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,

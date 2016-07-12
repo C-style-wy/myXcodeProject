@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface HomeController : UIViewController
+@interface HomeController : BaseViewController
+@property (weak, nonatomic) IBOutlet UIButton *cityBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *setBtn;
+@property (weak, nonatomic) IBOutlet UILabel *cityName;
+
 
 @end

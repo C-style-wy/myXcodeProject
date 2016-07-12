@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MacroDefinition.h"
+#import "Request.h"
 
 @interface BaseViewController : UIViewController
 

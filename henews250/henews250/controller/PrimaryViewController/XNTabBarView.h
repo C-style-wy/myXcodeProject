@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "MacroDefinition.h"
 
-@interface XNTabBarView : BaseViewController
+@interface XNTabBarView : UITabBarController
 
 @end
