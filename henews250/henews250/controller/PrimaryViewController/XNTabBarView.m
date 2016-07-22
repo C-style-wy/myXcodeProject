@@ -75,16 +75,16 @@
             [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -49, 6, 0)];
         }else if (1 == i) {
             [btn setTitle:@"资讯" forState:UIControlStateNormal];
-            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-17)/2, 18, (bntWidth-17)/2)];
-            [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -37, 6, 0)];
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-16)/2, 18, (bntWidth-16)/2)];
+            [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -36, 6, 0)];
         }else if (2 == i) {
             [btn setTitle:@"视界" forState:UIControlStateNormal];
-            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-16)/2, 18, (bntWidth-16)/2)];
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 18, (bntWidth-18)/2)];
             [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -36, 6, 0)];
         }else if (3 == i) {
             [btn setTitle:@"福利" forState:UIControlStateNormal];
-            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-22)/2, 18, (bntWidth-18)/2)];
-            [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -42, 6, 0)];
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 18, (bntWidth-18)/2)];
+            [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -40, 6, 0)];
         }else if (4 == i) {
             [btn setTitle:@"我的" forState:UIControlStateNormal];
             [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-16)/2, 18, (bntWidth-16)/2)];

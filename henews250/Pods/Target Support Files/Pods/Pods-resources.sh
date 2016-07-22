@@ -59,6 +59,7 @@ install_resource()
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "DKNightVersion/DKNightVersion/ColorTable/DKColorTable.txt"
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "ShareSDK3/libraries/extends/QQSDK/TencentOpenApi_IOS_Bundle.bundle"
   install_resource "ShareSDK3/libraries/extends/SinaWeiboSDK/WeiboSDK.bundle"
   install_resource "ShareSDK3/libraries/ShareSDKUI.bundle"
@@ -66,6 +67,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "DKNightVersion/DKNightVersion/ColorTable/DKColorTable.txt"
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "ShareSDK3/libraries/extends/QQSDK/TencentOpenApi_IOS_Bundle.bundle"
   install_resource "ShareSDK3/libraries/extends/SinaWeiboSDK/WeiboSDK.bundle"
   install_resource "ShareSDK3/libraries/ShareSDKUI.bundle"

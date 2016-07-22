@@ -11,7 +11,17 @@
 #import "AFNetworking.h"
 #import "MD5.h"
 
+@protocol RequestDelegate <NSObject>
+
+@required
+- (void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag;
+
+@end
 
 @interface Request : NSObject
+
++(void)requestPostForJSON:(NSString*)tag url:(NSString*)urlString delegate:(id)delegate paras:(NSDictionary*)paras msg:(NSInteger)msg useCache:(BOOL)use;
+
++(void)requestPostForJSON:(NSString*)tag url:(NSString*)urlString delegate:(id)delegate paras:(NSDictionary*)paras msg:(NSInteger)msg useCache:(BOOL)use update:(BOOL)update;
 
 @end

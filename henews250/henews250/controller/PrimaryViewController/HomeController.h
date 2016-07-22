@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "HomeMode.h"
+#import "SectionView.h"
 
-@interface HomeController : BaseViewController
+@interface HomeController : BaseViewController<UITableViewDelegate, UITableViewDataSource, SectionDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cityBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *setBtn;
 @property (weak, nonatomic) IBOutlet UILabel *cityName;
 
+@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) NSMutableArray *tableViewData;
 
+@property (strong, nonatomic) HomeMode *homeMode;
 @end

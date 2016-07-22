@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MacroDefinition.h"
 #import "Request.h"
+#import "MJRefresh.h"
+#import "UIImageView+WebCache.h"
+#import "UIView+SetAllSubViewHidden.h"
+#import "UIColor+hexColor.h"
+
 
 @interface BaseViewController : UIViewController
 
@@ -16,4 +21,7 @@
 - (iPhoneType)returnIphoneType;
 - (NSString*)getUserData:(NSString*)key;
 - (void)setUserData:(NSString*)key value:(NSString*)value;
+- (BOOL)earlierCurTimeWithTimeStr:(NSString*)timeStr;
+- (BOOL)laterCurTimeWithTimeStr:(NSString*)timeStr;
+- (NSString*)getCurSysTimeWithFormat:(NSString*)format;
 @end

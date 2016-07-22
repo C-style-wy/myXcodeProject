@@ -22,6 +22,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -34,6 +35,16 @@
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+
+- (BOOL)prefersStatusBarHidden{
+    //    return !showToolBarAndText; //返回NO表示要显示，返回YES将hiden
+    return NO;
 }
 
 #pragma mark - menory warning
@@ -69,6 +80,43 @@
 - (void)setUserData:(NSString*)key value:(NSString*)value {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:value forKey:key];
+}
+
+- (NSString*)getCurSysTimeWithFormat:(NSString*)format {
+    NSDate *currentDate = [NSDate date];//获取当前时间，日期
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:format];
+    return [dateFormatter stringFromDate:currentDate];
+}
+
+- (BOOL)earlierCurTimeWithTimeStr:(NSString*)timeStr {
+    NSDate *curDate = [NSDate date];
+    
+    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc]init];
+    [inputFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSDate *inputDate = [inputFormatter dateFromString:timeStr];
+    
+    NSComparisonResult result = [inputDate compare:curDate];
+    if (result == NSOrderedDescending) {
+        return NO;
+    }else{
+        return YES;
+    }
+}
+
+- (BOOL)laterCurTimeWithTimeStr:(NSString*)timeStr {
+    NSDate *curDate = [NSDate date];
+    
+    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc]init];
+    [inputFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSDate *inputDate = [inputFormatter dateFromString:timeStr];
+    
+    NSComparisonResult result = [inputDate compare:curDate];
+    if (result == NSOrderedDescending) {
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 /*

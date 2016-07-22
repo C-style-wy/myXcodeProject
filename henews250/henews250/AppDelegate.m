@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "IphoneParams.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,12 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+//    [UIApplication sharedApplication].statusBarHidden = YES;
+    //设置手机参数
+    IphoneParams *params = [[IphoneParams alloc]init];
+    [params setIphoneParam];
     return YES;
 }
 
