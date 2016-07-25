@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "XNTabBarView.h"
 
-@interface ViewPointViewController : BaseViewController
+
+@interface ViewPointViewController : BaseViewController<TabBarBtnDelegate>
 
 @end

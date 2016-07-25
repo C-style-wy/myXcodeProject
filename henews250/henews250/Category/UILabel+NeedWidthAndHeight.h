@@ -14,8 +14,8 @@
 
 @interface UILabel (NeedWidthAndHeight)
 
-- (CGFloat)neetWidthWithText:(NSString*)text;
+- (CGFloat)needWidthWithText:(NSString*)text;
 
-- (CGFloat)neetHeightWithText:(NSString*)text;
+- (CGFloat)needHeightWithText:(NSString*)text;
 
 @end

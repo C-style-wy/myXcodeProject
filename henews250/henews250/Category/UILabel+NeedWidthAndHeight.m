@@ -10,14 +10,14 @@
 
 @implementation UILabel (NeedWidthAndHeight)
 
-- (CGFloat)neetWidthWithText:(NSString*)text{
+- (CGFloat)needWidthWithText:(NSString*)text{
     UIFont *fnt = self.font;
     NSDictionary *attribute = @{NSFontAttributeName: fnt};
     CGFloat width = TEXTWIDTH(text, attribute, self.frame.size.height);
     return width;
 }
 
-- (CGFloat)neetHeightWithText:(NSString*)text{
+- (CGFloat)needHeightWithText:(NSString*)text{
     UIFont *fnt = self.font;
     NSDictionary *attribute = @{NSFontAttributeName: fnt};
     CGFloat height = TEXTHEIGHT(text, attribute, self.frame.size.width);

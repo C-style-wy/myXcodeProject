@@ -150,7 +150,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="rab-AQ-9c2" userLabel="tagImage">
-                                <rect key="frame" x="222" y="10" width="42" height="15"/>
+                                <rect key="frame" x="222" y="10" width="42" height="16"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXU-0X-HWm" userLabel="tag">
                                 <rect key="frame" x="222" y="10" width="42" height="15"/>
@@ -169,7 +169,7 @@
                             <constraint firstAttribute="bottom" secondItem="I3R-BU-X94" secondAttribute="bottom" id="0o2-zS-Ftl"/>
                             <constraint firstItem="HXU-0X-HWm" firstAttribute="centerY" secondItem="TjN-BJ-SWj" secondAttribute="centerY" id="1vt-6c-v3G"/>
                             <constraint firstItem="rab-AQ-9c2" firstAttribute="top" secondItem="HXU-0X-HWm" secondAttribute="top" id="LRg-WH-OrN"/>
-                            <constraint firstItem="rab-AQ-9c2" firstAttribute="bottom" secondItem="HXU-0X-HWm" secondAttribute="bottom" id="WxS-li-Aiu"/>
+                            <constraint firstItem="rab-AQ-9c2" firstAttribute="bottom" secondItem="HXU-0X-HWm" secondAttribute="bottom" constant="1" id="WxS-li-Aiu"/>
                             <constraint firstItem="rab-AQ-9c2" firstAttribute="trailing" secondItem="HXU-0X-HWm" secondAttribute="trailing" id="ZdT-bh-F8f"/>
                             <constraint firstItem="Zmw-Kn-luO" firstAttribute="top" secondItem="TjN-BJ-SWj" secondAttribute="top" id="aih-h3-Tex"/>
                             <constraint firstItem="J6l-BR-MrK" firstAttribute="top" secondItem="TjN-BJ-SWj" secondAttribute="top" id="dTQ-uu-St2"/>

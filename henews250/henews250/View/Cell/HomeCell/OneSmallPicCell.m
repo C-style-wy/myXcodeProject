@@ -34,7 +34,7 @@
 
 - (void)setNews:(NewsMode *)news hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort {
     _news = news;
-    if (_news) {
+    if (_news) {        
         if (_news.images && _news.images.count > 0) {
             ImageMode *image = [_news.images objectAtIndex:0];
             if (image && image.imageUrl && ![image.imageUrl isEqualToString:@""]) {            
@@ -42,7 +42,7 @@
             }
         }
         if (_news.newsTitle && ![_news.newsTitle isEqualToString:@""]) {
-            if ([_title neetHeightWithText:_news.newsTitle] > 18) {
+            if ([_title needHeightWithText:_news.newsTitle] > 18) {
                 self.titleHeight.constant = 36.0f;
                 self.summary.hidden = YES;
             }else{
@@ -58,7 +58,7 @@
         self.sourceWidth.constant = 0;
         
         if (_news.source && ![_news.source isEqualToString:@""]) {
-            self.sourceWidth.constant = [_source neetWidthWithText:_news.source];
+            self.sourceWidth.constant = [_source needWidthWithText:_news.source];
             self.source.text = _news.source;
             self.pubTimeLeading.constant = 10.0f;
         }else{
@@ -66,14 +66,14 @@
             self.pubTimeLeading.constant = 0;
         }
         if (_news.createTime && ![_news.createTime isEqualToString:@""]) {
-            self.pubTimeWidth.constant = [_pubTime neetWidthWithText:_news.createTime];
+            self.pubTimeWidth.constant = [_pubTime needWidthWithText:_news.createTime];
             self.pubTime.text = _news.createTime;
         }else{
             self.pubTimeWidth.constant = 0;
         }
         
         if (_news.pv && ![_news.pv isEqualToString:@""]) {
-            self.pvWidth.constant = [_pv neetWidthWithText:[_news.pv stringByAppendingString:@"阅"]];
+            self.pvWidth.constant = [_pv needWidthWithText:[_news.pv stringByAppendingString:@"阅"]];
             self.pv.text = [_news.pv stringByAppendingString:@"阅"];
         }
         
@@ -82,7 +82,7 @@
         
         if (_news.newsTags && _news.newsTags.count > 0) {
             TagMode *tag = [_news.newsTags objectAtIndex:0];
-            _tagLabelWidth.constant = [_tagLabel neetWidthWithText:tag.tag] + 10;
+            _tagLabelWidth.constant = [_tagLabel needWidthWithText:tag.tag] + 10;
             _tagLabel.text = tag.tag;
             
             if ((_pubTime.frame.origin.x + _pubTime.frame.size.width + 5) > _tagImage.frame.origin.x) {

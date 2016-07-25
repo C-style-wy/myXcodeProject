@@ -99,7 +99,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="nLE-jH-6MJ" userLabel="tagImage">
-                                <rect key="frame" x="210" y="10" width="42" height="15"/>
+                                <rect key="frame" x="210" y="10" width="42" height="16"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bN-IG-a1c" userLabel="tag">
                                 <rect key="frame" x="210" y="10" width="42" height="15"/>
@@ -127,7 +127,7 @@
                             <constraint firstAttribute="trailing" secondItem="6y7-aO-gdH" secondAttribute="trailing" id="aiM-Pn-q8T"/>
                             <constraint firstItem="Kza-as-weR" firstAttribute="top" secondItem="0Hv-KP-xTI" secondAttribute="top" id="dE6-3l-jgy"/>
                             <constraint firstAttribute="bottom" secondItem="6y7-aO-gdH" secondAttribute="bottom" id="e5Q-n3-hDt"/>
-                            <constraint firstItem="nLE-jH-6MJ" firstAttribute="bottom" secondItem="9bN-IG-a1c" secondAttribute="bottom" id="g0x-eT-0Ax"/>
+                            <constraint firstItem="nLE-jH-6MJ" firstAttribute="bottom" secondItem="9bN-IG-a1c" secondAttribute="bottom" constant="1" id="g0x-eT-0Ax"/>
                             <constraint firstItem="gJN-ih-osc" firstAttribute="leading" secondItem="Kza-as-weR" secondAttribute="trailing" constant="10" id="pPJ-Dn-e3W"/>
                         </constraints>
                     </view>

@@ -18,7 +18,7 @@
     if (self) {
         _nodeMode = nodeMode;
         if (_nodeMode && _nodeMode.nodeName && ![_nodeMode.nodeName isEqualToString:@""]) {
-            _modulNameWidth.constant = [_modulName neetWidthWithText:_nodeMode.nodeName];
+            _modulNameWidth.constant = [_modulName needWidthWithText:_nodeMode.nodeName];
             _modulName.text = _nodeMode.nodeName;
         }
     }

@@ -9,6 +9,7 @@
 #import "HomeController.h"
 #import "NodeMode.h"
 #import "NewsCellFactory.h"
+#import "BannerMode.h"
 
 @interface HomeController ()
 
@@ -75,11 +76,12 @@
         _tableViewData = [[NSMutableArray alloc]init];
     }
     [_tableViewData removeAllObjects];
-//    if (_homeMode.banners && _homeMode.banners.count > 0) {
-//        NSMutableArray *bannersAry = [_homeMode.banners copy];
-//        [_tableViewData addObject:bannersAry];
-//    }
+    if (_homeMode.banners && _homeMode.banners.count > 0) {
+        NSMutableArray *bannersAry = [_homeMode.banners copy];
+        [_tableViewData addObject:bannersAry];
+    }
     [_tableViewData addObjectsFromArray:_homeMode.nodes];
+    
     [self.tableView reloadData];
 }
 
@@ -92,59 +94,75 @@
     NSLog(@"setBtnSelect====");
 }
 
+#pragma mark - TabBarBtnDelegate
+- (void)tabBarBtnSelectAgain {
+    [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+//    [self.tableView.mj_header beginRefreshing];
+}
 
 #pragma mark - tableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _tableViewData.count;
 }
-//返回每个分区的标题
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"";
-}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NSMutableArray class]]) {
-        return nil;
-    }
-    NodeMode *modul = [_tableViewData objectAtIndex:section];
-    SectionView *view = [[SectionView loadFromNib] initWithData:modul section:section];
-    view.delegate = self;
-    return view;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NSMutableArray class]]) {
-        return 0;
-    }
-    return 26.5f;
-}
-
-//指定每个分区中有多少行，默认为1
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NSMutableArray class]]) {
-        return 1;
-    }
-    NodeMode *modul = [_tableViewData objectAtIndex:section];
-    if (modul.newsList && modul.newsList.count > 0) {
-        return modul.newsList.count;
+    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [_tableViewData objectAtIndex:section];
+        SectionView *view = [[SectionView loadFromNib] initWithData:modul section:section];
+        view.delegate = self;
+        return view;
     }else{
-        return 0;
+        return nil;
     }
     
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
-    BOOL hiddenLine = NO;
-    if (modul.newsList.count == indexPath.row + 1) {
-        hiddenLine = YES;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
+        return 26.5f;
+    }else{
+        return 0;
     }
-    return  [NewsCellFactory getCell:[modul.newsList objectAtIndex:indexPath.row] tableView:tableView hiddenLine:hiddenLine isShortLine:YES];
+}
+
+//指定每个分区中有多少行，默认为1
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [_tableViewData objectAtIndex:section];
+        if (modul.newsList && modul.newsList.count > 0) {
+            return modul.newsList.count;
+        }else{
+            return 0;
+        }
+    }else{
+        return 1;
+    }
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
+        BOOL hiddenLine = NO;
+        if (modul.newsList.count == indexPath.row + 1) {
+            hiddenLine = YES;
+        }
+        return  [NewsCellFactory getCell:[modul.newsList objectAtIndex:indexPath.row] tableView:tableView hiddenLine:hiddenLine isShortLine:YES];
+    }else{
+        NSMutableArray *banners = [_tableViewData objectAtIndex:indexPath.section];
+        BannerCell *cell = [BannerCell cellWithTableView:tableView];
+        [cell setNews:banners hiddenLine:YES];
+        return cell;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
-    return [NewsCellFactory getHeightForRow:[modul.newsList objectAtIndex:indexPath.row]];
+    if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
+        return [NewsCellFactory getHeightForRow:[modul.newsList objectAtIndex:indexPath.row]];
+    }else{
+        return SCREEN_WIDTH*197.0f/320.0f;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

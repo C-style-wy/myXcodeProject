@@ -35,6 +35,7 @@
 		D32C36961D321B8E00431829 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C36951D321B8E00431829 /* MyViewController.m */; };
 		D32C36991D321D6C00431829 /* UIViewController+LoadFromStoryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C36981D321D6C00431829 /* UIViewController+LoadFromStoryboard.m */; };
 		D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C369B1D3223F800431829 /* XNTabBarButton.m */; };
+		D32D86641D46142C008D7216 /* ChannelMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D86631D46142C008D7216 /* ChannelMode.m */; };
 		D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */; };
 		D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */ = {isa = PBXBuildFile; fileRef = D33265201D2E2FB1005C9D7D /* GuidePage2.m */; };
 		D33265231D2E2FC3005C9D7D /* GuidePage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33265221D2E2FC3005C9D7D /* GuidePage2.xib */; };
@@ -47,6 +48,11 @@
 		D33836751D40CD44008ADE4C /* SectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33836741D40CD44008ADE4C /* SectionView.m */; };
 		D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836761D40CD9F008ADE4C /* SectionView.xib */; };
 		D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BB1BE1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m */; };
+		D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BB1C41D41F46A000D6BFD /* BannerCell.m */; };
+		D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35BB1C51D41F46A000D6BFD /* BannerCell.xib */; };
+		D35BB1CD1D4220CE000D6BFD /* MyPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BB1CC1D4220CE000D6BFD /* MyPageControl.m */; };
+		D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BB1CF1D422206000D6BFD /* BannerImageView.m */; };
+		D35BB1D21D42221D000D6BFD /* BannerImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35BB1D11D42221D000D6BFD /* BannerImageView.xib */; };
 		D37007E21D34C9F0007E2AA3 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = D37007E11D34C9F0007E2AA3 /* Request.m */; };
 		D37007E51D34CA19007E2AA3 /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D37007E41D34CA19007E2AA3 /* MD5.m */; };
 		D38DF7261D3F72840042A241 /* NewsCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DF7251D3F72840042A241 /* NewsCellFactory.m */; };
@@ -134,6 +140,8 @@
 		D32C36981D321D6C00431829 /* UIViewController+LoadFromStoryboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadFromStoryboard.m"; sourceTree = "<group>"; };
 		D32C369A1D3223F800431829 /* XNTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNTabBarButton.h; sourceTree = "<group>"; };
 		D32C369B1D3223F800431829 /* XNTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTabBarButton.m; sourceTree = "<group>"; };
+		D32D86621D46142C008D7216 /* ChannelMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelMode.h; sourceTree = "<group>"; };
+		D32D86631D46142C008D7216 /* ChannelMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelMode.m; sourceTree = "<group>"; };
 		D332651C1D2E19B6005C9D7D /* UIView+LoadFromNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadFromNib.h"; sourceTree = "<group>"; };
 		D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadFromNib.m"; sourceTree = "<group>"; };
 		D332651F1D2E2FB1005C9D7D /* GuidePage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage2.h; sourceTree = "<group>"; };
@@ -154,6 +162,14 @@
 		D33836761D40CD9F008ADE4C /* SectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
 		D35BB1BD1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+NeedWidthAndHeight.h"; sourceTree = "<group>"; };
 		D35BB1BE1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+NeedWidthAndHeight.m"; sourceTree = "<group>"; };
+		D35BB1C31D41F46A000D6BFD /* BannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerCell.h; sourceTree = "<group>"; };
+		D35BB1C41D41F46A000D6BFD /* BannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerCell.m; sourceTree = "<group>"; };
+		D35BB1C51D41F46A000D6BFD /* BannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
+		D35BB1CB1D4220CE000D6BFD /* MyPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageControl.h; sourceTree = "<group>"; };
+		D35BB1CC1D4220CE000D6BFD /* MyPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageControl.m; sourceTree = "<group>"; };
+		D35BB1CE1D422206000D6BFD /* BannerImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerImageView.h; sourceTree = "<group>"; };
+		D35BB1CF1D422206000D6BFD /* BannerImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerImageView.m; sourceTree = "<group>"; };
+		D35BB1D11D42221D000D6BFD /* BannerImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerImageView.xib; sourceTree = "<group>"; };
 		D37007E01D34C9F0007E2AA3 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
 		D37007E11D34C9F0007E2AA3 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
 		D37007E31D34CA19007E2AA3 /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
@@ -301,6 +317,12 @@
 				D33836731D40CD44008ADE4C /* SectionView.h */,
 				D33836741D40CD44008ADE4C /* SectionView.m */,
 				D33836761D40CD9F008ADE4C /* SectionView.xib */,
+				D35BB1C31D41F46A000D6BFD /* BannerCell.h */,
+				D35BB1C41D41F46A000D6BFD /* BannerCell.m */,
+				D35BB1C51D41F46A000D6BFD /* BannerCell.xib */,
+				D35BB1CE1D422206000D6BFD /* BannerImageView.h */,
+				D35BB1CF1D422206000D6BFD /* BannerImageView.m */,
+				D35BB1D11D42221D000D6BFD /* BannerImageView.xib */,
 			);
 			path = HomeCell;
 			sourceTree = "<group>";
@@ -415,6 +437,8 @@
 			children = (
 				D32C369A1D3223F800431829 /* XNTabBarButton.h */,
 				D32C369B1D3223F800431829 /* XNTabBarButton.m */,
+				D35BB1CB1D4220CE000D6BFD /* MyPageControl.h */,
+				D35BB1CC1D4220CE000D6BFD /* MyPageControl.m */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -484,6 +508,8 @@
 				D3CEF62D1D3CB21100696FF5 /* HomeMode.m */,
 				D30E09461D40550E00954670 /* TagMode.h */,
 				D30E09471D40550E00954670 /* TagMode.m */,
+				D32D86621D46142C008D7216 /* ChannelMode.h */,
+				D32D86631D46142C008D7216 /* ChannelMode.m */,
 			);
 			path = HomeMode;
 			sourceTree = "<group>";
@@ -594,6 +620,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D35BB1D21D42221D000D6BFD /* BannerImageView.xib in Resources */,
 				D33265231D2E2FC3005C9D7D /* GuidePage2.xib in Resources */,
 				D31ED4041D3DBA34003C2A54 /* OneSmallPicCell.xib in Resources */,
 				D3276AA41D2A397E00A249C9 /* Assets.xcassets in Resources */,
@@ -602,6 +629,7 @@
 				D38DF72E1D3F7C7C0042A241 /* EveryOneCell.xib in Resources */,
 				D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */,
 				D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */,
+				D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */,
 				D33836721D40AF82008ADE4C /* OneBigPicCell.xib in Resources */,
 				D33265251D2E49B1005C9D7D /* GuidePage3.xib in Resources */,
 			);
@@ -679,6 +707,7 @@
 				D38DF72D1D3F7C7C0042A241 /* EveryOneCell.m in Sources */,
 				D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */,
 				D38DF7261D3F72840042A241 /* NewsCellFactory.m in Sources */,
+				D35BB1CD1D4220CE000D6BFD /* MyPageControl.m in Sources */,
 				D32C36931D321B8100431829 /* WelfareViewController.m in Sources */,
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
@@ -687,6 +716,7 @@
 				D30C75D31D35C0FB00248DE0 /* IphoneParams.m in Sources */,
 				D31ED4031D3DBA34003C2A54 /* OneSmallPicCell.m in Sources */,
 				D31A339F1D2B506700401658 /* IndexViewController.m in Sources */,
+				D32D86641D46142C008D7216 /* ChannelMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
 				D37007E21D34C9F0007E2AA3 /* Request.m in Sources */,
 				D32C36961D321B8E00431829 /* MyViewController.m in Sources */,
@@ -695,6 +725,7 @@
 				D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */,
 				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
 				D319C88C1D38705D002A84F5 /* AdMode.m in Sources */,
+				D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */,
 				D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */,
 				D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */,
 				D319C8891D387007002A84F5 /* SingleColMode.m in Sources */,
@@ -713,6 +744,7 @@
 				D32C36991D321D6C00431829 /* UIViewController+LoadFromStoryboard.m in Sources */,
 				D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */,
 				D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */,
+				D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */,
 				D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */,
 				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,
 			);

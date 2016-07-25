@@ -14,7 +14,7 @@ MJCodingImplementation
 
 + (NSDictionary*)objectClassInArray {
     return @{
-             @"newsTags":@"NSString",
+             @"newsTags":@"TagMode",
              };
 }
 

@@ -10,8 +10,9 @@
 #import "BaseViewController.h"
 #import "HomeMode.h"
 #import "SectionView.h"
+#import "XNTabBarView.h"
 
-@interface HomeController : BaseViewController<UITableViewDelegate, UITableViewDataSource, SectionDelegate>
+@interface HomeController : BaseViewController<UITableViewDelegate, UITableViewDataSource, SectionDelegate, TabBarBtnDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cityBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *setBtn;

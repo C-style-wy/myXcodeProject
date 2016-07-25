@@ -32,6 +32,6 @@
 @property (nonatomic, copy)NSString *url;
 
 //@property (nonatomic, strong) NSArray *selectData;
-//@property (nonatomic, strong) NSArray *channelNav;
+@property (nonatomic, strong) NSArray *channelNav;
 @property (nonatomic, strong) NSArray *newsList;
 @end

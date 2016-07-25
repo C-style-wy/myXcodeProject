@@ -40,7 +40,7 @@
         }
         
         if (_news.newsTitle && ![_news.newsTitle isEqualToString:@""]) {
-            if ([_title neetHeightWithText:_news.newsTitle] > 18) {
+            if ([_title needHeightWithText:_news.newsTitle] > 18) {
                 self.titleHeight.constant = 36.0f;
                 self.summaryHeight.constant = 30.0f;
             }else{

@@ -49,7 +49,7 @@
         self.sourceWidth.constant = 0;
         
         if (_news.source && ![_news.source isEqualToString:@""]) {
-            self.sourceWidth.constant = [_source neetWidthWithText:_news.source];
+            self.sourceWidth.constant = [_source needWidthWithText:_news.source];
             self.source.text = _news.source;
             self.pubTimeLeading.constant = 10.0f;
         }else{
@@ -57,14 +57,14 @@
             self.pubTimeLeading.constant = 0;
         }
         if (_news.createTime && ![_news.createTime isEqualToString:@""]) {
-            self.pubTimeWidth.constant = [_pubTime neetWidthWithText:_news.createTime];
+            self.pubTimeWidth.constant = [_pubTime needWidthWithText:_news.createTime];
             self.pubTime.text = _news.createTime;
         }else{
             self.pubTimeWidth.constant = 0;
         }
         
         if (_news.pv && ![_news.pv isEqualToString:@""]) {
-            self.pvWidth.constant = [_pv neetWidthWithText:[_news.pv stringByAppendingString:@"阅"]];
+            self.pvWidth.constant = [_pv needWidthWithText:[_news.pv stringByAppendingString:@"阅"]];
             self.pv.text = [_news.pv stringByAppendingString:@"阅"];
         }
         
@@ -73,7 +73,7 @@
         
         if (_news.newsTags && _news.newsTags.count > 0) {
             TagMode *tag = [_news.newsTags objectAtIndex:0];
-            _tagWidth.constant = [_tagLabel neetWidthWithText:tag.tag] + 10;
+            _tagWidth.constant = [_tagLabel needWidthWithText:tag.tag] + 10;
             _tagLabel.text = tag.tag;
             
             if ((_pubTime.frame.origin.x + _pubTime.frame.size.width + 5) > _tagImage.frame.origin.x) {

@@ -10,6 +10,7 @@
 #import "MacroDefinition.h"
 #import "NewsMode.h"
 #import "BaseCell.h"
+#import "BannerCell.h"
 
 //新闻展示样式
 #define OneBigPicNews       1     //单张大图

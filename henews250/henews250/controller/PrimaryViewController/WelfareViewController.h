@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "XNTabBarView.h"
 
-@interface WelfareViewController : BaseViewController
+@interface WelfareViewController : BaseViewController<TabBarBtnDelegate>
 
 @end

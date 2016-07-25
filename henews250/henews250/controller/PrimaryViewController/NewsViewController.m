@@ -24,6 +24,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - TabBarBtnDelegate
+- (void)tabBarBtnSelectAgain {
+    NSLog(@"news===tabBarBtnSelectAgain=====");
+}
+
 /*
 #pragma mark - Navigation
 

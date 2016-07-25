@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "XNTabBarView.h"
 
-@interface NewsViewController : BaseViewController
+
+@interface NewsViewController : BaseViewController<TabBarBtnDelegate>
 
 @end

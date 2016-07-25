@@ -15,8 +15,6 @@
 #import "WelfareViewController.h"
 #import "MyViewController.h"
 
-#import "XNTabBarButton.h"
-
 @interface XNTabBarView ()
 
 @property (nonatomic, weak) UIButton *selectedBtn;
@@ -31,12 +29,18 @@
     [self addMenuView];
     
     HomeController *home = [HomeController loadFromStoryboard];
+    self.homeDelegate = home;
     NewsViewController *news = [NewsViewController loadFromStoryboard];
+    self.newsDelegate = news;
     ViewPointViewController *viewPoint = [ViewPointViewController loadFromStoryboard];
+    self.viewPointDelegate = viewPoint;
     WelfareViewController *welfare = [WelfareViewController loadFromStoryboard];
+    self.welfareDelegate = welfare;
     MyViewController *my = [MyViewController loadFromStoryboard];
     
     self.viewControllers = @[home, news, viewPoint, welfare, my];
+    
+//    self.tabBarView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,6 +51,7 @@
 #pragma mark - menuView
 - (void)addMenuView {
     UIView *tabBarView = [[UIView alloc]init];
+    self.tabBarView = tabBarView;
     tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT-40, SCREEN_WIDTH, 40);
     tabBarView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:tabBarView];
@@ -70,18 +75,22 @@
         btn.frame = CGRectMake(x, 0, bntWidth, 40);
         
         if (0 == i) {
+            _homeBtn = btn;
             [btn setTitle:@"推荐" forState:UIControlStateNormal];
             [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-22)/2, 18, (bntWidth-22)/2)];
             [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -49, 6, 0)];
         }else if (1 == i) {
+            _newsBtn = btn;
             [btn setTitle:@"资讯" forState:UIControlStateNormal];
             [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-16)/2, 18, (bntWidth-16)/2)];
             [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -36, 6, 0)];
         }else if (2 == i) {
+            _viewPointBtn = btn;
             [btn setTitle:@"视界" forState:UIControlStateNormal];
             [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 18, (bntWidth-18)/2)];
             [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -36, 6, 0)];
         }else if (3 == i) {
+            _welfareBtn = btn;
             [btn setTitle:@"福利" forState:UIControlStateNormal];
             [btn setImageEdgeInsets:UIEdgeInsetsMake(4, (bntWidth-18)/2, 18, (bntWidth-18)/2)];
             [btn setTitleEdgeInsets:UIEdgeInsetsMake(28, -40, 6, 0)];
@@ -106,11 +115,24 @@
 
 - (void)clickBtn:(UIButton *)button {
     if (self.selectedBtn == button) {
-        //        if ([self.reflushDelegate respondsToSelector:@selector(reflushTableView)]) {
-        //
-        //        }
+        if (button == _homeBtn) {
+            if ([self.homeDelegate respondsToSelector:@selector(tabBarBtnSelectAgain)]) {
+                [self.homeDelegate tabBarBtnSelectAgain];
+            }
+        }else if (button == _newsBtn){
+            if ([self.newsDelegate respondsToSelector:@selector(tabBarBtnSelectAgain)]) {
+                [self.newsDelegate tabBarBtnSelectAgain];
+            }
+        }else if (button == _viewPointBtn){
+            if ([self.viewPointDelegate respondsToSelector:@selector(tabBarBtnSelectAgain)]) {
+                [self.viewPointDelegate tabBarBtnSelectAgain];
+            }
+        }else if (button == _welfareBtn){
+            if ([self.welfareDelegate respondsToSelector:@selector(tabBarBtnSelectAgain)]) {
+                [self.welfareDelegate tabBarBtnSelectAgain];
+            }
+        }
         
-        //        [self.reflushDelegate reflushTableView];
     }else{
         self.selectedBtn.selected = NO;
         button.selected = YES;
