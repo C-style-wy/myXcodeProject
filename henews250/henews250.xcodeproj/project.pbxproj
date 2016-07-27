@@ -463,6 +463,7 @@
 		D33265291D2E4F68005C9D7D /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				D3C4EC611D485B05002D4BC9 /* TierManageView */,
 				D32C369A1D3223F800431829 /* XNTabBarButton.h */,
 				D32C369B1D3223F800431829 /* XNTabBarButton.m */,
 				D35BB1CB1D4220CE000D6BFD /* MyPageControl.h */,
@@ -522,6 +523,13 @@
 				D30C75D21D35C0FB00248DE0 /* IphoneParams.m */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		D3C4EC611D485B05002D4BC9 /* TierManageView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TierManageView;
 			sourceTree = "<group>";
 		};
 		D3CEF61C1D3CAADD00696FF5 /* HomeMode */ = {
