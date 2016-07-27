@@ -16,6 +16,7 @@
 
 //新闻类型
 #define NewsTypeVideo       1      //视频
+#define NewsTypeVideonews   2      //视频新闻
 #define NewsTypePic         4      //图集
 
 @interface BaseCell : UITableViewCell

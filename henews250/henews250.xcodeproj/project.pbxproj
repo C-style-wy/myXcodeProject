@@ -18,6 +18,10 @@
 		D319C88F1D387307002A84F5 /* LoadingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D319C88E1D387307002A84F5 /* LoadingMode.m */; };
 		D31A339F1D2B506700401658 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31A339E1D2B506700401658 /* IndexViewController.m */; };
 		D31A33A21D2B538800401658 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31A33A11D2B538800401658 /* BaseViewController.m */; };
+		D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0AB1D46F32F0036004A /* BaseMode.m */; };
+		D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0AF1D46F3AE0036004A /* TierMode.m */; };
+		D31AA0B31D4707F80036004A /* TierManageMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0B21D4707F80036004A /* TierManageMode.m */; };
+		D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0B51D470B860036004A /* LocalTierMode.m */; };
 		D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */ = {isa = PBXBuildFile; fileRef = D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */; };
 		D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */; };
 		D31ED4031D3DBA34003C2A54 /* OneSmallPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ED4011D3DBA34003C2A54 /* OneSmallPicCell.m */; };
@@ -36,6 +40,7 @@
 		D32C36991D321D6C00431829 /* UIViewController+LoadFromStoryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C36981D321D6C00431829 /* UIViewController+LoadFromStoryboard.m */; };
 		D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C369B1D3223F800431829 /* XNTabBarButton.m */; };
 		D32D86641D46142C008D7216 /* ChannelMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D86631D46142C008D7216 /* ChannelMode.m */; };
+		D32D86671D462ED1008D7216 /* ChangeDataMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D86661D462ED1008D7216 /* ChangeDataMode.m */; };
 		D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */; };
 		D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */ = {isa = PBXBuildFile; fileRef = D33265201D2E2FB1005C9D7D /* GuidePage2.m */; };
 		D33265231D2E2FC3005C9D7D /* GuidePage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33265221D2E2FC3005C9D7D /* GuidePage2.xib */; };
@@ -107,6 +112,14 @@
 		D31A339E1D2B506700401658 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		D31A33A01D2B538800401658 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D31A33A11D2B538800401658 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		D31AA0AA1D46F32F0036004A /* BaseMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMode.h; sourceTree = "<group>"; };
+		D31AA0AB1D46F32F0036004A /* BaseMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMode.m; sourceTree = "<group>"; };
+		D31AA0AE1D46F3AE0036004A /* TierMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierMode.h; sourceTree = "<group>"; };
+		D31AA0AF1D46F3AE0036004A /* TierMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierMode.m; sourceTree = "<group>"; };
+		D31AA0B11D4707F80036004A /* TierManageMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierManageMode.h; sourceTree = "<group>"; };
+		D31AA0B21D4707F80036004A /* TierManageMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierManageMode.m; sourceTree = "<group>"; };
+		D31AA0B41D470B860036004A /* LocalTierMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTierMode.h; sourceTree = "<group>"; };
+		D31AA0B51D470B860036004A /* LocalTierMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTierMode.m; sourceTree = "<group>"; };
 		D31DE9F21D2C8DBC00D2B0AB /* GuidePage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage1.h; sourceTree = "<group>"; };
 		D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePage1.m; sourceTree = "<group>"; };
 		D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidePage1.xib; sourceTree = "<group>"; };
@@ -142,6 +155,8 @@
 		D32C369B1D3223F800431829 /* XNTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTabBarButton.m; sourceTree = "<group>"; };
 		D32D86621D46142C008D7216 /* ChannelMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelMode.h; sourceTree = "<group>"; };
 		D32D86631D46142C008D7216 /* ChannelMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelMode.m; sourceTree = "<group>"; };
+		D32D86651D462ED1008D7216 /* ChangeDataMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDataMode.h; sourceTree = "<group>"; };
+		D32D86661D462ED1008D7216 /* ChangeDataMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeDataMode.m; sourceTree = "<group>"; };
 		D332651C1D2E19B6005C9D7D /* UIView+LoadFromNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadFromNib.h"; sourceTree = "<group>"; };
 		D332651D1D2E19B6005C9D7D /* UIView+LoadFromNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadFromNib.m"; sourceTree = "<group>"; };
 		D332651F1D2E2FB1005C9D7D /* GuidePage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage2.h; sourceTree = "<group>"; };
@@ -259,6 +274,19 @@
 				D319C88E1D387307002A84F5 /* LoadingMode.m */,
 			);
 			path = LoadingMode;
+			sourceTree = "<group>";
+		};
+		D31AA0AD1D46F3690036004A /* TierMode */ = {
+			isa = PBXGroup;
+			children = (
+				D31AA0AE1D46F3AE0036004A /* TierMode.h */,
+				D31AA0AF1D46F3AE0036004A /* TierMode.m */,
+				D31AA0B41D470B860036004A /* LocalTierMode.h */,
+				D31AA0B51D470B860036004A /* LocalTierMode.m */,
+				D31AA0B11D4707F80036004A /* TierManageMode.h */,
+				D31AA0B21D4707F80036004A /* TierManageMode.m */,
+			);
+			path = TierMode;
 			sourceTree = "<group>";
 		};
 		D31DE9F01D2C8CB200D2B0AB /* View */ = {
@@ -465,8 +493,11 @@
 		D366815E1D3762D7001948D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D31AA0AD1D46F3690036004A /* TierMode */,
 				D3CEF61C1D3CAADD00696FF5 /* HomeMode */,
 				D319C8861D387007002A84F5 /* LoadingMode */,
+				D31AA0AA1D46F32F0036004A /* BaseMode.h */,
+				D31AA0AB1D46F32F0036004A /* BaseMode.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -510,6 +541,8 @@
 				D30E09471D40550E00954670 /* TagMode.m */,
 				D32D86621D46142C008D7216 /* ChannelMode.h */,
 				D32D86631D46142C008D7216 /* ChannelMode.m */,
+				D32D86651D462ED1008D7216 /* ChangeDataMode.h */,
+				D32D86661D462ED1008D7216 /* ChangeDataMode.m */,
 			);
 			path = HomeMode;
 			sourceTree = "<group>";
@@ -708,6 +741,8 @@
 				D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */,
 				D38DF7261D3F72840042A241 /* NewsCellFactory.m in Sources */,
 				D35BB1CD1D4220CE000D6BFD /* MyPageControl.m in Sources */,
+				D31AA0B31D4707F80036004A /* TierManageMode.m in Sources */,
+				D32D86671D462ED1008D7216 /* ChangeDataMode.m in Sources */,
 				D32C36931D321B8100431829 /* WelfareViewController.m in Sources */,
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
@@ -716,15 +751,18 @@
 				D30C75D31D35C0FB00248DE0 /* IphoneParams.m in Sources */,
 				D31ED4031D3DBA34003C2A54 /* OneSmallPicCell.m in Sources */,
 				D31A339F1D2B506700401658 /* IndexViewController.m in Sources */,
+				D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */,
 				D32D86641D46142C008D7216 /* ChannelMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
 				D37007E21D34C9F0007E2AA3 /* Request.m in Sources */,
 				D32C36961D321B8E00431829 /* MyViewController.m in Sources */,
 				D32C368D1D321B3300431829 /* NewsViewController.m in Sources */,
+				D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */,
 				D31ED4501D3E18D6003C2A54 /* UIImageView+LoadFromWeb.m in Sources */,
 				D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */,
 				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
 				D319C88C1D38705D002A84F5 /* AdMode.m in Sources */,
+				D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */,
 				D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */,
 				D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */,
 				D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */,

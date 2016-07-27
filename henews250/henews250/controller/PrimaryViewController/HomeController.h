@@ -11,6 +11,7 @@
 #import "HomeMode.h"
 #import "SectionView.h"
 #import "XNTabBarView.h"
+#import "ChangeDataMode.h"
 
 @interface HomeController : BaseViewController<UITableViewDelegate, UITableViewDataSource, SectionDelegate, TabBarBtnDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cityBtn;
@@ -22,4 +23,5 @@
 @property (nonatomic, retain) NSMutableArray *tableViewData;
 
 @property (strong, nonatomic) HomeMode *homeMode;
+@property (strong, nonatomic) ChangeDataMode *changeData;
 @end

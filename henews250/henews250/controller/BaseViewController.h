@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIView+SetAllSubViewHidden.h"
 #import "UIColor+hexColor.h"
+#import "TierManageMode.h"
 
 
 @interface BaseViewController : UIViewController

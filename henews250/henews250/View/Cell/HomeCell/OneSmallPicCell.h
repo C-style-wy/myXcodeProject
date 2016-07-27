@@ -35,6 +35,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tagImage;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tagLabelWidth;
 
+@property (weak, nonatomic) IBOutlet UIImageView *playerIcon;
+
+
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
 - (void)setNews:(NewsMode *)news hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort;

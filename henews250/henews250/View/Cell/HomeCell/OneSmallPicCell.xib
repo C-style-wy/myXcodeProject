@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -34,6 +34,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KmD-CY-dhs" userLabel="image">
                                 <rect key="frame" x="0.0" y="0.0" width="80.5" height="65.5"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellPlayerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fLc-A6-LwR" userLabel="playerIcon">
+                                <rect key="frame" x="55" y="40" width="18.5" height="18.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18.5" id="Lie-J1-SIK"/>
+                                    <constraint firstAttribute="height" constant="18.5" id="Tfr-ID-jf6"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.83137254901960789" green="0.83137254901960789" blue="0.83137254901960789" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -41,8 +48,10 @@
                             <constraint firstItem="pgg-NR-jN2" firstAttribute="centerX" secondItem="uGa-YT-eUQ" secondAttribute="centerX" id="LEd-ke-R1O"/>
                             <constraint firstAttribute="width" secondItem="uGa-YT-eUQ" secondAttribute="height" multiplier="82:67" id="M4O-At-xnq"/>
                             <constraint firstItem="KmD-CY-dhs" firstAttribute="top" secondItem="uGa-YT-eUQ" secondAttribute="top" id="TuV-h1-ahd"/>
+                            <constraint firstAttribute="trailing" secondItem="fLc-A6-LwR" secondAttribute="trailing" constant="7" id="Tur-lp-sLg"/>
                             <constraint firstItem="pgg-NR-jN2" firstAttribute="centerY" secondItem="uGa-YT-eUQ" secondAttribute="centerY" id="Wmb-Uj-58N"/>
                             <constraint firstItem="KmD-CY-dhs" firstAttribute="leading" secondItem="uGa-YT-eUQ" secondAttribute="leading" id="YGW-rv-uvQ"/>
+                            <constraint firstAttribute="bottom" secondItem="fLc-A6-LwR" secondAttribute="bottom" constant="7" id="rdx-ob-qpX"/>
                             <constraint firstAttribute="bottom" secondItem="KmD-CY-dhs" secondAttribute="bottom" id="vbz-Qg-FFt"/>
                         </constraints>
                     </view>
@@ -96,9 +105,8 @@
                         <color key="textColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="BB2-JE-gPQ" userLabel="tagImage">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="BB2-JE-gPQ" userLabel="tagImage">
                         <rect key="frame" x="218" y="59" width="42" height="16"/>
-                        <rect key="contentStretch" x="0.45000000000000001" y="0.45000000000000001" width="0.29999999999999999" height="0.10000000000000001"/>
                     </imageView>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocu-Ot-Lij" userLabel="tag">
                         <rect key="frame" x="218" y="59" width="42" height="15"/>
@@ -145,6 +153,7 @@
                 <outlet property="line" destination="FnH-2P-L1Q" id="Tmm-Lz-0Tm"/>
                 <outlet property="lineLeading" destination="7FS-7H-TO7" id="Yhh-kj-Oxe"/>
                 <outlet property="lineTrailing" destination="tYZ-fu-Ipe" id="eVR-LV-B7q"/>
+                <outlet property="playerIcon" destination="fLc-A6-LwR" id="1an-qJ-ofH"/>
                 <outlet property="pubTime" destination="lNk-K4-Dpv" id="srt-c6-Chl"/>
                 <outlet property="pubTimeLeading" destination="JJc-VX-12b" id="U1G-rE-7tu"/>
                 <outlet property="pubTimeWidth" destination="MP6-7k-RB3" id="Ota-xi-d9K"/>
@@ -163,6 +172,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="cellPlayerIcon" width="40" height="40"/>
         <image name="menuFengexian" width="680" height="1"/>
         <image name="smallDefaultImage" width="60" height="60"/>
         <image name="tagBgImage" width="67" height="36"/>

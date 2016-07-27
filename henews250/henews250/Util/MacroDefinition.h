@@ -11,6 +11,9 @@
 #ifndef MacroDefinition_h
 #define MacroDefinition_h
 
+#pragma mark - PI
+#define PI (3.14159265358979323846264338327950288)
+
 #pragma mark - 服务端主地址
 #define SERVER_URL (@"http://wap.cmread.com/clt")
 
@@ -83,4 +86,10 @@ typedef enum _iPhoneType {
 #define TEXTWIDTH(str, attribute, h) ([(str) boundingRectWithSize:CGSizeMake(MAXFLOAT, (h)) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size.width)
 
 #define TEXTHEIGHT(str, attribute, w) ([(str) boundingRectWithSize:CGSizeMake(w, MAXFLOAT) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size.height)
+
+
+#pragma mark - 栏目标示
+#define Home (@"home")
+#define News (@"news")
+#define View (@"view")
 #endif /* MacroDefinition_h */

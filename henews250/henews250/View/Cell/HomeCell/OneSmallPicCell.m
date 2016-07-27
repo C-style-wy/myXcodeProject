@@ -97,6 +97,12 @@
             _tagImage.hidden = YES;
         }
         
+        if ([news.newsType intValue] == NewsTypeVideonews) {
+            _playerIcon.hidden = NO;
+        }else {
+            _playerIcon.hidden = YES;
+        }
+        
     }
     if (isShort) {
         _lineLeading.constant = 8;

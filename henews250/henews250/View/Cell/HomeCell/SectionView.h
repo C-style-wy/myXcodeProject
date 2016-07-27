@@ -13,7 +13,9 @@
 
 @protocol SectionDelegate <NSObject>
 
-//@required
+@required
+- (void)requestSectionChange:(NSString*)url section:(NSInteger)section;
+- (void)jumpToMore:(NodeMode*)node;
 
 @end
 

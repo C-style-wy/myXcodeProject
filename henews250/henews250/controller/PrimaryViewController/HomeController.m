@@ -62,13 +62,28 @@
 
 #pragma mark - 网络返回
 -(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
-    if (!flag) {
-        [self.tableView.mj_header endRefreshing];
+    if ([tag isEqualToString:@"homeData"]) {
+        if (!flag) {
+            [self.tableView.mj_header endRefreshing];
+        }
+        if (returnJson) {
+            NSArray *newsAry = [returnJson objectForKey:@"nodes"];
+            [TierManageMode compareAndSave:newsAry key:Home];
+            
+            self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
+            [self dealData];
+        }
+    }else if ([tag isEqualToString:@"changeData"]){
+        if (returnJson) {
+            self.changeData = [ChangeDataMode mj_objectWithKeyValues:returnJson];
+            NodeMode *node = [_tableViewData objectAtIndex:msg];
+            node.changeUrl = _changeData.changeUrl;
+            node.newsList = _changeData.newsList;
+            NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
+            [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+        }
     }
-    if (returnJson) {
-        self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
-        [self dealData];
-    }
+    
 }
 
 - (void)dealData {
@@ -99,6 +114,14 @@
     [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
 //    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
 //    [self.tableView.mj_header beginRefreshing];
+}
+
+#pragma mark - SectionDelegate
+- (void)requestSectionChange:(NSString*)url section:(NSInteger)section {
+    [Request requestPostForJSON:@"changeData" url:url delegate:self paras:nil msg:section useCache:NO update:YES];
+}
+- (void)jumpToMore:(NodeMode*)node {
+    NSLog(@"jumpToMore====");
 }
 
 #pragma mark - tableView
