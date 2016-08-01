@@ -85,6 +85,7 @@
             _tagLabelWidth.constant = [_tagLabel needWidthWithText:tag.tag] + 10;
             _tagLabel.text = tag.tag;
             
+            [self layoutIfNeeded];
             if ((_pubTime.frame.origin.x + _pubTime.frame.size.width + 5) > _tagImage.frame.origin.x) {
                 _tagLabel.hidden = YES;
                 _tagImage.hidden = YES;

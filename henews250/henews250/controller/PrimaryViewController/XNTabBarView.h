@@ -32,4 +32,6 @@
 
 @property(nonatomic, retain) UIView *tabBarView;
 
+- (void)closeMenu;
+- (void)openMenu;
 @end

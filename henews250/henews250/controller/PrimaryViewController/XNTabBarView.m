@@ -140,14 +140,17 @@
         self.selectedIndex = button.tag;
     }
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (void)closeMenu {
+//    self.tabBarView.hidden = YES;
+    [UIView animateWithDuration:0.1f animations:^{
+        _tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 40);
+    }];
 }
-*/
-
+- (void)openMenu {
+    [UIView animateWithDuration:0.1f animations:^{
+        _tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT-40, SCREEN_WIDTH, 40);
+    }];
+}
 @end

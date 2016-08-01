@@ -12,8 +12,9 @@
 #import "SectionView.h"
 #import "XNTabBarView.h"
 #import "ChangeDataMode.h"
+#import "TierManageView.h"
 
-@interface HomeController : BaseViewController<UITableViewDelegate, UITableViewDataSource, SectionDelegate, TabBarBtnDelegate>
+@interface HomeController : BaseViewController<UITableViewDelegate, UITableViewDataSource, SectionDelegate, TabBarBtnDelegate, TierManageViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cityBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *setBtn;

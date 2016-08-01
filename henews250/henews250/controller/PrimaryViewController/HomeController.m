@@ -15,7 +15,9 @@
 
 @end
 
-@implementation HomeController    
+@implementation HomeController {
+    TierManageView *tierManageView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -106,7 +108,13 @@
 }
 
 - (IBAction)setBtnSelect:(id)sender {
-    NSLog(@"setBtnSelect====");
+    if (tierManageView == nil) {
+        tierManageView = [[TierManageView loadFromNib] initWithName:Home];
+        tierManageView.frame = CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53);
+        tierManageView.delegate = self;
+    }
+    [self.view addSubview:tierManageView];
+    [tierManageView openTierManage:0 clickBtn:sender];
 }
 
 #pragma mark - TabBarBtnDelegate
@@ -122,6 +130,16 @@
 }
 - (void)jumpToMore:(NodeMode*)node {
     NSLog(@"jumpToMore====");
+}
+
+#pragma mark - TierManageViewDelegate
+- (void)whenOpenOrCloseTierManage:(BOOL)isOpen{
+    XNTabBarView *tabBarViewController = (XNTabBarView*)self.tabBarController;
+    if (isOpen) {
+        [tabBarViewController closeMenu];
+    }else{
+        [tabBarViewController openMenu];
+    }
 }
 
 #pragma mark - tableView

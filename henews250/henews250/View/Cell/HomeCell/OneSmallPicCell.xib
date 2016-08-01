@@ -175,6 +175,6 @@
         <image name="cellPlayerIcon" width="40" height="40"/>
         <image name="menuFengexian" width="680" height="1"/>
         <image name="smallDefaultImage" width="60" height="60"/>
-        <image name="tagBgImage" width="67" height="36"/>
+        <image name="tagBgImage" width="12" height="10"/>
     </resources>
 </document>
