@@ -17,7 +17,7 @@
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9ZA-2F-QYB" customClass="PullCollectionView">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="515"/>
                             <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
-                            <collectionViewLayout key="collectionViewLayout" id="Ll7-th-CGD" customClass="PullCollectionViewFlowLayout"/>
+                            <collectionViewLayout key="collectionViewLayout" id="Ll7-th-CGD" customClass="DGReorderableCollectionViewFlowLayout"/>
                         </collectionView>
                     </subviews>
                     <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>

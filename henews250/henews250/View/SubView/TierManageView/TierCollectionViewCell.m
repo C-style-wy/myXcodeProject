@@ -36,7 +36,7 @@
     return self;
 }
 
-- (void)initWithData:(TierMode *)data {
+- (void)initWithData:(TierMode *)data hiddenDelete:(BOOL)hiddenDelete {
     _tier = data;
     if (_tier.isHot && [_tier.isHot intValue] == 1) {
         self.hotImage.hidden = NO;
@@ -51,6 +51,7 @@
         self.name.textColor = [UIColor colorWithHexColor:@"#1e1e1e"];
     }
     self.name.text = data.nodeName;
+    self.deleteImage.hidden = hiddenDelete;
 }
 
 @end

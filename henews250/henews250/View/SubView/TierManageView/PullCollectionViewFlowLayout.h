@@ -15,6 +15,7 @@
 @property (retain, nonatomic, readonly) UILongPressGestureRecognizer *longPressGestureRecongnizer;
 @property (strong, nonatomic, readonly) UIPanGestureRecognizer *panGestureRecognizer;
 
+@property (strong, nonatomic) NSIndexPath *selectedItemIndexPath;
 @property (strong, nonatomic) UIView *currentView;
 @property (assign, nonatomic) CGPoint currentViewCenter;
 @property (assign, nonatomic) CGPoint panTranslationInCollentionView;

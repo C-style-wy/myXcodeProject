@@ -17,5 +17,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *deleteImage;
 
 
-- (void)initWithData:(TierMode *)data;
+- (void)initWithData:(TierMode *)data hiddenDelete:(BOOL)hiddenDelete;
 @end

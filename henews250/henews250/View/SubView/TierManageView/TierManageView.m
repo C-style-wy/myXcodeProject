@@ -17,6 +17,7 @@ static NSString *const footerId = @"footerId";
     TierHeadView *tierHeadView;
     LocalTierMode *_tiers;
     NSString *_tierName;
+    BOOL _hiddenDelete;
 }
 
 - (id)initWithName:(NSString*)name {
@@ -34,6 +35,9 @@ static NSString *const footerId = @"footerId";
 }
 
 - (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn {
+    _hiddenDelete = YES;
+    [self.collectionView reloadData];
+    
     self.mainViewBottom.constant = self.frame.size.height;
     [self layoutIfNeeded];
     self.mainViewBottom.constant = 0;
@@ -111,7 +115,12 @@ static NSString *const footerId = @"footerId";
     }
     
     TierCollectionViewCell *cell = (TierCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:indentify forIndexPath:indexPath];
-    [cell initWithData:[ary objectAtIndex:indexPath.row]];
+    if (0 == indexPath.section) {
+        [cell initWithData:[ary objectAtIndex:indexPath.row] hiddenDelete:_hiddenDelete];
+    }else{
+        [cell initWithData:[ary objectAtIndex:indexPath.row] hiddenDelete:YES];
+    }
+    
     return cell;
 }
 
@@ -127,6 +136,30 @@ static NSString *const footerId = @"footerId";
     
     return nil;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)fromIndexPath willMoveToIndexPath:(NSIndexPath *)toIndexPath {
+    
+}
+- (void)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)fromIndexPath didMoveToIndexPath:(NSIndexPath *)toIndexPath {
+    NSLog(@"didMoveToIndexPath===from:%li   ;to:%li", fromIndexPath.row, toIndexPath.row);
+    
+    if (fromIndexPath.section == 0 && toIndexPath.section == 0) {
+        [_tiers.orderTier exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];
+    }
+
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        return NO;
+    }else{
+        return YES;
+    }
+}
+- (BOOL)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)fromIndexPath canMoveToIndexPath:(NSIndexPath *)toIndexPath {
+    return YES;
+}
+
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -153,6 +186,49 @@ static NSString *const footerId = @"footerId";
     }
     
 }
-#pragma mark - UICollectionViewDelegate
 
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willBeginDraggingItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didBeginDraggingItemAtIndexPath:(NSIndexPath *)indexPath{
+    _hiddenDelete = NO;
+    [self.collectionView reloadData];
+}
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"didSelectItemAtIndexPath=====");
+    if (_hiddenDelete == NO) {
+        NSIndexPath *newIndexPath;
+        TierMode *tier;
+        if (0 == indexPath.section) {
+            newIndexPath = [NSIndexPath indexPathForRow:_tiers.notOrderTier.count inSection:1];
+            
+            tier = [_tiers.orderTier objectAtIndex:indexPath.row];
+            [_tiers.orderTier removeObjectAtIndex:indexPath.row];
+            
+            [_tiers.notOrderTier addObject:tier];
+        }else{
+            newIndexPath = [NSIndexPath indexPathForRow:_tiers.orderTier.count inSection:0];
+            
+            tier = [_tiers.notOrderTier objectAtIndex:indexPath.row];
+            [_tiers.notOrderTier removeObjectAtIndex:indexPath.row];
+            
+            [_tiers.orderTier addObject:tier];
+        }
+        
+        [collectionView performBatchUpdates:^{
+            [collectionView deleteItemsAtIndexPaths:@[indexPath]];
+            [collectionView insertItemsAtIndexPaths:@[newIndexPath]];
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+    
+}
 @end

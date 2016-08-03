@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		48EE1F66F5C14B8FF4855FB6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB1D17144153DEA3E279AE3 /* libPods.a */; };
+		D30741A81D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D30741A71D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m */; };
 		D30C75D31D35C0FB00248DE0 /* IphoneParams.m in Sources */ = {isa = PBXBuildFile; fileRef = D30C75D21D35C0FB00248DE0 /* IphoneParams.m */; };
 		D30C75D71D35D0FD00248DE0 /* UIColor+hexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D30C75D61D35D0FD00248DE0 /* UIColor+hexColor.m */; };
 		D30E09481D40550E00954670 /* TagMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E09471D40550E00954670 /* TagMode.m */; };
@@ -103,6 +104,8 @@
 		55838D8D985DEF59ED3203B0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B5C1895703ED3EF56DF170EE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CEB1D17144153DEA3E279AE3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30741A61D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		D30741A71D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		D30C75D11D35C0FB00248DE0 /* IphoneParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IphoneParams.h; sourceTree = "<group>"; };
 		D30C75D21D35C0FB00248DE0 /* IphoneParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IphoneParams.m; sourceTree = "<group>"; };
 		D30C75D51D35D0FD00248DE0 /* UIColor+hexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexColor.h"; sourceTree = "<group>"; };
@@ -278,6 +281,15 @@
 				CEB1D17144153DEA3E279AE3 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D30741A51D50730300E4E394 /* DGReorderableCollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D30741A61D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.h */,
+				D30741A71D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m */,
+			);
+			path = DGReorderableCollectionViewFlowLayout;
 			sourceTree = "<group>";
 		};
 		D30C75D41D35D0DD00248DE0 /* UIColor+ hexColor */ = {
@@ -464,6 +476,7 @@
 		D3276ACE1D2A681A00A249C9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D30741A51D50730300E4E394 /* DGReorderableCollectionViewFlowLayout */,
 				D37007DF1D34C9BD007E2AA3 /* Networking */,
 			);
 			path = Libraries;
@@ -801,6 +814,7 @@
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
 				D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */,
+				D30741A81D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m in Sources */,
 				D3276A991D2A397D00A249C9 /* main.m in Sources */,
 				D30C75D31D35C0FB00248DE0 /* IphoneParams.m in Sources */,
 				D31ED4031D3DBA34003C2A54 /* OneSmallPicCell.m in Sources */,
