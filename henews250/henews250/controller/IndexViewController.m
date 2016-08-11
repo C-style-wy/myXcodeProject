@@ -48,7 +48,6 @@
 
 #pragma mark - 初始化页面
 - (void)initPage {
-//    [self.adView setHidden:YES];
     [self.adView setAllHidden:YES];
 }
 

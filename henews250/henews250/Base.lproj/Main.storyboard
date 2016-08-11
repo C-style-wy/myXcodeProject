@@ -298,11 +298,93 @@
                         <outlet property="cityBtn" destination="Eua-3s-wTC" id="gHR-EC-Fxc"/>
                         <outlet property="cityName" destination="gfS-No-Nmg" id="dGp-pD-d53"/>
                         <outlet property="setBtn" destination="8RS-Sb-jlG" id="GiS-Ua-6to"/>
+                        <segue destination="Hpv-Vd-2sg" kind="push" id="Lj1-xR-MWZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Va-Dj-ZOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="923" y="-757"/>
+        </scene>
+        <!--City View Controller-->
+        <scene sceneID="98J-5y-RwO">
+            <objects>
+                <viewController storyboardIdentifier="CityViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hpv-Vd-2sg" customClass="CityViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BJb-HE-bi6"/>
+                        <viewControllerLayoutGuide type="bottom" id="4vh-zc-hf9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9kZ-0r-Q4w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWc-xS-yfS" userLabel="searchView">
+                                <rect key="frame" x="0.0" y="53" width="320" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_bg" translatesAutoresizingMaskIntoConstraints="NO" id="fco-NG-gYB">
+                                        <rect key="frame" x="9" y="11" width="302" height="28"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5kl-iF-ZSB" userLabel="search_icon">
+                                        <rect key="frame" x="17" y="17.5" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="QK1-n0-POX"/>
+                                            <constraint firstAttribute="height" constant="15" id="Ylr-Zp-QFN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="城市搜索" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H3S-FO-qdM" userLabel="edit">
+                                        <rect key="frame" x="42" y="11" width="224" height="28"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-RJ-2bg" userLabel="deleteBtn">
+                                        <rect key="frame" x="275" y="11" width="36" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="Ggu-lp-nCD"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
+                                        <state key="normal" image="search_delete"/>
+                                        <connections>
+                                            <action selector="deleteBtnSelect:" destination="Hpv-Vd-2sg" eventType="touchUpInside" id="Vg9-51-YPx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1xy-mi-Y0B"/>
+                                    <constraint firstItem="fco-NG-gYB" firstAttribute="trailing" secondItem="H3S-FO-qdM" secondAttribute="trailing" constant="45" id="2Ib-Pr-yl6"/>
+                                    <constraint firstItem="lRf-RJ-2bg" firstAttribute="bottom" secondItem="fco-NG-gYB" secondAttribute="bottom" id="2Y5-I5-EFo"/>
+                                    <constraint firstAttribute="trailing" secondItem="fco-NG-gYB" secondAttribute="trailing" constant="9" id="3bR-wu-GHE"/>
+                                    <constraint firstItem="H3S-FO-qdM" firstAttribute="leading" secondItem="fco-NG-gYB" secondAttribute="leading" constant="33" id="63d-Cc-8ZJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="fco-NG-gYB" secondAttribute="bottom" constant="11" id="JW2-BZ-O8X"/>
+                                    <constraint firstItem="5kl-iF-ZSB" firstAttribute="leading" secondItem="fco-NG-gYB" secondAttribute="leading" constant="8" id="OHO-ky-0yl"/>
+                                    <constraint firstItem="lRf-RJ-2bg" firstAttribute="top" secondItem="fco-NG-gYB" secondAttribute="top" id="QHt-7V-KhN"/>
+                                    <constraint firstItem="fco-NG-gYB" firstAttribute="top" secondItem="nWc-xS-yfS" secondAttribute="top" constant="11" id="bd6-2f-nWC"/>
+                                    <constraint firstItem="fco-NG-gYB" firstAttribute="leading" secondItem="nWc-xS-yfS" secondAttribute="leading" constant="9" id="bhw-9I-wLx"/>
+                                    <constraint firstItem="H3S-FO-qdM" firstAttribute="top" secondItem="fco-NG-gYB" secondAttribute="top" id="d1a-fo-0U1"/>
+                                    <constraint firstItem="5kl-iF-ZSB" firstAttribute="centerY" secondItem="nWc-xS-yfS" secondAttribute="centerY" id="gsh-Cb-RBG"/>
+                                    <constraint firstItem="H3S-FO-qdM" firstAttribute="bottom" secondItem="fco-NG-gYB" secondAttribute="bottom" id="nHl-dQ-VTF"/>
+                                    <constraint firstItem="lRf-RJ-2bg" firstAttribute="trailing" secondItem="fco-NG-gYB" secondAttribute="trailing" id="uoG-ss-wJh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nWc-xS-yfS" secondAttribute="trailing" id="5MU-mR-Wg7"/>
+                            <constraint firstItem="nWc-xS-yfS" firstAttribute="leading" secondItem="9kZ-0r-Q4w" secondAttribute="leading" id="agd-dW-aKR"/>
+                            <constraint firstItem="nWc-xS-yfS" firstAttribute="top" secondItem="9kZ-0r-Q4w" secondAttribute="top" constant="53" id="y9F-P6-8ls"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="et5-t6-3Rb"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="deleteBtn" destination="lRf-RJ-2bg" id="G7b-pF-Gru"/>
+                        <outlet property="edit" destination="H3S-FO-qdM" id="OBf-rp-K5s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ogw-G7-coz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="-757"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="Ohv-6d-AVf">
@@ -388,27 +470,13 @@
             </objects>
             <point key="canvasLocation" x="887" y="1073"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="d0Z-6R-QOb">
-            <objects>
-                <viewController id="P21-0r-RsG" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DAT-UH-0Oa"/>
-                        <viewControllerLayoutGuide type="bottom" id="2FU-SL-OBK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jd6-Bc-Rb4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ggz-Od-J8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="GuideBg" width="720" height="1280"/>
         <image name="home_icon" width="138" height="46"/>
+        <image name="search_bg" width="21" height="62"/>
+        <image name="search_delete" width="36" height="36"/>
+        <image name="search_icon" width="36" height="36"/>
         <image name="secBgImage" width="84" height="84"/>
     </resources>
 </document>

@@ -14,6 +14,7 @@
 #import "UIView+SetAllSubViewHidden.h"
 #import "UIColor+hexColor.h"
 #import "TierManageMode.h"
+#import "UIViewController+LoadFromStoryboard.h"
 
 
 @interface BaseViewController : UIViewController

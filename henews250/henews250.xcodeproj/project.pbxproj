@@ -59,6 +59,10 @@
 		D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836761D40CD9F008ADE4C /* SectionView.xib */; };
 		D33A81071D499DF900F6F4D8 /* PullCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A81061D499DF900F6F4D8 /* PullCollectionView.m */; };
 		D33A81531D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A81521D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m */; };
+		D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F50891D5466CC004B25C5 /* SubBaseViewController.m */; };
+		D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F508D1D546A3A004B25C5 /* SubPageHeadView.m */; };
+		D34F50901D546A4D004B25C5 /* SubPageHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34F508F1D546A4D004B25C5 /* SubPageHeadView.xib */; };
+		D34F50931D5470D0004B25C5 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F50921D5470D0004B25C5 /* CityViewController.m */; };
 		D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BB1BE1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m */; };
 		D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BB1C41D41F46A000D6BFD /* BannerCell.m */; };
 		D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35BB1C51D41F46A000D6BFD /* BannerCell.xib */; };
@@ -198,6 +202,13 @@
 		D33A81061D499DF900F6F4D8 /* PullCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullCollectionView.m; sourceTree = "<group>"; };
 		D33A81511D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		D33A81521D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		D34F50881D5466CC004B25C5 /* SubBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubBaseViewController.h; sourceTree = "<group>"; };
+		D34F50891D5466CC004B25C5 /* SubBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubBaseViewController.m; sourceTree = "<group>"; };
+		D34F508C1D546A3A004B25C5 /* SubPageHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubPageHeadView.h; sourceTree = "<group>"; };
+		D34F508D1D546A3A004B25C5 /* SubPageHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubPageHeadView.m; sourceTree = "<group>"; };
+		D34F508F1D546A4D004B25C5 /* SubPageHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubPageHeadView.xib; sourceTree = "<group>"; };
+		D34F50911D5470D0004B25C5 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		D34F50921D5470D0004B25C5 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
 		D35BB1BD1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+NeedWidthAndHeight.h"; sourceTree = "<group>"; };
 		D35BB1BE1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+NeedWidthAndHeight.m"; sourceTree = "<group>"; };
 		D35BB1C31D41F46A000D6BFD /* BannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerCell.h; sourceTree = "<group>"; };
@@ -463,6 +474,7 @@
 		D3276ACD1D2A681A00A249C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D34F50871D5465F5004B25C5 /* Subpage */,
 				D332652D1D2E5D06005C9D7D /* PrimaryViewController */,
 				D31A339D1D2B506700401658 /* IndexViewController.h */,
 				D31A339E1D2B506700401658 /* IndexViewController.m */,
@@ -502,6 +514,7 @@
 		D33265291D2E4F68005C9D7D /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				D34F508B1D546A22004B25C5 /* SubPageHead */,
 				D3C4EC611D485B05002D4BC9 /* TierManageView */,
 				D32C369A1D3223F800431829 /* XNTabBarButton.h */,
 				D32C369B1D3223F800431829 /* XNTabBarButton.m */,
@@ -528,6 +541,27 @@
 				D32C36951D321B8E00431829 /* MyViewController.m */,
 			);
 			path = PrimaryViewController;
+			sourceTree = "<group>";
+		};
+		D34F50871D5465F5004B25C5 /* Subpage */ = {
+			isa = PBXGroup;
+			children = (
+				D34F50881D5466CC004B25C5 /* SubBaseViewController.h */,
+				D34F50891D5466CC004B25C5 /* SubBaseViewController.m */,
+				D34F50911D5470D0004B25C5 /* CityViewController.h */,
+				D34F50921D5470D0004B25C5 /* CityViewController.m */,
+			);
+			path = Subpage;
+			sourceTree = "<group>";
+		};
+		D34F508B1D546A22004B25C5 /* SubPageHead */ = {
+			isa = PBXGroup;
+			children = (
+				D34F508C1D546A3A004B25C5 /* SubPageHeadView.h */,
+				D34F508D1D546A3A004B25C5 /* SubPageHeadView.m */,
+				D34F508F1D546A4D004B25C5 /* SubPageHeadView.xib */,
+			);
+			path = SubPageHead;
 			sourceTree = "<group>";
 		};
 		D366815E1D3762D7001948D6 /* Model */ = {
@@ -730,6 +764,7 @@
 				D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */,
 				D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */,
 				D32375111D4AE5B6003042C6 /* TierCollectionReusableView.xib in Resources */,
+				D34F50901D546A4D004B25C5 /* SubPageHeadView.xib in Resources */,
 				D33836721D40AF82008ADE4C /* OneBigPicCell.xib in Resources */,
 				D33265251D2E49B1005C9D7D /* GuidePage3.xib in Resources */,
 			);
@@ -810,6 +845,7 @@
 				D35BB1CD1D4220CE000D6BFD /* MyPageControl.m in Sources */,
 				D31AA0B31D4707F80036004A /* TierManageMode.m in Sources */,
 				D32D86671D462ED1008D7216 /* ChangeDataMode.m in Sources */,
+				D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */,
 				D32C36931D321B8100431829 /* WelfareViewController.m in Sources */,
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
@@ -828,12 +864,14 @@
 				D323750B1D4ADDA6003042C6 /* TierCollectionViewCell.m in Sources */,
 				D3C4EC691D485FF6002D4BC9 /* TierHeadView.m in Sources */,
 				D32C368D1D321B3300431829 /* NewsViewController.m in Sources */,
+				D34F50931D5470D0004B25C5 /* CityViewController.m in Sources */,
 				D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */,
 				D31ED4501D3E18D6003C2A54 /* UIImageView+LoadFromWeb.m in Sources */,
 				D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */,
 				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
 				D319C88C1D38705D002A84F5 /* AdMode.m in Sources */,
 				D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */,
+				D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */,
 				D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */,
 				D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */,
 				D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */,
@@ -993,12 +1031,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nmgshoujibao.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
 				PRODUCT_NAME = "和新闻";
-				PROVISIONING_PROFILE = "c81b7083-a4e5-408c-8488-fc534c5dd3d6";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1008,12 +1047,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nmgshoujibao.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
 				PRODUCT_NAME = "和新闻";
-				PROVISIONING_PROFILE = "c81b7083-a4e5-408c-8488-fc534c5dd3d6";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

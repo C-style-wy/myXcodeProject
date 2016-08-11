@@ -22,6 +22,8 @@
 #define INDEX_URL (@"/publish/clt/resource/portal/common/loading230.jsp?city=")
 //首页
 #define HOME_URL (@"/publish/clt/resource/portal/v230/home230.jsp?menu=shouye&city=")
+//城市列表
+#define CityList_Url (@"/publish/clt/resource/portal/v2/cityLetter.jsp?city=")
 
 
 #pragma mark - 手机宽高

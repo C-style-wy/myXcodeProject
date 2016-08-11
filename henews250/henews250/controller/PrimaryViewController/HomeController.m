@@ -10,6 +10,7 @@
 #import "NodeMode.h"
 #import "NewsCellFactory.h"
 #import "BannerMode.h"
+#import "CityViewController.h"
 
 @interface HomeController ()
 
@@ -104,7 +105,8 @@
 
 #pragma mark - btn action
 - (IBAction)cityBtnSelect:(id)sender {
-    NSLog(@"cityBtnSelect====");
+    CityViewController *city = [CityViewController loadFromStoryboard];
+    [self.navigationController pushViewController:city animated:YES];
 }
 
 - (IBAction)setBtnSelect:(id)sender {
