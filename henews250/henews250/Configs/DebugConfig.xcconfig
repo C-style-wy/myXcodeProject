@@ -1,0 +1,17 @@
+//
+//  DebugConfig.xcconfig
+//  henews250
+//
+//  Created by 汪洋 on 16/8/16.
+//  Copyright © 2016年 汪洋. All rights reserved.
+//
+
+//导入公共 config
+
+#include "CommonConfig.xcconfig"
+
+//导入pods 对应的 config
+
+#include "Pods/Target Support Files/Pods-henews250/Pods-henews250.debug.xcconfig"
+APP_DISPLAY_NAME = 测试服和新闻
+CONFIG_FLAG = DEBUG

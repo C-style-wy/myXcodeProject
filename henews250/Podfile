@@ -1,13 +1,20 @@
 platform :ios, '7.0'
-pod 'MJExtension', '~>3.0.8'
-pod 'AFNetworking', '~>3.0.4'
-pod 'ShareSDK3'
-pod 'MOBFoundation'
-pod 'ShareSDK3/ShareSDKUI' 
-pod 'ShareSDK3/ShareSDKPlatforms/QQ'
-pod 'ShareSDK3/ShareSDKPlatforms/SinaWeibo'
-pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
-pod 'FDFullscreenPopGesture_Bell', '~> 2.0'
-pod 'DKNightVersion', '~> 2.3.1'
-pod 'MJRefresh', '~> 3.1.9'
-pod 'SDWebImage', '~> 3.8.1'
+#use_frameworks!个别需要用到它，比如reactiveCocoa
+
+def pods
+	pod 'MJExtension', '~>3.0.8'
+	pod 'AFNetworking', '~>3.0.4'
+	pod 'ShareSDK3'
+	pod 'MOBFoundation'
+	pod 'ShareSDK3/ShareSDKUI' 
+	pod 'ShareSDK3/ShareSDKPlatforms/QQ'
+	pod 'ShareSDK3/ShareSDKPlatforms/SinaWeibo'
+	pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
+	pod 'FDFullscreenPopGesture_Bell', '~> 2.0'
+	pod 'DKNightVersion', '~> 2.3.1'
+	pod 'MJRefresh', '~> 3.1.9'
+	pod 'SDWebImage', '~> 3.8.1'
+end
+target 'henews250' do
+	pods
+end

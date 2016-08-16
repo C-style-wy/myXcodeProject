@@ -1,0 +1,8 @@
+//
+//  CommonConfig.xcconfig
+//  henews250
+//
+//  Created by 汪洋 on 16/8/16.
+//  Copyright © 2016年 汪洋. All rights reserved.
+//
+BUILD_VERSION = 2.5.0

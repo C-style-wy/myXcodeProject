@@ -1,0 +1,11 @@
+//
+//  ReleaseConfig.xcconfig
+//  henews250
+//
+//  Created by 汪洋 on 16/8/16.
+//  Copyright © 2016年 汪洋. All rights reserved.
+//
+#include "CommonConfig.xcconfig"
+#include "Pods/Target Support Files/Pods-henews250/Pods-henews250.release.xcconfig"
+APP_DISPLAY_NAME = 和新闻
+CONFIG_FLAG = RELEASE

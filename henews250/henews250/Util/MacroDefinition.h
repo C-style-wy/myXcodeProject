@@ -13,6 +13,7 @@
 
 #pragma mark - PI
 #define PI (3.14159265358979323846264338327950288)
+#define NullString (@"")
 
 #pragma mark - 服务端主地址
 #define SERVER_URL (@"http://wap.cmread.com/clt")

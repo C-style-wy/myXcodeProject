@@ -12,4 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *edit;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 
+
+@property (nonatomic, retain) NSMutableArray *cityAry;
 @end
