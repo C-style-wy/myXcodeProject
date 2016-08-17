@@ -16,6 +16,8 @@
 #import "TierManageMode.h"
 #import "UIViewController+LoadFromStoryboard.h"
 
+#import "CityManager.h"
+
 
 @interface BaseViewController : UIViewController
 

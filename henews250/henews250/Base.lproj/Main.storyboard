@@ -367,7 +367,41 @@
                                     <constraint firstItem="lRf-RJ-2bg" firstAttribute="trailing" secondItem="fco-NG-gYB" secondAttribute="trailing" id="uoG-ss-wJh"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLx-D8-hWk" userLabel="view_null">
+                                <rect key="frame" x="0.0" y="103" width="320" height="377"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city_search_null_image" translatesAutoresizingMaskIntoConstraints="NO" id="hyd-nf-Zi9" userLabel="image_null">
+                                        <rect key="frame" x="139.5" y="119" width="41" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="41" id="lFi-nC-LlT"/>
+                                            <constraint firstAttribute="height" constant="41" id="wsA-dw-xWU"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有找到您的城市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tY-2S-n6r">
+                                        <rect key="frame" x="0.0" y="180" width="320" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="Zp2-ac-JT2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hyd-nf-Zi9" firstAttribute="top" secondItem="LLx-D8-hWk" secondAttribute="top" constant="119" id="Dt5-ps-geg"/>
+                                    <constraint firstItem="7tY-2S-n6r" firstAttribute="leading" secondItem="LLx-D8-hWk" secondAttribute="leading" id="Zs6-9D-orZ"/>
+                                    <constraint firstItem="hyd-nf-Zi9" firstAttribute="centerX" secondItem="LLx-D8-hWk" secondAttribute="centerX" id="dIi-3i-GGY"/>
+                                    <constraint firstAttribute="trailing" secondItem="7tY-2S-n6r" secondAttribute="trailing" id="swS-09-vKz"/>
+                                    <constraint firstItem="7tY-2S-n6r" firstAttribute="top" secondItem="hyd-nf-Zi9" secondAttribute="bottom" constant="20" id="y3P-rL-Gat"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jPE-Tk-X02" userLabel="cityTableView">
+                                <rect key="frame" x="0.0" y="103" width="320" height="377"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="muv-gv-A9M" userLabel="searchTableView">
                                 <rect key="frame" x="0.0" y="103" width="320" height="377"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -376,9 +410,17 @@
                         <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nWc-xS-yfS" secondAttribute="trailing" id="5MU-mR-Wg7"/>
+                            <constraint firstItem="muv-gv-A9M" firstAttribute="leading" secondItem="jPE-Tk-X02" secondAttribute="leading" id="7ca-p7-E9M"/>
+                            <constraint firstItem="LLx-D8-hWk" firstAttribute="bottom" secondItem="jPE-Tk-X02" secondAttribute="bottom" id="AtA-M6-2Jt"/>
+                            <constraint firstItem="LLx-D8-hWk" firstAttribute="trailing" secondItem="jPE-Tk-X02" secondAttribute="trailing" id="SSG-3r-gGN"/>
+                            <constraint firstItem="muv-gv-A9M" firstAttribute="trailing" secondItem="jPE-Tk-X02" secondAttribute="trailing" id="ViO-oM-gPG"/>
                             <constraint firstItem="nWc-xS-yfS" firstAttribute="bottom" secondItem="jPE-Tk-X02" secondAttribute="top" id="Y9n-kH-RkU"/>
                             <constraint firstItem="nWc-xS-yfS" firstAttribute="leading" secondItem="9kZ-0r-Q4w" secondAttribute="leading" id="agd-dW-aKR"/>
                             <constraint firstAttribute="trailing" secondItem="jPE-Tk-X02" secondAttribute="trailing" id="d30-or-Cr5"/>
+                            <constraint firstItem="LLx-D8-hWk" firstAttribute="top" secondItem="jPE-Tk-X02" secondAttribute="top" id="d7a-Bi-PdG"/>
+                            <constraint firstItem="muv-gv-A9M" firstAttribute="top" secondItem="jPE-Tk-X02" secondAttribute="top" id="ioP-4i-2Ih"/>
+                            <constraint firstItem="LLx-D8-hWk" firstAttribute="leading" secondItem="jPE-Tk-X02" secondAttribute="leading" id="mFK-io-AUY"/>
+                            <constraint firstItem="muv-gv-A9M" firstAttribute="bottom" secondItem="jPE-Tk-X02" secondAttribute="bottom" id="nKs-uq-rtH"/>
                             <constraint firstItem="jPE-Tk-X02" firstAttribute="leading" secondItem="9kZ-0r-Q4w" secondAttribute="leading" id="oII-Xu-QUH"/>
                             <constraint firstItem="4vh-zc-hf9" firstAttribute="top" secondItem="jPE-Tk-X02" secondAttribute="bottom" id="pJb-w2-3SM"/>
                             <constraint firstItem="nWc-xS-yfS" firstAttribute="top" secondItem="9kZ-0r-Q4w" secondAttribute="top" constant="53" id="y9F-P6-8ls"/>
@@ -390,6 +432,8 @@
                         <outlet property="cityTableView" destination="jPE-Tk-X02" id="gf5-Pq-vjp"/>
                         <outlet property="deleteBtn" destination="lRf-RJ-2bg" id="G7b-pF-Gru"/>
                         <outlet property="edit" destination="H3S-FO-qdM" id="OBf-rp-K5s"/>
+                        <outlet property="searchTableView" destination="muv-gv-A9M" id="NVH-w4-euG"/>
+                        <outlet property="view_null" destination="LLx-D8-hWk" id="llf-xW-MI9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ogw-G7-coz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -483,6 +527,7 @@
     </scenes>
     <resources>
         <image name="GuideBg" width="720" height="1280"/>
+        <image name="city_search_null_image" width="114" height="113"/>
         <image name="home_icon" width="138" height="46"/>
         <image name="search_bg" width="21" height="62"/>
         <image name="search_delete" width="36" height="36"/>

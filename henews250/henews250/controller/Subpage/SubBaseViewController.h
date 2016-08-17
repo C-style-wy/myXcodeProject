@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "SubPageHeadView.h"
+#import "CityManager.h"
 
 @interface SubBaseViewController : BaseViewController<SubPageHeadViewDelegate>
 

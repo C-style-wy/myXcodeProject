@@ -54,7 +54,7 @@
 #pragma mark - 请求接口
 - (void)requestData {
     NSString *addHead = [SERVER_URL stringByAppendingString:INDEX_URL];
-    NSString *url = [addHead stringByAppendingString:@"合肥"];
+    NSString *url = [addHead stringByAppendingString:[[CityManager shareInstance] getCity]];
     [Request requestPostForJSON:@"indexData" url:url delegate:self paras:nil msg:0 useCache:NO];
 }
 

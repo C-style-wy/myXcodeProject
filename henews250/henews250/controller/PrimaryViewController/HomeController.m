@@ -23,6 +23,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPage];
+    _city = [[CityManager shareInstance]getCity];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.cityName.text = [[CityManager shareInstance]getCity];
+    if (![_city isEqualToString:[[CityManager shareInstance]getCity]]) {
+        _city = [[CityManager shareInstance]getCity];
+
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        [self.tableView.mj_header beginRefreshing];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,7 +71,7 @@
 - (void)headerRereshing
 {
     NSString *addHead = [SERVER_URL stringByAppendingString:HOME_URL];
-    NSString *url = [addHead stringByAppendingString:@"合肥"];
+    NSString *url = [addHead stringByAppendingString:[[CityManager shareInstance] getCity]];
     [Request requestPostForJSON:@"homeData" url:url delegate:self paras:nil msg:0 useCache:YES update:YES];
 }
 

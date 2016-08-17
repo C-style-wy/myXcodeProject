@@ -13,6 +13,6 @@
 
 @property (nonatomic, copy)NSString *resultCode;
 @property (nonatomic, copy)NSString *resultMsg;
-@property (strong, nonatomic) NSArray *cityList;
+@property (strong, nonatomic) NSMutableArray *cityList;
 
 @end

@@ -18,7 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    [UIApplication sharedApplication].statusBarHidden = YES;
-    NSLog(@"didFinishLaunchingWithOptions====");
     //设置手机参数
     IphoneParams *params = [[IphoneParams alloc]init];
     [params setIphoneParam];
@@ -27,7 +26,6 @@
     [MPLocationManager installMapSDK];
     //百度地图定位
     [[MPLocationManager shareInstance] startBMKLocationWithReg:^(BMKUserLocation *loction, NSError *error) {
-        NSLog(@"MPLocationManager====");
         if (error) {
             NSLog(@"定位失败,失败原因：%@",error);
         }else {
@@ -59,6 +57,8 @@
                         city = placemark.administrativeArea;
                     }
                     NSLog(@"百度当前城市：[%@]",city);
+                    NSLog(@"百度当前省份：[%@]",placemark.administrativeArea);
+                    [[CityManager shareInstance] setCurrentCity:city province:placemark.administrativeArea];
                     // 城市名传出去后,立即 Device 语言 还原为默认的语言
                     [[NSUserDefaults standardUserDefaults] setObject:userDefaultLanguages forKey:@"AppleLanguages"];
                 }

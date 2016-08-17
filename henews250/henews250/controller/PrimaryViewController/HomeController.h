@@ -25,4 +25,6 @@
 
 @property (strong, nonatomic) HomeMode *homeMode;
 @property (strong, nonatomic) ChangeDataMode *changeData;
+
+@property (nonatomic, retain) NSString *city;
 @end

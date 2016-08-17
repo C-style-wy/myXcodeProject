@@ -14,6 +14,7 @@
 		D30E09481D40550E00954670 /* TagMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E09471D40550E00954670 /* TagMode.m */; };
 		D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E094A1D406B0C00954670 /* ThreeSmallPicCell.m */; };
 		D30E094D1D406B0C00954670 /* ThreeSmallPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30E094B1D406B0C00954670 /* ThreeSmallPicCell.xib */; };
+		D30E52781D6438AE0018FE6D /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E52771D6438AE0018FE6D /* CityManager.m */; };
 		D319C8891D387007002A84F5 /* SingleColMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D319C8881D387007002A84F5 /* SingleColMode.m */; };
 		D319C88C1D38705D002A84F5 /* AdMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D319C88B1D38705D002A84F5 /* AdMode.m */; };
 		D319C88F1D387307002A84F5 /* LoadingMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D319C88E1D387307002A84F5 /* LoadingMode.m */; };
@@ -59,6 +60,7 @@
 		D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836761D40CD9F008ADE4C /* SectionView.xib */; };
 		D33A81071D499DF900F6F4D8 /* PullCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A81061D499DF900F6F4D8 /* PullCollectionView.m */; };
 		D33A81531D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A81521D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m */; };
+		D340C1311D640AB8007D4C3D /* CityMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D340C1301D640AB8007D4C3D /* CityMode.m */; };
 		D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F50891D5466CC004B25C5 /* SubBaseViewController.m */; };
 		D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F508D1D546A3A004B25C5 /* SubPageHeadView.m */; };
 		D34F50901D546A4D004B25C5 /* SubPageHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34F508F1D546A4D004B25C5 /* SubPageHeadView.xib */; };
@@ -128,6 +130,8 @@
 		D30E09491D406B0C00954670 /* ThreeSmallPicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeSmallPicCell.h; sourceTree = "<group>"; };
 		D30E094A1D406B0C00954670 /* ThreeSmallPicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeSmallPicCell.m; sourceTree = "<group>"; };
 		D30E094B1D406B0C00954670 /* ThreeSmallPicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeSmallPicCell.xib; sourceTree = "<group>"; };
+		D30E52761D6438AE0018FE6D /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityManager.h; sourceTree = "<group>"; };
+		D30E52771D6438AE0018FE6D /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityManager.m; sourceTree = "<group>"; };
 		D319C8871D387007002A84F5 /* SingleColMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleColMode.h; sourceTree = "<group>"; };
 		D319C8881D387007002A84F5 /* SingleColMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleColMode.m; sourceTree = "<group>"; };
 		D319C88A1D38705D002A84F5 /* AdMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMode.h; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 		D33A81061D499DF900F6F4D8 /* PullCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullCollectionView.m; sourceTree = "<group>"; };
 		D33A81511D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		D33A81521D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		D340C12F1D640AB8007D4C3D /* CityMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityMode.h; sourceTree = "<group>"; };
+		D340C1301D640AB8007D4C3D /* CityMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityMode.m; sourceTree = "<group>"; };
 		D34F50881D5466CC004B25C5 /* SubBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubBaseViewController.h; sourceTree = "<group>"; };
 		D34F50891D5466CC004B25C5 /* SubBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubBaseViewController.m; sourceTree = "<group>"; };
 		D34F508C1D546A3A004B25C5 /* SubPageHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubPageHeadView.h; sourceTree = "<group>"; };
@@ -614,6 +620,10 @@
 				D36150451D5D6D14003779A5 /* CityListMode.m */,
 				D36150471D5D6DB5003779A5 /* CityListItemMode.h */,
 				D36150481D5D6DB5003779A5 /* CityListItemMode.m */,
+				D340C12F1D640AB8007D4C3D /* CityMode.h */,
+				D340C1301D640AB8007D4C3D /* CityMode.m */,
+				D30E52761D6438AE0018FE6D /* CityManager.h */,
+				D30E52771D6438AE0018FE6D /* CityManager.m */,
 			);
 			path = CityListMode;
 			sourceTree = "<group>";
@@ -927,6 +937,7 @@
 				D35BB1CD1D4220CE000D6BFD /* MyPageControl.m in Sources */,
 				D31AA0B31D4707F80036004A /* TierManageMode.m in Sources */,
 				D32D86671D462ED1008D7216 /* ChangeDataMode.m in Sources */,
+				D340C1311D640AB8007D4C3D /* CityMode.m in Sources */,
 				D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */,
 				D32C36931D321B8100431829 /* WelfareViewController.m in Sources */,
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
@@ -962,6 +973,7 @@
 				D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */,
 				D3640C931D631E70008049E4 /* CLLocation+MPLocation.m in Sources */,
 				D319C8891D387007002A84F5 /* SingleColMode.m in Sources */,
+				D30E52781D6438AE0018FE6D /* CityManager.m in Sources */,
 				D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */,
 				D38DF7291D3F75CD0042A241 /* BaseCell.m in Sources */,
 				D3640C871D62F3BF008049E4 /* CityListCell.m in Sources */,

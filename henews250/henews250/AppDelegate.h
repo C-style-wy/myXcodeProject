@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MPLocationManager.h"
 #import "MacroDefinition.h"
+#import "CityManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

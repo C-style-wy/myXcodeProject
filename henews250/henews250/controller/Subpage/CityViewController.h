@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 
 @property (weak, nonatomic) IBOutlet UITableView *cityTableView;
+@property (weak, nonatomic) IBOutlet UITableView *searchTableView;
+@property (weak, nonatomic) IBOutlet UIView *view_null;
 
 @property (nonatomic, retain) NSMutableArray *cityAry;
+@property (nonatomic, retain) NSMutableArray *searchCityAry;
 @end

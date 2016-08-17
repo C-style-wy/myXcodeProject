@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.pageTitle.text = @"当前城市-合肥";
+    self.pageTitle.text = [@"当前城市-" stringByAppendingString:[[CityManager shareInstance] getLocalCity]];
     self.pageShareBtn.hidden = YES;
     
     self.edit.delegate = self;
@@ -27,6 +27,11 @@
     self.cityTableView.delegate = self;
     self.cityTableView.dataSource = self;
     self.cityTableView.sectionIndexColor = MainColor;
+    
+    self.searchTableView.delegate = self;
+    self.searchTableView.dataSource = self;
+    self.searchTableView.sectionIndexColor = LRClearColor;
+    self.searchTableView.hidden = YES;
     
     NSString *url = [SERVER_URL stringByAppendingString:CityList_Url];
     [Request requestPostForJSON:@"cittList" url:url delegate:self paras:nil msg:0 useCache:YES update:YES];
@@ -52,14 +57,15 @@
     
     CityListItemMode *currentCity = [[CityListItemMode alloc]init];
     currentCity.letter = @"您当前的位置可能是";
-    currentCity.cities = [[NSArray alloc]initWithObjects:@"合肥",nil];
-    
-    CityListItemMode *choceCity = [[CityListItemMode alloc]init];
-    choceCity.letter = @"经常选择的城市";
-    choceCity.cities = [[NSArray alloc]initWithObjects:@"杭州", @"玉树", nil];
-    
+    currentCity.cities = [[NSArray alloc]initWithObjects:[[CityManager shareInstance] getLocalCity],nil];
     [_cityAry addObject:currentCity];
-    [_cityAry addObject:choceCity];
+    
+    if ([[CityManager shareInstance] getChoceCityAry].count > 0) {
+        CityListItemMode *choceCity = [[CityListItemMode alloc]init];
+        choceCity.letter = @"经常选择的城市";
+        choceCity.cities = [[CityManager shareInstance] getChoceCityAry];
+        [_cityAry addObject:choceCity];
+    }
     
     [_cityAry addObjectsFromArray:data.cityList];
     [self.cityTableView reloadData];
@@ -73,6 +79,7 @@
 - (IBAction)deleteBtnSelect:(id)sender {
     self.edit.text = NullString;
     self.deleteBtn.hidden = YES;
+    [self dealSearchTextChange:NullString];
 }
 
 
@@ -82,6 +89,51 @@
         self.deleteBtn.hidden = YES;
     }else{
         self.deleteBtn.hidden = NO;
+    }
+    [self dealSearchTextChange:str];
+}
+
+- (void)dealSearchTextChange:(NSString*)str {
+    if ([str isEqualToString:@""]) {
+        _cityTableView.hidden = NO;
+        _searchTableView.hidden = YES;
+        _view_null.hidden = YES;
+    }else{
+        if (!_searchCityAry) {
+            _searchCityAry = [[NSMutableArray alloc]init];
+        }
+        [_searchCityAry removeAllObjects];
+        
+        BOOL have = NO;
+        for (int i=0; i<_cityAry.count; i++) {
+            CityListItemMode *itemMode = [_cityAry objectAtIndex:i];
+            for (int j=0; j<itemMode.cities.count; j++) {
+                NSString *city = [itemMode.cities objectAtIndex:j];
+                if ([city rangeOfString:str].location != NSNotFound) {
+                    have = YES;
+                    BOOL searchAryNotHave = YES;
+                    for (int m = 0; m < _searchCityAry.count; m++) {
+                        if ([city isEqualToString:[_searchCityAry objectAtIndex:m]]) {
+                            searchAryNotHave = NO;
+                        }
+                    }
+                    if (searchAryNotHave) {
+                        [_searchCityAry addObject:city];
+                    }
+                }
+            }
+        }
+        
+        [_searchTableView reloadData];
+        if (have) {
+            _cityTableView.hidden = YES;
+            _searchTableView.hidden = NO;
+            _view_null.hidden = YES;
+        }else{
+            _cityTableView.hidden = YES;
+            _searchTableView.hidden = YES;
+            _view_null.hidden = NO;
+        }
     }
 }
 
@@ -98,35 +150,57 @@
 
 #pragma mark - tableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.cityAry.count;
+    if (tableView == _cityTableView) {
+        return self.cityAry.count;
+    }else{
+        return 1;
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    CityListItemMode *sectionMode = [self.cityAry objectAtIndex:section];
-    CityListSectionView *sectionView = [[CityListSectionView loadFromNib]initWithSectionName:sectionMode.letter];
-    return sectionView;
+    
+    if (tableView == _cityTableView) {
+        CityListItemMode *sectionMode = [self.cityAry objectAtIndex:section];
+        CityListSectionView *sectionView = [[CityListSectionView loadFromNib]initWithSectionName:sectionMode.letter];
+        return sectionView;
+    }else{
+        return nil;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 27.0f;
+    if (tableView == _cityTableView) {
+        return 27.0f;
+    }else{
+        return 0;
+    }
 }
 
 //指定每个分区中有多少行，默认为1
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    CityListItemMode *sectionMode = [self.cityAry objectAtIndex:section];
-    return sectionMode.cities.count;
+    if (tableView == _cityTableView) {
+        CityListItemMode *sectionMode = [self.cityAry objectAtIndex:section];
+        return sectionMode.cities.count;
+    }else{
+        return _searchCityAry.count;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CityListItemMode *sectionMode = [self.cityAry objectAtIndex:indexPath.section];
-    CityListCell *cell = [CityListCell cellWithTableView:tableView];
-    
-    BOOL hiddenLine = NO;
-    if (sectionMode.cities.count == indexPath.row + 1) {
-        hiddenLine = YES;
+    if (tableView == _cityTableView) {
+        CityListItemMode *sectionMode = [self.cityAry objectAtIndex:indexPath.section];
+        CityListCell *cell = [CityListCell cellWithTableView:tableView];
+        BOOL hiddenLine = NO;
+        if (sectionMode.cities.count == indexPath.row + 1) {
+            hiddenLine = YES;
+        }
+        [cell setCityName:[sectionMode.cities objectAtIndex:indexPath.row] hiddenLine:hiddenLine];
+        return cell;
+    }else {
+        CityListCell *cell = [CityListCell cellWithTableView:tableView];
+        [cell setCityName:[_searchCityAry objectAtIndex:indexPath.row] hiddenLine:NO];
+        return cell;
     }
-    [cell setCityName:[sectionMode.cities objectAtIndex:indexPath.row] hiddenLine:hiddenLine];
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,6 +211,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.edit resignFirstResponder];
     
+    if (tableView == _cityTableView) {
+        CityListItemMode *sectionMode = [self.cityAry objectAtIndex:indexPath.section];
+        [[CityManager shareInstance] addChoseCity:[sectionMode.cities objectAtIndex:indexPath.row]];
+    }else{
+        [[CityManager shareInstance] addChoseCity:[_searchCityAry objectAtIndex:indexPath.row]];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
