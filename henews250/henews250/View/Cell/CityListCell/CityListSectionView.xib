@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="CityListSectionView" id="iN0-l3-epB" customClass="CityListSectionView">
+            <rect key="frame" x="0.0" y="0.0" width="306" height="27"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fi9-dq-U29">
+                    <rect key="frame" x="0.0" y="0.0" width="292" height="27"/>
+                    <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQ5-hv-mz9" userLabel="letter">
+                    <rect key="frame" x="10" y="0.0" width="296" height="27"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16.5"/>
+                    <color key="textColor" red="0.090196078431372548" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Fi9-dq-U29" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GzG-sG-aq5"/>
+                <constraint firstAttribute="trailing" secondItem="PQ5-hv-mz9" secondAttribute="trailing" id="Jxv-UJ-XCv"/>
+                <constraint firstAttribute="bottom" secondItem="PQ5-hv-mz9" secondAttribute="bottom" id="LhC-oy-MLb"/>
+                <constraint firstItem="Fi9-dq-U29" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hv9-sb-XuY"/>
+                <constraint firstItem="PQ5-hv-mz9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lqn-HM-BUW"/>
+                <constraint firstAttribute="bottom" secondItem="Fi9-dq-U29" secondAttribute="bottom" id="mLc-Dq-oQj"/>
+                <constraint firstAttribute="trailing" secondItem="Fi9-dq-U29" secondAttribute="trailing" constant="14" id="weD-QF-8jR"/>
+                <constraint firstItem="PQ5-hv-mz9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="yPI-tf-PJJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="letter" destination="PQ5-hv-mz9" id="wqM-SK-Vbt"/>
+            </connections>
+        </view>
+    </objects>
+</document>

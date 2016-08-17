@@ -53,8 +53,11 @@ static const char MJReferenceReplacedKeyWhenCreatingKeyValuesKey = '\0';
 }
 
 #pragma mark - --常用的对象--
+static NSNumberFormatter *numberFormatter_;
 + (void)load
 {
+    numberFormatter_ = [[NSNumberFormatter alloc] init];
+    
     // 默认设置
     [self mj_referenceReplacedKeyWhenCreatingKeyValues:YES];
 }
@@ -156,7 +159,11 @@ static const char MJReferenceReplacedKeyWhenCreatingKeyValuesKey = '\0';
                         NSString *oldValue = value;
                         
                         // NSString -> NSNumber
-                        value = [NSDecimalNumber decimalNumberWithString:oldValue];
+                        if (type.typeClass == [NSDecimalNumber class]) {
+                            value = [NSDecimalNumber decimalNumberWithString:oldValue];
+                        } else {
+                            value = [numberFormatter_ numberFromString:oldValue];
+                        }
                         
                         // 如果是BOOL
                         if (type.isBoolType) {
@@ -205,7 +212,8 @@ static const char MJReferenceReplacedKeyWhenCreatingKeyValuesKey = '\0';
     MJExtensionAssertError([keyValues isKindOfClass:[NSDictionary class]], nil, [self class], @"keyValues参数不是一个字典");
     
     if ([self isSubclassOfClass:[NSManagedObject class]] && context) {
-        return [[NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self) inManagedObjectContext:context] mj_setKeyValues:keyValues context:context];
+        NSString *entityName = [NSStringFromClass(self) componentsSeparatedByString:@"."].lastObject;
+        return [[NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context] mj_setKeyValues:keyValues context:context];
     }
     return [[[self alloc] init] mj_setKeyValues:keyValues];
 }

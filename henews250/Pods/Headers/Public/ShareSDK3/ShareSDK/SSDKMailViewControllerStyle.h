@@ -1,1 +1,1 @@
-../../../../ShareSDK3/libraries/ShareSDK.framework/Headers/SSDKMailViewControllerStyle.h
+../../../../ShareSDK3/ShareSDK/ShareSDK.framework/Headers/SSDKMailViewControllerStyle.h

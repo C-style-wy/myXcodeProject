@@ -7,11 +7,14 @@
 //
 
 #import "SubBaseViewController.h"
+#import "CityListCell.h"
+#import "CityListSectionView.h"
 
-@interface CityViewController : SubBaseViewController<UITextFieldDelegate>
+@interface CityViewController : SubBaseViewController<UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *edit;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 
+@property (weak, nonatomic) IBOutlet UITableView *cityTableView;
 
 @property (nonatomic, retain) NSMutableArray *cityAry;
 @end

@@ -1,1 +1,1 @@
-../../../../ShareSDK3/libraries/ShareSDKUI.framework/Headers/SSUIShareActionSheetItem.h
+../../../../ShareSDK3/ShareSDK/Support/Optional/ShareSDKUI.framework/Headers/SSUIShareActionSheetItem.h

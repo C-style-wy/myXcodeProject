@@ -1,1 +1,1 @@
-../../../../ShareSDK3/libraries/extends/QQSDK/TencentOpenAPI.framework/Headers/QQApiInterface.h
+../../../../ShareSDK3/ShareSDK/Support/PlatformSDK/QQSDK/TencentOpenAPI.framework/Headers/QQApiInterface.h

@@ -1,1 +1,1 @@
-../../../../ShareSDK3/libraries/extends/QQSDK/TencentOpenAPI.framework/Headers/TencentOAuth.h
+../../../../ShareSDK3/ShareSDK/Support/PlatformSDK/QQSDK/TencentOpenAPI.framework/Headers/TencentOAuth.h

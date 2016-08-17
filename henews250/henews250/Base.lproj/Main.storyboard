@@ -324,7 +324,7 @@
                                         <rect key="frame" x="9" y="11" width="302" height="28"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5kl-iF-ZSB" userLabel="search_icon">
-                                        <rect key="frame" x="17" y="17.5" width="15" height="15"/>
+                                        <rect key="frame" x="17" y="17" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="QK1-n0-POX"/>
                                             <constraint firstAttribute="height" constant="15" id="Ylr-Zp-QFN"/>
@@ -335,7 +335,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-RJ-2bg" userLabel="deleteBtn">
                                         <rect key="frame" x="275" y="11" width="36" height="28"/>
@@ -367,17 +367,27 @@
                                     <constraint firstItem="lRf-RJ-2bg" firstAttribute="trailing" secondItem="fco-NG-gYB" secondAttribute="trailing" id="uoG-ss-wJh"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jPE-Tk-X02" userLabel="cityTableView">
+                                <rect key="frame" x="0.0" y="103" width="320" height="377"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nWc-xS-yfS" secondAttribute="trailing" id="5MU-mR-Wg7"/>
+                            <constraint firstItem="nWc-xS-yfS" firstAttribute="bottom" secondItem="jPE-Tk-X02" secondAttribute="top" id="Y9n-kH-RkU"/>
                             <constraint firstItem="nWc-xS-yfS" firstAttribute="leading" secondItem="9kZ-0r-Q4w" secondAttribute="leading" id="agd-dW-aKR"/>
+                            <constraint firstAttribute="trailing" secondItem="jPE-Tk-X02" secondAttribute="trailing" id="d30-or-Cr5"/>
+                            <constraint firstItem="jPE-Tk-X02" firstAttribute="leading" secondItem="9kZ-0r-Q4w" secondAttribute="leading" id="oII-Xu-QUH"/>
+                            <constraint firstItem="4vh-zc-hf9" firstAttribute="top" secondItem="jPE-Tk-X02" secondAttribute="bottom" id="pJb-w2-3SM"/>
                             <constraint firstItem="nWc-xS-yfS" firstAttribute="top" secondItem="9kZ-0r-Q4w" secondAttribute="top" constant="53" id="y9F-P6-8ls"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="et5-t6-3Rb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="cityTableView" destination="jPE-Tk-X02" id="gf5-Pq-vjp"/>
                         <outlet property="deleteBtn" destination="lRf-RJ-2bg" id="G7b-pF-Gru"/>
                         <outlet property="edit" destination="H3S-FO-qdM" id="OBf-rp-K5s"/>
                     </connections>

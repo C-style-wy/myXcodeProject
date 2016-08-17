@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPLocationManager.h"
+#import "MacroDefinition.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

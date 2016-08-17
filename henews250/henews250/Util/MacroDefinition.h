@@ -26,6 +26,16 @@
 //城市列表
 #define CityList_Url (@"/publish/clt/resource/portal/v2/cityLetter.jsp?city=")
 
+// 是否大于等于IOS7
+#define isIOS7                  ([[[UIDevice currentDevice]systemVersion]floatValue] >= 7.0)
+// 是否IOS6
+#define isIOS6                  ([[[UIDevice currentDevice]systemVersion]floatValue] < 7.0)
+// 是否大于等于IOS8
+#define isIOS8                  ([[[UIDevice currentDevice]systemVersion]floatValue] >=8.0)
+// 是否大于IOS9
+#define isIOS9                  ([[[UIDevice currentDevice]systemVersion]floatValue] >=9.0)
+// 是否iPad
+#define isPad                   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 #pragma mark - 手机宽高
 #define SCREEN_FRAME ([UIScreen mainScreen].bounds)
@@ -85,6 +95,8 @@ typedef enum _iPhoneType {
 
 // clear背景颜色
 #define LRClearColor [UIColor clearColor]
+
+#define MainColor ([UIColor colorWithHexColor:@"#e40177"])
 
 #define TEXTWIDTH(str, attribute, h) ([(str) boundingRectWithSize:CGSizeMake(MAXFLOAT, (h)) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size.width)
 
