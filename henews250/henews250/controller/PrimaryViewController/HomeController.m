@@ -32,8 +32,8 @@
     if (![_city isEqualToString:[[CityManager shareInstance]getCity]]) {
         _city = [[CityManager shareInstance]getCity];
 
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-        [self.tableView.mj_header beginRefreshing];
+        
+        [self tabBarBtnSelectAgain];
     }
 }
 
@@ -133,10 +133,13 @@
 
 #pragma mark - TabBarBtnDelegate
 - (void)tabBarBtnSelectAgain {
-    [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
-//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-//    [self.tableView.mj_header beginRefreshing];
+    if (_tableView.contentOffset.y == 0) {
+        [self.tableView.mj_header beginRefreshing];
+    }else{
+        [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
 }
+
 
 #pragma mark - SectionDelegate
 - (void)requestSectionChange:(NSString*)url section:(NSInteger)section {
@@ -223,5 +226,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+}
+
+//setContentOffset:CGPointMake(0, 0) animated:YES动画结束回调函数
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    [self.tableView.mj_header beginRefreshing];
 }
 @end
