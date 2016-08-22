@@ -210,12 +210,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.edit resignFirstResponder];
-    
+    NSString *selectCityName;
     if (tableView == _cityTableView) {
         CityListItemMode *sectionMode = [self.cityAry objectAtIndex:indexPath.section];
-        [[CityManager shareInstance] addChoseCity:[sectionMode.cities objectAtIndex:indexPath.row]];
+        selectCityName = [sectionMode.cities objectAtIndex:indexPath.row];
     }else{
-        [[CityManager shareInstance] addChoseCity:[_searchCityAry objectAtIndex:indexPath.row]];
+        selectCityName = [_searchCityAry objectAtIndex:indexPath.row];
+    }
+    NSString *currentCity = [[CityManager shareInstance] getCity];
+    [[CityManager shareInstance] addChoseCity:selectCityName];
+    if (![currentCity isEqualToString:[[CityManager shareInstance] getCity]]) {
+        self.changeCityBlock();
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -235,19 +240,28 @@
             }
         }
     }
-    return toBeReturned;
+    if (tableView == _cityTableView) {
+        return toBeReturned;
+    }else{
+        return nil;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-    NSInteger count = 0;
-    for(int i = 0; i < _cityAry.count; i++) {
-        CityListItemMode *itemMode = [_cityAry objectAtIndex:i];
-        if([itemMode.letter isEqualToString:title]) {
-            return count;
+    if (tableView == _cityTableView) {
+        NSInteger count = 0;
+        for(int i = 0; i < _cityAry.count; i++) {
+            CityListItemMode *itemMode = [_cityAry objectAtIndex:i];
+            if([itemMode.letter isEqualToString:title]) {
+                return count;
+            }
+            count ++;
         }
-        count ++;
+        return 0;
+    }else{
+        return 0;
     }
-    return 0;
+    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {

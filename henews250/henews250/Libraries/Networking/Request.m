@@ -47,7 +47,7 @@
         }
     }
     
-    [[request createHttpWithParam] POST:urlString parameters:paras progress:nil success:^(NSURLSessionDataTask *task, id responseObject){
+    [[request createHttpWithParam:@"JSON"] POST:urlString parameters:paras progress:nil success:^(NSURLSessionDataTask *task, id responseObject){
         NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         if (resultDic) {
             [delegate requestDidReturn:tag returnJson:resultDic msg:msg isCacheReturn:NO];
@@ -90,7 +90,7 @@
         }
     }
     if (update) {
-        [[request createHttpWithParam] POST:urlString parameters:paras progress:nil success:^(NSURLSessionDataTask *task, id responseObject){
+        [[request createHttpWithParam:@"JSON"] POST:urlString parameters:paras progress:nil success:^(NSURLSessionDataTask *task, id responseObject){
             NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             if (resultDic) {
                 [delegate requestDidReturn:tag returnJson:resultDic msg:msg isCacheReturn:NO];
@@ -101,6 +101,25 @@
             [delegate requestDidReturn:tag returnJson:nil msg:msg isCacheReturn:NO];
         }];
     }
+}
+
++ (void)requestPostForXML:(NSString*)tag url:(NSString*)urlString delegate:(id)delegate paras:(NSDictionary*)paras msg:(NSInteger)msg useCache:(BOOL)use update:(BOOL)update {
+    Request *request = [[self alloc]initWithUrl:urlString];
+    if([urlString rangeOfString:@"?"].location != NSNotFound){
+        urlString = [urlString stringByAppendingString:@"&"];
+    }else{
+        urlString = [urlString stringByAppendingString:@"?"];
+    }
+    urlString = [urlString stringByAppendingString:WD_ENCRYPT];
+    urlString = [urlString stringByAppendingString:@"="];
+    urlString = [urlString stringByAppendingString:[request getKeyWithUrl:urlString]];
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSDictionary *dict = @{@"format": @"xml"};
+    [[request createHttpWithParam:@"XML"] POST:urlString parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 //根据url获取缓存路径
@@ -114,9 +133,13 @@
 }
 
 //创建AFHTTPSessionManager
-- (AFHTTPSessionManager *)createHttpWithParam{
+- (AFHTTPSessionManager *)createHttpWithParam:(NSString*)dataTypeString {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    if ([dataTypeString isEqualToString:@"JSON"]) {
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    }else if ([dataTypeString isEqualToString:@"XML"]) {
+        manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    }
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     

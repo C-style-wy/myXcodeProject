@@ -20,7 +20,9 @@
 #define OneSmallPicNews     11    //一张小图在左边（普通新闻）
 #define OneMiddPicNews      22    //一张中图
 
-
+//模块样式
+#define WeatherMode         16    //天气模块
+#define EditorRecommend     12    //普通模块类型
 
 @interface NewsCellFactory : NSObject
 

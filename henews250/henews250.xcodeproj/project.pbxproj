@@ -132,6 +132,8 @@
 		D30E094B1D406B0C00954670 /* ThreeSmallPicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeSmallPicCell.xib; sourceTree = "<group>"; };
 		D30E52761D6438AE0018FE6D /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityManager.h; sourceTree = "<group>"; };
 		D30E52771D6438AE0018FE6D /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityManager.m; sourceTree = "<group>"; };
+		D31346141D66997700871FB8 /* NetworkUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkUrl.h; sourceTree = "<group>"; };
+		D31346151D669CDD00871FB8 /* NetworkDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkDefine.h; sourceTree = "<group>"; };
 		D319C8871D387007002A84F5 /* SingleColMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleColMode.h; sourceTree = "<group>"; };
 		D319C8881D387007002A84F5 /* SingleColMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleColMode.m; sourceTree = "<group>"; };
 		D319C88A1D38705D002A84F5 /* AdMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMode.h; sourceTree = "<group>"; };
@@ -672,6 +674,8 @@
 				D37007E11D34C9F0007E2AA3 /* Request.m */,
 				D37007E31D34CA19007E2AA3 /* MD5.h */,
 				D37007E41D34CA19007E2AA3 /* MD5.m */,
+				D31346141D66997700871FB8 /* NetworkUrl.h */,
+				D31346151D669CDD00871FB8 /* NetworkDefine.h */,
 			);
 			path = Networking;
 			sourceTree = "<group>";

@@ -72,9 +72,8 @@
             [_choceCityAry removeObjectAtIndex:2];
         }
         [_choceCityAry insertObject:choceCity atIndex:0];
-        
-        [self write2UserData];
     }
+    [self write2UserData];
 }
 
 - (void)write2UserData {

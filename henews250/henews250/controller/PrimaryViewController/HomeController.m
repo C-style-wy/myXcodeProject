@@ -12,6 +12,8 @@
 #import "BannerMode.h"
 #import "CityViewController.h"
 
+#import "NetworkUrl.h"
+
 @interface HomeController ()
 
 @end
@@ -23,23 +25,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPage];
-    _city = [[CityManager shareInstance]getCity];
+    
+    //测试
+    NSString *addHead = [SERVER_URL stringByAppendingString:Weather_Url];
+    NSString *url = [addHead stringByAppendingString:[[CityManager shareInstance] getCity]];
+    [Request requestPostForXML:@"weatherData" url:url delegate:self paras:nil msg:0 useCache:NO update:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.cityName.text = [[CityManager shareInstance]getCity];
-    if (![_city isEqualToString:[[CityManager shareInstance]getCity]]) {
-        _city = [[CityManager shareInstance]getCity];
-
-        
-        [self tabBarBtnSelectAgain];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - init
@@ -98,7 +97,6 @@
             [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
         }
     }
-    
 }
 
 - (void)dealData {
@@ -118,6 +116,10 @@
 #pragma mark - btn action
 - (IBAction)cityBtnSelect:(id)sender {
     CityViewController *city = [CityViewController loadFromStoryboard];
+    __weak typeof(&*self)weakSelf = self;
+    city.changeCityBlock = ^(void){
+        [weakSelf tabBarBtnSelectAgain];
+    };
     [self.navigationController pushViewController:city animated:YES];
 }
 
@@ -173,7 +175,6 @@
     }else{
         return nil;
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -188,6 +189,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
         NodeMode *modul = [_tableViewData objectAtIndex:section];
+        
+        
         if (modul.newsList && modul.newsList.count > 0) {
             return modul.newsList.count;
         }else{

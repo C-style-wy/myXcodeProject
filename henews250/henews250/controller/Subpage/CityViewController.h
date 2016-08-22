@@ -10,6 +10,8 @@
 #import "CityListCell.h"
 #import "CityListSectionView.h"
 
+typedef void(^ChangeCity)(void);
+
 @interface CityViewController : SubBaseViewController<UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *edit;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
@@ -20,4 +22,6 @@
 
 @property (nonatomic, retain) NSMutableArray *cityAry;
 @property (nonatomic, retain) NSMutableArray *searchCityAry;
+
+@property (nonatomic, copy) ChangeCity changeCityBlock;
 @end
