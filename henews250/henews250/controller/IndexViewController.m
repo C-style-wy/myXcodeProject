@@ -53,13 +53,12 @@
 
 #pragma mark - 请求接口
 - (void)requestData {
-    NSString *addHead = [SERVER_URL stringByAppendingString:INDEX_URL];
-    NSString *url = [addHead stringByAppendingString:[[CityManager shareInstance] getCity]];
-    [Request requestPostForJSON:@"indexData" url:url delegate:self paras:nil msg:0 useCache:NO];
+    NSString *indexUrl = [DEF_GetIndexpage stringByAppendingString:[[CityManager shareInstance] getCity]];
+    [NetworkManager postReqeustJsonWithURL:indexUrl params:nil delegate:self tag:@"indexData" msg:0 useCache:NO update:YES showHUD:NO];
 }
 
 #pragma mark - 数据返回
--(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
+- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     self.loadingMode = [LoadingMode mj_objectWithKeyValues:returnJson];
     //设置广告图
     if (!isFirstOpen) {

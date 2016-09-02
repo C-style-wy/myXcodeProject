@@ -26,6 +26,7 @@
 		D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0B51D470B860036004A /* LocalTierMode.m */; };
 		D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */ = {isa = PBXBuildFile; fileRef = D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */; };
 		D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */; };
+		D31EC6871D7824F300F2B349 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D31EC6861D7824F300F2B349 /* NetworkManager.m */; };
 		D31ED4031D3DBA34003C2A54 /* OneSmallPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ED4011D3DBA34003C2A54 /* OneSmallPicCell.m */; };
 		D31ED4041D3DBA34003C2A54 /* OneSmallPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31ED4021D3DBA34003C2A54 /* OneSmallPicCell.xib */; };
 		D31ED4501D3E18D6003C2A54 /* UIImageView+LoadFromWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ED44F1D3E18D6003C2A54 /* UIImageView+LoadFromWeb.m */; };
@@ -79,8 +80,9 @@
 		D3640C8D1D62F618008049E4 /* CityListSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3640C8C1D62F618008049E4 /* CityListSectionView.xib */; };
 		D3640C931D631E70008049E4 /* CLLocation+MPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3640C901D631E70008049E4 /* CLLocation+MPLocation.m */; };
 		D3640C941D631E70008049E4 /* MPLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3640C921D631E70008049E4 /* MPLocationManager.m */; };
-		D37007E21D34C9F0007E2AA3 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = D37007E11D34C9F0007E2AA3 /* Request.m */; };
 		D37007E51D34CA19007E2AA3 /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D37007E41D34CA19007E2AA3 /* MD5.m */; };
+		D3805DCC1D741EB500B6FAE5 /* NetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D3805DCB1D741EB500B6FAE5 /* NetworkHandler.m */; };
+		D3805DCF1D7427D600B6FAE5 /* NetworkItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3805DCE1D7427D600B6FAE5 /* NetworkItem.m */; };
 		D38DF7261D3F72840042A241 /* NewsCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DF7251D3F72840042A241 /* NewsCellFactory.m */; };
 		D38DF7291D3F75CD0042A241 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DF7281D3F75CD0042A241 /* BaseCell.m */; };
 		D38DF72D1D3F7C7C0042A241 /* EveryOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DF72B1D3F7C7C0042A241 /* EveryOneCell.m */; };
@@ -155,6 +157,8 @@
 		D31DE9F21D2C8DBC00D2B0AB /* GuidePage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage1.h; sourceTree = "<group>"; };
 		D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePage1.m; sourceTree = "<group>"; };
 		D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidePage1.xib; sourceTree = "<group>"; };
+		D31EC6851D7824F300F2B349 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		D31EC6861D7824F300F2B349 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		D31ED4001D3DBA34003C2A54 /* OneSmallPicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneSmallPicCell.h; sourceTree = "<group>"; };
 		D31ED4011D3DBA34003C2A54 /* OneSmallPicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneSmallPicCell.m; sourceTree = "<group>"; };
 		D31ED4021D3DBA34003C2A54 /* OneSmallPicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneSmallPicCell.xib; sourceTree = "<group>"; };
@@ -255,10 +259,13 @@
 		D3640C911D631E70008049E4 /* MPLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLocationManager.h; sourceTree = "<group>"; };
 		D3640C921D631E70008049E4 /* MPLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLocationManager.m; sourceTree = "<group>"; };
 		D3640C951D631F7F008049E4 /* ThirdMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdMacros.h; sourceTree = "<group>"; };
-		D37007E01D34C9F0007E2AA3 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
-		D37007E11D34C9F0007E2AA3 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
 		D37007E31D34CA19007E2AA3 /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
 		D37007E41D34CA19007E2AA3 /* MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5.m; sourceTree = "<group>"; };
+		D3805DC91D7417E700B6FAE5 /* NetworkDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkDelegate.h; sourceTree = "<group>"; };
+		D3805DCA1D741EB500B6FAE5 /* NetworkHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHandler.h; sourceTree = "<group>"; };
+		D3805DCB1D741EB500B6FAE5 /* NetworkHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHandler.m; sourceTree = "<group>"; };
+		D3805DCD1D7427D600B6FAE5 /* NetworkItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkItem.h; sourceTree = "<group>"; };
+		D3805DCE1D7427D600B6FAE5 /* NetworkItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkItem.m; sourceTree = "<group>"; };
 		D38DF7241D3F72840042A241 /* NewsCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCellFactory.h; sourceTree = "<group>"; };
 		D38DF7251D3F72840042A241 /* NewsCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCellFactory.m; sourceTree = "<group>"; };
 		D38DF7271D3F75CD0042A241 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
@@ -527,11 +534,19 @@
 		D3276ACE1D2A681A00A249C9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D32972491D7552EC00B60181 /* Loading */,
 				D3640C8E1D631E70008049E4 /* LcationManager */,
 				D30741A51D50730300E4E394 /* DGReorderableCollectionViewFlowLayout */,
 				D37007DF1D34C9BD007E2AA3 /* Networking */,
 			);
 			path = Libraries;
+			sourceTree = "<group>";
+		};
+		D32972491D7552EC00B60181 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		D332651B1D2E0347005C9D7D /* Category */ = {
@@ -670,12 +685,17 @@
 		D37007DF1D34C9BD007E2AA3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D37007E01D34C9F0007E2AA3 /* Request.h */,
-				D37007E11D34C9F0007E2AA3 /* Request.m */,
 				D37007E31D34CA19007E2AA3 /* MD5.h */,
 				D37007E41D34CA19007E2AA3 /* MD5.m */,
 				D31346141D66997700871FB8 /* NetworkUrl.h */,
 				D31346151D669CDD00871FB8 /* NetworkDefine.h */,
+				D3805DC91D7417E700B6FAE5 /* NetworkDelegate.h */,
+				D3805DCA1D741EB500B6FAE5 /* NetworkHandler.h */,
+				D3805DCB1D741EB500B6FAE5 /* NetworkHandler.m */,
+				D3805DCD1D7427D600B6FAE5 /* NetworkItem.h */,
+				D3805DCE1D7427D600B6FAE5 /* NetworkItem.m */,
+				D31EC6851D7824F300F2B349 /* NetworkManager.h */,
+				D31EC6861D7824F300F2B349 /* NetworkManager.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -944,6 +964,7 @@
 				D340C1311D640AB8007D4C3D /* CityMode.m in Sources */,
 				D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */,
 				D32C36931D321B8100431829 /* WelfareViewController.m in Sources */,
+				D3805DCF1D7427D600B6FAE5 /* NetworkItem.m in Sources */,
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
 				D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */,
@@ -952,11 +973,11 @@
 				D30C75D31D35C0FB00248DE0 /* IphoneParams.m in Sources */,
 				D36150491D5D6DB5003779A5 /* CityListItemMode.m in Sources */,
 				D31ED4031D3DBA34003C2A54 /* OneSmallPicCell.m in Sources */,
+				D3805DCC1D741EB500B6FAE5 /* NetworkHandler.m in Sources */,
 				D31A339F1D2B506700401658 /* IndexViewController.m in Sources */,
 				D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */,
 				D32D86641D46142C008D7216 /* ChannelMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
-				D37007E21D34C9F0007E2AA3 /* Request.m in Sources */,
 				D3C4EC641D485F1D002D4BC9 /* TierManageView.m in Sources */,
 				D32C36961D321B8E00431829 /* MyViewController.m in Sources */,
 				D323750B1D4ADDA6003042C6 /* TierCollectionViewCell.m in Sources */,
@@ -970,6 +991,7 @@
 				D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */,
 				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
 				D319C88C1D38705D002A84F5 /* AdMode.m in Sources */,
+				D31EC6871D7824F300F2B349 /* NetworkManager.m in Sources */,
 				D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */,
 				D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */,
 				D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */,

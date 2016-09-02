@@ -33,12 +33,11 @@
     self.searchTableView.sectionIndexColor = LRClearColor;
     self.searchTableView.hidden = YES;
     
-    NSString *url = [SERVER_URL stringByAppendingString:CityList_Url];
-    [Request requestPostForJSON:@"cittList" url:url delegate:self paras:nil msg:0 useCache:YES update:YES];
+    [NetworkManager postReqeustJsonWithURL:DEF_GetCitypage params:nil delegate:self tag:@"cittList" msg:0 useCache:YES update:YES showHUD:NO];
 }
 
 #pragma mark - 网络返回
--(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
+- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
 
     if ([tag isEqualToString:@"cittList"]) {
         if (returnJson) {

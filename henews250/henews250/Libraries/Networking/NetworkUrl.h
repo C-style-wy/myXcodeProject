@@ -12,12 +12,12 @@
 ///**
 // *  正式环境
 // */
-//#define API_HOST @"http://wap.cmread.com/clt"
+#define API_HOST @"http://wap.cmread.com/clt"
 
 ///**
 // *   开发环境
 // */
-#define API_HOST @"http://60.174.236.108:8091/clt"
+//#define API_HOST @"http://60.174.236.108:8091/clt"
 
 //      接口路径全拼
 #define PATH(_path)             [NSString stringWithFormat:_path, API_HOST]

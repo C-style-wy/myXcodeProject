@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MacroDefinition.h"
-#import "Request.h"
+#import "NetworkManager.h"
+
 #import "MJRefresh.h"
 #import "UIImageView+WebCache.h"
 #import "UIView+SetAllSubViewHidden.h"
@@ -19,7 +20,7 @@
 #import "CityManager.h"
 
 
-@interface BaseViewController : UIViewController
+@interface BaseViewController : UIViewController<NetworkDelegate>
 
 
 - (iPhoneType)returnIphoneType;

@@ -17,9 +17,9 @@
 
 #pragma mark - 服务端主地址
 //生成环境
-//#define SERVER_URL (@"http://wap.cmread.com/clt")
+#define SERVER_URL (@"http://wap.cmread.com/clt")
 //合肥开发环境
-#define SERVER_URL (@"http://60.174.236.108:8091/clt")
+//#define SERVER_URL (@"http://60.174.236.108:8091/clt")
 
 
 #pragma mark - 接口

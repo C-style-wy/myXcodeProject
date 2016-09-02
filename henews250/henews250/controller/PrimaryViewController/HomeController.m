@@ -25,11 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPage];
-    
-    //测试
-    NSString *addHead = [SERVER_URL stringByAppendingString:Weather_Url];
-    NSString *url = [addHead stringByAppendingString:[[CityManager shareInstance] getCity]];
-    [Request requestPostForXML:@"weatherData" url:url delegate:self paras:nil msg:0 useCache:NO update:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -67,15 +62,13 @@
 }
 
 //下拉刷新
-- (void)headerRereshing
-{
-    NSString *addHead = [SERVER_URL stringByAppendingString:HOME_URL];
-    NSString *url = [addHead stringByAppendingString:[[CityManager shareInstance] getCity]];
-    [Request requestPostForJSON:@"homeData" url:url delegate:self paras:nil msg:0 useCache:YES update:YES];
+- (void)headerRereshing {
+    NSString *homeUrl = [DEF_GetHomepage stringByAppendingString:[[CityManager shareInstance] getCity]];
+    [NetworkManager postReqeustJsonWithURL:homeUrl params:nil delegate:self tag:@"homeData" msg:0 useCache:YES update:YES showHUD:NO];
 }
 
 #pragma mark - 网络返回
--(void)requestDidReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
+- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     if ([tag isEqualToString:@"homeData"]) {
         if (!flag) {
             [self.tableView.mj_header endRefreshing];
@@ -87,6 +80,7 @@
             self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
             [self dealData];
         }
+        
     }else if ([tag isEqualToString:@"changeData"]){
         if (returnJson) {
             self.changeData = [ChangeDataMode mj_objectWithKeyValues:returnJson];
@@ -98,6 +92,7 @@
         }
     }
 }
+
 
 - (void)dealData {
     if (!_tableViewData) {
@@ -145,7 +140,7 @@
 
 #pragma mark - SectionDelegate
 - (void)requestSectionChange:(NSString*)url section:(NSInteger)section {
-    [Request requestPostForJSON:@"changeData" url:url delegate:self paras:nil msg:section useCache:NO update:YES];
+    [NetworkManager postReqeustJsonWithURL:url params:nil delegate:self tag:@"changeData" msg:section useCache:NO update:YES showHUD:NO];
 }
 - (void)jumpToMore:(NodeMode*)node {
     NSLog(@"jumpToMore====");

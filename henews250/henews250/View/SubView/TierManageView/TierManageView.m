@@ -141,7 +141,6 @@ static NSString *const footerId = @"footerId";
     
 }
 - (void)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)fromIndexPath didMoveToIndexPath:(NSIndexPath *)toIndexPath {
-    NSLog(@"didMoveToIndexPath===from:%li   ;to:%li", fromIndexPath.row, toIndexPath.row);
     
     if (fromIndexPath.section == 0 && toIndexPath.section == 0) {
         [_tiers.orderTier exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];

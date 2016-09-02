@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GDataXML-HTML.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00AAA84253677405D8A4665F4D24C943</key>
+		<key>0414153B415819616259FE9B6AF44358</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0414153B415819616259FE9B6AF44358</key>
+		<key>18C08161DEC587CF7B43BEB7FB1F6913</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2606B36C66020C728BC6C5EC8A3412AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2DEE79B1A385CB853838F7BB4D0A63BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -58,11 +73,6 @@
 			<true/>
 		</dict>
 		<key>5D52EA5C01F20CAFE6BFC7A67D315AEC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8D09147F0743050B6A808EEF27A62BC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
