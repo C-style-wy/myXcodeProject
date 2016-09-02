@@ -15,23 +15,6 @@
 #define PI (3.14159265358979323846264338327950288)
 #define NullString (@"")
 
-#pragma mark - 服务端主地址
-//生成环境
-#define SERVER_URL (@"http://wap.cmread.com/clt")
-//合肥开发环境
-//#define SERVER_URL (@"http://60.174.236.108:8091/clt")
-
-
-#pragma mark - 接口
-//index页loading地址
-#define INDEX_URL (@"/publish/clt/resource/portal/common/loading230.jsp?city=")
-//首页
-#define HOME_URL (@"/publish/clt/resource/portal/v230/home230.jsp?menu=shouye&city=")
-//城市列表
-#define CityList_Url (@"/publish/clt/resource/portal/v2/cityLetter.jsp?city=")
-//天气接口
-#define Weather_Url (@"/publish/clt/resource/portal/v2/weatherInfo.jsp?city=")
-
 // 是否大于等于IOS7
 #define isIOS7                  ([[[UIDevice currentDevice]systemVersion]floatValue] >= 7.0)
 // 是否IOS6

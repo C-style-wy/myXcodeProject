@@ -11,7 +11,6 @@
 #import "NetworkDelegate.h"
 #import "NetworkUrl.h"
 #import "MD5.h"
-#import "GDataXMLNode.h"
 
 #import "XMLDictionary.h"
 

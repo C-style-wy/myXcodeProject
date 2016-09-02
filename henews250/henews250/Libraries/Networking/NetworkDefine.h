@@ -5,7 +5,6 @@
 //  Created by 汪洋 on 16/8/19.
 //  Copyright © 2016年 汪洋. All rights reserved.
 //
-#import "GDataXMLNode.h"
 
 #ifndef NetworkDefine_h
 #define NetworkDefine_h

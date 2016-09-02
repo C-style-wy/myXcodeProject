@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GDataXMLNode.h"
 @class NetworkItem;
 /**
  *   AFN 请求封装的代理协议
