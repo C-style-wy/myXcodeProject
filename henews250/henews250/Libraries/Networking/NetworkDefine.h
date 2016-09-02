@@ -45,7 +45,7 @@ typedef void (^NWStartBlock)(void);
  */
 typedef void (^NWSuccessBlock)(NSDictionary *returnData);
 
-typedef void (^NWXMLSuccessBlock)(GDataXMLElement *returnData);
+//typedef void (^NWXMLSuccessBlock)(GDataXMLElement *returnData);
 
 /**
  *  请求失败回调

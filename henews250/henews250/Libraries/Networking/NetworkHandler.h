@@ -65,7 +65,6 @@
                      action:(SEL)action
                successBlock:(NWSuccessBlock)successBlock
                failureBlock:(NWFailureBlock)failureBlock
-            xmlSuccessBlock:(NWXMLSuccessBlock)xmlSuccessBlock
                         tag:(NSString*)tag
                         msg:(NSInteger)msg
                    useCache:(BOOL)use

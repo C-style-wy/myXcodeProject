@@ -41,7 +41,6 @@
                     hashValue:(NSUInteger)hashValue
                       showHUD:(BOOL)showHUD
                  successBlock:(NWSuccessBlock)successBlock
-              xmlSuccessBlock:(NWXMLSuccessBlock)xmlSuccessBlock
                  failureBlock:(NWFailureBlock)failureBlock
                           tag:(NSString*)tag
                           msg:(NSInteger)msg
@@ -63,10 +62,8 @@
     }
     NSString *requestUrl = [self addKeyWithUrl:url];
     __weak typeof(self)weakSelf = self;
-    AFHTTPSessionManager *manager = [self getHttpSessionManager];
+    AFHTTPSessionManager *manager = [self getHttpSessionManager:dataType];
     if (dataType == NetWorkJSON) {
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", nil];
-        manager.responseSerializer = [AFJSONResponseSerializer serializer];
         if (use) {
             NSString *filePath = [self getCachePathWithUrl:url];
             NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -130,25 +127,28 @@
             }
         }
     }else if (dataType == NetWorkXML){
-        manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+//        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/xml", @"text/html", nil];
+//        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/plain",@"text/javascript", nil];
         if (params == nil) {
             params = @{@"format": @"xml"};
         }else{
             [params setValue:@"xml" forKey:@"format"];
         }
         if (networkType == NetWorkGET) {
+            NSLog(@"get===xml====%@", requestUrl);
             [manager GET:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                GDataXMLDocument *doc = [[GDataXMLDocument alloc]initWithData:responseObject error:nil];
-                GDataXMLElement *rootElement = [doc rootElement];
+                NSDictionary *returnData = [NSDictionary dictionaryWithXMLParser:responseObject];
+//                GDataXMLDocument *doc = [[GDataXMLDocument alloc]initWithData:responseObject error:nil];
+//                GDataXMLElement *rootElement = [doc rootElement];
+                if (successBlock) {
+                    successBlock(returnData);
+                }
+                if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg: isCacheReturn:)]) {
+                    [weakSelf.delegate requestDidFinishLoading:tag returnJson:returnData msg:msg isCacheReturn:NO];
+                }
                 
-                if (xmlSuccessBlock) {
-                    xmlSuccessBlock(rootElement);
-                }
-                if ([weakSelf.delegate respondsToSelector:@selector(requestXMLDidFinishLoading: returnJson: msg: isCacheReturn:)]) {
-                    [weakSelf.delegate requestXMLDidFinishLoading:tag returnJson:rootElement msg:msg isCacheReturn:YES];
-                }
                 [weakSelf removewItem];
-                [responseObject writeToFile:[self getCachePathWithUrl:url] atomically:YES];
+                [returnData writeToFile:[self getCachePathWithUrl:url] atomically:YES];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 if (failureBlock) {
                     failureBlock(error);
@@ -160,17 +160,15 @@
             }];
         }else{
             [manager POST:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                GDataXMLDocument *doc = [[GDataXMLDocument alloc]initWithData:responseObject error:nil];
-                GDataXMLElement *rootElement = [doc rootElement];
-                
-                if (xmlSuccessBlock) {
-                    xmlSuccessBlock(rootElement);
+                NSDictionary *returnData = [NSDictionary dictionaryWithXMLParser:responseObject];
+                if (successBlock) {
+                    successBlock(returnData);
                 }
-                if ([weakSelf.delegate respondsToSelector:@selector(requestXMLDidFinishLoading: returnJson: msg: isCacheReturn:)]) {
-                    [weakSelf.delegate requestXMLDidFinishLoading:tag returnJson:rootElement msg:msg isCacheReturn:YES];
+                if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg: isCacheReturn:)]) {
+                    [weakSelf.delegate requestDidFinishLoading:tag returnJson:returnData msg:msg isCacheReturn:NO];
                 }
                 [weakSelf removewItem];
-                [responseObject writeToFile:[self getCachePathWithUrl:url] atomically:YES];
+                [returnData writeToFile:[self getCachePathWithUrl:url] atomically:YES];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 if (failureBlock) {
                     failureBlock(error);
@@ -196,11 +194,17 @@
 }
 
 //创建AFHTTPSessionManager
-- (AFHTTPSessionManager *)getHttpSessionManager {
+- (AFHTTPSessionManager *)getHttpSessionManager:(NetWorkDataType)dataType {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    if (dataType == NetWorkJSON) {
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", nil];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    }else{
+        manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    }
     [manager.requestSerializer setValue:[userDefaults stringForKey:WD_CLIENTNAME] forHTTPHeaderField:WD_CLIENTNAME];
     [manager.requestSerializer setValue:[userDefaults stringForKey:WD_UUID] forHTTPHeaderField:WD_UUID];
     [manager.requestSerializer setValue:[userDefaults stringForKey:WD_CLIENT_TYPE] forHTTPHeaderField:WD_CLIENT_TYPE];

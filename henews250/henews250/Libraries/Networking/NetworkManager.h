@@ -64,4 +64,19 @@
                   useCache:(BOOL)use
                     update:(BOOL)update
                    showHUD:(BOOL)showHUD;
+
+/**
+ *   POST请求xml数据通过 Block回调结果
+ *
+ *   @param url           url
+ *   @param paramsDict    请求的参数字典
+ *   @param successBlock  成功的回调
+ *   @param failureBlock  失败的回调
+ *   @param showHUD       是否加载进度指示器
+ */
++ (void)postReqeustXmlWithURL:(NSString*)url
+                        params:(NSDictionary*)params
+                  successBlock:(NWSuccessBlock)successBlock
+                  failureBlock:(NWFailureBlock)failureBlock
+                       showHUD:(BOOL)showHUD;
 @end

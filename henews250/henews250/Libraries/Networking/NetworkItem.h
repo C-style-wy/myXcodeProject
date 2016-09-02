@@ -13,6 +13,8 @@
 #import "MD5.h"
 #import "GDataXMLNode.h"
 
+#import "XMLDictionary.h"
+
 /**
  *  网络请求子项
  */
@@ -105,7 +107,6 @@
                          hashValue:(NSUInteger)hashValue
                            showHUD:(BOOL)showHUD
                       successBlock:(NWSuccessBlock)successBlock
-                   xmlSuccessBlock:(NWXMLSuccessBlock)xmlSuccessBlock
                       failureBlock:(NWFailureBlock)failureBlock
                                tag:(NSString*)tag
                                msg:(NSInteger)msg

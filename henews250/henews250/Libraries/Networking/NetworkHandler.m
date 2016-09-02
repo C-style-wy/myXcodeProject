@@ -63,7 +63,6 @@
                 action:(SEL)action
           successBlock:(NWSuccessBlock)successBlock
           failureBlock:(NWFailureBlock)failureBlock
-       xmlSuccessBlock:(NWXMLSuccessBlock)xmlSuccessBlock
                    tag:(NSString*)tag
                    msg:(NSInteger)msg
               useCache:(BOOL)use
@@ -77,7 +76,7 @@
     }
     //如果有一些公共处理，可以写在这里
     NSUInteger hashValue = [delegate hash];
-    self.netWorkItem = [[NetworkItem alloc]initWithtype:networkType dataType:dataType url:url params:params delegate:delegate target:target action:action hashValue:hashValue showHUD:showHUD successBlock:successBlock xmlSuccessBlock:xmlSuccessBlock failureBlock:failureBlock tag:tag msg:msg useCache:use update:update];
+    self.netWorkItem = [[NetworkItem alloc]initWithtype:networkType dataType:dataType url:url params:params delegate:delegate target:target action:action hashValue:hashValue showHUD:showHUD successBlock:successBlock failureBlock:failureBlock tag:tag msg:msg useCache:use update:update];
 //    self.netWorkItem.delegate = self;
     [self.items addObject:self.netWorkItem];
     return self.netWorkItem;

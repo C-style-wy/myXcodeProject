@@ -22,8 +22,6 @@
  */
 //- (void)requestDidFinishLoading:(NSDictionary*)returnData;
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg isCacheReturn:(BOOL)flag;
-
-- (void)requestXMLDidFinishLoading:(NSString*)tag returnJson:(GDataXMLElement*)returnJson msg:(NSInteger) msg isCacheReturn:(BOOL)flag;
 /**
  *   请求失败
  *

@@ -25,6 +25,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPage];
+    
+    
+//    NSString *weatherUrl = [DEF_GetWeatherurl stringByAppendingString:[[CityManager shareInstance] getCity]];
+//    [NetworkManager postReqeustXmlWithURL:weatherUrl params:nil successBlock:^(NSDictionary *returnData) {
+//        NSLog(@"weather===back=====");
+//        NSLog(@"city==%@", [returnData objectForKey:@"fengxiang"]);
+//        
+//    } failureBlock:^(NSError *error) {
+//        
+//    } showHUD:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
