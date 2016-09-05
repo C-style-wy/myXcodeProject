@@ -21,6 +21,20 @@
         if (_nodeMode && _nodeMode.nodeName && ![_nodeMode.nodeName isEqualToString:@""]) {
             _modulNameWidth.constant = [_modulName needWidthWithText:_nodeMode.nodeName];
             _modulName.text = _nodeMode.nodeName;
+            if ([_nodeMode.displayType intValue] == WeatherMode) {
+                _changeBtn.hidden = YES;
+                _changeIcon.hidden = YES;
+                _changeLabel.hidden = YES;
+                
+                _timeLabel.hidden = NO;
+                _timeLabel.text = [self getWeek];
+            }else{
+                _changeBtn.hidden = NO;
+                _changeIcon.hidden = NO;
+                _changeLabel.hidden = NO;
+                
+                _timeLabel.hidden = YES;
+            }
         }
         _section = section;
     }
@@ -54,5 +68,25 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     [self addAnimation];
+}
+
+- (NSString *)getWeek
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *now;
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday |
+    NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    
+    now = [NSDate date];
+    comps = [calendar components:unitFlags fromDate:[NSDate date]];
+    NSArray * arrWeek=[NSArray arrayWithObjects:@"星期日",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六", nil];
+    NSString *weekDayString = [NSString stringWithFormat:@"%@",[arrWeek objectAtIndex:[comps weekday] - 1]];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY/MM/dd"];
+    NSString *dateString = [dateFormatter stringFromDate:now];
+    
+    return [[dateString stringByAppendingString:@" "] stringByAppendingString:weekDayString];
 }
 @end

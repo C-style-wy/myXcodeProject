@@ -10,6 +10,7 @@
 #import "UIView+LoadFromNib.h"
 #import "NodeMode.h"
 #import "MacroDefinition.h"
+#import "NewsCellFactory.h"
 
 @protocol SectionDelegate <NSObject>
 
@@ -23,7 +24,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *modulName;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *modulNameWidth;
 
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn;
+@property (weak, nonatomic) IBOutlet UILabel *changeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *changeIcon;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property (nonatomic, assign) id<SectionDelegate> delegate;
 

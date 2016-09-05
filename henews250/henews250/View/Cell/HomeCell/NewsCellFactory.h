@@ -11,6 +11,8 @@
 #import "NewsMode.h"
 #import "BaseCell.h"
 #import "BannerCell.h"
+#import "NodeMode.h"
+#import "HomeWeatherCell.h"
 
 //新闻展示样式
 #define OneBigPicNews       1     //单张大图
@@ -26,8 +28,10 @@
 
 @interface NewsCellFactory : NSObject
 
-+ (BaseCell*)getCell:(NewsMode *)news tableView:(UITableView *)tableView hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort;
++ (BaseCell*)getCell:(NodeMode *)modul row:(NSInteger)row tableView:(UITableView *)tableView hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort;
 
-+ (CGFloat)getHeightForRow:(NewsMode *)news;
++ (CGFloat)getHeightForRow:(NodeMode *)modul row:(NSInteger)row;
+
++ (NSInteger)getNumberOfRowsInSection:(NodeMode *)modul;
 
 @end

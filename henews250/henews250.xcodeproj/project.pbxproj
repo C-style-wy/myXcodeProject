@@ -41,6 +41,17 @@
 		D3276AA41D2A397E00A249C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3276AA31D2A397E00A249C9 /* Assets.xcassets */; };
 		D3276AB21D2A397E00A249C9 /* henews250Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276AB11D2A397E00A249C9 /* henews250Tests.m */; };
 		D3276ABD1D2A397E00A249C9 /* henews250UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276ABC1D2A397E00A249C9 /* henews250UITests.m */; };
+		D32BD20E1D7D040C00DB44DE /* HomeWeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD20C1D7D040C00DB44DE /* HomeWeatherCell.m */; };
+		D32BD20F1D7D040C00DB44DE /* HomeWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D32BD20D1D7D040C00DB44DE /* HomeWeatherCell.xib */; };
+		D32BD2131D7D4DCC00DB44DE /* WeatherMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD2121D7D4DCC00DB44DE /* WeatherMode.m */; };
+		D32BD2161D7D4EBC00DB44DE /* EnvironmentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD2151D7D4EBC00DB44DE /* EnvironmentMode.m */; };
+		D32BD2191D7D4FA900DB44DE /* WeatherItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD2181D7D4FA900DB44DE /* WeatherItemMode.m */; };
+		D32BD21C1D7D4FDE00DB44DE /* DayMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD21B1D7D4FDE00DB44DE /* DayMode.m */; };
+		D32BD21F1D7D509800DB44DE /* ZhishuMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD21E1D7D509800DB44DE /* ZhishuMode.m */; };
+		D32BD2221D7D511900DB44DE /* YesterdayMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD2211D7D511900DB44DE /* YesterdayMode.m */; };
+		D32BD2251D7D517800DB44DE /* YesterdayDayMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD2241D7D517800DB44DE /* YesterdayDayMode.m */; };
+		D32BD2281D7D5BEA00DB44DE /* ForecastMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD2271D7D5BEA00DB44DE /* ForecastMode.m */; };
+		D32BD22B1D7D5C9F00DB44DE /* ZhishusMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D32BD22A1D7D5C9F00DB44DE /* ZhishusMode.m */; };
 		D32C368D1D321B3300431829 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C368C1D321B3300431829 /* NewsViewController.m */; };
 		D32C36901D321B6200431829 /* ViewPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C368F1D321B6200431829 /* ViewPointViewController.m */; };
 		D32C36931D321B8100431829 /* WelfareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32C36921D321B8100431829 /* WelfareViewController.m */; };
@@ -186,6 +197,27 @@
 		D3276AB81D2A397E00A249C9 /* henews250UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = henews250UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3276ABC1D2A397E00A249C9 /* henews250UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = henews250UITests.m; sourceTree = "<group>"; };
 		D3276ABE1D2A397E00A249C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D32BD20B1D7D040C00DB44DE /* HomeWeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWeatherCell.h; sourceTree = "<group>"; };
+		D32BD20C1D7D040C00DB44DE /* HomeWeatherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWeatherCell.m; sourceTree = "<group>"; };
+		D32BD20D1D7D040C00DB44DE /* HomeWeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeWeatherCell.xib; sourceTree = "<group>"; };
+		D32BD2111D7D4DCC00DB44DE /* WeatherMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherMode.h; sourceTree = "<group>"; };
+		D32BD2121D7D4DCC00DB44DE /* WeatherMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherMode.m; sourceTree = "<group>"; };
+		D32BD2141D7D4EBC00DB44DE /* EnvironmentMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentMode.h; sourceTree = "<group>"; };
+		D32BD2151D7D4EBC00DB44DE /* EnvironmentMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentMode.m; sourceTree = "<group>"; };
+		D32BD2171D7D4FA900DB44DE /* WeatherItemMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherItemMode.h; sourceTree = "<group>"; };
+		D32BD2181D7D4FA900DB44DE /* WeatherItemMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherItemMode.m; sourceTree = "<group>"; };
+		D32BD21A1D7D4FDE00DB44DE /* DayMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayMode.h; sourceTree = "<group>"; };
+		D32BD21B1D7D4FDE00DB44DE /* DayMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayMode.m; sourceTree = "<group>"; };
+		D32BD21D1D7D509800DB44DE /* ZhishuMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhishuMode.h; sourceTree = "<group>"; };
+		D32BD21E1D7D509800DB44DE /* ZhishuMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhishuMode.m; sourceTree = "<group>"; };
+		D32BD2201D7D511900DB44DE /* YesterdayMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YesterdayMode.h; sourceTree = "<group>"; };
+		D32BD2211D7D511900DB44DE /* YesterdayMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YesterdayMode.m; sourceTree = "<group>"; };
+		D32BD2231D7D517800DB44DE /* YesterdayDayMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YesterdayDayMode.h; sourceTree = "<group>"; };
+		D32BD2241D7D517800DB44DE /* YesterdayDayMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YesterdayDayMode.m; sourceTree = "<group>"; };
+		D32BD2261D7D5BEA00DB44DE /* ForecastMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastMode.h; sourceTree = "<group>"; };
+		D32BD2271D7D5BEA00DB44DE /* ForecastMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastMode.m; sourceTree = "<group>"; };
+		D32BD2291D7D5C9F00DB44DE /* ZhishusMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhishusMode.h; sourceTree = "<group>"; };
+		D32BD22A1D7D5C9F00DB44DE /* ZhishusMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhishusMode.m; sourceTree = "<group>"; };
 		D32C368B1D321B3300431829 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		D32C368C1D321B3300431829 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		D32C368E1D321B6200431829 /* ViewPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPointViewController.h; sourceTree = "<group>"; };
@@ -448,6 +480,9 @@
 				D35BB1CE1D422206000D6BFD /* BannerImageView.h */,
 				D35BB1CF1D422206000D6BFD /* BannerImageView.m */,
 				D35BB1D11D42221D000D6BFD /* BannerImageView.xib */,
+				D32BD20B1D7D040C00DB44DE /* HomeWeatherCell.h */,
+				D32BD20C1D7D040C00DB44DE /* HomeWeatherCell.m */,
+				D32BD20D1D7D040C00DB44DE /* HomeWeatherCell.xib */,
 			);
 			path = HomeCell;
 			sourceTree = "<group>";
@@ -550,6 +585,31 @@
 			children = (
 			);
 			path = Loading;
+			sourceTree = "<group>";
+		};
+		D32BD2101D7D4D9A00DB44DE /* WeatherMode */ = {
+			isa = PBXGroup;
+			children = (
+				D32BD2111D7D4DCC00DB44DE /* WeatherMode.h */,
+				D32BD2121D7D4DCC00DB44DE /* WeatherMode.m */,
+				D32BD2141D7D4EBC00DB44DE /* EnvironmentMode.h */,
+				D32BD2151D7D4EBC00DB44DE /* EnvironmentMode.m */,
+				D32BD2171D7D4FA900DB44DE /* WeatherItemMode.h */,
+				D32BD2181D7D4FA900DB44DE /* WeatherItemMode.m */,
+				D32BD21A1D7D4FDE00DB44DE /* DayMode.h */,
+				D32BD21B1D7D4FDE00DB44DE /* DayMode.m */,
+				D32BD21D1D7D509800DB44DE /* ZhishuMode.h */,
+				D32BD21E1D7D509800DB44DE /* ZhishuMode.m */,
+				D32BD2201D7D511900DB44DE /* YesterdayMode.h */,
+				D32BD2211D7D511900DB44DE /* YesterdayMode.m */,
+				D32BD2231D7D517800DB44DE /* YesterdayDayMode.h */,
+				D32BD2241D7D517800DB44DE /* YesterdayDayMode.m */,
+				D32BD2261D7D5BEA00DB44DE /* ForecastMode.h */,
+				D32BD2271D7D5BEA00DB44DE /* ForecastMode.m */,
+				D32BD2291D7D5C9F00DB44DE /* ZhishusMode.h */,
+				D32BD22A1D7D5C9F00DB44DE /* ZhishusMode.m */,
+			);
+			path = WeatherMode;
 			sourceTree = "<group>";
 		};
 		D332651B1D2E0347005C9D7D /* Category */ = {
@@ -675,6 +735,7 @@
 		D366815E1D3762D7001948D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D32BD2101D7D4D9A00DB44DE /* WeatherMode */,
 				D36150431D5D6CE2003779A5 /* CityListMode */,
 				D31AA0AD1D46F3690036004A /* TierMode */,
 				D3CEF61C1D3CAADD00696FF5 /* HomeMode */,
@@ -886,6 +947,7 @@
 				D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */,
 				D32375111D4AE5B6003042C6 /* TierCollectionReusableView.xib in Resources */,
 				D34F50901D546A4D004B25C5 /* SubPageHeadView.xib in Resources */,
+				D32BD20F1D7D040C00DB44DE /* HomeWeatherCell.xib in Resources */,
 				D33836721D40AF82008ADE4C /* OneBigPicCell.xib in Resources */,
 				D33265251D2E49B1005C9D7D /* GuidePage3.xib in Resources */,
 			);
@@ -964,6 +1026,7 @@
 				D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */,
 				D38DF7261D3F72840042A241 /* NewsCellFactory.m in Sources */,
 				D35BB1CD1D4220CE000D6BFD /* MyPageControl.m in Sources */,
+				D32BD21F1D7D509800DB44DE /* ZhishuMode.m in Sources */,
 				D31AA0B31D4707F80036004A /* TierManageMode.m in Sources */,
 				D32D86671D462ED1008D7216 /* ChangeDataMode.m in Sources */,
 				D340C1311D640AB8007D4C3D /* CityMode.m in Sources */,
@@ -982,14 +1045,19 @@
 				D31A339F1D2B506700401658 /* IndexViewController.m in Sources */,
 				D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */,
 				D32D86641D46142C008D7216 /* ChannelMode.m in Sources */,
+				D32BD2161D7D4EBC00DB44DE /* EnvironmentMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
 				D3C4EC641D485F1D002D4BC9 /* TierManageView.m in Sources */,
 				D32C36961D321B8E00431829 /* MyViewController.m in Sources */,
 				D323750B1D4ADDA6003042C6 /* TierCollectionViewCell.m in Sources */,
 				D3C4EC691D485FF6002D4BC9 /* TierHeadView.m in Sources */,
+				D32BD2221D7D511900DB44DE /* YesterdayMode.m in Sources */,
 				D3640C8B1D62F60B008049E4 /* CityListSectionView.m in Sources */,
+				D32BD21C1D7D4FDE00DB44DE /* DayMode.m in Sources */,
 				D32C368D1D321B3300431829 /* NewsViewController.m in Sources */,
 				D34F50931D5470D0004B25C5 /* CityViewController.m in Sources */,
+				D32BD2131D7D4DCC00DB44DE /* WeatherMode.m in Sources */,
+				D32BD22B1D7D5C9F00DB44DE /* ZhishusMode.m in Sources */,
 				D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */,
 				D31ED4501D3E18D6003C2A54 /* UIImageView+LoadFromWeb.m in Sources */,
 				D317BFCC1D795F6B00852ADC /* XMLDictionary.m in Sources */,
@@ -1001,6 +1069,7 @@
 				D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */,
 				D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */,
 				D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */,
+				D32BD20E1D7D040C00DB44DE /* HomeWeatherCell.m in Sources */,
 				D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */,
 				D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */,
 				D3640C931D631E70008049E4 /* CLLocation+MPLocation.m in Sources */,
@@ -1018,6 +1087,8 @@
 				D32375101D4AE5B6003042C6 /* TierCollectionReusableView.m in Sources */,
 				D32C36901D321B6200431829 /* ViewPointViewController.m in Sources */,
 				D33836751D40CD44008ADE4C /* SectionView.m in Sources */,
+				D32BD2251D7D517800DB44DE /* YesterdayDayMode.m in Sources */,
+				D32BD2281D7D5BEA00DB44DE /* ForecastMode.m in Sources */,
 				D33A81071D499DF900F6F4D8 /* PullCollectionView.m in Sources */,
 				D3CEF6281D3CAE6600696FF5 /* ImageMode.m in Sources */,
 				D33836711D40AF82008ADE4C /* OneBigPicCell.m in Sources */,
@@ -1026,6 +1097,7 @@
 				D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */,
 				D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */,
 				D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */,
+				D32BD2191D7D4FA900DB44DE /* WeatherItemMode.m in Sources */,
 				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,
 				D33A81531D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m in Sources */,
 				D3640C941D631E70008049E4 /* MPLocationManager.m in Sources */,

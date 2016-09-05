@@ -96,4 +96,7 @@ typedef enum _iPhoneType {
 #define Home (@"home")
 #define News (@"news")
 #define View (@"view")
+
+
+#define DegreeCelsius (@"℃")
 #endif /* MacroDefinition_h */

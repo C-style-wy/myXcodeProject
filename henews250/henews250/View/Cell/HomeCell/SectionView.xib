@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -24,7 +24,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="modulArrow" translatesAutoresizingMaskIntoConstraints="NO" id="KXq-Mq-ien" userLabel="arrow">
-                            <rect key="frame" x="50" y="7.5" width="8" height="11.5"/>
+                            <rect key="frame" x="50" y="7" width="8" height="11.5"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="11.5" id="FHG-M7-FWk"/>
                                 <constraint firstAttribute="width" constant="8" id="RuJ-8F-7Uc"/>
@@ -46,7 +46,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="changeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="qo9-2x-KXv" userLabel="changeIcon">
-                            <rect key="frame" x="288" y="5.5" width="16" height="16"/>
+                            <rect key="frame" x="288" y="5" width="16" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="ANp-Q2-xPL"/>
                                 <constraint firstAttribute="height" constant="16" id="Y3D-mm-3hQ"/>
@@ -58,6 +58,15 @@
                                 <action selector="changeBtnSelect:" destination="iN0-l3-epB" eventType="touchUpInside" id="YXe-U1-T7c"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/7/25 星期一" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEJ-qi-0sW" userLabel="timeLabel">
+                            <rect key="frame" x="154" y="0.0" width="150" height="26.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="awM-DS-myy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -71,10 +80,13 @@
                         <constraint firstItem="PBy-ks-5YU" firstAttribute="top" secondItem="LdT-i7-P7u" secondAttribute="top" id="L66-9n-oes"/>
                         <constraint firstItem="tpd-jA-gCs" firstAttribute="top" secondItem="LdT-i7-P7u" secondAttribute="top" id="QJT-PL-m7w"/>
                         <constraint firstItem="wK2-4V-wyL" firstAttribute="top" secondItem="LdT-i7-P7u" secondAttribute="top" id="Up2-z3-SGm"/>
+                        <constraint firstAttribute="bottom" secondItem="GEJ-qi-0sW" secondAttribute="bottom" id="VDM-Ff-S56"/>
                         <constraint firstItem="wK2-4V-wyL" firstAttribute="trailing" secondItem="qo9-2x-KXv" secondAttribute="trailing" id="XKK-u2-BcN"/>
                         <constraint firstAttribute="bottom" secondItem="POh-OB-qO1" secondAttribute="bottom" id="dI7-rR-Gx4"/>
                         <constraint firstItem="tpd-jA-gCs" firstAttribute="leading" secondItem="LdT-i7-P7u" secondAttribute="leading" id="fNM-eG-WEf"/>
                         <constraint firstItem="KXq-Mq-ien" firstAttribute="leading" secondItem="tpd-jA-gCs" secondAttribute="trailing" constant="8" id="hec-0B-efk"/>
+                        <constraint firstItem="GEJ-qi-0sW" firstAttribute="top" secondItem="LdT-i7-P7u" secondAttribute="top" id="mNy-wH-IuM"/>
+                        <constraint firstAttribute="trailing" secondItem="GEJ-qi-0sW" secondAttribute="trailing" id="nqs-DR-V4n"/>
                         <constraint firstItem="qo9-2x-KXv" firstAttribute="leading" secondItem="POh-OB-qO1" secondAttribute="trailing" constant="10" id="tgi-WB-TXo"/>
                         <constraint firstItem="PBy-ks-5YU" firstAttribute="leading" secondItem="tpd-jA-gCs" secondAttribute="leading" id="xMd-FI-znO"/>
                         <constraint firstItem="POh-OB-qO1" firstAttribute="top" secondItem="LdT-i7-P7u" secondAttribute="top" id="ySF-8F-0GE"/>
@@ -91,9 +103,12 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="changeBtn" destination="wK2-4V-wyL" id="IDw-fh-Lh7"/>
                 <outlet property="changeIcon" destination="qo9-2x-KXv" id="4gZ-3z-vaG"/>
+                <outlet property="changeLabel" destination="POh-OB-qO1" id="CkF-BB-Y5K"/>
                 <outlet property="modulName" destination="tpd-jA-gCs" id="r4D-Pk-vDd"/>
                 <outlet property="modulNameWidth" destination="FLG-l2-p0N" id="QKq-po-ixu"/>
+                <outlet property="timeLabel" destination="GEJ-qi-0sW" id="QkG-eM-p3X"/>
             </connections>
         </view>
     </objects>
