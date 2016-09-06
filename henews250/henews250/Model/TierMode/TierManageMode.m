@@ -14,11 +14,13 @@
     LocalTierMode *tiers = [[LocalTierMode alloc]init];
     for (int i = 0; i < serverData.count; i++) {
         TierMode *mode = [[TierMode alloc] initWithData:[serverData objectAtIndex:i]];
-        if (![mode.isMore isEqualToString:@""]) {
-            if ([mode.isMore isEqualToString:@"1"]) {
-                [tiers.notOrderTier addObject:mode];
-            }else{
-                [tiers.orderTier addObject:mode];
+        if (mode.nodeName && ![mode.nodeName isEqualToString:@""]) {
+            if (![mode.isMore isEqualToString:@""]) {
+                if ([mode.isMore isEqualToString:@"1"]) {
+                    [tiers.notOrderTier addObject:mode];
+                }else{
+                    [tiers.orderTier addObject:mode];
+                }
             }
         }
     }
