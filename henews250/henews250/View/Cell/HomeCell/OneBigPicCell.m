@@ -29,6 +29,8 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"OneBigPicCell" owner:nil options:nil] firstObject];
     }
+    cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+    cell.selectedBackgroundView.backgroundColor = SelectColor;
     return cell;
 }
 

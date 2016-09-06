@@ -19,6 +19,7 @@
 #define NewsTypeVideonews   2      //视频新闻
 #define NewsTypePic         4      //图集
 
+#define SelectColor         ([UIColor colorWithHexColor:@"#e2e2e2"])
 @interface BaseCell : UITableViewCell
 
 @end

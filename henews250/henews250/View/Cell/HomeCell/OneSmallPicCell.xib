@@ -16,12 +16,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuFengexian" translatesAutoresizingMaskIntoConstraints="NO" id="FnH-2P-L1Q" userLabel="line">
-                        <rect key="frame" x="0.0" y="86" width="320" height="0.5"/>
+                        <rect key="frame" x="0.0" y="87" width="320" height="0.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="46e-ls-LSA"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGa-YT-eUQ" userLabel="defaultBg">
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGa-YT-eUQ" userLabel="defaultBg">
                         <rect key="frame" x="8" y="11" width="80.5" height="65.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallDefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-NR-jN2" userLabel="defaultImage">
@@ -135,6 +135,7 @@
                     <constraint firstItem="Ocu-Ot-Lij" firstAttribute="centerY" secondItem="gfy-Jg-vyk" secondAttribute="centerY" id="Nal-VQ-wmv"/>
                     <constraint firstAttribute="trailing" secondItem="ILc-4o-OrV" secondAttribute="trailing" constant="8" id="NgW-Y7-mgC"/>
                     <constraint firstItem="BB2-JE-gPQ" firstAttribute="top" secondItem="Ocu-Ot-Lij" secondAttribute="top" id="TiJ-xw-691"/>
+                    <constraint firstAttribute="bottom" secondItem="FnH-2P-L1Q" secondAttribute="bottom" id="U9h-xh-fZc"/>
                     <constraint firstItem="ILc-4o-OrV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="b0a-hV-NiT"/>
                     <constraint firstItem="ILc-4o-OrV" firstAttribute="leading" secondItem="uGa-YT-eUQ" secondAttribute="trailing" constant="8" id="bGz-W6-FTL"/>
                     <constraint firstItem="BB2-JE-gPQ" firstAttribute="bottom" secondItem="Ocu-Ot-Lij" secondAttribute="bottom" constant="1" id="ijQ-RI-svQ"/>
@@ -142,7 +143,6 @@
                     <constraint firstItem="BB2-JE-gPQ" firstAttribute="trailing" secondItem="Ocu-Ot-Lij" secondAttribute="trailing" id="n0I-nf-CEj"/>
                     <constraint firstItem="met-bt-5Mu" firstAttribute="leading" secondItem="uGa-YT-eUQ" secondAttribute="trailing" constant="8" id="olK-gE-OgY"/>
                     <constraint firstAttribute="trailing" secondItem="FnH-2P-L1Q" secondAttribute="trailing" id="tYZ-fu-Ipe"/>
-                    <constraint firstAttribute="bottom" secondItem="FnH-2P-L1Q" secondAttribute="bottom" constant="0.5" id="uPv-gW-Opl"/>
                     <constraint firstItem="c45-Q5-xCm" firstAttribute="leading" secondItem="uGa-YT-eUQ" secondAttribute="trailing" constant="8" id="uhh-uy-ox2"/>
                     <constraint firstItem="met-bt-5Mu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="32" id="z3Y-vi-FXv"/>
                 </constraints>

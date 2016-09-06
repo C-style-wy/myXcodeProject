@@ -37,6 +37,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *playerIcon;
 
+@property (weak, nonatomic) IBOutlet UIButton *selectBtn;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
