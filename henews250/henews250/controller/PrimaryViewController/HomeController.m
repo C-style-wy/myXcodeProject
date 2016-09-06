@@ -62,6 +62,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     [self.view addSubview:self.tableView];
     [self setupRefresh];
 }
@@ -81,6 +82,10 @@
 #pragma mark - 网络返回
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
     if ([tag isEqualToString:@"homeData"]) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
+        //    self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 8);
         if (!flag) {
             [self.tableView.mj_header endRefreshing];
         }
@@ -114,7 +119,15 @@
         NSMutableArray *bannersAry = [_homeMode.banners copy];
         [_tableViewData addObject:bannersAry];
     }
-    [_tableViewData addObjectsFromArray:_homeMode.nodes];
+//    [_tableViewData addObjectsFromArray:_homeMode.nodes];
+    for (int i = 0; i < _homeMode.nodes.count; i++) {
+        NodeMode *mudel = [_homeMode.nodes objectAtIndex:i];
+        if (mudel.nodeName && ![mudel.nodeName isEqualToString:@""]) {
+            if (([mudel.displayType intValue] == EditorRecommend && mudel.newsList && mudel.newsList.count > 0) || [mudel.displayType intValue] != EditorRecommend) {
+                [_tableViewData addObject:mudel];
+            }
+        }
+    }
     
     [self.tableView reloadData];
 }
@@ -215,7 +228,7 @@
         }
 //        return  [NewsCellFactory getCell:[modul.newsList objectAtIndex:indexPath.row] modulData:modul tableView:tableView hiddenLine:hiddenLine isShortLine:YES];
         
-        return [NewsCellFactory getCell:modul row:indexPath.row tableView:tableView hiddenLine:hiddenLine isShortLine:YES];
+        return [NewsCellFactory getCell:modul row:indexPath.row tableView:tableView hiddenLine:YES isShortLine:YES];
     }else{
         NSMutableArray *banners = [_tableViewData objectAtIndex:indexPath.section];
         BannerCell *cell = [BannerCell cellWithTableView:tableView];
