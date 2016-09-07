@@ -12,9 +12,9 @@
 #import "BaseCell.h"
 #import "BannerCell.h"
 #import "NodeMode.h"
-#import "HomeWeatherCell.h"
 
 //新闻展示样式
+#define OnlyWordNews        0     //只含文字
 #define OneBigPicNews       1     //单张大图
 #define ThreeSmallPicNews   3     //三张小图
 #define EveryOneNews        5     //大家

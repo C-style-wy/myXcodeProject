@@ -35,6 +35,8 @@
 		D323750C1D4ADDA6003042C6 /* TierCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D323750A1D4ADDA6003042C6 /* TierCollectionViewCell.xib */; };
 		D32375101D4AE5B6003042C6 /* TierCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D323750E1D4AE5B6003042C6 /* TierCollectionReusableView.m */; };
 		D32375111D4AE5B6003042C6 /* TierCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D323750F1D4AE5B6003042C6 /* TierCollectionReusableView.xib */; };
+		D32689D21D7F9B0300DEB5AA /* OnlyWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D32689D01D7F9B0300DEB5AA /* OnlyWordCell.m */; };
+		D32689D31D7F9B0300DEB5AA /* OnlyWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D32689D11D7F9B0300DEB5AA /* OnlyWordCell.xib */; };
 		D3276A991D2A397D00A249C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276A981D2A397D00A249C9 /* main.m */; };
 		D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276A9B1D2A397D00A249C9 /* AppDelegate.m */; };
 		D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3276AA01D2A397E00A249C9 /* Main.storyboard */; };
@@ -184,6 +186,9 @@
 		D323750D1D4AE5B6003042C6 /* TierCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierCollectionReusableView.h; sourceTree = "<group>"; };
 		D323750E1D4AE5B6003042C6 /* TierCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierCollectionReusableView.m; sourceTree = "<group>"; };
 		D323750F1D4AE5B6003042C6 /* TierCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TierCollectionReusableView.xib; sourceTree = "<group>"; };
+		D32689CF1D7F9B0300DEB5AA /* OnlyWordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyWordCell.h; sourceTree = "<group>"; };
+		D32689D01D7F9B0300DEB5AA /* OnlyWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyWordCell.m; sourceTree = "<group>"; };
+		D32689D11D7F9B0300DEB5AA /* OnlyWordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlyWordCell.xib; sourceTree = "<group>"; };
 		D3276A941D2A397D00A249C9 /* 和新闻.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "和新闻.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3276A981D2A397D00A249C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3276A9A1D2A397D00A249C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -459,6 +464,9 @@
 			children = (
 				D38DF7241D3F72840042A241 /* NewsCellFactory.h */,
 				D38DF7251D3F72840042A241 /* NewsCellFactory.m */,
+				D32689CF1D7F9B0300DEB5AA /* OnlyWordCell.h */,
+				D32689D01D7F9B0300DEB5AA /* OnlyWordCell.m */,
+				D32689D11D7F9B0300DEB5AA /* OnlyWordCell.xib */,
 				D31ED4001D3DBA34003C2A54 /* OneSmallPicCell.h */,
 				D31ED4011D3DBA34003C2A54 /* OneSmallPicCell.m */,
 				D31ED4021D3DBA34003C2A54 /* OneSmallPicCell.xib */,
@@ -945,6 +953,7 @@
 				D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */,
 				D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */,
 				D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */,
+				D32689D31D7F9B0300DEB5AA /* OnlyWordCell.xib in Resources */,
 				D32375111D4AE5B6003042C6 /* TierCollectionReusableView.xib in Resources */,
 				D34F50901D546A4D004B25C5 /* SubPageHeadView.xib in Resources */,
 				D32BD20F1D7D040C00DB44DE /* HomeWeatherCell.xib in Resources */,
@@ -1093,6 +1102,7 @@
 				D3CEF6281D3CAE6600696FF5 /* ImageMode.m in Sources */,
 				D33836711D40AF82008ADE4C /* OneBigPicCell.m in Sources */,
 				D32C36991D321D6C00431829 /* UIViewController+LoadFromStoryboard.m in Sources */,
+				D32689D21D7F9B0300DEB5AA /* OnlyWordCell.m in Sources */,
 				D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */,
 				D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */,
 				D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */,

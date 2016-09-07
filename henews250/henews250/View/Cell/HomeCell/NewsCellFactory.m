@@ -8,10 +8,12 @@
 
 #import "NewsCellFactory.h"
 
+#import "OnlyWordCell.h"
 #import "OneSmallPicCell.h"
 #import "EveryOneCell.h"
 #import "ThreeSmallPicCell.h"
 #import "OneBigPicCell.h"
+#import "HomeWeatherCell.h"
 
 @implementation NewsCellFactory
 
@@ -23,6 +25,13 @@
     }else{
         NewsMode *news = [modul.newsList objectAtIndex:row];
         switch ([news.displayType intValue]) {
+            //只含文字
+            case OnlyWordNews:{
+                OnlyWordCell *cell = [OnlyWordCell cellWithTableView:tableView];
+                [cell setNews:news hiddenLine:hidden isShortLine:isShort];
+                return cell;
+                break;
+            }
             //一张大图
             case OneBigPicNews:{
                 OneBigPicCell *cell = [OneBigPicCell cellWithTableView:tableView];
@@ -83,6 +92,11 @@
     }else{
         NewsMode *news = [modul.newsList objectAtIndex:row];
         switch ([news.displayType intValue]) {
+            //只含文字
+            case OnlyWordNews:{
+                return SCREEN_WIDTH*80.0f/320.0f;
+                break;
+            }
             //一张大图
             case OneBigPicNews:{
                 return SCREEN_WIDTH*218.0f/320.0f;
