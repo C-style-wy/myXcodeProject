@@ -338,7 +338,6 @@
 		D3CEF62A1D3CB07600696FF5 /* NodeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeMode.m; sourceTree = "<group>"; };
 		D3CEF62C1D3CB21100696FF5 /* HomeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMode.h; sourceTree = "<group>"; };
 		D3CEF62D1D3CB21100696FF5 /* HomeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMode.m; sourceTree = "<group>"; };
-		D3FAEA2D1D878F3E00F78A49 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,7 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				2D06F7740EE8032606215613 /* libPods-henews250.a */,
-				D3FAEA2D1D878F3E00F78A49 /* Reveal.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1333,10 +1331,6 @@
 					"\"TencentOpenAPI\"",
 					"-framework",
 					"\"UIKit\"",
-					"-ObjC",
-					"-lz",
-					"-framework",
-					Reveal,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
 				PRODUCT_NAME = "和新闻";
@@ -1426,10 +1420,6 @@
 					"\"TencentOpenAPI\"",
 					"-framework",
 					"\"UIKit\"",
-					"-ObjC",
-					"-lz",
-					"-framework",
-					Reveal,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
 				PRODUCT_NAME = "和新闻";
@@ -1606,10 +1596,6 @@
 					"\"TencentOpenAPI\"",
 					"-framework",
 					"\"UIKit\"",
-					"-ObjC",
-					"-lz",
-					"-framework",
-					Reveal,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
 				PRODUCT_NAME = "和新闻";
