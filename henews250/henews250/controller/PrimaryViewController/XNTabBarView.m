@@ -143,7 +143,6 @@
 
 
 - (void)closeMenu {
-//    self.tabBarView.hidden = YES;
     [UIView animateWithDuration:0.1f animations:^{
         _tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 40);
     }];
