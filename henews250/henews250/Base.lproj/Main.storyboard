@@ -226,9 +226,9 @@
                                         <rect key="frame" x="0.0" y="20" width="320" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eua-3s-wTC" userLabel="cityBtn">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="33"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="9fR-5G-4zB"/>
+                                                    <constraint firstAttribute="width" constant="80" id="9fR-5G-4zB"/>
                                                 </constraints>
                                                 <connections>
                                                     <action selector="cityBtnSelect:" destination="hXA-aX-6TA" eventType="touchUpInside" id="cvQ-m9-f6V"/>
@@ -461,6 +461,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ak9-r9-aJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="923" y="-172"/>
+        </scene>
+        <!--News Detail View Controller-->
+        <scene sceneID="0TI-Zf-kjb">
+            <objects>
+                <viewController storyboardIdentifier="NewsDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="omf-bi-pUS" customClass="NewsDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hlC-lg-1bM"/>
+                        <viewControllerLayoutGuide type="bottom" id="ezw-qu-Utc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dBg-TK-oab">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="34V-xs-fOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="-188"/>
         </scene>
         <!--View Point View Controller-->
         <scene sceneID="dzN-DR-drL">

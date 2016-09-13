@@ -147,8 +147,8 @@
         tierManageView = [[TierManageView loadFromNib] initWithName:Home];
         tierManageView.frame = CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53);
         tierManageView.delegate = self;
+        [self.view addSubview:tierManageView];
     }
-    [self.view addSubview:tierManageView];
     [tierManageView openTierManage:0 clickBtn:sender];
 }
 
@@ -208,11 +208,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
         NodeMode *modul = [_tableViewData objectAtIndex:section];
-//        if (modul.newsList && modul.newsList.count > 0) {
-//            return modul.newsList.count;
-//        }else{
-//            return 0;
-//        }
         return [NewsCellFactory getNumberOfRowsInSection:modul];
     }else{
         return 1;
@@ -226,8 +221,6 @@
         if (modul.newsList.count == indexPath.row + 1) {
             hiddenLine = YES;
         }
-//        return  [NewsCellFactory getCell:[modul.newsList objectAtIndex:indexPath.row] modulData:modul tableView:tableView hiddenLine:hiddenLine isShortLine:YES];
-        
         return [NewsCellFactory getCell:modul row:indexPath.row tableView:tableView hiddenLine:YES isShortLine:YES];
     }else{
         NSMutableArray *banners = [_tableViewData objectAtIndex:indexPath.section];
@@ -240,7 +233,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
         NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
-//        return [NewsCellFactory getHeightForRow:[modul.newsList objectAtIndex:indexPath.row] modulData:modul];
         return [NewsCellFactory getHeightForRow:modul row:indexPath.row];
     }else{
         return SCREEN_WIDTH*197.0f/320.0f;
@@ -249,7 +241,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
+        [NewsCellFactory didSelectRowAtIndexPath:modul row:indexPath.row navigation:self.navigationController];
+    }
 }
 
 //setContentOffset:CGPointMake(0, 0) animated:YES动画结束回调函数

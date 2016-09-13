@@ -10,4 +10,6 @@
 
 @interface NewsDetailViewController : SubBaseViewController
 
+
+@property (nonatomic, retain) NSString *detailUrl;
 @end

@@ -30,10 +30,8 @@
 
 
 + (void)installMapSDK{
-    NSLog(@"installMapSDK====begin===");
     BMKMapManager *manager = [[BMKMapManager alloc] init];
     [manager start:kBaiduMapKey generalDelegate:nil];
-    NSLog(@"installMapSDK====end===");
 }
 
 #pragma mark - 苹果

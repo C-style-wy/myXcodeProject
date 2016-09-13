@@ -7,6 +7,7 @@
 //
 
 #import "BannerCell.h"
+#import "UIView+SetAllSubViewHidden.h"
 
 @implementation BannerCell {
     NSMutableArray *_banners;
@@ -40,6 +41,7 @@
         _currentPage = 0;
 //        [self.bannerScrol.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         self.bannerScrol.contentOffset = CGPointMake(0, 0);
+        [self.bannerScrol removeAllSubView];
         for (int i = 0; i < _banners.count; i++) {
             BannerMode *banner = [_banners objectAtIndex:i];
             BannerImageView *imageView = [[BannerImageView loadFromNib]initWithData:banner];

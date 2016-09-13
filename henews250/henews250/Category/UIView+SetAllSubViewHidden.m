@@ -17,4 +17,11 @@
     }
 }
 
+- (void)removeAllSubView {
+//    [self removeAllSubViewHidden];
+    for (UIView *view in [self subviews]) {
+        [view removeFromSuperview];
+    }
+}
+
 @end

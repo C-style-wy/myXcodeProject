@@ -15,6 +15,8 @@
 #import "OneBigPicCell.h"
 #import "HomeWeatherCell.h"
 
+#import "NewsDetailViewController.h"
+
 @implementation NewsCellFactory
 
 + (BaseCell*)getCell:(NodeMode *)modul row:(NSInteger)row tableView:(UITableView *)tableView hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort{
@@ -144,6 +146,75 @@
             return modul.newsList.count;
         }else{
             return 0;
+        }
+    }
+}
+
++ (void)didSelectRowAtIndexPath:(NodeMode *)modul row:(NSInteger)row navigation:(UINavigationController *)navigation{
+//    NewsDetailViewController *newsDetail = [NewsDetailViewController loadFromStoryboard];
+//    [navigation pushViewController:newsDetail animated:YES];
+    if ([modul.displayType intValue] != WeatherMode) {
+        NewsMode *news = [modul.newsList objectAtIndex:row];
+        switch ([news.newsType intValue]) {
+                //0:文字
+            case TypeNews:{
+                NewsDetailViewController *newsDetail = [NewsDetailViewController loadFromStoryboard];
+                newsDetail.detailUrl = news.url;
+                [navigation pushViewController:newsDetail animated:YES];
+                break;
+            }
+                //1:视频
+            case TypeVideo:{
+                break;
+            }
+                //2:视频新闻
+            case TypeVideoNews:{
+                break;
+            }
+                //3:专题
+            case TypeTopic:{
+                break;
+            }
+                //4:图集
+            case TypePic:{
+                break;
+            }
+                //5:外链
+            case TypeWeb:{
+                break;
+            }
+                //6：活动
+            case TypeActivity:{
+                break;
+            }
+                //7: 直播
+            case TypeLive:{
+                break;
+            }
+                //8:文字
+            case TypeNews8:{
+                break;
+            }
+                //9: 活动类型3pink
+            case TypePinkActivity:{
+                break;
+            }
+                //10: 杂志
+            case TypeMagazine:{
+                break;
+            }
+                //11: 期刊
+            case TypePeriodical:{
+                break;
+            }
+                //12:栏目
+            case TypeLanMu:{
+                break;
+            }
+                //13:广告平台
+            case TypeAd:{
+                break;
+            }
         }
     }
 }

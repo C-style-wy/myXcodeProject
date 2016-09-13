@@ -37,6 +37,7 @@
 		D32375111D4AE5B6003042C6 /* TierCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D323750F1D4AE5B6003042C6 /* TierCollectionReusableView.xib */; };
 		D32689D21D7F9B0300DEB5AA /* OnlyWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D32689D01D7F9B0300DEB5AA /* OnlyWordCell.m */; };
 		D32689D31D7F9B0300DEB5AA /* OnlyWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D32689D11D7F9B0300DEB5AA /* OnlyWordCell.xib */; };
+		D32689D61D7FBD4D00DEB5AA /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32689D51D7FBD4D00DEB5AA /* NewsDetailViewController.m */; };
 		D3276A991D2A397D00A249C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276A981D2A397D00A249C9 /* main.m */; };
 		D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276A9B1D2A397D00A249C9 /* AppDelegate.m */; };
 		D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3276AA01D2A397E00A249C9 /* Main.storyboard */; };
@@ -80,6 +81,7 @@
 		D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F508D1D546A3A004B25C5 /* SubPageHeadView.m */; };
 		D34F50901D546A4D004B25C5 /* SubPageHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34F508F1D546A4D004B25C5 /* SubPageHeadView.xib */; };
 		D34F50931D5470D0004B25C5 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F50921D5470D0004B25C5 /* CityViewController.m */; };
+		D359E40F1D8652FA00CB8BD0 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D359E40E1D8652FA00CB8BD0 /* CoreDataManager.m */; };
 		D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BB1BE1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m */; };
 		D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BB1C41D41F46A000D6BFD /* BannerCell.m */; };
 		D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35BB1C51D41F46A000D6BFD /* BannerCell.xib */; };
@@ -189,6 +191,8 @@
 		D32689CF1D7F9B0300DEB5AA /* OnlyWordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyWordCell.h; sourceTree = "<group>"; };
 		D32689D01D7F9B0300DEB5AA /* OnlyWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyWordCell.m; sourceTree = "<group>"; };
 		D32689D11D7F9B0300DEB5AA /* OnlyWordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlyWordCell.xib; sourceTree = "<group>"; };
+		D32689D41D7FBD4D00DEB5AA /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
+		D32689D51D7FBD4D00DEB5AA /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
 		D3276A941D2A397D00A249C9 /* 和新闻.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "和新闻.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3276A981D2A397D00A249C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3276A9A1D2A397D00A249C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 		D34F508F1D546A4D004B25C5 /* SubPageHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubPageHeadView.xib; sourceTree = "<group>"; };
 		D34F50911D5470D0004B25C5 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
 		D34F50921D5470D0004B25C5 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		D359E40D1D8652FA00CB8BD0 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		D359E40E1D8652FA00CB8BD0 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		D35BB1BD1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+NeedWidthAndHeight.h"; sourceTree = "<group>"; };
 		D35BB1BE1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+NeedWidthAndHeight.m"; sourceTree = "<group>"; };
 		D35BB1C31D41F46A000D6BFD /* BannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerCell.h; sourceTree = "<group>"; };
@@ -332,6 +338,7 @@
 		D3CEF62A1D3CB07600696FF5 /* NodeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeMode.m; sourceTree = "<group>"; };
 		D3CEF62C1D3CB21100696FF5 /* HomeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMode.h; sourceTree = "<group>"; };
 		D3CEF62D1D3CB21100696FF5 /* HomeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMode.m; sourceTree = "<group>"; };
+		D3FAEA2D1D878F3E00F78A49 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				2D06F7740EE8032606215613 /* libPods-henews250.a */,
+				D3FAEA2D1D878F3E00F78A49 /* Reveal.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -687,6 +695,8 @@
 				D34F50891D5466CC004B25C5 /* SubBaseViewController.m */,
 				D34F50911D5470D0004B25C5 /* CityViewController.h */,
 				D34F50921D5470D0004B25C5 /* CityViewController.m */,
+				D32689D41D7FBD4D00DEB5AA /* NewsDetailViewController.h */,
+				D32689D51D7FBD4D00DEB5AA /* NewsDetailViewController.m */,
 			);
 			path = Subpage;
 			sourceTree = "<group>";
@@ -770,6 +780,8 @@
 				D31EC6861D7824F300F2B349 /* NetworkManager.m */,
 				D317BFCA1D795F6B00852ADC /* XMLDictionary.h */,
 				D317BFCB1D795F6B00852ADC /* XMLDictionary.m */,
+				D359E40D1D8652FA00CB8BD0 /* CoreDataManager.h */,
+				D359E40E1D8652FA00CB8BD0 /* CoreDataManager.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1083,7 +1095,9 @@
 				D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */,
 				D3640C931D631E70008049E4 /* CLLocation+MPLocation.m in Sources */,
 				D319C8891D387007002A84F5 /* SingleColMode.m in Sources */,
+				D32689D61D7FBD4D00DEB5AA /* NewsDetailViewController.m in Sources */,
 				D30E52781D6438AE0018FE6D /* CityManager.m in Sources */,
+				D359E40F1D8652FA00CB8BD0 /* CoreDataManager.m in Sources */,
 				D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */,
 				D38DF7291D3F75CD0042A241 /* BaseCell.m in Sources */,
 				D3640C871D62F3BF008049E4 /* CityListCell.m in Sources */,
@@ -1245,8 +1259,85 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"DKNightVersion\"",
+					"-l\"FDFullscreenPopGesture_Bell\"",
+					"-l\"GDataXML-HTML\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"SDWebImage\"",
+					"-l\"WeChatSDK\"",
+					"-l\"WeiboSDK\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++\"",
+					"-l\"stdc++.6.0.9\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-l\"z.1.2.5\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"MOBFoundation\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"ShareSDK\"",
+					"-framework",
+					"\"ShareSDKConnector\"",
+					"-framework",
+					"\"ShareSDKExtension\"",
+					"-framework",
+					"\"ShareSDKUI\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TencentOpenAPI\"",
+					"-framework",
+					"\"UIKit\"",
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
 				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "";
@@ -1261,8 +1352,85 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"DKNightVersion\"",
+					"-l\"FDFullscreenPopGesture_Bell\"",
+					"-l\"GDataXML-HTML\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"SDWebImage\"",
+					"-l\"WeChatSDK\"",
+					"-l\"WeiboSDK\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++\"",
+					"-l\"stdc++.6.0.9\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-l\"z.1.2.5\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"MOBFoundation\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"ShareSDK\"",
+					"-framework",
+					"\"ShareSDKConnector\"",
+					"-framework",
+					"\"ShareSDKExtension\"",
+					"-framework",
+					"\"ShareSDKUI\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TencentOpenAPI\"",
+					"-framework",
+					"\"UIKit\"",
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
 				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "";
@@ -1364,8 +1532,85 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"DKNightVersion\"",
+					"-l\"FDFullscreenPopGesture_Bell\"",
+					"-l\"GDataXML-HTML\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"SDWebImage\"",
+					"-l\"WeChatSDK\"",
+					"-l\"WeiboSDK\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++\"",
+					"-l\"stdc++.6.0.9\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-l\"z.1.2.5\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"MOBFoundation\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"ShareSDK\"",
+					"-framework",
+					"\"ShareSDKConnector\"",
+					"-framework",
+					"\"ShareSDKExtension\"",
+					"-framework",
+					"\"ShareSDKUI\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TencentOpenAPI\"",
+					"-framework",
+					"\"UIKit\"",
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
 				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "";

@@ -19,7 +19,7 @@
 @protocol TierManageViewDelegate <NSObject>
 
 @optional
-- (void)whenOpenOrCloseTierManage:(BOOL)isOpen;
+- (void)whenOpenOrCloseTierManage:(BOOL)isOpen nodeId:(NSString*)nodeId;
 
 @end
 

@@ -12,4 +12,6 @@
 
 - (void)setAllHidden:(BOOL)hidden;
 
+- (void)removeAllSubView;
+
 @end
