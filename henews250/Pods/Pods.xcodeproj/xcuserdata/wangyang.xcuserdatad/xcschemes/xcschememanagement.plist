@@ -34,12 +34,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PPNetworkHelper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-henews250.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,17 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>18C08161DEC587CF7B43BEB7FB1F6913</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2606B36C66020C728BC6C5EC8A3412AA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2DEE79B1A385CB853838F7BB4D0A63BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +72,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>523848936B8E22CDFF295609520C5611</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54E908C465713CE8DADC0EE52C31B6BA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5D52EA5C01F20CAFE6BFC7A67D315AEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>ABEC4D90041FFECF5AA6C67F5882D46F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AD1E2E7BA3DC4D9C3EE7E52DE1F8645E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BFF53AFC87526C6D1D65F5ECB5C58CEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

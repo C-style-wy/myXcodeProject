@@ -60,7 +60,7 @@ NSString *GetDocumentPathFileName(NSString *lpFileName) {
             
             // 创建托管对象上下文
             if (persistentStore && !error) {
-                NSManagedObjectContext *managedObjectContext = [[NSManagedObjectContext alloc] init];
+                NSManagedObjectContext *managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
                 [managedObjectContext setPersistentStoreCoordinator:persistentStoreCoordinator];
                 
                 self.objectContext = managedObjectContext;
