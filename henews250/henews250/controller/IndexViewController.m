@@ -95,19 +95,26 @@
         self.guideScrollView.delegate = self;
         self.guideScrollView.backgroundColor = LRClearColor;
         self.guideScrollView.contentSize = CGSizeMake(SCREEN_WIDTH*3, 0);
-        
         //page1
-        GuidePage1 *guidePage1 = [[GuidePage1 loadFromNib] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-        [self.guideScrollView addSubview:guidePage1];
+        GuidePage1 *guidePage1 = [GuidePage1 loadFromNib];
+        UIView *view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [view1 addSubview:guidePage1];
+        guidePage1.frame = view1.bounds;
+        [self.guideScrollView addSubview:view1];
         //page2
         GuidePage2 *guidePage2 = [GuidePage2 loadFromNib];
-        guidePage2.frame = CGRectMake(SCREEN_WIDTH, 0, guidePage2.frame.size.width, guidePage2.frame.size.height);
-        [self.guideScrollView addSubview:guidePage2];
+        UIView *view2 = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [view2 addSubview:guidePage2];
+        guidePage2.frame = view2.bounds;
+        [self.guideScrollView addSubview:view2];
         //page3
         GuidePage3 *guidePage3 = [[GuidePage3 loadFromNib] init];
+        UIView *view3 = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*2, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [view3 addSubview:guidePage3];
+        guidePage3.frame = view3.bounds;
         guidePage3.delegate = self;
-        guidePage3.frame = CGRectMake(SCREEN_WIDTH*2, 0, guidePage3.frame.size.width, guidePage3.frame.size.height);
-        [self.guideScrollView addSubview:guidePage3];
+        [self.guideScrollView addSubview:view3];
+        
         
         self.scrollBgView.hidden = NO;
     }else{

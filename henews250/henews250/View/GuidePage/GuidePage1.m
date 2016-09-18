@@ -10,11 +10,5 @@
 
 @implementation GuidePage1
 
-//+ (instancetype)alloc{
-////    if (self == nil) {
-////        self = [[[NSBundle mainBundle]loadNibNamed:@"guidePage1" owner:nil options:nil]firstObject];
-////    }
-//    return [[[NSBundle mainBundle]loadNibNamed:@"guidePage1" owner:nil options:nil]firstObject];
-//}
 
 @end

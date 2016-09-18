@@ -11,9 +11,7 @@
 @implementation UIView (LoadFromNib)
 
 + (id)loadFromNib {
-//    id view = nil;
     NSString *xibName = NSStringFromClass([self class]);
-//    UIViewController *temporaryController = [[UIViewController alloc] initWithNibName:xibName bundle:nil];
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:xibName owner:self options:nil];
     return [nib objectAtIndex:0];
 }

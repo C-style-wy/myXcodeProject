@@ -19,7 +19,6 @@
  *
  *   @param returnData 返回的数据
  */
-//- (void)requestDidFinishLoading:(NSDictionary*)returnData;
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg isCacheReturn:(BOOL)flag;
 /**
  *   请求失败

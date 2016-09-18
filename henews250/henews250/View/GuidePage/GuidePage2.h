@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+LoadFromNib.h"
 
 @interface GuidePage2 : UIView
 
