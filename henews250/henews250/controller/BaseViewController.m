@@ -37,8 +37,9 @@
     [super viewDidDisappear:animated];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
+
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDefault;
 }
 

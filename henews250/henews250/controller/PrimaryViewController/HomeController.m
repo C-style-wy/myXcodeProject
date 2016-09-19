@@ -43,6 +43,13 @@
     self.cityName.text = [[CityManager shareInstance]getCity];
 }
 
+//- (void)viewWillDisappear:(BOOL)animated{
+//    [super viewWillDisappear:animated];
+//    NSLog(@"viewWillDisappear=====");
+//    
+//    [NetworkCache saveHttpCache:self forKey:@"HomeController"];
+//}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

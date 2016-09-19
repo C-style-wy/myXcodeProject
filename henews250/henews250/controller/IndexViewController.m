@@ -70,7 +70,12 @@
 }
 
 - (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg{
-    
+    NSLog(@"requestdidFailWithError====");
+    if (!isFirstOpen) {
+        if (![self showOrHideAdImage]) {
+            [self jumpeHome:NO];
+        }
+    }
 }
     
 #pragma mark - 设置启动图函数

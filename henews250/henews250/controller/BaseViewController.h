@@ -19,6 +19,8 @@
 
 #import "CityManager.h"
 
+#import "NetworkCache.h"
+
 
 @interface BaseViewController : UIViewController<NetworkDelegate>
 
