@@ -8,6 +8,7 @@
 
 #import "NetworkItem.h"
 #import "AFNetworking.h"
+#import "NetworkCache.h"
 
 @implementation NetworkItem
 
@@ -40,11 +41,12 @@
                        action:(SEL)action
                     hashValue:(NSUInteger)hashValue
                       showHUD:(BOOL)showHUD
+                   cacheBlock:(NWCacheBlock)cacheBlock
                  successBlock:(NWSuccessBlock)successBlock
                  failureBlock:(NWFailureBlock)failureBlock
                           tag:(NSString*)tag
                           msg:(NSInteger)msg
-                     useCache:(BOOL)use
+                     useCache:(BOOL)useCache
                        update:(BOOL)update
 {
     if (self = [super init]) {
@@ -57,42 +59,41 @@
         self.tagrget        = target;
         self.select         = action;
         self.tag            = tag;
-        self.useCache       = use;
+        self.useCache       = useCache;
         self.update         = update;
     }
     NSString *requestUrl = [self addKeyWithUrl:url];
     __weak typeof(self)weakSelf = self;
     AFHTTPSessionManager *manager = [self getHttpSessionManager:dataType];
     if (dataType == NetWorkJSON) {
-        if (use) {
-            NSString *filePath = [self getCachePathWithUrl:url];
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            if ([fileManager fileExistsAtPath:filePath]) {
-                NSDictionary *cacheData = [[NSDictionary alloc]initWithContentsOfFile:filePath];
-                if (successBlock) {
-                    successBlock(cacheData);
-                }
-                if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg: isCacheReturn:)]) {
-                    [weakSelf.delegate requestDidFinishLoading:tag returnJson:cacheData msg:msg isCacheReturn:YES];
-                }
-                [weakSelf performSelector:@selector(finishedRequest:didFaild:) withObject:cacheData withObject:nil];
-                if (!update) {
-                    [weakSelf removewItem];
-                }
+        if (useCache) {
+            NSDictionary *cacheData = [NetworkCache getHttpCacheForKey:url];
+            if (cacheBlock && cacheData) {
+                cacheBlock(cacheData);
+            }
+            
+            if ([weakSelf.delegate respondsToSelector:@selector(requestDidCacheReturn: returnJson: msg:)]) {
+                [weakSelf.delegate requestDidCacheReturn:tag returnJson:cacheData msg:msg];
+            }
+
+            if (!update) {
+                [weakSelf removewItem];
             }
         }
         if (update) {
             if (networkType == NetWorkGET) {
+                NSLog(@"json===get======");
                 [manager GET:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if (successBlock) {
                         successBlock(responseObject);
                     }
-                    if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg: isCacheReturn:)]) {
-                        [weakSelf.delegate requestDidFinishLoading:tag returnJson:responseObject msg:msg isCacheReturn:NO];
+                    if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg:)]) {
+                        [weakSelf.delegate requestDidFinishLoading:tag returnJson:responseObject msg:msg];
                     }
                     [weakSelf performSelector:@selector(finishedRequest:didFaild:) withObject:responseObject withObject:nil];
+                    //对数据进行异步缓存
+                    responseObject ? [NetworkCache saveHttpCache:responseObject forKey:url] : nil;
                     [weakSelf removewItem];
-                    [responseObject writeToFile:[self getCachePathWithUrl:url] atomically:YES];
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     if (failureBlock) {
                         failureBlock(error);
@@ -108,12 +109,14 @@
                     if (successBlock) {
                         successBlock(responseObject);
                     }
-                    if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg: isCacheReturn:)]) {
-                        [weakSelf.delegate requestDidFinishLoading:tag returnJson:responseObject msg:msg isCacheReturn:NO];
+                    if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg:)]) {
+                        [weakSelf.delegate requestDidFinishLoading:tag returnJson:responseObject msg:msg];
                     }
                     [weakSelf performSelector:@selector(finishedRequest:didFaild:) withObject:responseObject withObject:nil];
+                    //对数据进行异步缓存
+                    responseObject ? [NetworkCache saveHttpCache:responseObject forKey:url] : nil;
+                    
                     [weakSelf removewItem];
-                    [responseObject writeToFile:[self getCachePathWithUrl:url] atomically:YES];
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     if (failureBlock) {
                         failureBlock(error);
@@ -127,70 +130,76 @@
             }
         }
     }else if (dataType == NetWorkXML){
-//        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/xml", @"text/html", nil];
-//        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/plain",@"text/javascript", nil];
         if (params == nil) {
             params = @{@"format": @"xml"};
         }else{
             [params setValue:@"xml" forKey:@"format"];
         }
-        if (networkType == NetWorkGET) {
-            NSLog(@"get===xml====%@", requestUrl);
-            [manager GET:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSDictionary *returnData = [NSDictionary dictionaryWithXMLParser:responseObject];
-//                GDataXMLDocument *doc = [[GDataXMLDocument alloc]initWithData:responseObject error:nil];
-//                GDataXMLElement *rootElement = [doc rootElement];
-                if (successBlock) {
-                    successBlock(returnData);
-                }
-                if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg: isCacheReturn:)]) {
-                    [weakSelf.delegate requestDidFinishLoading:tag returnJson:returnData msg:msg isCacheReturn:NO];
-                }
-                
+        if (useCache) {
+            NSDictionary *cacheData = [NetworkCache getHttpCacheForKey:url];
+            if (cacheBlock && cacheData) {
+                cacheBlock(cacheData);
+            }
+            
+            if ([weakSelf.delegate respondsToSelector:@selector(requestDidCacheReturn: returnJson: msg:)]) {
+                [weakSelf.delegate requestDidCacheReturn:tag returnJson:cacheData msg:msg];
+            }
+            
+            if (!update) {
                 [weakSelf removewItem];
-                [returnData writeToFile:[self getCachePathWithUrl:url] atomically:YES];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                if (failureBlock) {
-                    failureBlock(error);
-                }
-                if ([weakSelf.delegate respondsToSelector:@selector(requestdidFailWithError: tag: msg:)]) {
-                    [weakSelf.delegate requestdidFailWithError:error tag:tag msg:msg];
-                }
-                [weakSelf removewItem];
-            }];
-        }else{
-            [manager POST:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSDictionary *returnData = [NSDictionary dictionaryWithXMLParser:responseObject];
-                if (successBlock) {
-                    successBlock(returnData);
-                }
-                if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg: isCacheReturn:)]) {
-                    [weakSelf.delegate requestDidFinishLoading:tag returnJson:returnData msg:msg isCacheReturn:NO];
-                }
-                [weakSelf removewItem];
-                [returnData writeToFile:[self getCachePathWithUrl:url] atomically:YES];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                if (failureBlock) {
-                    failureBlock(error);
-                }
-                if ([weakSelf.delegate respondsToSelector:@selector(requestdidFailWithError: tag: msg:)]) {
-                    [weakSelf.delegate requestdidFailWithError:error tag:tag msg:msg];
-                }
-                [weakSelf removewItem];
-            }];
+            }
+        }
+        if (update) {
+            if (networkType == NetWorkGET) {
+                NSLog(@"xml===get======");
+                [manager GET:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary *returnData = [NSDictionary dictionaryWithXMLParser:responseObject];
+                    if (successBlock) {
+                        successBlock(returnData);
+                    }
+                    if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg:)]) {
+                        [weakSelf.delegate requestDidFinishLoading:tag returnJson:returnData msg:msg ];
+                    }
+                    //对数据进行异步缓存
+                    returnData ? [NetworkCache saveHttpCache:returnData forKey:url] : nil;
+                    
+                    [weakSelf removewItem];
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    if (failureBlock) {
+                        failureBlock(error);
+                    }
+                    if ([weakSelf.delegate respondsToSelector:@selector(requestdidFailWithError: tag: msg:)]) {
+                        [weakSelf.delegate requestdidFailWithError:error tag:tag msg:msg];
+                    }
+                    [weakSelf removewItem];
+                }];
+            }else{
+                NSLog(@"xml===post======");
+                [manager POST:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary *returnData = [NSDictionary dictionaryWithXMLParser:responseObject];
+                    if (successBlock) {
+                        successBlock(returnData);
+                    }
+                    if ([weakSelf.delegate respondsToSelector:@selector(requestDidFinishLoading: returnJson: msg:)]) {
+                        [weakSelf.delegate requestDidFinishLoading:tag returnJson:returnData msg:msg ];
+                    }
+                    //对数据进行异步缓存
+                    returnData ? [NetworkCache saveHttpCache:returnData forKey:url] : nil;
+                    [weakSelf removewItem];
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    if (failureBlock) {
+                        failureBlock(error);
+                    }
+                    if ([weakSelf.delegate respondsToSelector:@selector(requestdidFailWithError: tag: msg:)]) {
+                        [weakSelf.delegate requestdidFailWithError:error tag:tag msg:msg];
+                    }
+                    [weakSelf removewItem];
+                }];
+            }
         }
     }
     return self;
-}
-
-//根据url获取缓存路径
-- (NSString*)getCachePathWithUrl:(NSString*)url {
-    //获取缓存全路径
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cachePath = [paths objectAtIndex:0];
-    cachePath = [cachePath stringByAppendingString:@"/"];
-    NSString *filePath = [[cachePath stringByAppendingString:[MD5 encoding:url]] stringByAppendingString:@".txt"];
-    return filePath;
 }
 
 //创建AFHTTPSessionManager
@@ -288,8 +297,8 @@
 {
     __weak typeof(self)weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if ([weakSelf.delegate respondsToSelector:@selector(netWorkWillDealloc:)]) {
-            [weakSelf.delegate netWorkWillDealloc:weakSelf];
+        if ([weakSelf.handlerDelegate respondsToSelector:@selector(netWorkWillDealloc:)]) {
+            [weakSelf.handlerDelegate netWorkWillDealloc:weakSelf];
         }
     });
 }

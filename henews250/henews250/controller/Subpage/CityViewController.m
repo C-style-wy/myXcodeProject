@@ -33,18 +33,19 @@
     self.searchTableView.sectionIndexColor = LRClearColor;
     self.searchTableView.hidden = YES;
     
-    [NetworkManager postReqeustJsonWithURL:DEF_GetCitypage params:nil delegate:self tag:@"cittList" msg:0 useCache:YES update:YES showHUD:NO];
-}
-
-#pragma mark - 网络返回
-- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
-
-    if ([tag isEqualToString:@"cittList"]) {
+    [NetworkManager postRequestJsonWithURL:DEF_GetCitypage params:nil cacheBlock:^(NSDictionary *returnJson) {
         if (returnJson) {
             CityListMode *cityListMode = [CityListMode mj_objectWithKeyValues:returnJson];
             [self dealDataAndShow:cityListMode];
         }
-    }
+    } successBlock:^(NSDictionary *returnJson) {
+        if (returnJson) {
+            CityListMode *cityListMode = [CityListMode mj_objectWithKeyValues:returnJson];
+            [self dealDataAndShow:cityListMode];
+        }
+    } failureBlock:^(NSError *error) {
+        
+    } showHUD:NO];
 }
 
 #pragma mark - dealData

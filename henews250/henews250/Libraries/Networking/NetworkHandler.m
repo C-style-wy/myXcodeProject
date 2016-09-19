@@ -10,7 +10,7 @@
 
 @interface NetworkHandler ()
 
-<NetworkDelegate>
+<NetworkHandlerDelegate>
 
 @end
 
@@ -61,6 +61,7 @@
                showHUD:(BOOL)showHUD
                 target:(id)target
                 action:(SEL)action
+            cacheBlock:(NWCacheBlock)cacheBlock
           successBlock:(NWSuccessBlock)successBlock
           failureBlock:(NWFailureBlock)failureBlock
                    tag:(NSString*)tag
@@ -76,10 +77,24 @@
     }
     //如果有一些公共处理，可以写在这里
     NSUInteger hashValue = [delegate hash];
-    self.netWorkItem = [[NetworkItem alloc]initWithtype:networkType dataType:dataType url:url params:params delegate:delegate target:target action:action hashValue:hashValue showHUD:showHUD successBlock:successBlock failureBlock:failureBlock tag:tag msg:msg useCache:use update:update];
-//    self.netWorkItem.delegate = self;
-    [self.items addObject:self.netWorkItem];
-    return self.netWorkItem;
+    BOOL isNotInItems = true;
+    if (self.items && self.items.count > 0) {
+        for (NetworkItem *item in self.items) {
+            if ([item.url isEqualToString:url]) {
+                isNotInItems = false;
+                break;
+            }
+        }
+    }
+    if (isNotInItems) {
+        self.netWorkItem = [[NetworkItem alloc]initWithtype:networkType dataType:dataType url:url params:params delegate:delegate target:target action:action hashValue:hashValue showHUD:showHUD cacheBlock:cacheBlock successBlock:successBlock failureBlock:failureBlock tag:tag msg:msg useCache:use update:update];
+            self.netWorkItem.handlerDelegate = self;
+        [self.items addObject:self.netWorkItem];
+        return self.netWorkItem;
+    }else{
+        return nil;
+    }
+    
 }
 
 #pragma makr - 开始监听网络连接

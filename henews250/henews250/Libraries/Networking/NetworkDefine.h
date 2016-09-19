@@ -42,13 +42,13 @@ typedef void (^NWStartBlock)(void);
  *
  *  @param returnData 回调block
  */
-typedef void (^NWSuccessBlock)(NSDictionary *returnData);
+typedef void (^NWSuccessBlock)(NSDictionary *returnJson);
 /**
  *  缓存回调
  *
  *  @param returnData 回调block
  */
-typedef void (^NWCacheBlock)(NSDictionary *cacheData);
+typedef void (^NWCacheBlock)(NSDictionary *returnJson);
 
 //typedef void (^NWXMLSuccessBlock)(GDataXMLElement *returnData);
 

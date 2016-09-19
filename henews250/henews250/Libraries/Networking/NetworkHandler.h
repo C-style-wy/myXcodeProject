@@ -63,6 +63,7 @@
                     showHUD:(BOOL)showHUD
                      target:(id)target
                      action:(SEL)action
+                 cacheBlock:(NWCacheBlock)cacheBlock
                successBlock:(NWSuccessBlock)successBlock
                failureBlock:(NWFailureBlock)failureBlock
                         tag:(NSString*)tag

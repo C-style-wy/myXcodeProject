@@ -54,11 +54,12 @@
 #pragma mark - 请求接口
 - (void)requestData {
     NSString *indexUrl = [DEF_GetIndexpage stringByAppendingString:[[CityManager shareInstance] getCity]];
-    [NetworkManager postReqeustJsonWithURL:indexUrl params:nil delegate:self tag:@"indexData" msg:0 useCache:NO update:YES showHUD:NO];
+    
+    [NetworkManager postRequestJsonWithURL:indexUrl params:nil delegate:self tag:@"indexData" msg:0 useCache:NO update:YES showHUD:NO];
 }
 
 #pragma mark - 数据返回
-- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
+- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
     self.loadingMode = [LoadingMode mj_objectWithKeyValues:returnJson];
     //设置广告图
     if (!isFirstOpen) {
@@ -66,6 +67,10 @@
             [self jumpeHome:NO];
         }
     }
+}
+
+- (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg{
+    
 }
     
 #pragma mark - 设置启动图函数

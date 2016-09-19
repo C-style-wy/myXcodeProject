@@ -37,8 +37,10 @@
 - (void)setNews:(BOOL)hidden{
     NSString *weatherUrl = [DEF_GetWeatherurl stringByAppendingString:[[CityManager shareInstance] getCity]];
     __weak typeof(self)weakSelf = self;
-    [NetworkManager postReqeustXmlWithURL:weatherUrl params:nil successBlock:^(NSDictionary *returnData) {
-        WeatherMode *weatherData = [WeatherMode mj_objectWithKeyValues:returnData];
+    [NetworkManager postRequestXmlWithURL:weatherUrl params:nil cacheBlock:^(NSDictionary *returnJson) {
+
+    } successBlock:^(NSDictionary *returnJson) {
+        WeatherMode *weatherData = [WeatherMode mj_objectWithKeyValues:returnJson];
         ForecastMode *forecast = weatherData.forecast;
         NSArray *weathers = forecast.weather;
         WeatherItemMode *todayWeather = [weathers objectAtIndex:0];
@@ -105,10 +107,8 @@
         NSString *wendu3 = [[[[w3 stringByAppendingString:@"  "]stringByAppendingString:highWendu3] stringByAppendingString:@"/"]stringByAppendingString:lowWendu3];
         weakSelf.wendu3.text = wendu3;
         weakSelf.weatherimg3.image = [UIImage imageNamed:w3];
-        
     } failureBlock:^(NSError *error) {
-        NSLog(@"weather====failureBlock======");
+        
     } showHUD:NO];
 }
-
 @end

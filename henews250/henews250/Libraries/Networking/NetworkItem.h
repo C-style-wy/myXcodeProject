@@ -43,6 +43,10 @@
  */
 @property (nonatomic, assign) id<NetworkDelegate>delegate;
 /**
+ *  移除网络请求项的委托
+ */
+@property (nonatomic, assign) id<NetworkHandlerDelegate>handlerDelegate;
+/**
  *   target
  */
 @property (nonatomic,assign) id tagrget;
@@ -105,11 +109,12 @@
                             action:(SEL)action
                          hashValue:(NSUInteger)hashValue
                            showHUD:(BOOL)showHUD
+                        cacheBlock:(NWCacheBlock)cacheBlock
                       successBlock:(NWSuccessBlock)successBlock
                       failureBlock:(NWFailureBlock)failureBlock
                                tag:(NSString*)tag
                                msg:(NSInteger)msg
-                          useCache:(BOOL)use
+                          useCache:(BOOL)useCache
                             update:(BOOL)update;
 
 @end

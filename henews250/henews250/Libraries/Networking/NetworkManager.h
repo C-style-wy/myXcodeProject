@@ -15,68 +15,156 @@
 //返回单例
 +(instancetype)shareInstance;
 
-#pragma mark - 发送 GET json数据请求的方法
+#pragma mark - json数据请求的方法
 
 /**
- *   GET请求json数据通过Block 回调结果
+ *   GET请求json数据通过delegate 回调结果
  *
  *   @param url          url
  *   @param paramsDict   paramsDict
- *   @param successBlock  成功的回调
- *   @param failureBlock  失败的回调
+ *   @param delegate     代理
+ *   @param tag          NSString标示
+ *   @param msg          NSInteger标示
+ *   @param use          是否使用缓存
+ *   @param update       是否发出新的网络请求
  *   @param showHUD      是否加载进度指示器
  */
-+ (void)getRequstJsonWithURL:(NSString*)url
++ (void)getRequestJsonWithURL:(NSString*)url
+                        params:(NSDictionary*)paramsDict
+                      delegate:(id<NetworkDelegate>)delegate
+                           tag:(NSString*)tag
+                           msg:(NSInteger)msg
+                      useCache:(BOOL)use
+                        update:(BOOL)update
+                       showHUD:(BOOL)showHUD;
+/**
+ *   GET请求json数据通过Block 回调结果
+ *
+ *   @param url           url
+ *   @param paramsDict    paramsDict
+ *   @param cacheBlock    缓存的回调
+ *   @param successBlock  成功的回调
+ *   @param failureBlock  失败的回调
+ *   @param showHUD       是否加载进度指示器
+ */
++ (void)getRequestJsonWithURL:(NSString*)url
                   params:(NSDictionary*)paramsDict
+              cacheBlock:(NWCacheBlock)cacheBlock
             successBlock:(NWSuccessBlock)successBlock
             failureBlock:(NWFailureBlock)failureBlock
                  showHUD:(BOOL)showHUD;
 
-
 /**
- *   POST请求json数据通过 Block回调结果
+ *   post请求json数据通过delegate 回调结果
+ *
+ *   @param url          url
+ *   @param paramsDict   paramsDict
+ *   @param delegate     代理
+ *   @param tag          NSString标示
+ *   @param msg          NSInteger标示
+ *   @param use          是否使用缓存
+ *   @param update       是否发出新的网络请求
+ *   @param showHUD      是否加载进度指示器
+ */
++ (void)postRequestJsonWithURL:(NSString*)url
+                       params:(NSDictionary*)paramsDict
+                     delegate:(id<NetworkDelegate>)delegate
+                          tag:(NSString*)tag
+                          msg:(NSInteger)msg
+                     useCache:(BOOL)use
+                       update:(BOOL)update
+                      showHUD:(BOOL)showHUD;
+/**
+ *   post请求json数据通过Block 回调结果
  *
  *   @param url           url
- *   @param paramsDict    请求的参数字典
+ *   @param paramsDict    paramsDict
+ *   @param cacheBlock    缓存的回调
  *   @param successBlock  成功的回调
  *   @param failureBlock  失败的回调
  *   @param showHUD       是否加载进度指示器
  */
-+ (void)postReqeustJsonWithURL:(NSString*)url
-                    params:(NSDictionary*)params
-              successBlock:(NWSuccessBlock)successBlock
-              failureBlock:(NWFailureBlock)failureBlock
-                   showHUD:(BOOL)showHUD;
++ (void)postRequestJsonWithURL:(NSString*)url
+                      params:(NSDictionary*)paramsDict
+                  cacheBlock:(NWCacheBlock)cacheBlock
+                successBlock:(NWSuccessBlock)successBlock
+                failureBlock:(NWFailureBlock)failureBlock
+                     showHUD:(BOOL)showHUD;
+
+#pragma mark - xml数据请求的方法
 
 /**
- *   post请求json 通过代理回调
+ *   GET请求xml数据通过delegate 回调结果
  *
- *   @param url         url
- *   @param paramsDict  请求的参数
- *   @param delegate    delegate
- *   @param showHUD    是否转圈圈
+ *   @param url          url
+ *   @param paramsDict   paramsDict
+ *   @param delegate     代理
+ *   @param tag          NSString标示
+ *   @param msg          NSInteger标示
+ *   @param use          是否使用缓存
+ *   @param update       是否发出新的网络请求
+ *   @param showHUD      是否加载进度指示器
  */
-+ (void)postReqeustJsonWithURL:(NSString*)url
-                    params:(NSDictionary*)params
-                  delegate:(id<NetworkDelegate>)delegate
-                       tag:(NSString*)tag
-                       msg:(NSInteger)msg
-                  useCache:(BOOL)use
-                    update:(BOOL)update
-                   showHUD:(BOOL)showHUD;
-
++ (void)getRequestXmlWithURL:(NSString*)url
+                       params:(NSDictionary*)paramsDict
+                     delegate:(id<NetworkDelegate>)delegate
+                          tag:(NSString*)tag
+                          msg:(NSInteger)msg
+                     useCache:(BOOL)use
+                       update:(BOOL)update
+                      showHUD:(BOOL)showHUD;
 /**
- *   POST请求xml数据通过 Block回调结果
+ *   GET请求xml数据通过Block 回调结果
  *
  *   @param url           url
- *   @param paramsDict    请求的参数字典
+ *   @param paramsDict    paramsDict
+ *   @param cacheBlock    缓存的回调
  *   @param successBlock  成功的回调
  *   @param failureBlock  失败的回调
  *   @param showHUD       是否加载进度指示器
  */
-+ (void)postReqeustXmlWithURL:(NSString*)url
-                        params:(NSDictionary*)params
-                  successBlock:(NWSuccessBlock)successBlock
-                  failureBlock:(NWFailureBlock)failureBlock
++ (void)getRequestXmlWithURL:(NSString*)url
+                      params:(NSDictionary*)paramsDict
+                  cacheBlock:(NWCacheBlock)cacheBlock
+                successBlock:(NWSuccessBlock)successBlock
+                failureBlock:(NWFailureBlock)failureBlock
+                     showHUD:(BOOL)showHUD;
+
+/**
+ *   post请求xml数据通过delegate 回调结果
+ *
+ *   @param url          url
+ *   @param paramsDict   paramsDict
+ *   @param delegate     代理
+ *   @param tag          NSString标示
+ *   @param msg          NSInteger标示
+ *   @param use          是否使用缓存
+ *   @param update       是否发出新的网络请求
+ *   @param showHUD      是否加载进度指示器
+ */
++ (void)postRequestXmlWithURL:(NSString*)url
+                        params:(NSDictionary*)paramsDict
+                      delegate:(id<NetworkDelegate>)delegate
+                           tag:(NSString*)tag
+                           msg:(NSInteger)msg
+                      useCache:(BOOL)use
+                        update:(BOOL)update
                        showHUD:(BOOL)showHUD;
+/**
+ *   post请求xml数据通过Block 回调结果
+ *
+ *   @param url           url
+ *   @param paramsDict    paramsDict
+ *   @param cacheBlock    缓存的回调
+ *   @param successBlock  成功的回调
+ *   @param failureBlock  失败的回调
+ *   @param showHUD       是否加载进度指示器
+ */
++ (void)postRequestXmlWithURL:(NSString*)url
+                       params:(NSDictionary*)paramsDict
+                   cacheBlock:(NWCacheBlock)cacheBlock
+                 successBlock:(NWSuccessBlock)successBlock
+                 failureBlock:(NWFailureBlock)failureBlock
+                      showHUD:(BOOL)showHUD;
+
 @end

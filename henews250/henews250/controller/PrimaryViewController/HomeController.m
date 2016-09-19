@@ -76,19 +76,16 @@
 //下拉刷新
 - (void)headerRereshing {
     NSString *homeUrl = [DEF_GetHomepage stringByAppendingString:[[CityManager shareInstance] getCity]];
-    [NetworkManager postReqeustJsonWithURL:homeUrl params:nil delegate:self tag:@"homeData" msg:0 useCache:YES update:YES showHUD:NO];
+    [NetworkManager postRequestJsonWithURL:homeUrl params:nil delegate:self tag:@"homeData" msg:0 useCache:YES update:YES showHUD:NO];
 }
 
 #pragma mark - 网络返回
-- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg isCacheReturn:(BOOL)flag{
+- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
     if ([tag isEqualToString:@"homeData"]) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
-        //    self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
-        if (!flag) {
-            [self.tableView.mj_header endRefreshing];
-        }
+        [self.tableView.mj_header endRefreshing];
         if (returnJson) {
             NSArray *newsAry = [returnJson objectForKey:@"nodes"];
             [TierManageMode compareAndSave:newsAry key:Home];
@@ -106,6 +103,40 @@
             NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
             [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
         }
+    }
+}
+
+//缓存数据返回
+- (void)requestDidCacheReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg {
+    if ([tag isEqualToString:@"homeData"]) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
+        if (returnJson) {
+            NSArray *newsAry = [returnJson objectForKey:@"nodes"];
+            [TierManageMode compareAndSave:newsAry key:Home];
+            self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
+            [self dealData];
+        }
+        
+    }else if ([tag isEqualToString:@"changeData"]){
+        if (returnJson) {
+            self.changeData = [ChangeDataMode mj_objectWithKeyValues:returnJson];
+            NodeMode *node = [_tableViewData objectAtIndex:msg];
+            node.changeUrl = _changeData.changeUrl;
+            node.newsList = _changeData.newsList;
+            NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
+            [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
+}
+
+- (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg {
+    if ([tag isEqualToString:@"homeData"]) {
+        [self.tableView.mj_header endRefreshing];
+    }else if ([tag isEqualToString:@"changeData"]){
+        NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
+        [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
     }
 }
 
@@ -164,7 +195,7 @@
 
 #pragma mark - SectionDelegate
 - (void)requestSectionChange:(NSString*)url section:(NSInteger)section {
-    [NetworkManager postReqeustJsonWithURL:url params:nil delegate:self tag:@"changeData" msg:section useCache:NO update:YES showHUD:NO];
+    [NetworkManager postRequestJsonWithURL:url params:nil delegate:self tag:@"changeData" msg:section useCache:NO update:YES showHUD:NO];
 }
 - (void)jumpToMore:(NodeMode*)node {
     NSLog(@"jumpToMore====");

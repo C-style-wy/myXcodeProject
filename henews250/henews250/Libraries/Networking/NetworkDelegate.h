@@ -19,7 +19,13 @@
  *
  *   @param returnData 返回的数据
  */
-- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg isCacheReturn:(BOOL)flag;
+- (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg;
+/**
+ *   返回缓存数据
+ *
+ *   @param cacheData 返回的数据
+ */
+- (void)requestDidCacheReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg;
 /**
  *   请求失败
  *
@@ -27,6 +33,12 @@
  */
 - (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg;
 
+@end
+
+
+@protocol NetworkHandlerDelegate <NSObject>
+
+@optional
 /**
  *   网络请求项即将被移除掉
  *
