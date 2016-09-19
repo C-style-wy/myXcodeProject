@@ -35,6 +35,15 @@
 		D323750C1D4ADDA6003042C6 /* TierCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D323750A1D4ADDA6003042C6 /* TierCollectionViewCell.xib */; };
 		D32375101D4AE5B6003042C6 /* TierCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D323750E1D4AE5B6003042C6 /* TierCollectionReusableView.m */; };
 		D32375111D4AE5B6003042C6 /* TierCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D323750F1D4AE5B6003042C6 /* TierCollectionReusableView.xib */; };
+		D324795C1D8F8AA0004C7A7B /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D324795B1D8F8AA0004C7A7B /* VideoViewController.m */; };
+		D324795F1D8F8B50004C7A7B /* TopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D324795E1D8F8B50004C7A7B /* TopicViewController.m */; };
+		D32479621D8F8B5E004C7A7B /* PicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32479611D8F8B5E004C7A7B /* PicViewController.m */; };
+		D32479651D8F8B6D004C7A7B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32479641D8F8B6D004C7A7B /* WebViewController.m */; };
+		D32479681D8F8B7B004C7A7B /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32479671D8F8B7B004C7A7B /* ActivityViewController.m */; };
+		D324796B1D8F8B88004C7A7B /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D324796A1D8F8B88004C7A7B /* LiveViewController.m */; };
+		D324796E1D8F8B9F004C7A7B /* PinkactivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D324796D1D8F8B9F004C7A7B /* PinkactivityViewController.m */; };
+		D32479711D8F8BB6004C7A7B /* MagazineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32479701D8F8BB6004C7A7B /* MagazineViewController.m */; };
+		D32479741D8F8BCD004C7A7B /* PeriodicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32479731D8F8BCD004C7A7B /* PeriodicalViewController.m */; };
 		D32689D21D7F9B0300DEB5AA /* OnlyWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D32689D01D7F9B0300DEB5AA /* OnlyWordCell.m */; };
 		D32689D31D7F9B0300DEB5AA /* OnlyWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D32689D11D7F9B0300DEB5AA /* OnlyWordCell.xib */; };
 		D32689D61D7FBD4D00DEB5AA /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32689D51D7FBD4D00DEB5AA /* NewsDetailViewController.m */; };
@@ -189,6 +198,24 @@
 		D323750D1D4AE5B6003042C6 /* TierCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierCollectionReusableView.h; sourceTree = "<group>"; };
 		D323750E1D4AE5B6003042C6 /* TierCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierCollectionReusableView.m; sourceTree = "<group>"; };
 		D323750F1D4AE5B6003042C6 /* TierCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TierCollectionReusableView.xib; sourceTree = "<group>"; };
+		D324795A1D8F8AA0004C7A7B /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		D324795B1D8F8AA0004C7A7B /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		D324795D1D8F8B50004C7A7B /* TopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicViewController.h; sourceTree = "<group>"; };
+		D324795E1D8F8B50004C7A7B /* TopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicViewController.m; sourceTree = "<group>"; };
+		D32479601D8F8B5E004C7A7B /* PicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicViewController.h; sourceTree = "<group>"; };
+		D32479611D8F8B5E004C7A7B /* PicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicViewController.m; sourceTree = "<group>"; };
+		D32479631D8F8B6D004C7A7B /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		D32479641D8F8B6D004C7A7B /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		D32479661D8F8B7B004C7A7B /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		D32479671D8F8B7B004C7A7B /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		D32479691D8F8B88004C7A7B /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
+		D324796A1D8F8B88004C7A7B /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
+		D324796C1D8F8B9F004C7A7B /* PinkactivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinkactivityViewController.h; sourceTree = "<group>"; };
+		D324796D1D8F8B9F004C7A7B /* PinkactivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinkactivityViewController.m; sourceTree = "<group>"; };
+		D324796F1D8F8BB6004C7A7B /* MagazineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagazineViewController.h; sourceTree = "<group>"; };
+		D32479701D8F8BB6004C7A7B /* MagazineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagazineViewController.m; sourceTree = "<group>"; };
+		D32479721D8F8BCD004C7A7B /* PeriodicalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodicalViewController.h; sourceTree = "<group>"; };
+		D32479731D8F8BCD004C7A7B /* PeriodicalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodicalViewController.m; sourceTree = "<group>"; };
 		D32689CF1D7F9B0300DEB5AA /* OnlyWordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyWordCell.h; sourceTree = "<group>"; };
 		D32689D01D7F9B0300DEB5AA /* OnlyWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyWordCell.m; sourceTree = "<group>"; };
 		D32689D11D7F9B0300DEB5AA /* OnlyWordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlyWordCell.xib; sourceTree = "<group>"; };
@@ -698,6 +725,24 @@
 				D34F50921D5470D0004B25C5 /* CityViewController.m */,
 				D32689D41D7FBD4D00DEB5AA /* NewsDetailViewController.h */,
 				D32689D51D7FBD4D00DEB5AA /* NewsDetailViewController.m */,
+				D324795A1D8F8AA0004C7A7B /* VideoViewController.h */,
+				D324795B1D8F8AA0004C7A7B /* VideoViewController.m */,
+				D324795D1D8F8B50004C7A7B /* TopicViewController.h */,
+				D324795E1D8F8B50004C7A7B /* TopicViewController.m */,
+				D32479601D8F8B5E004C7A7B /* PicViewController.h */,
+				D32479611D8F8B5E004C7A7B /* PicViewController.m */,
+				D32479631D8F8B6D004C7A7B /* WebViewController.h */,
+				D32479641D8F8B6D004C7A7B /* WebViewController.m */,
+				D32479661D8F8B7B004C7A7B /* ActivityViewController.h */,
+				D32479671D8F8B7B004C7A7B /* ActivityViewController.m */,
+				D32479691D8F8B88004C7A7B /* LiveViewController.h */,
+				D324796A1D8F8B88004C7A7B /* LiveViewController.m */,
+				D324796C1D8F8B9F004C7A7B /* PinkactivityViewController.h */,
+				D324796D1D8F8B9F004C7A7B /* PinkactivityViewController.m */,
+				D324796F1D8F8BB6004C7A7B /* MagazineViewController.h */,
+				D32479701D8F8BB6004C7A7B /* MagazineViewController.m */,
+				D32479721D8F8BCD004C7A7B /* PeriodicalViewController.h */,
+				D32479731D8F8BCD004C7A7B /* PeriodicalViewController.m */,
 			);
 			path = Subpage;
 			sourceTree = "<group>";
@@ -1062,6 +1107,7 @@
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
 				D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */,
 				D30741A81D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m in Sources */,
+				D324796E1D8F8B9F004C7A7B /* PinkactivityViewController.m in Sources */,
 				D3276A991D2A397D00A249C9 /* main.m in Sources */,
 				D30C75D31D35C0FB00248DE0 /* IphoneParams.m in Sources */,
 				D36150491D5D6DB5003779A5 /* CityListItemMode.m in Sources */,
@@ -1070,10 +1116,12 @@
 				D31A339F1D2B506700401658 /* IndexViewController.m in Sources */,
 				D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */,
 				D32D86641D46142C008D7216 /* ChannelMode.m in Sources */,
+				D32479681D8F8B7B004C7A7B /* ActivityViewController.m in Sources */,
 				D32BD2161D7D4EBC00DB44DE /* EnvironmentMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
 				D3C4EC641D485F1D002D4BC9 /* TierManageView.m in Sources */,
 				D32C36961D321B8E00431829 /* MyViewController.m in Sources */,
+				D324796B1D8F8B88004C7A7B /* LiveViewController.m in Sources */,
 				D323750B1D4ADDA6003042C6 /* TierCollectionViewCell.m in Sources */,
 				D3C4EC691D485FF6002D4BC9 /* TierHeadView.m in Sources */,
 				D32BD2221D7D511900DB44DE /* YesterdayMode.m in Sources */,
@@ -1108,6 +1156,8 @@
 				D30C75D71D35D0FD00248DE0 /* UIColor+hexColor.m in Sources */,
 				D37007E51D34CA19007E2AA3 /* MD5.m in Sources */,
 				D30E09481D40550E00954670 /* TagMode.m in Sources */,
+				D32479741D8F8BCD004C7A7B /* PeriodicalViewController.m in Sources */,
+				D32479651D8F8B6D004C7A7B /* WebViewController.m in Sources */,
 				D3CEF61B1D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.m in Sources */,
 				D3CEF6251D3CAE5100696FF5 /* NewsMode.m in Sources */,
 				D319C88F1D387307002A84F5 /* LoadingMode.m in Sources */,
@@ -1115,17 +1165,21 @@
 				D32C36901D321B6200431829 /* ViewPointViewController.m in Sources */,
 				D33836751D40CD44008ADE4C /* SectionView.m in Sources */,
 				D32BD2251D7D517800DB44DE /* YesterdayDayMode.m in Sources */,
+				D324795F1D8F8B50004C7A7B /* TopicViewController.m in Sources */,
 				D32BD2281D7D5BEA00DB44DE /* ForecastMode.m in Sources */,
 				D33A81071D499DF900F6F4D8 /* PullCollectionView.m in Sources */,
 				D3CEF6281D3CAE6600696FF5 /* ImageMode.m in Sources */,
 				D33836711D40AF82008ADE4C /* OneBigPicCell.m in Sources */,
+				D32479711D8F8BB6004C7A7B /* MagazineViewController.m in Sources */,
 				D32C36991D321D6C00431829 /* UIViewController+LoadFromStoryboard.m in Sources */,
 				D32689D21D7F9B0300DEB5AA /* OnlyWordCell.m in Sources */,
+				D324795C1D8F8AA0004C7A7B /* VideoViewController.m in Sources */,
 				D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */,
 				D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */,
 				D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */,
 				D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */,
 				D32BD2191D7D4FA900DB44DE /* WeatherItemMode.m in Sources */,
+				D32479621D8F8B5E004C7A7B /* PicViewController.m in Sources */,
 				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,
 				D3C0D83A1D8E73AE00A4B051 /* NetworkCache.m in Sources */,
 				D33A81531D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m in Sources */,

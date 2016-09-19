@@ -17,4 +17,6 @@
 
 @property (nonatomic, retain) UILabel *pageTitle;
 @property (nonatomic, retain) UIButton *pageShareBtn;
+
+@property (nonatomic, retain) NSString *url;
 @end
