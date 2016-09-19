@@ -109,10 +109,11 @@
 //缓存数据返回
 - (void)requestDidCacheReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg {
     if ([tag isEqualToString:@"homeData"]) {
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
-        self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
         if (returnJson) {
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+            self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
+            self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
+            
             NSArray *newsAry = [returnJson objectForKey:@"nodes"];
             [TierManageMode compareAndSave:newsAry key:Home];
             self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
