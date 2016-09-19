@@ -175,7 +175,6 @@
                     [weakSelf removewItem];
                 }];
             }else{
-                NSLog(@"xml===post======");
                 [manager POST:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     NSDictionary *returnData = [NSDictionary dictionaryWithXMLParser:responseObject];
                     if (successBlock) {
