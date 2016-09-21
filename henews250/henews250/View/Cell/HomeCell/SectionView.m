@@ -60,7 +60,7 @@
     theAnimation=[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     theAnimation.duration=0.3f;
     theAnimation.removedOnCompletion = NO;
-    theAnimation.delegate = self;
+//    theAnimation.delegate = self;
     theAnimation.fromValue = [NSNumber numberWithFloat:0];
     theAnimation.toValue = [NSNumber numberWithFloat:2*PI];
     [_changeIcon.layer addAnimation:theAnimation forKey:@"animateTransform"];
