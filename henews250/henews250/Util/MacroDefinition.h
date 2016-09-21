@@ -92,11 +92,6 @@ typedef enum _iPhoneType {
 #define TEXTHEIGHT(str, attribute, w) ([(str) boundingRectWithSize:CGSizeMake(w, MAXFLOAT) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size.height)
 
 
-#pragma mark - 栏目标示
-#define Home (@"home")
-#define News (@"news")
-#define View (@"view")
-
 
 #define DegreeCelsius (@"℃")
 #endif /* MacroDefinition_h */

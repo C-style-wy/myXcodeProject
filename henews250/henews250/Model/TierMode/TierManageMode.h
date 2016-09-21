@@ -10,6 +10,11 @@
 #import "LocalTierMode.h"
 #import "TierMode.h"
 
+
+#pragma mark - 栏目标示
+#define Home (@"home")
+#define News (@"news")
+#define View (@"view")
 @interface TierManageMode : BaseMode
 
 //比较本地栏目数据，并存储到本地(使用NSUserDefaults存储)
@@ -18,4 +23,5 @@
 + (LocalTierMode*)readLocadTier:(NSString*)key;
 //保存栏目到本地
 + (void)saveData:(LocalTierMode*)mode Key:(NSString*)key;
+
 @end

@@ -10,6 +10,16 @@
 #import "XNTabBarView.h"
 
 
-@interface NewsViewController : BaseViewController<TabBarBtnDelegate>
+@interface NewsViewController : BaseViewController<TabBarBtnDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIScrollView *classScrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *addImage;
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+
+
+@property (nonatomic, retain) UITableView *firstTableView;
+@property (nonatomic, retain) UITableView *middleTableView;
+@property (nonatomic, retain) UITableView *lastTableView;
+
+@property (nonatomic, assign) NSInteger curClass;
 
 @end

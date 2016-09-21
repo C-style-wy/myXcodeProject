@@ -160,8 +160,6 @@
 }
 
 + (void)didSelectRowAtIndexPath:(NodeMode *)modul row:(NSInteger)row navigation:(UINavigationController *)navigation{
-//    NewsDetailViewController *newsDetail = [NewsDetailViewController loadFromStoryboard];
-//    [navigation pushViewController:newsDetail animated:YES];
     if ([modul.displayType intValue] != WeatherMode) {
         NewsMode *news = [modul.newsList objectAtIndex:row];
         switch ([news.newsType intValue]) {

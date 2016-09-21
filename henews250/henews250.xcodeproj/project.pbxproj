@@ -123,6 +123,7 @@
 		D3CEF6281D3CAE6600696FF5 /* ImageMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF6271D3CAE6600696FF5 /* ImageMode.m */; };
 		D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62A1D3CB07600696FF5 /* NodeMode.m */; };
 		D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62D1D3CB21100696FF5 /* HomeMode.m */; };
+		D3F230A41D911FE400697A6C /* TierManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F230A31D911FE400697A6C /* TierManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,6 +369,8 @@
 		D3CEF62A1D3CB07600696FF5 /* NodeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeMode.m; sourceTree = "<group>"; };
 		D3CEF62C1D3CB21100696FF5 /* HomeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMode.h; sourceTree = "<group>"; };
 		D3CEF62D1D3CB21100696FF5 /* HomeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMode.m; sourceTree = "<group>"; };
+		D3F230A21D911FE400697A6C /* TierManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierManager.h; sourceTree = "<group>"; };
+		D3F230A31D911FE400697A6C /* TierManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,6 +457,8 @@
 				D31AA0B51D470B860036004A /* LocalTierMode.m */,
 				D31AA0B11D4707F80036004A /* TierManageMode.h */,
 				D31AA0B21D4707F80036004A /* TierManageMode.m */,
+				D3F230A21D911FE400697A6C /* TierManager.h */,
+				D3F230A31D911FE400697A6C /* TierManager.m */,
 			);
 			path = TierMode;
 			sourceTree = "<group>";
@@ -957,7 +962,7 @@
 		D3276A8C1D2A397D00A249C9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "汪洋";
 				TargetAttributes = {
 					D3276A931D2A397D00A249C9 = {
@@ -1129,6 +1134,7 @@
 				D32BD21C1D7D4FDE00DB44DE /* DayMode.m in Sources */,
 				D32C368D1D321B3300431829 /* NewsViewController.m in Sources */,
 				D34F50931D5470D0004B25C5 /* CityViewController.m in Sources */,
+				D3F230A41D911FE400697A6C /* TierManager.m in Sources */,
 				D32BD2131D7D4DCC00DB44DE /* WeatherMode.m in Sources */,
 				D32BD22B1D7D5C9F00DB44DE /* ZhishusMode.m in Sources */,
 				D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */,
@@ -1244,8 +1250,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1285,8 +1293,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1550,8 +1560,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
