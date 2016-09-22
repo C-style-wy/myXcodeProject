@@ -35,7 +35,7 @@ static NSString *const footerId = @"footerId";
 }
 
 - (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn {
-    _tiers = [TierManageMode readLocadTier:_tierName];
+    _tiers = [[TierManager shareInstance] readLocadTier:_tierName];
     _hiddenDelete = YES;
     [self.collectionView reloadData];
     

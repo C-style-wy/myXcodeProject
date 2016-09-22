@@ -14,7 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIView+SetAllSubViewHidden.h"
 #import "UIColor+hexColor.h"
-#import "TierManageMode.h"
+#import "TierManager.h"
 #import "UIViewController+LoadFromStoryboard.h"
 
 #import "CityManager.h"

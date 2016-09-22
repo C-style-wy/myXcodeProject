@@ -54,13 +54,14 @@
 #pragma mark - 请求接口
 - (void)requestData {
     NSString *indexUrl = [DEF_GetIndexpage stringByAppendingString:[[CityManager shareInstance] getCity]];
-    
     [NetworkManager postRequestJsonWithURL:indexUrl params:nil delegate:self tag:@"indexData" msg:0 useCache:NO update:YES showHUD:NO];
 }
 
 #pragma mark - 数据返回
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
     self.loadingMode = [LoadingMode mj_objectWithKeyValues:returnJson];
+    [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"hNewsNodes"] key:News];
+    [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"videoNodes"] key:View];
     //设置广告图
     if (!isFirstOpen) {
         if (![self showOrHideAdImage]) {

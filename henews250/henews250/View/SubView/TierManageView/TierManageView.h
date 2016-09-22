@@ -14,7 +14,7 @@
 #import "TierCollectionReusableView.h"
 #import "LocalTierMode.h"
 #import "MacroDefinition.h"
-#import "TierManageMode.h"
+#import "TierManager.h"
 
 @protocol TierManageViewDelegate <NSObject>
 

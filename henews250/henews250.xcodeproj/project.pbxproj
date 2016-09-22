@@ -23,7 +23,6 @@
 		D31A33A21D2B538800401658 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31A33A11D2B538800401658 /* BaseViewController.m */; };
 		D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0AB1D46F32F0036004A /* BaseMode.m */; };
 		D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0AF1D46F3AE0036004A /* TierMode.m */; };
-		D31AA0B31D4707F80036004A /* TierManageMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0B21D4707F80036004A /* TierManageMode.m */; };
 		D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0B51D470B860036004A /* LocalTierMode.m */; };
 		D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */ = {isa = PBXBuildFile; fileRef = D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */; };
 		D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */; };
@@ -179,8 +178,6 @@
 		D31AA0AB1D46F32F0036004A /* BaseMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMode.m; sourceTree = "<group>"; };
 		D31AA0AE1D46F3AE0036004A /* TierMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierMode.h; sourceTree = "<group>"; };
 		D31AA0AF1D46F3AE0036004A /* TierMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierMode.m; sourceTree = "<group>"; };
-		D31AA0B11D4707F80036004A /* TierManageMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierManageMode.h; sourceTree = "<group>"; };
-		D31AA0B21D4707F80036004A /* TierManageMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierManageMode.m; sourceTree = "<group>"; };
 		D31AA0B41D470B860036004A /* LocalTierMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTierMode.h; sourceTree = "<group>"; };
 		D31AA0B51D470B860036004A /* LocalTierMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTierMode.m; sourceTree = "<group>"; };
 		D31DE9F21D2C8DBC00D2B0AB /* GuidePage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage1.h; sourceTree = "<group>"; };
@@ -455,8 +452,6 @@
 				D31AA0AF1D46F3AE0036004A /* TierMode.m */,
 				D31AA0B41D470B860036004A /* LocalTierMode.h */,
 				D31AA0B51D470B860036004A /* LocalTierMode.m */,
-				D31AA0B11D4707F80036004A /* TierManageMode.h */,
-				D31AA0B21D4707F80036004A /* TierManageMode.m */,
 				D3F230A21D911FE400697A6C /* TierManager.h */,
 				D3F230A31D911FE400697A6C /* TierManager.m */,
 			);
@@ -1102,7 +1097,6 @@
 				D38DF7261D3F72840042A241 /* NewsCellFactory.m in Sources */,
 				D35BB1CD1D4220CE000D6BFD /* MyPageControl.m in Sources */,
 				D32BD21F1D7D509800DB44DE /* ZhishuMode.m in Sources */,
-				D31AA0B31D4707F80036004A /* TierManageMode.m in Sources */,
 				D32D86671D462ED1008D7216 /* ChangeDataMode.m in Sources */,
 				D340C1311D640AB8007D4C3D /* CityMode.m in Sources */,
 				D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */,

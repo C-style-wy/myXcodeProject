@@ -94,9 +94,7 @@
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
         [self.tableView.mj_header endRefreshing];
         if (returnJson) {
-            NSArray *newsAry = [returnJson objectForKey:@"nodes"];
-            [TierManageMode compareAndSave:newsAry key:Home];
-            
+            [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"nodes"] key:Home];
             self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
             [self dealData];
         }
@@ -121,8 +119,7 @@
             self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
             self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
             
-            NSArray *newsAry = [returnJson objectForKey:@"nodes"];
-            [TierManageMode compareAndSave:newsAry key:Home];
+            [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"nodes"] key:Home];
             self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
             [self dealData];
         }
