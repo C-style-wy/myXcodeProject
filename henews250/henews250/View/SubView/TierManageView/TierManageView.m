@@ -79,6 +79,9 @@ static NSString *const footerId = @"footerId";
 }
 
 - (void)closeTierManageView:(UIImageView*)image {
+    if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:orderTiers:nodeId:)]) {
+        [self.delegate whenOpenOrCloseTierManage:NO orderTiers:_tiers.orderTier nodeId:_clickTier];
+    }
     self.mainViewBottom.constant = self.frame.size.height;
     [UIView animateWithDuration:openOrCloseTime
                      animations:^{
@@ -88,10 +91,6 @@ static NSString *const footerId = @"footerId";
                      completion:^(BOOL finished){
                          tierHeadView.hidden = YES;
                          self.hidden = YES;
-                         
-                         if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:orderTiers:nodeId:)]) {
-                             [self.delegate whenOpenOrCloseTierManage:NO orderTiers:_tiers.orderTier nodeId:_clickTier];
-                         }
                      }];
 }
 

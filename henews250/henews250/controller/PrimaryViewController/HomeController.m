@@ -111,6 +111,7 @@
             node.newsList = _changeData.newsList;
             NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
             [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+            [_tableView reloadData];
         }
     }
 }
@@ -228,7 +229,7 @@
         if (nodeId != nil) {
             canReflush = NO;
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:[self inTableSectionWithTier:nodeId]];
-            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
         }
     }
 }
