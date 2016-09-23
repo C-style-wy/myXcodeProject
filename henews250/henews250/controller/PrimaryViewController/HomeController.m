@@ -21,6 +21,8 @@
 
 @implementation HomeController {
     TierManageView *tierManageView;
+    //置顶时是否刷新
+    BOOL canReflush;
 }
 
 - (void)viewDidLoad {
@@ -56,6 +58,7 @@
 
 #pragma mark - init
 - (void)initPage {
+    canReflush = YES;
     UIImageView *setImage = [[UIImageView alloc] initWithFrame:CGRectMake(50-29, 5.5, 22, 22)];
     setImage.image = [UIImage imageNamed:@"channel_set_icon"];
     [self.setBtn addSubview:setImage];
@@ -96,6 +99,7 @@
         if (returnJson) {
             [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"nodes"] key:Home];
             self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
+            self.orderAry = [[TierManager shareInstance] getOrderTierFromLocal:Home];
             [self dealData];
         }
         
@@ -118,8 +122,7 @@
             self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
             self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
             self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
-            
-            [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"nodes"] key:Home];
+            self.orderAry = [[TierManager shareInstance]getOrderTierFromLocal:Home];
             self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
             [self dealData];
         }
@@ -155,12 +158,16 @@
         NSMutableArray *bannersAry = [_homeMode.banners copy];
         [_tableViewData addObject:bannersAry];
     }
-//    [_tableViewData addObjectsFromArray:_homeMode.nodes];
-    for (int i = 0; i < _homeMode.nodes.count; i++) {
-        NodeMode *mudel = [_homeMode.nodes objectAtIndex:i];
-        if (mudel.nodeName && ![mudel.nodeName isEqualToString:@""]) {
-            if (([mudel.displayType intValue] == EditorRecommend && mudel.newsList && mudel.newsList.count > 0) || [mudel.displayType intValue] != EditorRecommend) {
-                [_tableViewData addObject:mudel];
+    for (int i = 0; i < self.orderAry.count; i++) {
+        TierMode *tier = [self.orderAry objectAtIndex:i];
+        for (int j = 0; j < self.homeMode.nodes.count; j++) {
+            NodeMode *mudel = [_homeMode.nodes objectAtIndex:j];
+            if ([tier.nodeId isEqualToString:mudel.nodeId]) {
+                if (mudel.nodeName && ![mudel.nodeName isEqualToString:@""]) {
+                    if (([mudel.displayType intValue] == EditorRecommend && mudel.newsList && mudel.newsList.count > 0) || [mudel.displayType intValue] != EditorRecommend) {
+                        [_tableViewData addObject:mudel];
+                    }
+                }
             }
         }
     }
@@ -193,6 +200,7 @@
     if (_tableView.contentOffset.y == 0) {
         [self.tableView.mj_header beginRefreshing];
     }else{
+        canReflush = YES;
         [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
 }
@@ -207,13 +215,36 @@
 }
 
 #pragma mark - TierManageViewDelegate
-- (void)whenOpenOrCloseTierManage:(BOOL)isOpen nodeId:(NSString*)nodeId{
+- (void)whenOpenOrCloseTierManage:(BOOL)open orderTiers:(NSMutableArray*)orderTiers nodeId:(TierMode*)nodeId{
     XNTabBarView *tabBarViewController = (XNTabBarView*)self.tabBarController;
-    if (isOpen) {
+    if (open) {
         [tabBarViewController closeMenu];
     }else{
         [tabBarViewController openMenu];
+        if (orderTiers != nil) {
+            self.orderAry = orderTiers;
+            [self dealData];
+        }
+        if (nodeId != nil) {
+            canReflush = NO;
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:[self inTableSectionWithTier:nodeId]];
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        }
     }
+}
+
+- (NSInteger)inTableSectionWithTier:(TierMode*)tier {
+    NSInteger section = 0;
+    for (int i =  0; i < _tableViewData.count; i++) {
+        if ([[_tableViewData objectAtIndex:i] isKindOfClass:[NodeMode class]]) {
+            NodeMode *modul = [_tableViewData objectAtIndex:i];
+            if ([modul.nodeId isEqualToString:tier.nodeId]) {
+                section = i;
+                return section;
+            }
+        }
+    }
+    return section;
 }
 
 #pragma mark - tableView
@@ -285,6 +316,8 @@
 
 //setContentOffset:CGPointMake(0, 0) animated:YES动画结束回调函数
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    [self.tableView.mj_header beginRefreshing];
+    if (canReflush) {
+        [self.tableView.mj_header beginRefreshing];
+    }
 }
 @end

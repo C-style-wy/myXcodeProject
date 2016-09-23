@@ -36,6 +36,7 @@ static NSString *const footerId = @"footerId";
 
 - (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn {
     _tiers = [[TierManager shareInstance] readLocadTier:_tierName];
+    _clickTier = nil;
     _hiddenDelete = YES;
     [self.collectionView reloadData];
     
@@ -71,17 +72,14 @@ static NSString *const footerId = @"footerId";
                              tierHeadView.alpha = 1.0f;
                          }];
                          btnImage.transform = CGAffineTransformMakeRotation(0);
-                         if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:nodeId:)]) {
-                             [self.delegate whenOpenOrCloseTierManage:YES nodeId:nil];
+                         if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:orderTiers:nodeId:)]) {
+                             [self.delegate whenOpenOrCloseTierManage:YES orderTiers:_tiers.orderTier nodeId:_clickTier];
                          }
                      }];
 }
 
 - (void)closeTierManageView:(UIImageView*)image {
     self.mainViewBottom.constant = self.frame.size.height;
-    if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:nodeId:)]) {
-        [self.delegate whenOpenOrCloseTierManage:NO nodeId:nil];
-    }
     [UIView animateWithDuration:openOrCloseTime
                      animations:^{
                          image.transform = CGAffineTransformMakeRotation(PI+PI/2);
@@ -90,6 +88,10 @@ static NSString *const footerId = @"footerId";
                      completion:^(BOOL finished){
                          tierHeadView.hidden = YES;
                          self.hidden = YES;
+                         
+                         if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:orderTiers:nodeId:)]) {
+                             [self.delegate whenOpenOrCloseTierManage:NO orderTiers:_tiers.orderTier nodeId:_clickTier];
+                         }
                      }];
 }
 
@@ -135,7 +137,6 @@ static NSString *const footerId = @"footerId";
         if(footerView == nil) {
             footerView = [[TierCollectionReusableView alloc] init];
         }
-        //        footerView.backgroundColor = [UIColor lightGrayColor];
         return footerView;
     }
     
@@ -149,6 +150,7 @@ static NSString *const footerId = @"footerId";
     
     if (fromIndexPath.section == 0 && toIndexPath.section == 0) {
         [_tiers.orderTier exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];
+        [[TierManager shareInstance]saveData:_tiers Key:_tierName];
     }
 
 }
@@ -229,8 +231,27 @@ static NSString *const footerId = @"footerId";
             [collectionView deleteItemsAtIndexPaths:@[indexPath]];
             [collectionView insertItemsAtIndexPaths:@[newIndexPath]];
         } completion:^(BOOL finished) {
-            
+            [[TierManager shareInstance] saveData:_tiers Key:_tierName];
         }];
+    }else {
+        if (0 == indexPath.section) {
+            _clickTier = [_tiers.orderTier objectAtIndex:indexPath.row];
+            [self closeTierManageView:tierHeadView.addImage];
+        }else{
+            TierMode *tier;
+            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:_tiers.orderTier.count inSection:0];
+            
+            tier = [_tiers.notOrderTier objectAtIndex:indexPath.row];
+            [_tiers.notOrderTier removeObjectAtIndex:indexPath.row];
+            
+            [_tiers.orderTier addObject:tier];
+            [collectionView performBatchUpdates:^{
+                [collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                [collectionView insertItemsAtIndexPaths:@[newIndexPath]];
+            } completion:^(BOOL finished) {
+                [[TierManager shareInstance] saveData:_tiers Key:_tierName];
+            }];
+        }
     }
     
 }
