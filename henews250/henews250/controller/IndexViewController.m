@@ -59,13 +59,15 @@
 
 #pragma mark - 数据返回
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
-    self.loadingMode = [LoadingMode mj_objectWithKeyValues:returnJson];
-    [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"hNewsNodes"] key:News];
-    [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"videoNodes"] key:View];
-    //设置广告图
-    if (!isFirstOpen) {
-        if (![self showOrHideAdImage]) {
-            [self jumpeHome:NO];
+    if ([tag isEqualToString:@"indexData"]) {
+        self.loadingMode = [LoadingMode mj_objectWithKeyValues:returnJson];
+        [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"hNewsNodes"] key:News];
+        [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"videoNodes"] key:View];
+        //设置广告图
+        if (!isFirstOpen) {
+            if (![self showOrHideAdImage]) {
+                [self jumpeHome:NO];
+            }
         }
     }
 }

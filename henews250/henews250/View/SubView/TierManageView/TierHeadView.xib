@@ -27,6 +27,11 @@
                             <color key="textColor" red="0.090196078431372548" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="完成" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLC-nE-5AT">
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.84313725490196079" green="0.0" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addGray" translatesAutoresizingMaskIntoConstraints="NO" id="n1d-zS-U3f">
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="EyE-pT-MAq"/>
@@ -46,8 +51,12 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="n1d-zS-U3f" secondAttribute="trailing" constant="8" id="8ML-vt-7vj"/>
                         <constraint firstItem="5Tu-zJ-IGd" firstAttribute="leading" secondItem="PPm-zT-q7J" secondAttribute="leading" constant="8" id="8PI-E9-lgB"/>
+                        <constraint firstItem="eLC-nE-5AT" firstAttribute="bottom" secondItem="n1d-zS-U3f" secondAttribute="bottom" id="8Qx-Yv-Lr9"/>
                         <constraint firstItem="8gB-2y-0z0" firstAttribute="top" secondItem="PPm-zT-q7J" secondAttribute="top" id="9MA-qc-0h6"/>
+                        <constraint firstItem="eLC-nE-5AT" firstAttribute="top" secondItem="n1d-zS-U3f" secondAttribute="top" id="Gf5-3P-FvK"/>
+                        <constraint firstItem="eLC-nE-5AT" firstAttribute="trailing" secondItem="n1d-zS-U3f" secondAttribute="trailing" id="bs4-M1-hh3"/>
                         <constraint firstAttribute="trailing" secondItem="8gB-2y-0z0" secondAttribute="trailing" id="e6x-ks-5jf"/>
+                        <constraint firstItem="eLC-nE-5AT" firstAttribute="height" secondItem="n1d-zS-U3f" secondAttribute="height" id="frg-cg-idt"/>
                         <constraint firstAttribute="bottom" secondItem="8gB-2y-0z0" secondAttribute="bottom" id="hHJ-eQ-nZD"/>
                         <constraint firstItem="5Tu-zJ-IGd" firstAttribute="top" secondItem="PPm-zT-q7J" secondAttribute="top" id="rQI-gX-x30"/>
                         <constraint firstItem="n1d-zS-U3f" firstAttribute="centerY" secondItem="PPm-zT-q7J" secondAttribute="centerY" id="xjK-fX-2lC"/>
@@ -68,6 +77,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="addImage" destination="n1d-zS-U3f" id="mcT-Qo-0Gq"/>
+                <outlet property="finishLabel" destination="eLC-nE-5AT" id="oCg-U5-8Bf"/>
             </connections>
             <point key="canvasLocation" x="261" y="131.5"/>
         </view>

@@ -82,8 +82,6 @@
 		D33836721D40AF82008ADE4C /* OneBigPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836701D40AF82008ADE4C /* OneBigPicCell.xib */; };
 		D33836751D40CD44008ADE4C /* SectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33836741D40CD44008ADE4C /* SectionView.m */; };
 		D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836761D40CD9F008ADE4C /* SectionView.xib */; };
-		D33A81071D499DF900F6F4D8 /* PullCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A81061D499DF900F6F4D8 /* PullCollectionView.m */; };
-		D33A81531D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A81521D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m */; };
 		D340C1311D640AB8007D4C3D /* CityMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D340C1301D640AB8007D4C3D /* CityMode.m */; };
 		D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F50891D5466CC004B25C5 /* SubBaseViewController.m */; };
 		D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F508D1D546A3A004B25C5 /* SubPageHeadView.m */; };
@@ -111,6 +109,8 @@
 		D38DF7291D3F75CD0042A241 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DF7281D3F75CD0042A241 /* BaseCell.m */; };
 		D38DF72D1D3F7C7C0042A241 /* EveryOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DF72B1D3F7C7C0042A241 /* EveryOneCell.m */; };
 		D38DF72E1D3F7C7C0042A241 /* EveryOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D38DF72C1D3F7C7C0042A241 /* EveryOneCell.xib */; };
+		D3957B6A1D950F3C00F4A360 /* PullCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3957B691D950F3C00F4A360 /* PullCollectionView.m */; };
+		D396D2801D9796ED006097EE /* HideDeleteMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D396D27F1D9796ED006097EE /* HideDeleteMode.m */; };
 		D3C0D83A1D8E73AE00A4B051 /* NetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C0D8391D8E73AE00A4B051 /* NetworkCache.m */; };
 		D3C4EC641D485F1D002D4BC9 /* TierManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C4EC631D485F1D002D4BC9 /* TierManageView.m */; };
 		D3C4EC661D485F37002D4BC9 /* TierManageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C4EC651D485F37002D4BC9 /* TierManageView.xib */; };
@@ -291,10 +291,6 @@
 		D33A642F1D62AEF300102968 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		D33A64301D62AF4900102968 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		D33A64311D62AF6900102968 /* ReleaseTestConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseTestConfig.xcconfig; sourceTree = "<group>"; };
-		D33A81051D499DF900F6F4D8 /* PullCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullCollectionView.h; sourceTree = "<group>"; };
-		D33A81061D499DF900F6F4D8 /* PullCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullCollectionView.m; sourceTree = "<group>"; };
-		D33A81511D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		D33A81521D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		D340C12F1D640AB8007D4C3D /* CityMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityMode.h; sourceTree = "<group>"; };
 		D340C1301D640AB8007D4C3D /* CityMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityMode.m; sourceTree = "<group>"; };
 		D34F50881D5466CC004B25C5 /* SubBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubBaseViewController.h; sourceTree = "<group>"; };
@@ -345,6 +341,10 @@
 		D38DF72A1D3F7C7C0042A241 /* EveryOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EveryOneCell.h; sourceTree = "<group>"; };
 		D38DF72B1D3F7C7C0042A241 /* EveryOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EveryOneCell.m; sourceTree = "<group>"; };
 		D38DF72C1D3F7C7C0042A241 /* EveryOneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EveryOneCell.xib; sourceTree = "<group>"; };
+		D3957B681D950F3C00F4A360 /* PullCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullCollectionView.h; sourceTree = "<group>"; };
+		D3957B691D950F3C00F4A360 /* PullCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullCollectionView.m; sourceTree = "<group>"; };
+		D396D27E1D9796ED006097EE /* HideDeleteMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HideDeleteMode.h; sourceTree = "<group>"; };
+		D396D27F1D9796ED006097EE /* HideDeleteMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HideDeleteMode.m; sourceTree = "<group>"; };
 		D3B693921D2BBF5D00F8D1C4 /* MacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
 		D3C0D8381D8E73AE00A4B051 /* NetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCache.h; sourceTree = "<group>"; };
 		D3C0D8391D8E73AE00A4B051 /* NetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCache.m; sourceTree = "<group>"; };
@@ -454,6 +454,8 @@
 				D31AA0B51D470B860036004A /* LocalTierMode.m */,
 				D3F230A21D911FE400697A6C /* TierManager.h */,
 				D3F230A31D911FE400697A6C /* TierManager.m */,
+				D396D27E1D9796ED006097EE /* HideDeleteMode.h */,
+				D396D27F1D9796ED006097EE /* HideDeleteMode.m */,
 			);
 			path = TierMode;
 			sourceTree = "<group>";
@@ -855,16 +857,14 @@
 				D3C4EC671D485FF6002D4BC9 /* TierHeadView.h */,
 				D3C4EC681D485FF6002D4BC9 /* TierHeadView.m */,
 				D3C4EC6A1D48600F002D4BC9 /* TierHeadView.xib */,
-				D33A81051D499DF900F6F4D8 /* PullCollectionView.h */,
-				D33A81061D499DF900F6F4D8 /* PullCollectionView.m */,
-				D33A81511D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.h */,
-				D33A81521D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m */,
 				D32375081D4ADDA6003042C6 /* TierCollectionViewCell.h */,
 				D32375091D4ADDA6003042C6 /* TierCollectionViewCell.m */,
 				D323750A1D4ADDA6003042C6 /* TierCollectionViewCell.xib */,
 				D323750D1D4AE5B6003042C6 /* TierCollectionReusableView.h */,
 				D323750E1D4AE5B6003042C6 /* TierCollectionReusableView.m */,
 				D323750F1D4AE5B6003042C6 /* TierCollectionReusableView.xib */,
+				D3957B681D950F3C00F4A360 /* PullCollectionView.h */,
+				D3957B691D950F3C00F4A360 /* PullCollectionView.m */,
 			);
 			path = TierManageView;
 			sourceTree = "<group>";
@@ -1113,6 +1113,7 @@
 				D31ED4031D3DBA34003C2A54 /* OneSmallPicCell.m in Sources */,
 				D3805DCC1D741EB500B6FAE5 /* NetworkHandler.m in Sources */,
 				D31A339F1D2B506700401658 /* IndexViewController.m in Sources */,
+				D396D2801D9796ED006097EE /* HideDeleteMode.m in Sources */,
 				D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */,
 				D32D86641D46142C008D7216 /* ChannelMode.m in Sources */,
 				D32479681D8F8B7B004C7A7B /* ActivityViewController.m in Sources */,
@@ -1142,6 +1143,7 @@
 				D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */,
 				D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */,
 				D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */,
+				D3957B6A1D950F3C00F4A360 /* PullCollectionView.m in Sources */,
 				D32BD20E1D7D040C00DB44DE /* HomeWeatherCell.m in Sources */,
 				D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */,
 				D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */,
@@ -1167,7 +1169,6 @@
 				D32BD2251D7D517800DB44DE /* YesterdayDayMode.m in Sources */,
 				D324795F1D8F8B50004C7A7B /* TopicViewController.m in Sources */,
 				D32BD2281D7D5BEA00DB44DE /* ForecastMode.m in Sources */,
-				D33A81071D499DF900F6F4D8 /* PullCollectionView.m in Sources */,
 				D3CEF6281D3CAE6600696FF5 /* ImageMode.m in Sources */,
 				D33836711D40AF82008ADE4C /* OneBigPicCell.m in Sources */,
 				D32479711D8F8BB6004C7A7B /* MagazineViewController.m in Sources */,
@@ -1182,7 +1183,6 @@
 				D32479621D8F8B5E004C7A7B /* PicViewController.m in Sources */,
 				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,
 				D3C0D83A1D8E73AE00A4B051 /* NetworkCache.m in Sources */,
-				D33A81531D4A12E100F6F4D8 /* PullCollectionViewFlowLayout.m in Sources */,
 				D3640C941D631E70008049E4 /* MPLocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

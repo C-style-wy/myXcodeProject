@@ -14,12 +14,15 @@
 
 @required
 - (void)closeTierManage:(UIImageView*)addImage;
+- (void)closeTierFinish;
 
 @end
 
 
 @interface TierHeadView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *finishLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *addImage;
+@property (nonatomic, assign) BOOL isShowDelete;
 
 @property (nonatomic, assign) id<TierHeadViewDelegate>delegate;
 @end

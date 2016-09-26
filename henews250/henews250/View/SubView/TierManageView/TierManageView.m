@@ -8,6 +8,7 @@
 
 #import "TierManageView.h"
 
+static NSString * const hiddenDeleteKeyPath = @"hiddenDelete";
 #define openOrCloseTime (0.3f)
 static NSString *const indentify = @"tierCell";
 static NSString *const footerId = @"footerId";
@@ -17,7 +18,6 @@ static NSString *const footerId = @"footerId";
     TierHeadView *tierHeadView;
     LocalTierMode *_tiers;
     NSString *_tierName;
-    BOOL _hiddenDelete;
 }
 
 - (id)initWithName:(NSString*)name {
@@ -28,8 +28,8 @@ static NSString *const footerId = @"footerId";
         self.collectionView.dataSource = self;
         [self.collectionView registerClass:[TierCollectionViewCell class] forCellWithReuseIdentifier:indentify];
         [self.collectionView registerClass:[TierCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footerId];
-        
-//        [self.collectionView reloadData];
+
+        [self addObserver:self forKeyPath:hiddenDeleteKeyPath options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
@@ -37,7 +37,7 @@ static NSString *const footerId = @"footerId";
 - (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn {
     _tiers = [[TierManager shareInstance] readLocadTier:_tierName];
     _clickTier = nil;
-    _hiddenDelete = YES;
+    self.hiddenDelete = YES;
     [self.collectionView reloadData];
     
     self.mainViewBottom.constant = self.frame.size.height;
@@ -78,6 +78,17 @@ static NSString *const footerId = @"footerId";
                      }];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([keyPath isEqualToString:hiddenDeleteKeyPath]) {
+        tierHeadView.isShowDelete = self.hiddenDelete;
+        BOOL newValue=[[change objectForKey:NSKeyValueChangeNewKey] intValue];
+        BOOL oldValue=[[change objectForKey:NSKeyValueChangeOldKey] intValue];
+        if (newValue != oldValue) {
+            [self.collectionView reloadData];
+        }
+    }
+}
+
 - (void)closeTierManageView:(UIImageView*)image {
     if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:orderTiers:nodeId:)]) {
         [self.delegate whenOpenOrCloseTierManage:NO orderTiers:_tiers.orderTier nodeId:_clickTier];
@@ -92,6 +103,9 @@ static NSString *const footerId = @"footerId";
                          tierHeadView.hidden = YES;
                          self.hidden = YES;
                      }];
+}
+- (void)closeTierFinish {
+    self.hiddenDelete = YES;
 }
 
 #pragma mark - TierHeadViewDelegate
@@ -122,7 +136,7 @@ static NSString *const footerId = @"footerId";
     
     TierCollectionViewCell *cell = (TierCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:indentify forIndexPath:indexPath];
     if (0 == indexPath.section) {
-        [cell initWithData:[ary objectAtIndex:indexPath.row] hiddenDelete:_hiddenDelete];
+        [cell initWithData:[ary objectAtIndex:indexPath.row] hiddenDelete:self.hiddenDelete];
     }else{
         [cell initWithData:[ary objectAtIndex:indexPath.row] hiddenDelete:YES];
     }
@@ -196,8 +210,7 @@ static NSString *const footerId = @"footerId";
     
 }
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didBeginDraggingItemAtIndexPath:(NSIndexPath *)indexPath{
-    _hiddenDelete = NO;
-    [self.collectionView reloadData];
+    self.hiddenDelete = NO;
 }
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -207,7 +220,7 @@ static NSString *const footerId = @"footerId";
 }
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (_hiddenDelete == NO) {
+    if (self.hiddenDelete == NO) {
         NSIndexPath *newIndexPath;
         TierMode *tier;
         if (0 == indexPath.section) {
@@ -254,4 +267,9 @@ static NSString *const footerId = @"footerId";
     }
     
 }
+
+- (void)dealloc {
+    [self removeObserver:self forKeyPath:hiddenDeleteKeyPath];
+}
+
 @end

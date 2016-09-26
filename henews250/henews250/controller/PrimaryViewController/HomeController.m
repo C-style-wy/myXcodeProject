@@ -28,17 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPage];
-    
-    //test
-//    static char overviewKey;
-//    NSArray *array = [[NSArray alloc] initWithObjects:@"One", @"Two", @"Three", nil];
-//    NSString *overview = [[NSString alloc] initWithFormat:@"%@", @"First three numbers"];
-//    objc_setAssociatedObject(array, &overviewKey, overview, OBJC_ASSOCIATION_RETAIN);
-//    
-//    NSString *associatedObject = (NSString*)objc_getAssociatedObject(array, &overviewKey);
-//    NSLog(@"associatedObject===%@", associatedObject);
-    
 }
+
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];

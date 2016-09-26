@@ -23,6 +23,7 @@
 }
 
 - (void)initPage {
+    [self.view layoutIfNeeded];
     self.classScrollView.delegate = self;
     self.mainScrollView.delegate = self;
     
@@ -54,6 +55,10 @@
     self.middleTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
     self.lastTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    
+//    
+//    [self.mainScrollView addSubview:_firstTableView];
+//    [self.mainScrollView setContentSize:CGSizeMake(SCREEN_WIDTH, 0)];
     
     self.curClass = 0;
     _beginScrollX = 0;

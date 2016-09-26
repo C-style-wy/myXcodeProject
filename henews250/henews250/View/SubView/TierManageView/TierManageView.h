@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewBottom;
 @property (weak, nonatomic) IBOutlet PullCollectionView *collectionView;
 @property (nonatomic, retain) TierMode *clickTier;
+@property (nonatomic, assign) BOOL hiddenDelete;
 
 
 - (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn;

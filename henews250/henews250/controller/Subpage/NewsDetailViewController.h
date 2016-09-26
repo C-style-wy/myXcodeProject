@@ -7,9 +7,11 @@
 //
 
 #import "SubBaseViewController.h"
+#import "HideDeleteMode.h"
 
 @interface NewsDetailViewController : SubBaseViewController
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
 
-
+@property (nonatomic, retain) HideDeleteMode *deleteData;
 
 @end
