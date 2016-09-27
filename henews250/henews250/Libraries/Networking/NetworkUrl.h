@@ -30,6 +30,14 @@
  */
 #define DEF_GetHomepage         PATH(@"%@/publish/clt/resource/portal/v230/home230.jsp?menu=shouye&city=")
 /**
+ *      资讯
+ */
+#define DEF_GetNewspage         PATH(@"%@/publish/clt/resource/portal/v1/channelNav220.jsp?channelType=1&city=")
+/**
+ *      视界
+ */
+#define DEF_GetViewpage         PATH(@"%@/publish/clt/resource/portal/v1/channelNav220.jsp?channelType=2&city=")
+/**
  *      城市选择页
  */
 #define DEF_GetCitypage         PATH(@"%@/publish/clt/resource/portal/v2/cityLetter.jsp?city=")

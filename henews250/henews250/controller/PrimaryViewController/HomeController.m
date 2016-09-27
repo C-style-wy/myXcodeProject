@@ -36,13 +36,6 @@
     self.cityName.text = [[CityManager shareInstance]getCity];
 }
 
-//- (void)viewWillDisappear:(BOOL)animated{
-//    [super viewWillDisappear:animated];
-//    NSLog(@"viewWillDisappear=====");
-//    
-//    [NetworkCache saveHttpCache:self forKey:@"HomeController"];
-//}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -267,7 +260,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
         NodeMode *modul = [_tableViewData objectAtIndex:section];
-        return [NewsCellFactory getNumberOfRowsInSection:modul];
+        return [[NewsCellFactory shareInstance]getNumberOfRowsInSection:modul];
     }else{
         return 1;
     }
@@ -280,7 +273,7 @@
         if (modul.newsList.count == indexPath.row + 1) {
             hiddenLine = YES;
         }
-        return [NewsCellFactory getCell:modul row:indexPath.row tableView:tableView hiddenLine:YES isShortLine:YES];
+        return [[NewsCellFactory shareInstance] getCell:modul row:indexPath.row tableView:tableView hiddenLine:YES isShortLine:YES];
     }else{
         NSMutableArray *banners = [_tableViewData objectAtIndex:indexPath.section];
         BannerCell *cell = [BannerCell cellWithTableView:tableView];
@@ -292,7 +285,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
         NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
-        return [NewsCellFactory getHeightForRow:modul row:indexPath.row];
+        return [[NewsCellFactory shareInstance]getHeightForRow:modul row:indexPath.row];
     }else{
         return SCREEN_WIDTH*197.0f/320.0f;
     }
@@ -302,7 +295,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
         NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
-        [NewsCellFactory didSelectRowAtIndexPath:modul row:indexPath.row navigation:self.navigationController];
+        [[NewsCellFactory shareInstance]didSelectRowAtIndexPath:modul row:indexPath.row navigation:self.navigationController];
     }
 }
 

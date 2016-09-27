@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseCell.h"
-#import "MyPageCOntrol.h"
+#import "MyPageControl.h"
 #import "BannerMode.h"
 #import "BannerImageView.h"
 

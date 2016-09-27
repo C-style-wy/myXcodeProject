@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,31 +12,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="197"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="196.5"/>
+                <frame key="frameInset" width="320" height="196.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-1v-lmL" userLabel="bannerScroller">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="165.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </scrollView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vO7-N2-E7b" userLabel="bottomView">
-                        <rect key="frame" x="8" y="165" width="304" height="31"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="fkg-4G-J2m" userLabel="tagImage">
-                                <rect key="frame" x="0.0" y="7" width="42" height="17"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="fkg-4G-J2m" userLabel="tagImage"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nf-WN-82p" userLabel="tagLabel">
-                                <rect key="frame" x="0.0" y="7" width="42" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="2b1-jX-8IO"/>
                                     <constraint firstAttribute="width" constant="42" id="EvB-Ov-szk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da8-UP-pEg" userLabel="title">
-                                <rect key="frame" x="52" y="0.0" width="42" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="I7q-kK-sK8"/>
                                 </constraints>
@@ -44,14 +39,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WD3-lq-RRZ" userLabel="pageControl" customClass="MyPageControl">
-                                <rect key="frame" x="64" y="0.0" width="240" height="31"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Yv7-0W-vAl"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fkg-4G-J2m" firstAttribute="leading" secondItem="3Nf-WN-82p" secondAttribute="leading" id="BRk-Cw-wIA"/>
                             <constraint firstItem="fkg-4G-J2m" firstAttribute="trailing" secondItem="3Nf-WN-82p" secondAttribute="trailing" id="F0G-M4-uau"/>
@@ -68,13 +62,12 @@
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuFengexian" translatesAutoresizingMaskIntoConstraints="NO" id="sKo-hi-Gdl" userLabel="line">
-                        <rect key="frame" x="0.0" y="196" width="320" height="0.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="z10-hi-G4a"/>
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="vO7-N2-E7b" firstAttribute="top" secondItem="ejc-1v-lmL" secondAttribute="bottom" id="HJl-Tc-N8t"/>
                     <constraint firstAttribute="trailing" secondItem="ejc-1v-lmL" secondAttribute="trailing" id="IaX-ly-Mu4"/>
@@ -89,7 +82,7 @@
                     <constraint firstAttribute="bottom" secondItem="vO7-N2-E7b" secondAttribute="bottom" id="tMK-Va-yQp"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="bannerScrol" destination="ejc-1v-lmL" id="q6q-hA-aFa"/>
                 <outlet property="line" destination="sKo-hi-Gdl" id="1mB-JU-ZiH"/>
@@ -106,6 +99,6 @@
     </objects>
     <resources>
         <image name="menuFengexian" width="680" height="1"/>
-        <image name="tagBgImage" width="67" height="36"/>
+        <image name="tagBgImage" width="6" height="5"/>
     </resources>
 </document>

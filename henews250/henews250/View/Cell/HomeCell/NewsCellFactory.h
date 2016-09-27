@@ -45,11 +45,19 @@
 
 @interface NewsCellFactory : NSObject
 
-+ (BaseCell*)getCell:(NodeMode *)modul row:(NSInteger)row tableView:(UITableView *)tableView hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort;
++ (instancetype)shareInstance;
 
-+ (CGFloat)getHeightForRow:(NodeMode *)modul row:(NSInteger)row;
+- (BaseCell*)getCell:(NodeMode *)modul row:(NSInteger)row tableView:(UITableView *)tableView hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort;
 
-+ (NSInteger)getNumberOfRowsInSection:(NodeMode *)modul;
+- (BaseCell*)getCell:(NewsMode*)news tableView:(UITableView *)tableView hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort;
 
-+ (void)didSelectRowAtIndexPath:(NodeMode *)modul row:(NSInteger)row navigation:(UINavigationController *)navigation;
+- (CGFloat)getHeightForRow:(NodeMode*)modul row:(NSInteger)row;
+
+- (CGFloat)getHeightForRow:(NewsMode*)news;
+
+- (NSInteger)getNumberOfRowsInSection:(NodeMode *)modul;
+
+- (void)didSelectRowAtIndexPath:(NodeMode *)modul row:(NSInteger)row navigation:(UINavigationController *)navigation;
+
+- (void)didSelectRowAtIndexPath:(NewsMode*)news navigation:(UINavigationController *)navigation;
 @end

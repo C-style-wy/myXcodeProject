@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 #import "XNTabBarView.h"
+#import "ClassInfoMode.h"
+#import "InforMode.h"
 
 
 @interface NewsViewController : BaseViewController<TabBarBtnDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -21,5 +23,12 @@
 @property (nonatomic, retain) UITableView *lastTableView;
 
 @property (nonatomic, assign) NSInteger curClass;
+@property (nonatomic, retain) UILabel *preClassLabel;
+
+//我的栏目
+@property (nonatomic, retain) NSMutableArray *orderAry;
+
+//栏目信息、位置、是否需要刷新等
+@property (nonatomic, retain) NSMutableArray *classInfoAry;
 
 @end

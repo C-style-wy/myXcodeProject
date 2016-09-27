@@ -58,6 +58,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
     //-(BOOL) respondsToSelector: selector 用来判断是否有以某个名字命名的方法(被封装在一个selector的对象里传递)
     //返回对应view的一个快照
     if ([self respondsToSelector:@selector(snapshotViewAfterScreenUpdates:)]) {
+        
         return [self snapshotViewAfterScreenUpdates:YES];
     }else{
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0f);
