@@ -69,7 +69,7 @@ static NSString * const keyCurClass = @"curClass";
     self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
 //    self.lastTableView.mj_footer.automaticallyHidden = YES;
     
-    self.curClass = -1;
+    self.curClass = 0;
     _beginScrollX = 0;
     self.orderAry = [[NSMutableArray alloc]init];
     [self addObserver:self forKeyPath:keyOrderAry options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
@@ -301,7 +301,7 @@ static NSString * const keyCurClass = @"curClass";
 }
 
 #pragma mark - TierManageViewDelegate
-- (void)whenOpenOrCloseTierManage:(BOOL)open orderTiers:(NSMutableArray*)orderTiers nodeId:(TierMode*)nodeId{
+- (void)whenOpenOrCloseTierManage:(BOOL)open orderTiers:(NSMutableArray*)orderTiers nodeId:(TierMode*)nodeId curClass:(NSInteger)curClass{
     XNTabBarView *tabBarViewController = (XNTabBarView*)self.tabBarController;
     if (open) {
         [tabBarViewController closeMenu];
@@ -313,6 +313,10 @@ static NSString * const keyCurClass = @"curClass";
         if (nodeId != nil) {
             canReflush = NO;
         }
+        if (orderTiers) {
+            self.orderAry = orderTiers;
+        }
+        self.curClass = curClass;
     }
 }
 
@@ -454,6 +458,7 @@ static NSString * const keyCurClass = @"curClass";
             }
         }
         self.classInfoAry = newClassInfoAry;
+        [self classScrollViewShowData];
     }
 }
 

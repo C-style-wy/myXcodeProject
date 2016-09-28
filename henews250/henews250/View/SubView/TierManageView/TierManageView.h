@@ -19,7 +19,7 @@
 @protocol TierManageViewDelegate <NSObject>
 
 @optional
-- (void)whenOpenOrCloseTierManage:(BOOL)open orderTiers:(NSMutableArray*)orderTiers nodeId:(TierMode*)nodeId;
+- (void)whenOpenOrCloseTierManage:(BOOL)open orderTiers:(NSMutableArray*)orderTiers nodeId:(TierMode*)nodeId curClass:(NSInteger)curClass;
 
 @end
 
@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewBottom;
 @property (weak, nonatomic) IBOutlet PullCollectionView *collectionView;
 @property (nonatomic, retain) TierMode *clickTier;
+@property (nonatomic, assign) NSInteger curClass;
 @property (nonatomic, assign) BOOL hiddenDelete;
 
 

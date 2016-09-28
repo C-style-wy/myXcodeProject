@@ -200,7 +200,7 @@
 }
 
 #pragma mark - TierManageViewDelegate
-- (void)whenOpenOrCloseTierManage:(BOOL)open orderTiers:(NSMutableArray*)orderTiers nodeId:(TierMode*)nodeId{
+- (void)whenOpenOrCloseTierManage:(BOOL)open orderTiers:(NSMutableArray*)orderTiers nodeId:(TierMode*)nodeId curClass:(NSInteger)curClass{
     XNTabBarView *tabBarViewController = (XNTabBarView*)self.tabBarController;
     if (open) {
         [tabBarViewController closeMenu];

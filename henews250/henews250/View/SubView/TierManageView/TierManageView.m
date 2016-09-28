@@ -37,6 +37,7 @@ static NSString *const footerId = @"footerId";
 - (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn addImage:(UIImageView*)img {
     _tiers = [[TierManager shareInstance] readLocadTier:_tierName];
     _clickTier = nil;
+    _curClass = currentClass;
     self.hiddenDelete = YES;
     [self.collectionView reloadData];
     
@@ -76,8 +77,8 @@ static NSString *const footerId = @"footerId";
                              tierHeadView.alpha = 1.0f;
                          }];
                          btnImage.transform = CGAffineTransformMakeRotation(0);
-                         if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:orderTiers:nodeId:)]) {
-                             [self.delegate whenOpenOrCloseTierManage:YES orderTiers:_tiers.orderTier nodeId:_clickTier];
+                         if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:orderTiers:nodeId:curClass:)]) {
+                             [self.delegate whenOpenOrCloseTierManage:YES orderTiers:_tiers.orderTier nodeId:_clickTier curClass:_curClass];
                          }
                      }];
 }
@@ -94,8 +95,12 @@ static NSString *const footerId = @"footerId";
 }
 
 - (void)closeTierManageView:(UIImageView*)image {
-    if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:orderTiers:nodeId:)]) {
-        [self.delegate whenOpenOrCloseTierManage:NO orderTiers:_tiers.orderTier nodeId:_clickTier];
+    if (_curClass && _curClass > _tiers.orderTier.count - 1) {
+        _curClass = _tiers.orderTier.count - 1;
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(whenOpenOrCloseTierManage:orderTiers:nodeId:curClass:)]) {
+        [self.delegate whenOpenOrCloseTierManage:NO orderTiers:_tiers.orderTier nodeId:_clickTier curClass:_curClass];
     }
     self.mainViewBottom.constant = self.frame.size.height;
     [UIView animateWithDuration:openOrCloseTime
@@ -257,6 +262,7 @@ static NSString *const footerId = @"footerId";
     }else {
         if (0 == indexPath.section) {
             _clickTier = [_tiers.orderTier objectAtIndex:indexPath.row];
+            _curClass = indexPath.row;
             [self closeTierManageView:tierHeadView.addImage];
         }else{
             TierMode *tier;
