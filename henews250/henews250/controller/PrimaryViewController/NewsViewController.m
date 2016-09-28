@@ -28,6 +28,24 @@ static NSString * const keyCurClass = @"curClass";
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self initPage];
+    //添加监听方法，监听应用从后台切换到前台
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appHasGoneInForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
+//为了解决应用从后台切换到前台，列表闪动问题
+- (void)appHasGoneInForeground{
+    if (self.curClass == 0 || (self.curClass == (self.classInfoAry.count-1))) {
+        if (_middleTableView) {
+            [_middleTableView reloadData];
+        }
+    }else{
+        if (_firstTableView) {
+            [_firstTableView reloadData];
+        }
+        if (_lastTableView) {
+            [_lastTableView reloadData];
+        }
+    }
 }
 
 - (void)initPage {
@@ -288,8 +306,48 @@ static NSString * const keyCurClass = @"curClass";
 
 #pragma mark - TabBarBtnDelegate
 - (void)tabBarBtnSelectAgain {
-    NSLog(@"news===tabBarBtnSelectAgain=====");
+    if (_firstTableView.tag == self.curClass) {
+        if (_firstTableView.contentOffset.y == 0) {
+            [_firstTableView.mj_header beginRefreshing];
+        }else{
+            canReflush = YES;
+            [_firstTableView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }
+    }
+    if (_middleTableView.tag == self.curClass) {
+        if (_middleTableView.contentOffset.y == 0) {
+            [_middleTableView.mj_header beginRefreshing];
+        }else{
+            canReflush = YES;
+            [_middleTableView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }
+    }
+    if (_lastTableView.tag == self.curClass) {
+        if (_lastTableView.contentOffset.y == 0) {
+            [_lastTableView.mj_header beginRefreshing];
+        }else{
+            canReflush = YES;
+            [_lastTableView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }
+    }
 }
+
+//setContentOffset:CGPointMake(0, 0) animated:YES动画结束回调函数
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if (canReflush) {
+        if (_firstTableView.tag == self.curClass) {
+            [_firstTableView.mj_header beginRefreshing];
+        }
+        if (_middleTableView.tag == self.curClass) {
+            [_middleTableView.mj_header beginRefreshing];
+        }
+        if (_lastTableView.tag == self.curClass) {
+            [_lastTableView.mj_header beginRefreshing];
+        }
+        canReflush = NO;
+    }
+}
+
 - (IBAction)classAddBtnSelect:(id)sender {
     if (tierManageView == nil) {
         tierManageView = [[TierManageView loadFromNib] initWithName:News];
@@ -509,6 +567,7 @@ static NSString * const keyCurClass = @"curClass";
         }
         self.classScrollView.contentSize = CGSizeMake(labelX, 0);
     }
+    [self.mainScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     if (self.classInfoAry.count == 1) {
         _mainScrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 0);
         [_mainScrollView addSubview:_firstTableView];
