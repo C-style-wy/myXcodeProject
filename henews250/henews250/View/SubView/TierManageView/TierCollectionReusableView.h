@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TierCollectionReusableView : UICollectionReusableView
+@property (weak, nonatomic) IBOutlet UILabel *titleName;
 
 @end

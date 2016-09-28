@@ -22,6 +22,17 @@ static NSString * const isEditKeyPath = @"isShowDelete";
     return self;
 }
 
+- (id)initWithName:(NSString*)name {
+    self = [self init];
+    if ([name isEqualToString:@"home"]) {
+        self.titleLabel.text = @"我的专区";
+    }else{
+        self.titleLabel.text = @"我的频道";
+    }
+    
+    return self;
+}
+
 - (IBAction)closeBtnSelect:(id)sender {
     if (self.isShowDelete) {
         if ([self.delegate respondsToSelector:@selector(closeTierManage:)]) {

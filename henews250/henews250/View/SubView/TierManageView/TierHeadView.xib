@@ -34,8 +34,8 @@
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addGray" translatesAutoresizingMaskIntoConstraints="NO" id="n1d-zS-U3f">
                             <constraints>
-                                <constraint firstAttribute="height" constant="15" id="EyE-pT-MAq"/>
-                                <constraint firstAttribute="width" constant="15" id="efp-sz-Vn0"/>
+                                <constraint firstAttribute="height" constant="18" id="EyE-pT-MAq"/>
+                                <constraint firstAttribute="width" constant="18" id="efp-sz-Vn0"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gB-2y-0z0" userLabel="closeBtn">
@@ -49,7 +49,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="n1d-zS-U3f" secondAttribute="trailing" constant="8" id="8ML-vt-7vj"/>
+                        <constraint firstAttribute="trailing" secondItem="n1d-zS-U3f" secondAttribute="trailing" constant="13" id="8ML-vt-7vj"/>
                         <constraint firstItem="5Tu-zJ-IGd" firstAttribute="leading" secondItem="PPm-zT-q7J" secondAttribute="leading" constant="8" id="8PI-E9-lgB"/>
                         <constraint firstItem="eLC-nE-5AT" firstAttribute="bottom" secondItem="n1d-zS-U3f" secondAttribute="bottom" id="8Qx-Yv-Lr9"/>
                         <constraint firstItem="8gB-2y-0z0" firstAttribute="top" secondItem="PPm-zT-q7J" secondAttribute="top" id="9MA-qc-0h6"/>
@@ -78,6 +78,7 @@
             <connections>
                 <outlet property="addImage" destination="n1d-zS-U3f" id="mcT-Qo-0Gq"/>
                 <outlet property="finishLabel" destination="eLC-nE-5AT" id="oCg-U5-8Bf"/>
+                <outlet property="titleLabel" destination="5Tu-zJ-IGd" id="1Do-VK-M6E"/>
             </connections>
             <point key="canvasLocation" x="261" y="131.5"/>
         </view>

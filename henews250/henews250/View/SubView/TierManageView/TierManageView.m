@@ -34,7 +34,7 @@ static NSString *const footerId = @"footerId";
     return self;
 }
 
-- (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn {
+- (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn addImage:(UIImageView*)img {
     _tiers = [[TierManager shareInstance] readLocadTier:_tierName];
     _clickTier = nil;
     self.hiddenDelete = YES;
@@ -45,15 +45,19 @@ static NSString *const footerId = @"footerId";
     self.mainViewBottom.constant = 0;
     
     UIImageView *btnImage;
-    for (UIView *subView in btn.subviews) {
-        if ([subView isKindOfClass:[UIImageView class]]){
-            btnImage = (UIImageView*)subView;
+    if (img) {
+        btnImage = img;
+    }else{
+        for (UIView *subView in btn.subviews) {
+            if ([subView isKindOfClass:[UIImageView class]]){
+                btnImage = (UIImageView*)subView;
+            }
         }
     }
     
     self.hidden = NO;
     if (tierHeadView == nil) {
-        tierHeadView = [[TierHeadView loadFromNib]init];
+        tierHeadView = [[TierHeadView loadFromNib]initWithName:_tierName];
         tierHeadView.delegate = self;
         tierHeadView.frame = CGRectMake(0, 0, self.frame.size.width, 53);
         [self.superview addSubview:tierHeadView];
@@ -149,6 +153,11 @@ static NSString *const footerId = @"footerId";
         TierCollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerId forIndexPath:indexPath];
         if(footerView == nil) {
             footerView = [[TierCollectionReusableView alloc] init];
+        }
+        if ([_tierName isEqualToString:Home]) {
+            footerView.titleName.text = @"更多专区";
+        }else{
+            footerView.titleName.text = @"更多频道";
         }
         return footerView;
     }

@@ -41,6 +41,7 @@
     self.distanceOfPoint = 8.0f;
     self.pagePointColor = [UIColor colorWithHexColor:@"#c8c8c8"];
     self.currentPagePointColor = [UIColor colorWithHexColor:@"#969696"];
+    self.currentPage = 0;
 }
 
 -(CGSize)sizeForNumberOfPages:(NSInteger)pages{
@@ -48,17 +49,14 @@
 }
 
 -(void)setNumberOfPages:(NSInteger)pages {
-    if ([self.subviews count] == 0) {
-        _numberOfPages = pages;
-        for (int i = 0; i < _numberOfPages; i++) {
-            
-            UIView *pointView = [[UIView alloc]initWithFrame:CGRectMake((_distanceOfPoint+_pointSize)*i, (self.frame.size.height-_pointSize)/2, _pointSize, _pointSize)];
-            
-            pointView.backgroundColor = _pagePointColor;
-            pointView.layer.cornerRadius = _pointSize/2;
-            [self addSubview:pointView];
-        }
-        self.currentPage = 0;
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    _numberOfPages = pages;
+    for (int i = 0; i < _numberOfPages; i++) {
+        UIView *pointView = [[UIView alloc]initWithFrame:CGRectMake((_distanceOfPoint+_pointSize)*i, (self.frame.size.height-_pointSize)/2, _pointSize, _pointSize)];
+        
+        pointView.backgroundColor = _pagePointColor;
+        pointView.layer.cornerRadius = _pointSize/2;
+        [self addSubview:pointView];
     }
 }
 

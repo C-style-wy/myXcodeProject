@@ -177,7 +177,7 @@
         tierManageView.delegate = self;
         [self.view addSubview:tierManageView];
     }
-    [tierManageView openTierManage:0 clickBtn:sender];
+    [tierManageView openTierManage:0 clickBtn:sender addImage:nil];
 }
 
 #pragma mark - TabBarBtnDelegate

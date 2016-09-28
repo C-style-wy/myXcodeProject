@@ -10,9 +10,10 @@
 #import "XNTabBarView.h"
 #import "ClassInfoMode.h"
 #import "InforMode.h"
+#import "TierManageView.h"
 
 
-@interface NewsViewController : BaseViewController<TabBarBtnDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface NewsViewController : BaseViewController<TabBarBtnDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, TierManageViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *classScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *addImage;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;

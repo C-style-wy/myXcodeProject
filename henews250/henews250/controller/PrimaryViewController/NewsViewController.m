@@ -14,6 +14,10 @@ static NSString * const keyCurClass = @"curClass";
 @interface NewsViewController () {
     CGFloat _beginScrollX;
     NSTimer *_timer;
+    
+    TierManageView *tierManageView;
+    //置顶时是否刷新
+    BOOL canReflush;
 }
 
 @end
@@ -54,11 +58,16 @@ static NSString * const keyCurClass = @"curClass";
     self.lastTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.firstTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
-//    self.firstTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    self.firstTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    self.firstTableView.mj_footer.automaticallyHidden = YES;
+    
     self.middleTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
-//    self.middleTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    self.middleTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    self.middleTableView.mj_footer.automaticallyHidden = YES;
+    
     self.lastTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
-//    self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    self.lastTableView.mj_footer.automaticallyHidden = YES;
     
     self.curClass = -1;
     _beginScrollX = 0;
@@ -106,6 +115,7 @@ static NSString * const keyCurClass = @"curClass";
         self.orderAry = [[TierManager shareInstance] getOrderTierFromLocal:News];
     }
     if ([tag isEqualToString:@"mainNewsData"]) {
+        [self handleMainNewsData:returnJson withMsg:msg];
         if (_firstTableView.tag == msg) {
             [_firstTableView.mj_header endRefreshing];
         }else if (_middleTableView.tag == msg){
@@ -113,9 +123,11 @@ static NSString * const keyCurClass = @"curClass";
         }else if (_lastTableView.tag == msg){
             [_lastTableView.mj_header endRefreshing];
         }
-        [self handleMainNewsData:returnJson withMsg:msg];
         ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:msg];
         classInfo.needReflush = NO;
+    }
+    if ([tag isEqualToString:@"addNewsData"]) {
+        [self handleAddNewsData:returnJson withMsg:msg];
     }
 }
 
@@ -136,10 +148,20 @@ static NSString * const keyCurClass = @"curClass";
             [_lastTableView.mj_header endRefreshing];
         }
     }
+    if ([tag isEqualToString:@"addNewsData"]) {
+        if (_firstTableView.tag == msg) {
+            [_firstTableView.mj_footer endRefreshing];
+        }else if (_middleTableView.tag == msg){
+            [_middleTableView.mj_footer endRefreshing];
+        }else if (_lastTableView.tag == msg){
+            [_lastTableView.mj_footer endRefreshing];
+        }
+    }
 }
 
 - (void)handleMainNewsData:(NSDictionary*)data withMsg:(NSInteger)msg{
-    NSMutableArray *tempAry = (NSMutableArray*)[[self.classInfoAry objectAtIndex:msg] loadData];
+    ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:msg];
+    NSMutableArray *tempAry = classInfo.loadData;
     InforMode *inforData = [InforMode mj_objectWithKeyValues:data];
     [tempAry removeAllObjects];
     if (inforData.banners && inforData.banners.count > 0) {
@@ -152,22 +174,112 @@ static NSString * const keyCurClass = @"curClass";
             [tempAry addObject:newsData];
         }
     }
+    if ([inforData.isLastPage isEqualToString:@"1"]) {
+        classInfo.isLastPage = YES;
+    }else{
+        classInfo.isLastPage = NO;
+        classInfo.loadingMoreUrl = inforData.nextUrl;
+    }
     if (_firstTableView.tag == msg) {
         [_firstTableView reloadData];
-        [self addSeparatorStyleLineWithTableView:_firstTableView];
     }else if (_middleTableView.tag == msg){
         [_middleTableView reloadData];
-        [self addSeparatorStyleLineWithTableView:_middleTableView];
     }else if (_lastTableView.tag == msg){
         [_lastTableView reloadData];
-        [self addSeparatorStyleLineWithTableView:_lastTableView];
+    }
+    [self hideOrShowSeparatorStyleLine];
+}
+
+- (void)handleAddNewsData:(NSDictionary*)data withMsg:(NSInteger)msg{
+    ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:msg];
+    NSMutableArray *tempAry = classInfo.loadData;
+    InforMode *inforData = [InforMode mj_objectWithKeyValues:data];
+
+    for (int i = 0; i < inforData.newsList.count; i++) {
+        NewsMode *newsData = [inforData.newsList objectAtIndex:i];
+        BOOL isNotHave = YES;
+        for (int j = 0; j < tempAry.count; j++) {
+            if ([[tempAry objectAtIndex:j] isKindOfClass:[NewsMode class]]) {
+                NewsMode *newsItem = [tempAry objectAtIndex:j];
+                if ([newsItem.newsId isEqualToString:newsData.newsId]) {
+                    isNotHave = NO;
+                    break;
+                }
+            }
+        }
+        if (isNotHave && newsData.newsTitle && ![newsData.newsTitle isEqualToString:@""]) {
+            [tempAry addObject:newsData];
+        }
+    }
+    if ([inforData.isLastPage isEqualToString:@"1"]) {
+        classInfo.isLastPage = YES;
+    }else{
+        classInfo.isLastPage = NO;
+        classInfo.loadingMoreUrl = inforData.nextUrl;
+    }
+    if (_firstTableView.tag == msg) {
+        [_firstTableView.mj_footer endRefreshing];
+        [_firstTableView reloadData];
+    }else if (_middleTableView.tag == msg){
+        [_middleTableView.mj_footer endRefreshing];
+        [_middleTableView reloadData];
+    }else if (_lastTableView.tag == msg){
+        [_lastTableView.mj_footer endRefreshing];
+        [_lastTableView reloadData];
     }
 }
 
--(void)addSeparatorStyleLineWithTableView:(UITableView*)tableView {
+- (void)addSeparatorStyleLineWithTableView:(UITableView*)tableView {
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
     tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+- (void)hideOrShowSeparatorStyleLine {
+    int index1 = (int)_firstTableView.tag;
+    int index2 = (int)_middleTableView.tag;
+    int index3 = (int)_lastTableView.tag;
+    ClassInfoMode *info1 = [self.classInfoAry objectAtIndex:index1];
+    ClassInfoMode *info2 = [self.classInfoAry objectAtIndex:index2];
+    ClassInfoMode *info3 = [self.classInfoAry objectAtIndex:index3];
+    
+//    if (info1.isLastPage) {
+//        _firstTableView.mj_footer = nil;
+//    }else{
+//        self.firstTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    }
+//    if (info2.isLastPage) {
+//        _middleTableView.mj_footer = nil;
+//    }else{
+//        self.middleTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    }
+//    if (info3.isLastPage) {
+//        _lastTableView.mj_footer = nil;
+//    }else{
+//        self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    }
+    
+    if (info1.loadData.count == 0) {
+        _firstTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _firstTableView.mj_footer.automaticallyHidden = YES;
+    }else{
+        [self addSeparatorStyleLineWithTableView:_firstTableView];
+        _firstTableView.mj_footer.automaticallyHidden = NO;
+    }
+    if (info2.loadData.count == 0) {
+        _middleTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _middleTableView.mj_footer.automaticallyHidden = YES;
+    }else{
+        [self addSeparatorStyleLineWithTableView:_middleTableView];
+        _middleTableView.mj_footer.automaticallyHidden = NO;
+    }
+    if (info3.loadData.count == 0) {
+        _lastTableView.mj_footer.automaticallyHidden = YES;
+        _lastTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }else{
+        _lastTableView.mj_footer.automaticallyHidden = NO;
+        [self addSeparatorStyleLineWithTableView:_lastTableView];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -179,9 +291,32 @@ static NSString * const keyCurClass = @"curClass";
     NSLog(@"news===tabBarBtnSelectAgain=====");
 }
 - (IBAction)classAddBtnSelect:(id)sender {
+    if (tierManageView == nil) {
+        tierManageView = [[TierManageView loadFromNib] initWithName:News];
+        tierManageView.frame = CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53);
+        tierManageView.delegate = self;
+        [self.view addSubview:tierManageView];
+    }
+    [tierManageView openTierManage:self.curClass clickBtn:nil addImage:self.addImage];
 }
 
-//下拉刷新
+#pragma mark - TierManageViewDelegate
+- (void)whenOpenOrCloseTierManage:(BOOL)open orderTiers:(NSMutableArray*)orderTiers nodeId:(TierMode*)nodeId{
+    XNTabBarView *tabBarViewController = (XNTabBarView*)self.tabBarController;
+    if (open) {
+        [tabBarViewController closeMenu];
+    }else{
+        [tabBarViewController openMenu];
+        if (orderTiers != nil) {
+            self.orderAry = orderTiers;
+        }
+        if (nodeId != nil) {
+            canReflush = NO;
+        }
+    }
+}
+
+#pragma mark -  //下拉刷新\上拉加载下一页
 - (void)headerRereshing{
     ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass];
     [NetworkManager postRequestJsonWithURL:classInfo.tier.url params:nil delegate:self tag:@"mainNewsData" msg:self.curClass useCache:YES update:YES showHUD:NO];
@@ -189,7 +324,10 @@ static NSString * const keyCurClass = @"curClass";
 
 //上拉加载下一页
 - (void)footerRereshing {
-    
+    ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass];
+    if (!classInfo.isLastPage) {
+        [NetworkManager postRequestJsonWithURL:classInfo.loadingMoreUrl params:nil delegate:self tag:@"addNewsData" msg:self.curClass useCache:NO update:YES showHUD:NO];
+    }
 }
 
 
@@ -259,6 +397,7 @@ static NSString * const keyCurClass = @"curClass";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSMutableArray *tempAry = (NSMutableArray*)[[self.classInfoAry objectAtIndex:tableView.tag] loadData];
     if ([[tempAry objectAtIndex:indexPath.row] isKindOfClass:[NewsMode class]]) {
         NewsMode *news = [tempAry objectAtIndex:indexPath.row];
@@ -445,9 +584,10 @@ static NSString * const keyCurClass = @"curClass";
     [_firstTableView reloadData];
     [_middleTableView reloadData];
     [_lastTableView reloadData];
-    
+    [self hideOrShowSeparatorStyleLine];
     if ([[self.classInfoAry objectAtIndex:index1] needReflush]) {
         if (self.curClass == 0) {
+            _firstTableView.contentOffset = CGPointMake(0, [[self.classInfoAry objectAtIndex:self.curClass] curPosition]);
             [_firstTableView.mj_header beginRefreshing];
             if ([[self.classInfoAry objectAtIndex:self.curClass+1] needReflush]) {
                 ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass+1];
@@ -461,6 +601,7 @@ static NSString * const keyCurClass = @"curClass";
     
     if ([[self.classInfoAry objectAtIndex:index2] needReflush]) {
         if ((self.curClass != [self.classInfoAry count] - 1) && (_curClass != 0)) {
+            _middleTableView.contentOffset = CGPointMake(0, [[self.classInfoAry objectAtIndex:self.curClass] curPosition]);
             [_middleTableView.mj_header beginRefreshing];
             ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass+1];
             NSString *url1 = classInfo.tier.url;
@@ -477,6 +618,7 @@ static NSString * const keyCurClass = @"curClass";
     
     if ([[self.classInfoAry objectAtIndex:index3] needReflush]) {
         if (self.curClass == [self.classInfoAry count] - 1) {
+            _lastTableView.contentOffset = CGPointMake(0, [[self.classInfoAry objectAtIndex:self.curClass] curPosition]);
             [_lastTableView.mj_header beginRefreshing];
             ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass-1];
             [NetworkManager postRequestJsonWithURL:classInfo.tier.url params:nil delegate:self tag:@"mainNewsData" msg:self.curClass-1 useCache:YES update:NO showHUD:NO];

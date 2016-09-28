@@ -20,9 +20,12 @@
 
 
 @interface TierHeadView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *finishLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *addImage;
 @property (nonatomic, assign) BOOL isShowDelete;
 
 @property (nonatomic, assign) id<TierHeadViewDelegate>delegate;
+
+- (id)initWithName:(NSString*)name;
 @end

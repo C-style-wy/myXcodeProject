@@ -482,7 +482,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Bnc-0Q-3bU" firstAttribute="top" secondItem="9dI-2d-7hu" secondAttribute="top" id="F7m-ZD-J8l"/>
                                     <constraint firstItem="Bnc-0Q-3bU" firstAttribute="leading" secondItem="9dI-2d-7hu" secondAttribute="leading" id="Lca-Wy-GGq"/>

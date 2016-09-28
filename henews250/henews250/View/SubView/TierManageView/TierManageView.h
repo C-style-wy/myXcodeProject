@@ -31,7 +31,7 @@
 @property (nonatomic, assign) BOOL hiddenDelete;
 
 
-- (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn;
+- (void)openTierManage:(NSInteger)currentClass clickBtn:(UIButton*)btn addImage:(UIImageView*)img;
 
 
 @property (nonatomic, assign) id<TierManageViewDelegate>delegate;
