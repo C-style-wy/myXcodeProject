@@ -32,4 +32,6 @@
 //栏目信息、位置、是否需要刷新等
 @property (nonatomic, retain) NSMutableArray *classInfoAry;
 
+@property (nonatomic, retain) NSString *curCity;
+
 @end

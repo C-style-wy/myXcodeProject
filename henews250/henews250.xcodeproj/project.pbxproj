@@ -106,6 +106,10 @@
 		D37007E51D34CA19007E2AA3 /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D37007E41D34CA19007E2AA3 /* MD5.m */; };
 		D3805DCC1D741EB500B6FAE5 /* NetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D3805DCB1D741EB500B6FAE5 /* NetworkHandler.m */; };
 		D3805DCF1D7427D600B6FAE5 /* NetworkItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3805DCE1D7427D600B6FAE5 /* NetworkItem.m */; };
+		D3855B9E1D9C194600B15E27 /* UserHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3855B9D1D9C194600B15E27 /* UserHeadView.m */; };
+		D3855BA01D9C198000B15E27 /* UserHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3855B9F1D9C198000B15E27 /* UserHeadView.xib */; };
+		D3855BA31D9C285C00B15E27 /* MyListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3855BA21D9C285C00B15E27 /* MyListView.m */; };
+		D3855BA51D9C286A00B15E27 /* MyListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3855BA41D9C286A00B15E27 /* MyListView.xib */; };
 		D38DF7261D3F72840042A241 /* NewsCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DF7251D3F72840042A241 /* NewsCellFactory.m */; };
 		D38DF7291D3F75CD0042A241 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DF7281D3F75CD0042A241 /* BaseCell.m */; };
 		D38DF72D1D3F7C7C0042A241 /* EveryOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38DF72B1D3F7C7C0042A241 /* EveryOneCell.m */; };
@@ -337,6 +341,12 @@
 		D3805DCB1D741EB500B6FAE5 /* NetworkHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHandler.m; sourceTree = "<group>"; };
 		D3805DCD1D7427D600B6FAE5 /* NetworkItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkItem.h; sourceTree = "<group>"; };
 		D3805DCE1D7427D600B6FAE5 /* NetworkItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkItem.m; sourceTree = "<group>"; };
+		D3855B9C1D9C194600B15E27 /* UserHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHeadView.h; sourceTree = "<group>"; };
+		D3855B9D1D9C194600B15E27 /* UserHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHeadView.m; sourceTree = "<group>"; };
+		D3855B9F1D9C198000B15E27 /* UserHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserHeadView.xib; sourceTree = "<group>"; };
+		D3855BA11D9C285C00B15E27 /* MyListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyListView.h; sourceTree = "<group>"; };
+		D3855BA21D9C285C00B15E27 /* MyListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyListView.m; sourceTree = "<group>"; };
+		D3855BA41D9C286A00B15E27 /* MyListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyListView.xib; sourceTree = "<group>"; };
 		D38DF7241D3F72840042A241 /* NewsCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCellFactory.h; sourceTree = "<group>"; };
 		D38DF7251D3F72840042A241 /* NewsCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCellFactory.m; sourceTree = "<group>"; };
 		D38DF7271D3F75CD0042A241 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
@@ -681,6 +691,7 @@
 		D33265291D2E4F68005C9D7D /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				D3855B9B1D9C190800B15E27 /* MySubView */,
 				D34F508B1D546A22004B25C5 /* SubPageHead */,
 				D3C4EC611D485B05002D4BC9 /* TierManageView */,
 				D32C369A1D3223F800431829 /* XNTabBarButton.h */,
@@ -849,6 +860,19 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		D3855B9B1D9C190800B15E27 /* MySubView */ = {
+			isa = PBXGroup;
+			children = (
+				D3855B9C1D9C194600B15E27 /* UserHeadView.h */,
+				D3855B9D1D9C194600B15E27 /* UserHeadView.m */,
+				D3855B9F1D9C198000B15E27 /* UserHeadView.xib */,
+				D3855BA11D9C285C00B15E27 /* MyListView.h */,
+				D3855BA21D9C285C00B15E27 /* MyListView.m */,
+				D3855BA41D9C286A00B15E27 /* MyListView.xib */,
+			);
+			path = MySubView;
+			sourceTree = "<group>";
+		};
 		D3B693911D2BBEDD00F8D1C4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -1014,6 +1038,7 @@
 			files = (
 				D3640C8D1D62F618008049E4 /* CityListSectionView.xib in Resources */,
 				D3640C881D62F3BF008049E4 /* CityListCell.xib in Resources */,
+				D3855BA51D9C286A00B15E27 /* MyListView.xib in Resources */,
 				D3C4EC661D485F37002D4BC9 /* TierManageView.xib in Resources */,
 				D35BB1D21D42221D000D6BFD /* BannerImageView.xib in Resources */,
 				D33265231D2E2FC3005C9D7D /* GuidePage2.xib in Resources */,
@@ -1025,6 +1050,7 @@
 				D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */,
 				D38DF72E1D3F7C7C0042A241 /* EveryOneCell.xib in Resources */,
 				D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */,
+				D3855BA01D9C198000B15E27 /* UserHeadView.xib in Resources */,
 				D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */,
 				D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */,
 				D32689D31D7F9B0300DEB5AA /* OnlyWordCell.xib in Resources */,
@@ -1128,6 +1154,7 @@
 				D31A339F1D2B506700401658 /* IndexViewController.m in Sources */,
 				D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */,
 				D32D86641D46142C008D7216 /* ChannelMode.m in Sources */,
+				D3855B9E1D9C194600B15E27 /* UserHeadView.m in Sources */,
 				D32479681D8F8B7B004C7A7B /* ActivityViewController.m in Sources */,
 				D32BD2161D7D4EBC00DB44DE /* EnvironmentMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
@@ -1194,6 +1221,7 @@
 				D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */,
 				D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */,
 				D32BD2191D7D4FA900DB44DE /* WeatherItemMode.m in Sources */,
+				D3855BA31D9C285C00B15E27 /* MyListView.m in Sources */,
 				D32479621D8F8B5E004C7A7B /* PicViewController.m in Sources */,
 				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,
 				D3C0D83A1D8E73AE00A4B051 /* NetworkCache.m in Sources */,

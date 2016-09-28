@@ -32,6 +32,14 @@ static NSString * const keyCurClass = @"curClass";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appHasGoneInForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (_curCity != nil && ![_curCity isEqualToString:[[CityManager shareInstance] getCity]]) {
+        _curCity = [[CityManager shareInstance] getCity];
+        [self readLocalOrderTiersDataOrRequest];
+    }
+}
+
 //为了解决应用从后台切换到前台，列表闪动问题
 - (void)appHasGoneInForeground{
     if (self.curClass == 0 || (self.curClass == (self.classInfoAry.count-1))) {
@@ -131,6 +139,7 @@ static NSString * const keyCurClass = @"curClass";
         NSArray *newsAry = [returnJson objectForKey:@"nodes"];
         [[TierManager shareInstance]compareAndSave:newsAry key:News];
         self.orderAry = [[TierManager shareInstance] getOrderTierFromLocal:News];
+        self.curClass = _curClass;
     }
     if ([tag isEqualToString:@"mainNewsData"]) {
         [self handleMainNewsData:returnJson withMsg:msg];

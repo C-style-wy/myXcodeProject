@@ -7,7 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "UserHeadView.h"
+#import "MyListView.h"
 
-@interface MyViewController : BaseViewController
+@interface MyViewController : BaseViewController<UIScrollViewDelegate>
+
+@property (nonatomic, retain) UserHeadView *userHeadView;
 
 @end

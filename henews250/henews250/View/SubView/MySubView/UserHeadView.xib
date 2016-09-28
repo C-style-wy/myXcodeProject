@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UserHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="164"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myHeadBg" translatesAutoresizingMaskIntoConstraints="NO" id="agi-IO-oAY"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head_default" translatesAutoresizingMaskIntoConstraints="NO" id="UFj-Ek-Zaz" userLabel="userHeadImg">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="68" id="rH0-oO-PR1"/>
+                        <constraint firstAttribute="height" constant="68" id="uPn-bM-Y6J"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击登陆" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTM-7Y-0OJ" userLabel="userName">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="23" id="sZU-w0-eSv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <color key="textColor" red="0.090196078431372548" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAY-Nx-iQv" userLabel="loginBtn"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ys2-wF-B20" userLabel="signBtn">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="8xs-dG-suQ"/>
+                        <constraint firstAttribute="width" constant="76" id="x6b-MH-ytV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="56" maxY="0.0"/>
+                    <state key="normal" title="未签到" image="sign_img_n">
+                        <color key="titleColor" red="0.056330378465770672" green="0.090196078431372548" blue="0.068407526179049272" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="highlighted" title="未签到" image="sign_img_s">
+                        <color key="titleColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bAY-Nx-iQv" firstAttribute="trailing" secondItem="UFj-Ek-Zaz" secondAttribute="trailing" constant="10" id="0Dk-00-gex"/>
+                <constraint firstAttribute="bottom" secondItem="agi-IO-oAY" secondAttribute="bottom" id="0oc-pP-84E"/>
+                <constraint firstItem="UFj-Ek-Zaz" firstAttribute="leading" secondItem="bAY-Nx-iQv" secondAttribute="leading" constant="10" id="Fgd-et-nkX"/>
+                <constraint firstAttribute="trailing" secondItem="nTM-7Y-0OJ" secondAttribute="trailing" id="Ikt-vg-tP5"/>
+                <constraint firstItem="agi-IO-oAY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Lhy-0K-Db6"/>
+                <constraint firstAttribute="trailing" secondItem="Ys2-wF-B20" secondAttribute="trailing" id="Niz-OC-aXd"/>
+                <constraint firstItem="nTM-7Y-0OJ" firstAttribute="top" secondItem="UFj-Ek-Zaz" secondAttribute="bottom" constant="6" id="SfT-oS-lQw"/>
+                <constraint firstItem="nTM-7Y-0OJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XXf-Hq-ymI"/>
+                <constraint firstItem="UFj-Ek-Zaz" firstAttribute="top" secondItem="bAY-Nx-iQv" secondAttribute="top" constant="10" id="al9-ZM-e9o"/>
+                <constraint firstItem="bAY-Nx-iQv" firstAttribute="bottom" secondItem="UFj-Ek-Zaz" secondAttribute="bottom" constant="28" id="e6e-GH-jfh"/>
+                <constraint firstItem="Ys2-wF-B20" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="31" id="gb9-L5-gBI"/>
+                <constraint firstItem="agi-IO-oAY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jCm-6f-vPn"/>
+                <constraint firstItem="UFj-Ek-Zaz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mpN-rf-4EE"/>
+                <constraint firstAttribute="trailing" secondItem="agi-IO-oAY" secondAttribute="trailing" id="rTK-sq-Odh"/>
+                <constraint firstItem="UFj-Ek-Zaz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zNd-sg-uL4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="39.5" y="60"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="head_default" width="72" height="72"/>
+        <image name="myHeadBg" width="360" height="184"/>
+        <image name="sign_img_n" width="22" height="22"/>
+        <image name="sign_img_s" width="22" height="22"/>
+    </resources>
+</document>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,10 +13,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQq-Da-SfZ" userLabel="headView">
-                    <rect key="frame" x="0.0" y="20" width="320" height="33"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlU-Fg-yiB" userLabel="backBtn">
-                            <rect key="frame" x="0.0" y="0.0" width="60" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="cut-Zp-sXk"/>
                             </constraints>
@@ -27,7 +26,6 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TL-bu-jfF" userLabel="shareBtn">
-                            <rect key="frame" x="260" y="0.0" width="60" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="qGs-qx-dcv"/>
                             </constraints>
@@ -39,13 +37,12 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw8-GI-Cgr" userLabel="title">
-                            <rect key="frame" x="60" y="0.0" width="200" height="33"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16.5"/>
-                            <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="kw8-GI-Cgr" firstAttribute="top" secondItem="UQq-Da-SfZ" secondAttribute="top" id="3FB-q1-yn7"/>
                         <constraint firstItem="WlU-Fg-yiB" firstAttribute="top" secondItem="UQq-Da-SfZ" secondAttribute="top" id="5NA-TS-X4M"/>
@@ -60,13 +57,12 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuFengexian" translatesAutoresizingMaskIntoConstraints="NO" id="imV-Zj-SQs" userLabel="line">
-                    <rect key="frame" x="0.0" y="52" width="320" height="0.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="nFt-Uv-2HT"/>
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="imV-Zj-SQs" secondAttribute="trailing" id="5hO-bR-Bzm"/>
                 <constraint firstAttribute="trailing" secondItem="UQq-Da-SfZ" secondAttribute="trailing" id="Mrp-7B-kD0"/>
@@ -85,10 +81,10 @@
         </view>
     </objects>
     <resources>
-        <image name="backImage" width="52" height="52"/>
-        <image name="backImageSel" width="52" height="52"/>
+        <image name="backImage" width="26" height="26"/>
+        <image name="backImageSel" width="26" height="26"/>
         <image name="menuFengexian" width="680" height="1"/>
-        <image name="shareImage" width="60" height="60"/>
-        <image name="shareImageSel" width="52" height="52"/>
+        <image name="shareImage" width="30" height="30"/>
+        <image name="shareImageSel" width="26" height="26"/>
     </resources>
 </document>
