@@ -628,7 +628,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qoT-tq-TcC" firstAttribute="top" secondItem="M3A-ja-O3y" secondAttribute="top" id="0rS-Vo-VVS"/>
                             <constraint firstAttribute="trailing" secondItem="qoT-tq-TcC" secondAttribute="trailing" id="3q3-sd-xAl"/>
@@ -681,7 +681,7 @@
                     <view key="view" contentMode="scaleToFill" id="c5I-Eg-AgP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.96862745100000003" green="0.63529411759999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cxz-Mj-MI1"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -828,7 +828,7 @@
                     <view key="view" contentMode="scaleToFill" id="QW8-it-tA0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="pUF-75-JDf"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
