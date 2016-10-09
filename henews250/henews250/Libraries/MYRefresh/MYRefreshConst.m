@@ -19,3 +19,20 @@ NSString *const MYRefreshKeyPathContentSize = @"contentSize";
 NSString *const MYRefreshKeyPathPanState = @"state";
 
 NSString *const MYRefreshHeaderLastUpdatedTimeKey = @"MYRefreshHeaderLastUpdatedTimeKey";
+
+NSString *const MYRefreshHeaderIdleText = @"MYRefreshHeaderIdleText";
+NSString *const MYRefreshHeaderPullingText = @"MYRefreshHeaderPullingText";
+NSString *const MYRefreshHeaderRefreshingText = @"MYRefreshHeaderRefreshingText";
+
+NSString *const MYRefreshAutoFooterIdleText = @"MYRefreshAutoFooterIdleText";
+NSString *const MYRefreshAutoFooterRefreshingText = @"MYRefreshAutoFooterRefreshingText";
+NSString *const MYRefreshAutoFooterNoMoreDataText = @"MYRefreshAutoFooterNoMoreDataText";
+
+NSString *const MYRefreshBackFooterIdleText = @"MYRefreshBackFooterIdleText";
+NSString *const MYRefreshBackFooterPullingText = @"MYRefreshBackFooterPullingText";
+NSString *const MYRefreshBackFooterRefreshingText = @"MYRefreshBackFooterRefreshingText";
+NSString *const MYRefreshBackFooterNoMoreDataText = @"MYRefreshBackFooterNoMoreDataText";
+
+NSString *const MYRefreshHeaderLastTimeText = @"MYRefreshHeaderLastTimeText";
+NSString *const MYRefreshHeaderDateTodayText = @"MYRefreshHeaderDateTodayText";
+NSString *const MYRefreshHeaderNoneLastDateText = @"MYRefreshHeaderNoneLastDateText";

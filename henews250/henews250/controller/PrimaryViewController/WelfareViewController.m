@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+    
+    self.tableView.my_header = [MYRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,19 +28,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)headerRefreshing {
+    
+}
 
 #pragma mark - TabBarBtnDelegate
 - (void)tabBarBtnSelectAgain {
     NSLog(@"welfare===tabBarBtnSelectAgain=====");
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 懒加载
+- (UITableView*)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53-40)];
+        _tableView.backgroundColor = LRClearColor;
+//        _tableView.delegate = self;
+//        _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        [self.view addSubview:_tableView];
+    }
+    return _tableView;
 }
-*/
-
 @end

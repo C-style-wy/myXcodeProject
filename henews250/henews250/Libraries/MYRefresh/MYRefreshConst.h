@@ -49,6 +49,23 @@ UIKIT_EXTERN NSString *const MYRefreshKeyPathPanState;
 
 UIKIT_EXTERN NSString *const MYRefreshHeaderLastUpdatedTimeKey;
 
+UIKIT_EXTERN NSString *const MYRefreshHeaderIdleText;
+UIKIT_EXTERN NSString *const MYRefreshHeaderPullingText;
+UIKIT_EXTERN NSString *const MYRefreshHeaderRefreshingText;
+
+UIKIT_EXTERN NSString *const MYRefreshAutoFooterIdleText;
+UIKIT_EXTERN NSString *const MYRefreshAutoFooterRefreshingText;
+UIKIT_EXTERN NSString *const MYRefreshAutoFooterNoMoreDataText;
+
+UIKIT_EXTERN NSString *const MYRefreshBackFooterIdleText;
+UIKIT_EXTERN NSString *const MYRefreshBackFooterPullingText;
+UIKIT_EXTERN NSString *const MYRefreshBackFooterRefreshingText;
+UIKIT_EXTERN NSString *const MYRefreshBackFooterNoMoreDataText;
+
+UIKIT_EXTERN NSString *const MYRefreshHeaderLastTimeText;
+UIKIT_EXTERN NSString *const MYRefreshHeaderDateTodayText;
+UIKIT_EXTERN NSString *const MYRefreshHeaderNoneLastDateText;
+
 // 检查状态
 #define MYRefreshCheckState \
 MYRefreshState oldState = self.state; \

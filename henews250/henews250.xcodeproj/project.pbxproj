@@ -136,6 +136,7 @@
 		D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62A1D3CB07600696FF5 /* NodeMode.m */; };
 		D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62D1D3CB21100696FF5 /* HomeMode.m */; };
 		D3F230A41D911FE400697A6C /* TierManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F230A31D911FE400697A6C /* TierManager.m */; };
+		D3FC97B81DAA366600A591F0 /* MYRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FC97B71DAA366600A591F0 /* MYRefreshNormalHeader.m */; };
 		D3FDB9F11DA5485C00F2BD8E /* MYRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3FDB9F01DA5485C00F2BD8E /* MYRefresh.bundle */; };
 		D3FDB9F51DA549C000F2BD8E /* MYRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDB9F41DA549C000F2BD8E /* MYRefreshConst.m */; };
 		D3FDB9F81DA54C2600F2BD8E /* NSBundle+MYRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDB9F71DA54C2600F2BD8E /* NSBundle+MYRefresh.m */; };
@@ -409,6 +410,8 @@
 		D3CEF62D1D3CB21100696FF5 /* HomeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMode.m; sourceTree = "<group>"; };
 		D3F230A21D911FE400697A6C /* TierManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierManager.h; sourceTree = "<group>"; };
 		D3F230A31D911FE400697A6C /* TierManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierManager.m; sourceTree = "<group>"; };
+		D3FC97B61DAA366600A591F0 /* MYRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRefreshNormalHeader.h; sourceTree = "<group>"; };
+		D3FC97B71DAA366600A591F0 /* MYRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRefreshNormalHeader.m; sourceTree = "<group>"; };
 		D3FDB9F01DA5485C00F2BD8E /* MYRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MYRefresh.bundle; sourceTree = "<group>"; };
 		D3FDB9F21DA5494400F2BD8E /* MYRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYRefresh.h; sourceTree = "<group>"; };
 		D3FDB9F31DA549C000F2BD8E /* MYRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRefreshConst.h; sourceTree = "<group>"; };
@@ -1025,6 +1028,8 @@
 			children = (
 				D34075551DA9398F003C9183 /* MYRefreshStateHeader.h */,
 				D34075561DA9398F003C9183 /* MYRefreshStateHeader.m */,
+				D3FC97B61DAA366600A591F0 /* MYRefreshNormalHeader.h */,
+				D3FC97B71DAA366600A591F0 /* MYRefreshNormalHeader.m */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1261,6 +1266,7 @@
 				D32BD2161D7D4EBC00DB44DE /* EnvironmentMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
 				D32BD57C1DA8D92A00D55969 /* UIScrollView+MYExtension.m in Sources */,
+				D3FC97B81DAA366600A591F0 /* MYRefreshNormalHeader.m in Sources */,
 				D3C4EC641D485F1D002D4BC9 /* TierManageView.m in Sources */,
 				D32C36961D321B8E00431829 /* MyViewController.m in Sources */,
 				D3FDB9FB1DA5505700F2BD8E /* MYRefreshComponent.m in Sources */,

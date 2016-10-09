@@ -9,6 +9,10 @@
 #import "BaseViewController.h"
 #import "XNTabBarView.h"
 
+#import "MYRefresh.h"
+
 @interface WelfareViewController : BaseViewController<TabBarBtnDelegate>
+
+@property (nonatomic, retain) UITableView *tableView;
 
 @end
