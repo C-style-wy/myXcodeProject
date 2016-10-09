@@ -681,7 +681,42 @@
                     <view key="view" contentMode="scaleToFill" id="c5I-Eg-AgP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tc6-3j-C9w">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eD-Df-6LL">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="福利" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foh-ki-7AC">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16.5"/>
+                                                <color key="textColor" red="0.090196078431372548" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="FzO-Zg-yMB"/>
+                                            <constraint firstItem="Foh-ki-7AC" firstAttribute="leading" secondItem="8eD-Df-6LL" secondAttribute="leading" id="IG3-KY-hqr"/>
+                                            <constraint firstItem="Foh-ki-7AC" firstAttribute="top" secondItem="8eD-Df-6LL" secondAttribute="top" id="JTf-eS-bxw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Foh-ki-7AC" secondAttribute="trailing" id="QgB-0u-HhW"/>
+                                            <constraint firstAttribute="bottom" secondItem="Foh-ki-7AC" secondAttribute="bottom" id="W9Q-cI-eav"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8eD-Df-6LL" firstAttribute="leading" secondItem="tc6-3j-C9w" secondAttribute="leading" id="X4v-ab-eRu"/>
+                                    <constraint firstItem="8eD-Df-6LL" firstAttribute="top" secondItem="tc6-3j-C9w" secondAttribute="top" constant="20" id="epr-Tj-9Ma"/>
+                                    <constraint firstAttribute="trailing" secondItem="8eD-Df-6LL" secondAttribute="trailing" id="kn8-9w-Nbl"/>
+                                    <constraint firstAttribute="height" constant="53" id="rSx-b4-Aaa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tc6-3j-C9w" firstAttribute="top" secondItem="c5I-Eg-AgP" secondAttribute="top" id="5K1-xg-L8X"/>
+                            <constraint firstItem="tc6-3j-C9w" firstAttribute="leading" secondItem="c5I-Eg-AgP" secondAttribute="leading" id="ATA-oV-j70"/>
+                            <constraint firstAttribute="trailing" secondItem="tc6-3j-C9w" secondAttribute="trailing" id="ETe-ej-lzX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cxz-Mj-MI1"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

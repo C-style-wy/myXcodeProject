@@ -40,6 +40,20 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - 懒加载
+- (UITableView*)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53-40)];
+        _tableView.backgroundColor = LRClearColor;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        [self.view addSubview:_tableView];
+    }
+    return _tableView;
+}
+
 #pragma mark - init
 - (void)initPage {
     canReflush = YES;
@@ -50,14 +64,6 @@
     UIImageView *cityImage = [[UIImageView alloc] initWithFrame:CGRectMake(9, 5.5, 22, 22)];
     cityImage.image = [UIImage imageNamed:@"home_city_icon"];
     [self.cityBtn addSubview:cityImage];
-    
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53-40)];
-    self.tableView.backgroundColor = LRClearColor;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    [self.view addSubview:self.tableView];
     [self setupRefresh];
 }
 
@@ -94,8 +100,8 @@
             node.changeUrl = _changeData.changeUrl;
             node.newsList = _changeData.newsList;
             NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
-            [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
-            [_tableView reloadData];
+            [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView reloadData];
         }
     }
 }
@@ -119,7 +125,7 @@
             node.changeUrl = _changeData.changeUrl;
             node.newsList = _changeData.newsList;
             NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
-            [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
         }
     }
 }
@@ -129,7 +135,7 @@
         [self.tableView.mj_header endRefreshing];
     }else if ([tag isEqualToString:@"changeData"]){
         NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
-        [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
     }
 }
 
@@ -182,7 +188,7 @@
 
 #pragma mark - TabBarBtnDelegate
 - (void)tabBarBtnSelectAgain {
-    if (_tableView.contentOffset.y == 0) {
+    if (self.tableView.contentOffset.y == 0) {
         [self.tableView.mj_header beginRefreshing];
     }else{
         canReflush = YES;

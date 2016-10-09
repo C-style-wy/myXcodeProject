@@ -48,19 +48,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 懒加载
+- (UIView *)tabBarView {
+    if (!_tabBarView) {
+        _tabBarView = [[UIView alloc]init];
+        _tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT-40, SCREEN_WIDTH, 40);
+        _tabBarView.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:_tabBarView];
+        
+        UIImageView *line = [[UIImageView alloc]init];
+        line.frame = CGRectMake(0, 0, SCREEN_WIDTH, 0.5f);
+        line.image = [UIImage imageNamed:@"menuFengexian"];
+        [_tabBarView addSubview:line];
+    }
+    return _tabBarView;
+}
+
 #pragma mark - menuView
 - (void)addMenuView {
-    UIView *tabBarView = [[UIView alloc]init];
-    self.tabBarView = tabBarView;
-    tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT-40, SCREEN_WIDTH, 40);
-    tabBarView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:tabBarView];
-    
-    UIImageView *line = [[UIImageView alloc]init];
-    line.frame = CGRectMake(0, 0, SCREEN_WIDTH, 0.5f);
-    line.image = [UIImage imageNamed:@"menuFengexian"];
-    [tabBarView addSubview:line];
-    
     for (int i = 0; i < 5; i++) {
         XNTabBarButton *btn = [[XNTabBarButton alloc]init];
         
@@ -70,7 +75,7 @@
         [btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:imageNameSel] forState:UIControlStateSelected];
         
-        CGFloat bntWidth = tabBarView.frame.size.width / 5;
+        CGFloat bntWidth = self.tabBarView.frame.size.width / 5;
         CGFloat x = i * bntWidth;
         btn.frame = CGRectMake(x, 0, bntWidth, 40);
         
@@ -103,7 +108,7 @@
         btn.titleLabel.font = [UIFont systemFontOfSize:12.0f];
         [btn setTitleColor:[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1] forState:UIControlStateNormal];
         
-        [tabBarView addSubview:btn];
+        [self.tabBarView addSubview:btn];
         btn.tag = i;
         [btn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
         if (0 == i) {
@@ -112,6 +117,7 @@
         }
     }
 }
+
 
 - (void)clickBtn:(UIButton *)button {
     if (self.selectedBtn == button) {
@@ -144,12 +150,12 @@
 
 - (void)closeMenu {
     [UIView animateWithDuration:0.1f animations:^{
-        _tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 40);
+        self.tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 40);
     }];
 }
 - (void)openMenu {
     [UIView animateWithDuration:0.1f animations:^{
-        _tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT-40, SCREEN_WIDTH, 40);
+        self.tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT-40, SCREEN_WIDTH, 40);
     }];
 }
 @end

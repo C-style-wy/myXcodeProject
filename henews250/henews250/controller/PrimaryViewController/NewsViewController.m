@@ -43,15 +43,15 @@ static NSString * const keyCurClass = @"curClass";
 //为了解决应用从后台切换到前台，列表闪动问题
 - (void)appHasGoneInForeground{
     if (self.curClass == 0 || (self.curClass == (self.classInfoAry.count-1))) {
-        if (_middleTableView) {
-            [_middleTableView reloadData];
+        if (self.middleTableView) {
+            [self.middleTableView reloadData];
         }
     }else{
-        if (_firstTableView) {
-            [_firstTableView reloadData];
+        if (self.firstTableView) {
+            [self.firstTableView reloadData];
         }
-        if (_lastTableView) {
-            [_lastTableView reloadData];
+        if (self.lastTableView) {
+            [self.lastTableView reloadData];
         }
     }
 }
