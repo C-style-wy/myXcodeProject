@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "XNTabBarView.h"
 
-@interface WelfareViewController : BaseViewController<TabBarBtnDelegate>
+@interface WelfareViewController : BaseViewController<TabBarBtnDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) UITableView *tableView;
 

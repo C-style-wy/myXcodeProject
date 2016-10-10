@@ -84,15 +84,15 @@ static NSString * const keyCurClass = @"curClass";
     self.lastTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.firstTableView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
-    self.firstTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    self.firstTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
 //    self.firstTableView.mj_footer.automaticallyHidden = YES;
     
     self.middleTableView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
-    self.middleTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    self.middleTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
 //    self.middleTableView.mj_footer.automaticallyHidden = YES;
     
     self.lastTableView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
-    self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
 //    self.lastTableView.mj_footer.automaticallyHidden = YES;
     
     self.curClass = 0;
@@ -254,6 +254,7 @@ static NSString * const keyCurClass = @"curClass";
         [_lastTableView.mj_footer endRefreshing];
         [_lastTableView reloadData];
     }
+    [self hideOrShowSeparatorStyleLine];
 }
 
 - (void)addSeparatorStyleLineWithTableView:(UITableView*)tableView {
@@ -270,42 +271,51 @@ static NSString * const keyCurClass = @"curClass";
     ClassInfoMode *info2 = [self.classInfoAry objectAtIndex:index2];
     ClassInfoMode *info3 = [self.classInfoAry objectAtIndex:index3];
     
-//    if (info1.isLastPage) {
-//        _firstTableView.mj_footer = nil;
-//    }else{
-//        self.firstTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
-//    }
-//    if (info2.isLastPage) {
-//        _middleTableView.mj_footer = nil;
-//    }else{
-//        self.middleTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
-//    }
-//    if (info3.isLastPage) {
-//        _lastTableView.mj_footer = nil;
-//    }else{
-//        self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
-//    }
-    
     if (info1.loadData.count == 0) {
         _firstTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _firstTableView.mj_footer.automaticallyHidden = YES;
     }else{
         [self addSeparatorStyleLineWithTableView:_firstTableView];
-        _firstTableView.mj_footer.automaticallyHidden = NO;
     }
     if (info2.loadData.count == 0) {
         _middleTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _middleTableView.mj_footer.automaticallyHidden = YES;
     }else{
         [self addSeparatorStyleLineWithTableView:_middleTableView];
-        _middleTableView.mj_footer.automaticallyHidden = NO;
     }
     if (info3.loadData.count == 0) {
-        _lastTableView.mj_footer.automaticallyHidden = YES;
         _lastTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }else{
-        _lastTableView.mj_footer.automaticallyHidden = NO;
         [self addSeparatorStyleLineWithTableView:_lastTableView];
+    }
+    
+    if (!_firstTableView.mj_footer && !info1.isLastPage) {
+        self.firstTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    }
+    if (!_middleTableView.mj_footer && !info2.isLastPage) {
+        self.middleTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    }
+    if (!_lastTableView.mj_footer && !info3.isLastPage) {
+        self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    }
+    if (info1.isLastPage) {
+        self.firstTableView.mj_footer.hidden = YES;
+    }else{
+        if (info1.loadData.count != 0) {
+            self.firstTableView.mj_footer.hidden = NO;
+        }
+    }
+    if (info2.isLastPage) {
+        self.middleTableView.mj_footer.hidden = YES;
+    }else{
+        if (info2.loadData.count != 0) {
+            self.middleTableView.mj_footer.hidden = NO;
+        }
+    }
+    if (info3.isLastPage) {
+        self.lastTableView.mj_footer.hidden = YES;
+    }else{
+        if (info3.loadData.count != 0) {
+            self.lastTableView.mj_footer.hidden = NO;
+        }
     }
 }
 
@@ -648,6 +658,8 @@ static NSString * const keyCurClass = @"curClass";
         _beginScrollX = SCREEN_WIDTH;
     }
     [self reloadTableViewData];
+    
+    [self hideOrShowSeparatorStyleLine];
 }
 
 -(void)reloadTableViewData{
@@ -657,7 +669,6 @@ static NSString * const keyCurClass = @"curClass";
     [_firstTableView reloadData];
     [_middleTableView reloadData];
     [_lastTableView reloadData];
-    [self hideOrShowSeparatorStyleLine];
     if ([[self.classInfoAry objectAtIndex:index1] needReflush]) {
         if (self.curClass == 0) {
             _firstTableView.contentOffset = CGPointMake(0, [[self.classInfoAry objectAtIndex:self.curClass] curPosition]);

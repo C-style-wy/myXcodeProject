@@ -72,7 +72,7 @@
                 cacheBlock(cacheData);
             }
             
-            if ([weakSelf.delegate respondsToSelector:@selector(requestDidCacheReturn: returnJson: msg:)]) {
+            if ([weakSelf.delegate respondsToSelector:@selector(requestDidCacheReturn: returnJson: msg:)] && cacheData) {
                 [weakSelf.delegate requestDidCacheReturn:tag returnJson:cacheData msg:msg];
             }
 
@@ -141,7 +141,7 @@
                 cacheBlock(cacheData);
             }
             
-            if ([weakSelf.delegate respondsToSelector:@selector(requestDidCacheReturn: returnJson: msg:)]) {
+            if ([weakSelf.delegate respondsToSelector:@selector(requestDidCacheReturn: returnJson: msg:)] && cacheData) {
                 [weakSelf.delegate requestDidCacheReturn:tag returnJson:cacheData msg:msg];
             }
             
