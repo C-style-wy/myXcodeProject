@@ -28,7 +28,7 @@
 
 - (UIImageView *)loadingView {
     if (!_loadingView) {
-        UIImageView *loadingView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 5)];
+        UIImageView *loadingView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 24, 4)];
         NSMutableArray *idleImages = [NSMutableArray array];
         for (NSUInteger i = 1; i<=3; i++) {
             UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"refreshAnimationImage%zd", i]];
@@ -189,5 +189,9 @@
     } else {
         self.lastUpdatedTimeLabel.text = @"正在刷新";
     }
+}
+
+- (void)endRefreshingWithTip:(NSString *)tip {
+    
 }
 @end

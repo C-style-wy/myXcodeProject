@@ -11,5 +11,4 @@
 @interface HenewsRefreshHeader : MJRefreshStateHeader
 
 @property (weak, nonatomic, readonly) UIImageView *arrowView;
-
 @end
