@@ -83,15 +83,15 @@ static NSString * const keyCurClass = @"curClass";
     self.middleTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.lastTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.firstTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+    self.firstTableView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     self.firstTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
 //    self.firstTableView.mj_footer.automaticallyHidden = YES;
     
-    self.middleTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+    self.middleTableView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     self.middleTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
 //    self.middleTableView.mj_footer.automaticallyHidden = YES;
     
-    self.lastTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+    self.lastTableView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     self.lastTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
 //    self.lastTableView.mj_footer.automaticallyHidden = YES;
     

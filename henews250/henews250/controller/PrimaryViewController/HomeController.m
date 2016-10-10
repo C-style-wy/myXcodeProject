@@ -69,7 +69,8 @@
 
 #pragma mark - 上下拉刷新加载更多方法
 - (void)setupRefresh {
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+    self.tableView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     [self.tableView.mj_header beginRefreshing];
 }
 

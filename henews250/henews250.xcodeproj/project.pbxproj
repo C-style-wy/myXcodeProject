@@ -135,6 +135,8 @@
 		D3CEF6281D3CAE6600696FF5 /* ImageMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF6271D3CAE6600696FF5 /* ImageMode.m */; };
 		D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62A1D3CB07600696FF5 /* NodeMode.m */; };
 		D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62D1D3CB21100696FF5 /* HomeMode.m */; };
+		D3D3FF041DAB328D00CCD72A /* MJRefreshWYCustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D3FF031DAB328D00CCD72A /* MJRefreshWYCustomHeader.m */; };
+		D3EB39321DAB1DB2006588E5 /* HenewsRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EB39311DAB1DB2006588E5 /* HenewsRefreshHeader.m */; };
 		D3F230A41D911FE400697A6C /* TierManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F230A31D911FE400697A6C /* TierManager.m */; };
 		D3FC97B81DAA366600A591F0 /* MYRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FC97B71DAA366600A591F0 /* MYRefreshNormalHeader.m */; };
 		D3FDB9F11DA5485C00F2BD8E /* MYRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3FDB9F01DA5485C00F2BD8E /* MYRefresh.bundle */; };
@@ -408,6 +410,10 @@
 		D3CEF62A1D3CB07600696FF5 /* NodeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeMode.m; sourceTree = "<group>"; };
 		D3CEF62C1D3CB21100696FF5 /* HomeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMode.h; sourceTree = "<group>"; };
 		D3CEF62D1D3CB21100696FF5 /* HomeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMode.m; sourceTree = "<group>"; };
+		D3D3FF021DAB328D00CCD72A /* MJRefreshWYCustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshWYCustomHeader.h; sourceTree = "<group>"; };
+		D3D3FF031DAB328D00CCD72A /* MJRefreshWYCustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshWYCustomHeader.m; sourceTree = "<group>"; };
+		D3EB39301DAB1DB2006588E5 /* HenewsRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HenewsRefreshHeader.h; sourceTree = "<group>"; };
+		D3EB39311DAB1DB2006588E5 /* HenewsRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HenewsRefreshHeader.m; sourceTree = "<group>"; };
 		D3F230A21D911FE400697A6C /* TierManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierManager.h; sourceTree = "<group>"; };
 		D3F230A31D911FE400697A6C /* TierManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierManager.m; sourceTree = "<group>"; };
 		D3FC97B61DAA366600A591F0 /* MYRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRefreshNormalHeader.h; sourceTree = "<group>"; };
@@ -670,6 +676,7 @@
 		D3276ACE1D2A681A00A249C9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D3EB392F1DAB1D46006588E5 /* HenewsRefresh */,
 				D32972491D7552EC00B60181 /* Loading */,
 				D3640C8E1D631E70008049E4 /* LcationManager */,
 				D30741A51D50730300E4E394 /* DGReorderableCollectionViewFlowLayout */,
@@ -969,6 +976,17 @@
 			path = HomeMode;
 			sourceTree = "<group>";
 		};
+		D3EB392F1DAB1D46006588E5 /* HenewsRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				D3EB39301DAB1DB2006588E5 /* HenewsRefreshHeader.h */,
+				D3EB39311DAB1DB2006588E5 /* HenewsRefreshHeader.m */,
+				D3D3FF021DAB328D00CCD72A /* MJRefreshWYCustomHeader.h */,
+				D3D3FF031DAB328D00CCD72A /* MJRefreshWYCustomHeader.m */,
+			);
+			path = HenewsRefresh;
+			sourceTree = "<group>";
+		};
 		D3FDB9EB1DA5279300F2BD8E /* MYRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1263,6 +1281,7 @@
 				D32D86641D46142C008D7216 /* ChannelMode.m in Sources */,
 				D3855B9E1D9C194600B15E27 /* UserHeadView.m in Sources */,
 				D32479681D8F8B7B004C7A7B /* ActivityViewController.m in Sources */,
+				D3EB39321DAB1DB2006588E5 /* HenewsRefreshHeader.m in Sources */,
 				D32BD2161D7D4EBC00DB44DE /* EnvironmentMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
 				D32BD57C1DA8D92A00D55969 /* UIScrollView+MYExtension.m in Sources */,
@@ -1318,6 +1337,7 @@
 				D3CEF61B1D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.m in Sources */,
 				D3FDB9F51DA549C000F2BD8E /* MYRefreshConst.m in Sources */,
 				D3CEF6251D3CAE5100696FF5 /* NewsMode.m in Sources */,
+				D3D3FF041DAB328D00CCD72A /* MJRefreshWYCustomHeader.m in Sources */,
 				D319C88F1D387307002A84F5 /* LoadingMode.m in Sources */,
 				D3FDB9F81DA54C2600F2BD8E /* NSBundle+MYRefresh.m in Sources */,
 				D32375101D4AE5B6003042C6 /* TierCollectionReusableView.m in Sources */,

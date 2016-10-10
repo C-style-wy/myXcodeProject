@@ -8,6 +8,7 @@
 
 #import "WelfareViewController.h"
 
+
 @interface WelfareViewController ()
 
 @end
@@ -18,9 +19,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+//    self.tableView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
     
-    self.tableView.my_header = [MYRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 5)];
+    imageView.center = self.view.center;
+    
+    NSMutableArray *idleImages = [NSMutableArray array];
+    for (NSUInteger i = 1; i<=3; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"refreshAnimationImage%zd", i]];
+        [idleImages addObject:image];
+    }
+    imageView.animationImages = idleImages;
+    imageView.animationDuration = 0.8;
+    [imageView startAnimating];
+    [self.view addSubview:imageView];
 }
 
 - (void)didReceiveMemoryWarning {

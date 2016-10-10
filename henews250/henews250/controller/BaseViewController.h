@@ -11,6 +11,8 @@
 #import "NetworkManager.h"
 
 #import "MJRefresh.h"
+#import "HenewsRefreshHeader.h"
+
 #import "UIImageView+WebCache.h"
 #import "UIView+SetAllSubViewHidden.h"
 #import "UIColor+hexColor.h"
