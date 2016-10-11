@@ -38,6 +38,10 @@
  */
 #define DEF_GetViewpage         PATH(@"%@/publish/clt/resource/portal/v1/channelNav220.jsp?channelType=2&city=")
 /**
+ *      福利
+ */
+#define DEF_GetWelfarepage         PATH(@"%@/publish/clt/resource/portal/v240/fuliList.jsp?menu=fuli")
+/**
  *      城市选择页
  */
 #define DEF_GetCitypage         PATH(@"%@/publish/clt/resource/portal/v2/cityLetter.jsp?city=")

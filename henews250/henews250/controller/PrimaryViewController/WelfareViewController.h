@@ -8,9 +8,14 @@
 
 #import "BaseViewController.h"
 #import "XNTabBarView.h"
+#import "WelfareMode.h"
 
-@interface WelfareViewController : BaseViewController<TabBarBtnDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface WelfareViewController : BaseViewController<TabBarBtnDelegate>
 
-@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) UICollectionView *collectionView;
+
+@property (nonatomic, retain) WelfareMode *welfareData;
+
+@property (nonatomic, retain) NSMutableArray *showDataAry;
 
 @end

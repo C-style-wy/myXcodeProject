@@ -31,6 +31,11 @@
     return cell;
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.image.image = nil;
+}
+
 - (void)setNews:(NewsMode *)news hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort{
     _news = news;
     if (_news) {

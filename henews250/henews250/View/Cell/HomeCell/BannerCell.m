@@ -35,6 +35,10 @@
     return cell;
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+}
+
 - (void)setNews:(NSMutableArray *)banners hiddenLine:(BOOL)hidden {
     if (banners && banners.count > 0) {
         _banners = banners;

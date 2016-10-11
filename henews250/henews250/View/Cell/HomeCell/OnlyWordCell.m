@@ -35,6 +35,16 @@
     return cell;
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+//    self.title.text = @"";
+//    self.summary.text = @"";
+//    self.source.text = @"";
+//    self.pubTime.text = @"";
+//    self.pv.text = @"";
+//    self.tagLabel.text = @"";
+}
+
 - (void)setNews:(NewsMode *)news hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort {
     _news = news;
     if (_news) {

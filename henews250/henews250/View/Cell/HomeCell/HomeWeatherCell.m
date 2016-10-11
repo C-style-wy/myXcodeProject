@@ -34,6 +34,10 @@
     return cell;
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+}
+
 - (void)setNews:(BOOL)hidden{
     NSString *weatherUrl = [DEF_GetWeatherurl stringByAppendingString:[[CityManager shareInstance] getCity]];
 //    __weak typeof(self)weakSelf = self;

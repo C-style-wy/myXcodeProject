@@ -30,6 +30,10 @@
     return cell;
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+}
+
 - (void)setCityName:(NSString *)cityName hiddenLine:(BOOL)hidden {
     self.line.hidden = hidden;
     self.cityName.text = cityName;
