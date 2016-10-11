@@ -39,8 +39,8 @@
 }
 
 - (void)setNews:(BOOL)hidden{
+//    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(requestData:) userInfo:nil repeats:NO];
     NSString *weatherUrl = [DEF_GetWeatherurl stringByAppendingString:[[CityManager shareInstance] getCity]];
-//    __weak typeof(self)weakSelf = self;
     [NetworkManager postRequestXmlWithURL:weatherUrl params:nil cacheBlock:^(NSDictionary *returnJson) {
         [self handlerWeatherBack:returnJson];
     } successBlock:^(NSDictionary *returnJson) {
@@ -48,6 +48,18 @@
     } failureBlock:^(NSError *error) {
         
     } showHUD:NO];
+}
+
+- (void)requestData:(NSTimer*)timer {
+    NSString *weatherUrl = [DEF_GetWeatherurl stringByAppendingString:[[CityManager shareInstance] getCity]];
+    [NetworkManager postRequestXmlWithURL:weatherUrl params:nil cacheBlock:^(NSDictionary *returnJson) {
+        [self handlerWeatherBack:returnJson];
+    } successBlock:^(NSDictionary *returnJson) {
+        [self handlerWeatherBack:returnJson];
+    } failureBlock:^(NSError *error) {
+        
+    } showHUD:NO];
+    [timer invalidate];
 }
 
 - (void)handlerWeatherBack:(NSDictionary*)data {

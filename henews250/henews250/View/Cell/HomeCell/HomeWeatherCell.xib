@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -21,7 +21,7 @@
                             <constraint firstAttribute="height" constant="0.5" id="GBg-vw-2IA"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="暴雨" translatesAutoresizingMaskIntoConstraints="NO" id="kMC-nC-VPm" userLabel="todayImg">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kMC-nC-VPm" userLabel="todayImg">
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="fmb-cn-ADd"/>
                             <constraint firstAttribute="width" constant="45" id="hEc-Tc-EOy"/>
@@ -62,7 +62,7 @@
                                 <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="晴" translatesAutoresizingMaskIntoConstraints="NO" id="W7f-hi-RJK" userLabel="weatherimg1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W7f-hi-RJK" userLabel="weatherimg1">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1lS-8S-u1y"/>
                                     <constraint firstAttribute="width" constant="30" id="NXT-EY-f9g"/>
@@ -77,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="W7f-hi-RJK" firstAttribute="centerX" secondItem="d2d-sD-8Jl" secondAttribute="centerX" id="1EF-HK-rx3"/>
                             <constraint firstAttribute="trailing" secondItem="hVV-k4-le3" secondAttribute="trailing" id="CU4-Ay-Xsu"/>
@@ -99,7 +99,7 @@
                                 <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="晴" translatesAutoresizingMaskIntoConstraints="NO" id="vmH-Ob-83i" userLabel="weatherimg2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vmH-Ob-83i" userLabel="weatherimg2">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="azm-St-4cH"/>
                                     <constraint firstAttribute="width" constant="30" id="zzD-s7-mJY"/>
@@ -114,7 +114,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="V2V-8X-K4d" secondAttribute="trailing" id="0Qv-ZN-1iC"/>
                             <constraint firstItem="mFu-fg-seM" firstAttribute="leading" secondItem="udu-PD-Ncd" secondAttribute="leading" constant="8" id="9ZF-6H-1YL"/>
@@ -136,7 +136,7 @@
                                 <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="晴" translatesAutoresizingMaskIntoConstraints="NO" id="Kfs-zK-7v8" userLabel="weatherimg3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kfs-zK-7v8" userLabel="weatherimg3">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aMv-oJ-VCU"/>
                                     <constraint firstAttribute="width" constant="30" id="tC0-cX-q4O"/>
@@ -151,7 +151,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="s6L-Ke-heB" secondAttribute="trailing" id="5DP-cO-iFQ"/>
                             <constraint firstAttribute="bottom" secondItem="xzK-2w-g67" secondAttribute="bottom" id="CxA-nz-4YK"/>
@@ -164,7 +164,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="eSh-SB-aIE" firstAttribute="top" secondItem="KFN-uy-U69" secondAttribute="bottom" id="0S6-ms-S0v"/>
                     <constraint firstItem="KFN-uy-U69" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="1lI-HY-ukK"/>
@@ -213,7 +213,5 @@
     </objects>
     <resources>
         <image name="menuFengexian" width="680" height="1"/>
-        <image name="晴" width="50" height="49"/>
-        <image name="暴雨" width="50" height="47"/>
     </resources>
 </document>
