@@ -467,6 +467,10 @@ static NSString * const keyCurClass = @"curClass";
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100.0f;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *tempAry = (NSMutableArray*)[[self.classInfoAry objectAtIndex:tableView.tag] loadData];
     if ([[tempAry objectAtIndex:indexPath.row] isKindOfClass:[NewsMode class]]) {

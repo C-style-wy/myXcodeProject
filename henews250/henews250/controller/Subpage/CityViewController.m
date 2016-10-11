@@ -202,6 +202,9 @@
         return cell;
     }
 }
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 32.0f;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return SCREEN_WIDTH*36.0f/320.0f;
