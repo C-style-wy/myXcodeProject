@@ -11,6 +11,8 @@
 
 static NSString * const keyOrderAry = @"orderAry";
 static NSString * const keyCurClass = @"curClass";
+
+static NSString * const requestMainData = @"mainNewsData";
 @interface NewsViewController () {
     CGFloat _beginScrollX;
     NSTimer *_timer;
@@ -141,7 +143,7 @@ static NSString * const keyCurClass = @"curClass";
         self.orderAry = [[TierManager shareInstance] getOrderTierFromLocal:News];
         self.curClass = _curClass;
     }
-    if ([tag isEqualToString:@"mainNewsData"]) {
+    if ([tag isEqualToString:requestMainData]) {
         [self handleMainNewsData:returnJson withMsg:msg];
         if (_firstTableView.tag == msg) {
             [_firstTableView.mj_header endRefreshing];
@@ -160,13 +162,13 @@ static NSString * const keyCurClass = @"curClass";
 
 //缓存数据返回
 - (void)requestDidCacheReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg {
-    if ([tag isEqualToString:@"mainNewsData"]) {
+    if ([tag isEqualToString:requestMainData]) {
         [self handleMainNewsData:returnJson withMsg:msg];
     }
 }
 
 - (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg {
-    if ([tag isEqualToString:@"mainNewsData"]) {
+    if ([tag isEqualToString:requestMainData]) {
         if (_firstTableView.tag == msg) {
             [_firstTableView.mj_header endRefreshing];
         }else if (_middleTableView.tag == msg){
@@ -400,7 +402,7 @@ static NSString * const keyCurClass = @"curClass";
 #pragma mark -  //下拉刷新\上拉加载下一页
 - (void)headerRereshing{
     ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass];
-    [NetworkManager postRequestJsonWithURL:classInfo.tier.url params:nil delegate:self tag:@"mainNewsData" msg:self.curClass useCache:YES update:YES showHUD:NO];
+    [NetworkManager postRequestJsonWithURL:classInfo.tier.url params:nil delegate:self tag:requestMainData msg:self.curClass useCache:YES update:YES showHUD:NO];
 }
 
 //上拉加载下一页
@@ -465,10 +467,6 @@ static NSString * const keyCurClass = @"curClass";
         [cell setNews:banners hiddenLine:YES];
         return cell;
     }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -697,7 +695,7 @@ static NSString * const keyCurClass = @"curClass";
             
             ClassInfoMode *classInfo1 = [self.classInfoAry objectAtIndex:self.curClass-1];
             NSString *url = classInfo1.tier.url;
-
+            
             [NetworkManager postRequestJsonWithURL:url params:nil delegate:self tag:@"mainNewsData" msg:self.curClass-1 useCache:YES update:NO showHUD:NO];
         }
     }else{
