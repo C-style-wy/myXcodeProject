@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WelfareBannerCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="165.5"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b4-d0-ZGo" userLabel="bannerScroller">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GL2-9R-wMj" userLabel="pageControl" customClass="MyPageControl">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="5" id="SwL-IZ-kLA"/>
+                        <constraint firstAttribute="width" constant="20" id="vCQ-tg-K5h"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="GL2-9R-wMj" secondAttribute="bottom" constant="9" id="A3h-Be-PsV"/>
+                <constraint firstAttribute="trailing" secondItem="GL2-9R-wMj" secondAttribute="trailing" constant="9" id="Aqt-VB-mKC"/>
+                <constraint firstAttribute="bottom" secondItem="2b4-d0-ZGo" secondAttribute="bottom" id="I1w-1q-fhF"/>
+                <constraint firstAttribute="trailing" secondItem="2b4-d0-ZGo" secondAttribute="trailing" id="YNW-G2-RJ8"/>
+                <constraint firstItem="2b4-d0-ZGo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gSB-Xg-lhf"/>
+                <constraint firstItem="2b4-d0-ZGo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xbW-bG-I5E"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bannerScroller" destination="2b4-d0-ZGo" id="H1j-91-xVU"/>
+                <outlet property="pageControl" destination="GL2-9R-wMj" id="sRW-gH-fbY"/>
+                <outlet property="pageControlHeight" destination="SwL-IZ-kLA" id="6TP-m8-c25"/>
+                <outlet property="pageControlWidth" destination="vCQ-tg-K5h" id="6Ul-ew-ENO"/>
+            </connections>
+        </view>
+    </objects>
+</document>

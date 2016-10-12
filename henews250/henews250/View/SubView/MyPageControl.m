@@ -42,6 +42,7 @@
     self.pagePointColor = [UIColor colorWithHexColor:@"#c8c8c8"];
     self.currentPagePointColor = [UIColor colorWithHexColor:@"#969696"];
     self.currentPage = 0;
+    [self layoutIfNeeded];
 }
 
 -(CGSize)sizeForNumberOfPages:(NSInteger)pages{
@@ -61,21 +62,23 @@
 }
 
 -(void)setCurrentPage:(NSInteger)page {
-    _currentPage = page;
-    NSInteger countOfPages = [self.subviews count];
-    
-    for (NSUInteger subviewIndex = 0; subviewIndex < countOfPages; subviewIndex++) {
-        UIView* subview = [self.subviews objectAtIndex:subviewIndex];
-        if (subviewIndex == page) {
-            subview.backgroundColor = _currentPagePointColor;
-            subview.frame = CGRectMake(subview.frame.origin.x, (self.frame.size.height-_currentPointSize)/2, _currentPointSize, _currentPointSize);
-            subview.layer.cornerRadius = _currentPointSize/2;
-        }else{
-            subview.backgroundColor = _pagePointColor;
-            subview.frame = CGRectMake(subview.frame.origin.x, (self.frame.size.height-_pointSize)/2, _pointSize, _pointSize);
-            subview.layer.cornerRadius = _pointSize/2;
+//    if (_currentPage != page) {
+        _currentPage = page;
+        NSInteger countOfPages = [self.subviews count];
+        
+        for (NSUInteger subviewIndex = 0; subviewIndex < countOfPages; subviewIndex++) {
+            UIView* subview = [self.subviews objectAtIndex:subviewIndex];
+            if (subviewIndex == page) {
+                subview.backgroundColor = _currentPagePointColor;
+                subview.frame = CGRectMake(subview.frame.origin.x, (self.frame.size.height-_currentPointSize)/2, _currentPointSize, _currentPointSize);
+                subview.layer.cornerRadius = _currentPointSize/2;
+            }else{
+                subview.backgroundColor = _pagePointColor;
+                subview.frame = CGRectMake(subview.frame.origin.x, (self.frame.size.height-_pointSize)/2, _pointSize, _pointSize);
+                subview.layer.cornerRadius = _pointSize/2;
+            }
         }
-    }
+//    }
 }
 
 //-(void)setPointSize:(float)size {

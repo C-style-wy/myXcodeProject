@@ -10,11 +10,14 @@
 #import "UIView+LoadFromNib.h"
 #import "BannerMode.h"
 #import "UIImageView+LoadFromWeb.h"
+#import "WelfareBannerModel.h"
 
 @interface BannerImageView : UIView
 
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 
 - (id)initWithData:(BannerMode *)banner;
+
+- (id)initWithWelfareData:(WelfareBannerModel *)banner;
 
 @end

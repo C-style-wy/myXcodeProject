@@ -7,7 +7,12 @@
 //
 
 #import "WelfareViewController.h"
+#import "WelfareBannerCell.h"
 
+#import "TestCollectionViewCell.h"
+
+static NSString * const welfareBannerCell = @"welfareBannerCell";
+static NSString * const welfareDataTag = @"welfareData";
 
 @interface WelfareViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -27,7 +32,7 @@
 #pragma mark - 懒加载
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        UIView *view = [[UIView alloc]init];
+        UIView *view = [[UIView alloc]initWithFrame:CGRectZero];
         [self.view addSubview:view];
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53-40) collectionViewLayout:flowLayout];
@@ -36,6 +41,8 @@
         collectionView.dataSource = self;
         collectionView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
         [self.view addSubview:_collectionView = collectionView];
+        
+        [_collectionView registerClass:[WelfareBannerCell class] forCellWithReuseIdentifier:welfareBannerCell];
     }
     return _collectionView;
 }
@@ -55,32 +62,42 @@
 
 #pragma mark - 网络返回
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
-    if ([tag isEqualToString:@"welfareData"]) {
+    if ([tag isEqualToString:welfareDataTag]) {
         [self.collectionView.mj_header endRefreshing];
         if (returnJson) {
-            self.welfareData = [WelfareMode mj_objectWithKeyValues:returnJson];
+            [self dealReturnData:returnJson];
         }
     }
 }
 
 //缓存数据返回
 - (void)requestDidCacheReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg {
-    if ([tag isEqualToString:@"homeData"]) {
+    if ([tag isEqualToString:welfareDataTag]) {
         if (returnJson) {
-            self.welfareData = [WelfareMode mj_objectWithKeyValues:returnJson];
+            [self dealReturnData:returnJson];
         }
     }
 }
 
 - (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg {
-    if ([tag isEqualToString:@"welfareData"]) {
+    if ([tag isEqualToString:welfareDataTag]) {
         [self.collectionView.mj_header endRefreshing];
     }
 }
 
+#pragma mark - 数据处理
+- (void)dealReturnData:(NSDictionary*)returnJson {
+    self.welfareData = [WelfareMode mj_objectWithKeyValues:returnJson];
+    [self.showDataAry removeAllObjects];
+    if (self.welfareData.banners && self.welfareData.banners.count > 0) {
+        [self.showDataAry addObject:self.welfareData.banners];
+    }
+    [self.collectionView reloadData];
+}
+
 #pragma mark - 刷新
 - (void)headerRefreshing {
-    [NetworkManager postRequestJsonWithURL:DEF_GetWelfarepage params:nil delegate:self tag:@"welfareData" msg:0 useCache:YES update:YES showHUD:NO];
+    [NetworkManager postRequestJsonWithURL:DEF_GetWelfarepage params:nil delegate:self tag:welfareDataTag msg:0 useCache:YES update:YES showHUD:NO];
 }
 
 #pragma mark - TabBarBtnDelegate
@@ -92,27 +109,40 @@
 //返回多少组
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 0;
+    return self.showDataAry.count;
 }
 //每组多少个
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[NSArray class]]) {
+        return 1;
+    }
     return 0;
 }
 //布局CollctionViewのsection
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSArray class]]) {
+        return CGSizeMake(SCREEN_WIDTH, (165.5/320)*SCREEN_WIDTH);
+    }
     return CGSizeMake(0, 0);
 }
 
 //collcetion的内容
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSArray class]]) {
+        NSArray *banners = [self.showDataAry objectAtIndex:indexPath.section];
+        WelfareBannerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:welfareBannerCell forIndexPath:indexPath];
+        [cell setNews:banners];
+        return cell;
+    }
     return nil;
 }
 
 //组之间的距离
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(5, 5, 5, 5);
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
-//collcetion(头部) 非轮播图
+//collcetion(头部)
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }

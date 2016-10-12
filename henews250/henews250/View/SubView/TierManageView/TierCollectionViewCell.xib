@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,34 +13,29 @@
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="76" height="46"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tierBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="Hj5-ol-v0b" userLabel="bgImage">
-                        <rect key="frame" x="4" y="7" width="68" height="32"/>
-                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tierBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="Hj5-ol-v0b" userLabel="bgImage"/>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neq-PT-6BW">
-                        <rect key="frame" x="4" y="7" width="68" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hotImage" translatesAutoresizingMaskIntoConstraints="NO" id="YQR-eK-hqV" userLabel="hotImage">
-                        <rect key="frame" x="49" y="2" width="23" height="10.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="23" id="dfJ-H4-zAK"/>
                             <constraint firstAttribute="height" constant="10.5" id="wne-5x-y0I"/>
                         </constraints>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tierDeleteImg" translatesAutoresizingMaskIntoConstraints="NO" id="iZh-3l-jcn" userLabel="deleteImage">
-                        <rect key="frame" x="4" y="2" width="16" height="16.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="bpx-cH-f1X"/>
                             <constraint firstAttribute="height" constant="16.5" id="owZ-kb-y3g"/>
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="iZh-3l-jcn" firstAttribute="leading" secondItem="Hj5-ol-v0b" secondAttribute="leading" id="40o-m6-hII"/>
                 <constraint firstAttribute="trailing" secondItem="Hj5-ol-v0b" secondAttribute="trailing" constant="4" id="Crs-de-srf"/>
@@ -63,8 +59,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="hotImage" width="52" height="24"/>
-        <image name="tierBgImage" width="155" height="70"/>
-        <image name="tierDeleteImg" width="40" height="40"/>
+        <image name="hotImage" width="26" height="12"/>
+        <image name="tierBgImage" width="35" height="35"/>
+        <image name="tierDeleteImg" width="20" height="20"/>
     </resources>
 </document>
