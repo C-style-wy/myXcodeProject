@@ -12,6 +12,7 @@
 #import "XNTabBarView.h"
 #import "UIViewController+LoadFromStoryboard.h"
 #import "XNTabBarView.h"
+#import "UILabel+NeedWidthAndHeight.h"
 
 @interface IndexViewController ()
 
@@ -143,10 +144,10 @@
         }else{
             self.adImageDistanceBottom.constant = 106.0f*SCREEN_WIDTH/320;
         }
-        self.secBgWidth.constant = 38.0f*SCREEN_WIDTH/320;
-        self.jumpLabelTop.constant = 10.0f*SCREEN_WIDTH/320;
+        
         if (![self.loadingMode.adInfo.pic isEqualToString:@""]) {
-            self.secLabel.text = [_loadingMode.adInfo.displayTime stringByAppendingString:@"s"];
+//            self.secLabel.tag = [_loadingMode.adInfo.displayTime intValue];
+            [self setLabelStyleWithSec:[_loadingMode.adInfo.displayTime intValue]];
             
             [self.adImage sd_setImageWithURL:[NSURL URLWithString:self.loadingMode.adInfo.pic] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 _readSecTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(readSecTime) userInfo:nil repeats:YES];
@@ -164,14 +165,24 @@
 }
 
 - (void)readSecTime {
-    int time = [self.secLabel.text intValue];
+    int time = (int)self.secLabel.tag;
     if (time > 1) {
-        NSString *timeStr = [NSString stringWithFormat:@"%d",(time-1)];
-        self.secLabel.text = [timeStr stringByAppendingString:@"s"];
+        [self setLabelStyleWithSec:(time - 1)];
     }else{
         [_readSecTime invalidate];
         [self jumpeHome:NO];
     }
+}
+
+- (void)setLabelStyleWithSec:(int)sec {
+    NSString *timeStr = [[NSString stringWithFormat:@"%d",sec] stringByAppendingString:@"s"];
+    timeStr = [@"跳过广告" stringByAppendingString:timeStr];
+    self.secLabel.text = timeStr;
+    if (-1 == self.secLabel.tag) {
+        self.secBg.layer.cornerRadius = 4;
+        self.sceLabelWidth.constant = [self.secLabel needWidthWithText:timeStr]+14;
+    }
+    self.secLabel.tag = sec;
 }
 
 #pragma mark - scrollerView delegate
@@ -207,6 +218,7 @@
     XNTabBarView *rootView = [XNTabBarView loadFromStoryboard];
     [self.navigationController setViewControllers:[NSArray arrayWithObject:rootView] animated:animated];
 }
+
 - (IBAction)jumpButtonSelect:(id)sender {
     [self jumpeHome:NO];
 }

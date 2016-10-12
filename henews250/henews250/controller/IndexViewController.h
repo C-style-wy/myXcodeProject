@@ -18,10 +18,12 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *guiPageControl;
 @property (weak, nonatomic) IBOutlet UIView *adView;
 @property (weak, nonatomic) IBOutlet UIImageView *adImage;
-@property (weak, nonatomic) IBOutlet UILabel *secLabel;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *adImageDistanceBottom;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *secBgWidth;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *jumpLabelTop;
+@property (weak, nonatomic) IBOutlet UIView *secBg;
+@property (weak, nonatomic) IBOutlet UILabel *secLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sceLabelWidth;
+
 
 @property (strong, nonatomic) LoadingMode *loadingMode;
 @end
