@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" constant="55" id="gxX-vs-xQi"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HRu-Sp-dRv" userLabel="image"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HRu-Sp-dRv" userLabel="image"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Xxy-oU-qFd" userLabel="videoIcon">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="QxM-lO-S8f"/>
