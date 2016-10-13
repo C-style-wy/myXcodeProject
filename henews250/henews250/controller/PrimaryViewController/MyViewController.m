@@ -27,6 +27,7 @@
 
 - (void)initPage {
     self.userHeadView = [UserHeadView loadFromNib];
+    self.userHeadView.controller = self;
     self.userHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, (164.0*SCREEN_WIDTH)/320.0);
     [self.view addSubview:self.userHeadView];
     

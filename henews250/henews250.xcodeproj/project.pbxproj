@@ -31,6 +31,7 @@
 		D31E0DA31DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E0DA21DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.m */; };
 		D31E0DA71DAF7B56006196A7 /* WelfareMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E0DA51DAF7B56006196A7 /* WelfareMoreCell.m */; };
 		D31E0DA81DAF7B56006196A7 /* WelfareMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31E0DA61DAF7B56006196A7 /* WelfareMoreCell.xib */; };
+		D31E0DAC1DAF8FEE006196A7 /* UserLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E0DAB1DAF8FEE006196A7 /* UserLoginController.m */; };
 		D31EC6871D7824F300F2B349 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D31EC6861D7824F300F2B349 /* NetworkManager.m */; };
 		D31ED4031D3DBA34003C2A54 /* OneSmallPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ED4011D3DBA34003C2A54 /* OneSmallPicCell.m */; };
 		D31ED4041D3DBA34003C2A54 /* OneSmallPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31ED4021D3DBA34003C2A54 /* OneSmallPicCell.xib */; };
@@ -230,6 +231,8 @@
 		D31E0DA41DAF7B56006196A7 /* WelfareMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareMoreCell.h; sourceTree = "<group>"; };
 		D31E0DA51DAF7B56006196A7 /* WelfareMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareMoreCell.m; sourceTree = "<group>"; };
 		D31E0DA61DAF7B56006196A7 /* WelfareMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelfareMoreCell.xib; sourceTree = "<group>"; };
+		D31E0DAA1DAF8FEE006196A7 /* UserLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginController.h; sourceTree = "<group>"; };
+		D31E0DAB1DAF8FEE006196A7 /* UserLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginController.m; sourceTree = "<group>"; };
 		D31EC6851D7824F300F2B349 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		D31EC6861D7824F300F2B349 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		D31ED4001D3DBA34003C2A54 /* OneSmallPicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneSmallPicCell.h; sourceTree = "<group>"; };
@@ -595,6 +598,15 @@
 			path = GuidePage;
 			sourceTree = "<group>";
 		};
+		D31E0DA91DAF8FAC006196A7 /* UserPage */ = {
+			isa = PBXGroup;
+			children = (
+				D31E0DAA1DAF8FEE006196A7 /* UserLoginController.h */,
+				D31E0DAB1DAF8FEE006196A7 /* UserLoginController.m */,
+			);
+			path = UserPage;
+			sourceTree = "<group>";
+		};
 		D31ED3FE1D3DAE2B003C2A54 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,6 +726,7 @@
 		D3276ACD1D2A681A00A249C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D31E0DA91DAF8FAC006196A7 /* UserPage */,
 				D34F50871D5465F5004B25C5 /* Subpage */,
 				D332652D1D2E5D06005C9D7D /* PrimaryViewController */,
 				D31A339D1D2B506700401658 /* IndexViewController.h */,
@@ -1461,6 +1474,7 @@
 				D3C2A2691DACC71A003A3B92 /* GoodsListModel.m in Sources */,
 				D3FDB9F81DA54C2600F2BD8E /* NSBundle+MYRefresh.m in Sources */,
 				D32375101D4AE5B6003042C6 /* TierCollectionReusableView.m in Sources */,
+				D31E0DAC1DAF8FEE006196A7 /* UserLoginController.m in Sources */,
 				D32C36901D321B6200431829 /* ViewPointViewController.m in Sources */,
 				D364836C1DAE186A00E1CF23 /* WelfareBannerCell.m in Sources */,
 				D33836751D40CD44008ADE4C /* SectionView.m in Sources */,

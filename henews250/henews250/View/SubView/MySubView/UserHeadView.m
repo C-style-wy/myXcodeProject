@@ -7,15 +7,23 @@
 //
 
 #import "UserHeadView.h"
+#import "UserLoginController.h"
+#import "MyViewController.h"
 
 @implementation UserHeadView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setController:(MyViewController *)controller {
+    _controller = controller;
 }
-*/
+
+- (IBAction)loginBtnSelect:(id)sender {
+    UserLoginController *login = [UserLoginController loadFromStoryboard];
+//    [self.controller.navigationController pushViewController:login animated:YES];
+    [self.controller presentViewController:login animated:YES completion:nil];
+}
+
+- (IBAction)signBtnSelect:(id)sender {
+    
+}
 
 @end

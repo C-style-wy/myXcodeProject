@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+LoadFromNib.h"
+@class MyViewController;
 
 @interface UserHeadView : UIView
+@property (weak, nonatomic) IBOutlet UIImageView *userHeaderImage;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+
+@property (nonatomic, weak) MyViewController *controller;
 
 @end

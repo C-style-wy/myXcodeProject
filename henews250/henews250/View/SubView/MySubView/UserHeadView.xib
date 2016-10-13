@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -27,7 +27,11 @@
                     <color key="textColor" red="0.090196078431372548" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAY-Nx-iQv" userLabel="loginBtn"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAY-Nx-iQv" userLabel="loginBtn">
+                    <connections>
+                        <action selector="loginBtnSelect:" destination="iN0-l3-epB" eventType="touchUpInside" id="t48-tk-Qe3"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ys2-wF-B20" userLabel="signBtn">
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="8xs-dG-suQ"/>
@@ -42,6 +46,9 @@
                     <state key="highlighted" title="未签到" image="sign_img_s">
                         <color key="titleColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="signBtnSelect:" destination="iN0-l3-epB" eventType="touchUpInside" id="dqW-yC-vuf"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,6 +70,10 @@
                 <constraint firstItem="UFj-Ek-Zaz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zNd-sg-uL4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="userHeaderImage" destination="UFj-Ek-Zaz" id="pCN-PI-YUM"/>
+                <outlet property="userNameLabel" destination="nTM-7Y-0OJ" id="ZvD-v4-5sZ"/>
+            </connections>
             <point key="canvasLocation" x="39.5" y="60"/>
         </view>
     </objects>
