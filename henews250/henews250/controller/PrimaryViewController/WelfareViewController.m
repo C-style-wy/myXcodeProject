@@ -267,8 +267,50 @@ static NSString * const welfareDataTag = @"welfareData";
 #pragma mark - <UICollectionViewDelegate>
 //colletionView点击事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
-    
+}
+
+//当cell高亮时返回是否高亮
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSArray class]]) {
+        return NO;
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[WelfareScoresCell class]]) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[AreaListModel class]]) {
+        AreaListModel *area = [self.showDataAry objectAtIndex:indexPath.section];
+        if ([area.showType isEqualToString:@"1"]) {
+            WelfareActivityCell *cell = (WelfareActivityCell*)[collectionView cellForItemAtIndexPath:indexPath];
+            [cell.bgView setBackgroundColor:[UIColor colorWithHexColor:@"#f0f0f0"]];
+        }else{
+            WelfareExchangeCell *cell = (WelfareExchangeCell*)[collectionView cellForItemAtIndexPath:indexPath];
+            [cell.bgView setBackgroundColor:[UIColor colorWithHexColor:@"#f0f0f0"]];
+        }
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSString class]]) {
+        WelfareMoreCell *cell = (WelfareMoreCell*)[collectionView cellForItemAtIndexPath:indexPath];
+        [cell.bgView setBackgroundColor:[UIColor colorWithHexColor:@"#f0f0f0"]];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView  didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[AreaListModel class]]) {
+        AreaListModel *area = [self.showDataAry objectAtIndex:indexPath.section];
+        if ([area.showType isEqualToString:@"1"]) {
+            WelfareActivityCell *cell = (WelfareActivityCell*)[collectionView cellForItemAtIndexPath:indexPath];
+            [cell.bgView setBackgroundColor:[UIColor whiteColor]];
+        }else{
+            WelfareExchangeCell *cell = (WelfareExchangeCell*)[collectionView cellForItemAtIndexPath:indexPath];
+            [cell.bgView setBackgroundColor:[UIColor whiteColor]];
+        }
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSString class]]) {
+        WelfareMoreCell *cell = (WelfareMoreCell*)[collectionView cellForItemAtIndexPath:indexPath];
+        [cell.bgView setBackgroundColor:[UIColor whiteColor]];
+    }
 }
 
 //setContentOffset:CGPointMake(0, 0) animated:YES动画结束回调函数
