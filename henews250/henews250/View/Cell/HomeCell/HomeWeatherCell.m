@@ -89,6 +89,7 @@
     WeatherItemMode *Weather1 = [weathers objectAtIndex:1];
     NSArray *ary1 = [Weather1.date componentsSeparatedByString:@"日"];
     NSString *zhou1 = [[ary1 objectAtIndex:1] stringByReplacingOccurrencesOfString:@"星期" withString:@"周"];
+    zhou1 = [zhou1 stringByReplacingOccurrencesOfString:@"天" withString:@"日"];
     self.time1.text = zhou1;
     DayMode *day1 = Weather1.day;
     NSString *w1 = day1.type;
@@ -105,6 +106,7 @@
     WeatherItemMode *Weather2 = [weathers objectAtIndex:2];
     NSArray *ary2 = [Weather2.date componentsSeparatedByString:@"日"];
     NSString *zhou2 = [[ary2 objectAtIndex:1] stringByReplacingOccurrencesOfString:@"星期" withString:@"周"];
+    zhou2 = [zhou2 stringByReplacingOccurrencesOfString:@"天" withString:@"日"];
     self.time2.text = zhou2;
     DayMode *day2 = Weather2.day;
     NSString *w2 = day2.type;
@@ -120,6 +122,7 @@
     WeatherItemMode *Weather3 = [weathers objectAtIndex:3];
     NSArray *ary3 = [Weather3.date componentsSeparatedByString:@"日"];
     NSString *zhou3 = [[ary3 objectAtIndex:1] stringByReplacingOccurrencesOfString:@"星期" withString:@"周"];
+    zhou3 = [zhou3 stringByReplacingOccurrencesOfString:@"天" withString:@"日"];
     self.time3.text = zhou3;
     DayMode *day3 = Weather3.day;
     NSString *w3 = day3.type;
