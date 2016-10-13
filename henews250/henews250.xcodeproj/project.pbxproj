@@ -26,6 +26,11 @@
 		D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0B51D470B860036004A /* LocalTierMode.m */; };
 		D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */ = {isa = PBXBuildFile; fileRef = D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */; };
 		D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */; };
+		D31E0D9F1DAF61B4006196A7 /* WelfareExchangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E0D9D1DAF61B4006196A7 /* WelfareExchangeCell.m */; };
+		D31E0DA01DAF61B4006196A7 /* WelfareExchangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31E0D9E1DAF61B4006196A7 /* WelfareExchangeCell.xib */; };
+		D31E0DA31DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E0DA21DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.m */; };
+		D31E0DA71DAF7B56006196A7 /* WelfareMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E0DA51DAF7B56006196A7 /* WelfareMoreCell.m */; };
+		D31E0DA81DAF7B56006196A7 /* WelfareMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31E0DA61DAF7B56006196A7 /* WelfareMoreCell.xib */; };
 		D31EC6871D7824F300F2B349 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D31EC6861D7824F300F2B349 /* NetworkManager.m */; };
 		D31ED4031D3DBA34003C2A54 /* OneSmallPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31ED4011D3DBA34003C2A54 /* OneSmallPicCell.m */; };
 		D31ED4041D3DBA34003C2A54 /* OneSmallPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31ED4021D3DBA34003C2A54 /* OneSmallPicCell.xib */; };
@@ -113,7 +118,14 @@
 		D3640C941D631E70008049E4 /* MPLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3640C921D631E70008049E4 /* MPLocationManager.m */; };
 		D364836C1DAE186A00E1CF23 /* WelfareBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D364836B1DAE186A00E1CF23 /* WelfareBannerCell.m */; };
 		D364836E1DAE188C00E1CF23 /* WelfareBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D364836D1DAE188C00E1CF23 /* WelfareBannerCell.xib */; };
-		D36483711DAE32CF00E1CF23 /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D36483701DAE32CF00E1CF23 /* TestCollectionViewCell.m */; };
+		D36558781DAF131F00D05C84 /* WelfareScoresCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D36558761DAF131F00D05C84 /* WelfareScoresCell.m */; };
+		D36558791DAF131F00D05C84 /* WelfareScoresCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36558771DAF131F00D05C84 /* WelfareScoresCell.xib */; };
+		D365587D1DAF230300D05C84 /* BigDefaultImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D365587C1DAF230300D05C84 /* BigDefaultImageView.m */; };
+		D36558811DAF232B00D05C84 /* BigDefaultImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36558801DAF232B00D05C84 /* BigDefaultImageView.xib */; };
+		D36558851DAF267A00D05C84 /* WelfareActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D36558831DAF267A00D05C84 /* WelfareActivityCell.m */; };
+		D36558861DAF267A00D05C84 /* WelfareActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36558841DAF267A00D05C84 /* WelfareActivityCell.xib */; };
+		D365588A1DAF317C00D05C84 /* WelfareHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36558881DAF317C00D05C84 /* WelfareHeaderView.m */; };
+		D365588B1DAF317C00D05C84 /* WelfareHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36558891DAF317C00D05C84 /* WelfareHeaderView.xib */; };
 		D37007E51D34CA19007E2AA3 /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D37007E41D34CA19007E2AA3 /* MD5.m */; };
 		D3805DCC1D741EB500B6FAE5 /* NetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D3805DCB1D741EB500B6FAE5 /* NetworkHandler.m */; };
 		D3805DCF1D7427D600B6FAE5 /* NetworkItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3805DCE1D7427D600B6FAE5 /* NetworkItem.m */; };
@@ -210,6 +222,14 @@
 		D31DE9F21D2C8DBC00D2B0AB /* GuidePage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage1.h; sourceTree = "<group>"; };
 		D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePage1.m; sourceTree = "<group>"; };
 		D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidePage1.xib; sourceTree = "<group>"; };
+		D31E0D9C1DAF61B4006196A7 /* WelfareExchangeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareExchangeCell.h; sourceTree = "<group>"; };
+		D31E0D9D1DAF61B4006196A7 /* WelfareExchangeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareExchangeCell.m; sourceTree = "<group>"; };
+		D31E0D9E1DAF61B4006196A7 /* WelfareExchangeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelfareExchangeCell.xib; sourceTree = "<group>"; };
+		D31E0DA11DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		D31E0DA21DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		D31E0DA41DAF7B56006196A7 /* WelfareMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareMoreCell.h; sourceTree = "<group>"; };
+		D31E0DA51DAF7B56006196A7 /* WelfareMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareMoreCell.m; sourceTree = "<group>"; };
+		D31E0DA61DAF7B56006196A7 /* WelfareMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelfareMoreCell.xib; sourceTree = "<group>"; };
 		D31EC6851D7824F300F2B349 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		D31EC6861D7824F300F2B349 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		D31ED4001D3DBA34003C2A54 /* OneSmallPicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneSmallPicCell.h; sourceTree = "<group>"; };
@@ -375,8 +395,18 @@
 		D364836A1DAE186A00E1CF23 /* WelfareBannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareBannerCell.h; sourceTree = "<group>"; };
 		D364836B1DAE186A00E1CF23 /* WelfareBannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareBannerCell.m; sourceTree = "<group>"; };
 		D364836D1DAE188C00E1CF23 /* WelfareBannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelfareBannerCell.xib; sourceTree = "<group>"; };
-		D364836F1DAE32CF00E1CF23 /* TestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
-		D36483701DAE32CF00E1CF23 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
+		D36558751DAF131F00D05C84 /* WelfareScoresCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareScoresCell.h; sourceTree = "<group>"; };
+		D36558761DAF131F00D05C84 /* WelfareScoresCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareScoresCell.m; sourceTree = "<group>"; };
+		D36558771DAF131F00D05C84 /* WelfareScoresCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelfareScoresCell.xib; sourceTree = "<group>"; };
+		D365587B1DAF230300D05C84 /* BigDefaultImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigDefaultImageView.h; sourceTree = "<group>"; };
+		D365587C1DAF230300D05C84 /* BigDefaultImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigDefaultImageView.m; sourceTree = "<group>"; };
+		D36558801DAF232B00D05C84 /* BigDefaultImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigDefaultImageView.xib; sourceTree = "<group>"; };
+		D36558821DAF267A00D05C84 /* WelfareActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareActivityCell.h; sourceTree = "<group>"; };
+		D36558831DAF267A00D05C84 /* WelfareActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareActivityCell.m; sourceTree = "<group>"; };
+		D36558841DAF267A00D05C84 /* WelfareActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelfareActivityCell.xib; sourceTree = "<group>"; };
+		D36558871DAF317C00D05C84 /* WelfareHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareHeaderView.h; sourceTree = "<group>"; };
+		D36558881DAF317C00D05C84 /* WelfareHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareHeaderView.m; sourceTree = "<group>"; };
+		D36558891DAF317C00D05C84 /* WelfareHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelfareHeaderView.xib; sourceTree = "<group>"; };
 		D37007E31D34CA19007E2AA3 /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
 		D37007E41D34CA19007E2AA3 /* MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5.m; sourceTree = "<group>"; };
 		D3805DC91D7417E700B6FAE5 /* NetworkDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkDelegate.h; sourceTree = "<group>"; };
@@ -541,6 +571,7 @@
 		D31DE9F01D2C8CB200D2B0AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D365587A1DAF224900D05C84 /* CommonSubView */,
 				D31ED3FE1D3DAE2B003C2A54 /* Cell */,
 				D33265291D2E4F68005C9D7D /* SubView */,
 				D31DE9F11D2C8D0100D2B0AB /* GuidePage */,
@@ -895,10 +926,35 @@
 				D364836A1DAE186A00E1CF23 /* WelfareBannerCell.h */,
 				D364836B1DAE186A00E1CF23 /* WelfareBannerCell.m */,
 				D364836D1DAE188C00E1CF23 /* WelfareBannerCell.xib */,
-				D364836F1DAE32CF00E1CF23 /* TestCollectionViewCell.h */,
-				D36483701DAE32CF00E1CF23 /* TestCollectionViewCell.m */,
+				D36558751DAF131F00D05C84 /* WelfareScoresCell.h */,
+				D36558761DAF131F00D05C84 /* WelfareScoresCell.m */,
+				D36558771DAF131F00D05C84 /* WelfareScoresCell.xib */,
+				D36558821DAF267A00D05C84 /* WelfareActivityCell.h */,
+				D36558831DAF267A00D05C84 /* WelfareActivityCell.m */,
+				D36558841DAF267A00D05C84 /* WelfareActivityCell.xib */,
+				D36558871DAF317C00D05C84 /* WelfareHeaderView.h */,
+				D36558881DAF317C00D05C84 /* WelfareHeaderView.m */,
+				D36558891DAF317C00D05C84 /* WelfareHeaderView.xib */,
+				D31E0D9C1DAF61B4006196A7 /* WelfareExchangeCell.h */,
+				D31E0D9D1DAF61B4006196A7 /* WelfareExchangeCell.m */,
+				D31E0D9E1DAF61B4006196A7 /* WelfareExchangeCell.xib */,
+				D31E0DA11DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.h */,
+				D31E0DA21DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.m */,
+				D31E0DA41DAF7B56006196A7 /* WelfareMoreCell.h */,
+				D31E0DA51DAF7B56006196A7 /* WelfareMoreCell.m */,
+				D31E0DA61DAF7B56006196A7 /* WelfareMoreCell.xib */,
 			);
 			path = WelfareCell;
+			sourceTree = "<group>";
+		};
+		D365587A1DAF224900D05C84 /* CommonSubView */ = {
+			isa = PBXGroup;
+			children = (
+				D365587B1DAF230300D05C84 /* BigDefaultImageView.h */,
+				D365587C1DAF230300D05C84 /* BigDefaultImageView.m */,
+				D36558801DAF232B00D05C84 /* BigDefaultImageView.xib */,
+			);
+			path = CommonSubView;
 			sourceTree = "<group>";
 		};
 		D366815E1D3762D7001948D6 /* Model */ = {
@@ -1221,18 +1277,24 @@
 				D30E094D1D406B0C00954670 /* ThreeSmallPicCell.xib in Resources */,
 				D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */,
 				D38DF72E1D3F7C7C0042A241 /* EveryOneCell.xib in Resources */,
+				D36558791DAF131F00D05C84 /* WelfareScoresCell.xib in Resources */,
 				D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */,
 				D3855BA01D9C198000B15E27 /* UserHeadView.xib in Resources */,
 				D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */,
+				D365588B1DAF317C00D05C84 /* WelfareHeaderView.xib in Resources */,
+				D36558811DAF232B00D05C84 /* BigDefaultImageView.xib in Resources */,
 				D364836E1DAE188C00E1CF23 /* WelfareBannerCell.xib in Resources */,
 				D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */,
+				D31E0DA01DAF61B4006196A7 /* WelfareExchangeCell.xib in Resources */,
 				D32689D31D7F9B0300DEB5AA /* OnlyWordCell.xib in Resources */,
 				D32375111D4AE5B6003042C6 /* TierCollectionReusableView.xib in Resources */,
+				D31E0DA81DAF7B56006196A7 /* WelfareMoreCell.xib in Resources */,
 				D34F50901D546A4D004B25C5 /* SubPageHeadView.xib in Resources */,
 				D32BD20F1D7D040C00DB44DE /* HomeWeatherCell.xib in Resources */,
 				D3FDB9F11DA5485C00F2BD8E /* MYRefresh.bundle in Resources */,
 				D33836721D40AF82008ADE4C /* OneBigPicCell.xib in Resources */,
 				D33265251D2E49B1005C9D7D /* GuidePage3.xib in Resources */,
+				D36558861DAF267A00D05C84 /* WelfareActivityCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1307,6 +1369,7 @@
 			files = (
 				D38DF72D1D3F7C7C0042A241 /* EveryOneCell.m in Sources */,
 				D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */,
+				D31E0DA71DAF7B56006196A7 /* WelfareMoreCell.m in Sources */,
 				D38DF7261D3F72840042A241 /* NewsCellFactory.m in Sources */,
 				D35BB1CD1D4220CE000D6BFD /* MyPageControl.m in Sources */,
 				D32BD21F1D7D509800DB44DE /* ZhishuMode.m in Sources */,
@@ -1318,6 +1381,7 @@
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
 				D3C2A26F1DACC964003A3B92 /* WelfareBannerModel.m in Sources */,
+				D36558781DAF131F00D05C84 /* WelfareScoresCell.m in Sources */,
 				D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */,
 				D30741A81D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m in Sources */,
 				D324796E1D8F8B9F004C7A7B /* PinkactivityViewController.m in Sources */,
@@ -1361,6 +1425,7 @@
 				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
 				D319C88C1D38705D002A84F5 /* AdMode.m in Sources */,
 				D31EC6871D7824F300F2B349 /* NetworkManager.m in Sources */,
+				D365587D1DAF230300D05C84 /* BigDefaultImageView.m in Sources */,
 				D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */,
 				D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */,
 				D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */,
@@ -1374,6 +1439,7 @@
 				D32BD58B1DA8F7E400D55969 /* MYRefreshBackFooter.m in Sources */,
 				D30E52781D6438AE0018FE6D /* CityManager.m in Sources */,
 				D359E40F1D8652FA00CB8BD0 /* CoreDataManager.m in Sources */,
+				D36558851DAF267A00D05C84 /* WelfareActivityCell.m in Sources */,
 				D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */,
 				D38DF7291D3F75CD0042A241 /* BaseCell.m in Sources */,
 				D3640C871D62F3BF008049E4 /* CityListCell.m in Sources */,
@@ -1387,6 +1453,7 @@
 				D3533EB11D9A5EC800B6F1B1 /* InforMode.m in Sources */,
 				D32479651D8F8B6D004C7A7B /* WebViewController.m in Sources */,
 				D3CEF61B1D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.m in Sources */,
+				D31E0D9F1DAF61B4006196A7 /* WelfareExchangeCell.m in Sources */,
 				D3FDB9F51DA549C000F2BD8E /* MYRefreshConst.m in Sources */,
 				D3CEF6251D3CAE5100696FF5 /* NewsMode.m in Sources */,
 				D3D3FF041DAB328D00CCD72A /* MJRefreshWYCustomHeader.m in Sources */,
@@ -1400,6 +1467,7 @@
 				D32BD2251D7D517800DB44DE /* YesterdayDayMode.m in Sources */,
 				D324795F1D8F8B50004C7A7B /* TopicViewController.m in Sources */,
 				D32BD2281D7D5BEA00DB44DE /* ForecastMode.m in Sources */,
+				D365588A1DAF317C00D05C84 /* WelfareHeaderView.m in Sources */,
 				D3CEF6281D3CAE6600696FF5 /* ImageMode.m in Sources */,
 				D33836711D40AF82008ADE4C /* OneBigPicCell.m in Sources */,
 				D34075571DA9398F003C9183 /* MYRefreshStateHeader.m in Sources */,
@@ -1417,9 +1485,9 @@
 				D32479621D8F8B5E004C7A7B /* PicViewController.m in Sources */,
 				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,
 				D3C0D83A1D8E73AE00A4B051 /* NetworkCache.m in Sources */,
+				D31E0DA31DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.m in Sources */,
 				D32BD57F1DA8D96800D55969 /* UIScrollView+MYRefresh.m in Sources */,
 				D3640C941D631E70008049E4 /* MPLocationManager.m in Sources */,
-				D36483711DAE32CF00E1CF23 /* TestCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -180,7 +180,7 @@
     self.secLabel.text = timeStr;
     if (-1 == self.secLabel.tag) {
         self.secBg.layer.cornerRadius = 4;
-        self.sceLabelWidth.constant = [self.secLabel needWidthWithText:timeStr]+14;
+        self.sceLabelWidth.constant = [self.secLabel needWidth]+14;
     }
     self.secLabel.tag = sec;
 }

@@ -8,17 +8,30 @@
 
 #import "WelfareViewController.h"
 #import "WelfareBannerCell.h"
-
-#import "TestCollectionViewCell.h"
+#import "WelfareScoresCell.h"
+#import "WelfareActivityCell.h"
+#import "WelfareExchangeCell.h"
+#import "WelfareHeaderView.h"
+#import "WelfareCollectionViewFlowLayout.h"
+#import "WelfareMoreCell.h"
 
 static NSString * const welfareBannerCell = @"welfareBannerCell";
+static NSString * const welfareScoresCell = @"welfareScoresCell";
+static NSString * const welfareExchangeCell = @"welfareExchangeCell";
+static NSString * const welfareActivityCell = @"welfareActivityCell";
+static NSString * const welfareMoreCell = @"welfareMoreCell";
+
+static NSString * const welfareHeaderView = @"WelfareHeaderView";
+
 static NSString * const welfareDataTag = @"welfareData";
 
 @interface WelfareViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @end
 
-@implementation WelfareViewController
+@implementation WelfareViewController {
+    BOOL canReflush;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +47,7 @@ static NSString * const welfareDataTag = @"welfareData";
     if (!_collectionView) {
         UIView *view = [[UIView alloc]initWithFrame:CGRectZero];
         [self.view addSubview:view];
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+        WelfareCollectionViewFlowLayout *flowLayout = [[WelfareCollectionViewFlowLayout alloc]init];
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53-40) collectionViewLayout:flowLayout];
         collectionView.backgroundColor = LRClearColor;
         collectionView.delegate = self;
@@ -43,6 +56,12 @@ static NSString * const welfareDataTag = @"welfareData";
         [self.view addSubview:_collectionView = collectionView];
         
         [_collectionView registerClass:[WelfareBannerCell class] forCellWithReuseIdentifier:welfareBannerCell];
+        [_collectionView registerClass:[WelfareScoresCell class] forCellWithReuseIdentifier:welfareScoresCell];
+        [_collectionView registerClass:[WelfareActivityCell class] forCellWithReuseIdentifier:welfareActivityCell];
+        [_collectionView registerClass:[WelfareExchangeCell class] forCellWithReuseIdentifier:welfareExchangeCell];
+        [_collectionView registerClass:[WelfareMoreCell class] forCellWithReuseIdentifier:welfareMoreCell];
+        
+        [_collectionView registerNib:[UINib nibWithNibName:welfareHeaderView bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:welfareHeaderView];
     }
     return _collectionView;
 }
@@ -92,6 +111,21 @@ static NSString * const welfareDataTag = @"welfareData";
     if (self.welfareData.banners && self.welfareData.banners.count > 0) {
         [self.showDataAry addObject:self.welfareData.banners];
     }
+    {
+        WelfareScoresCell *scoreCell = [[WelfareScoresCell alloc]init];
+        [self.showDataAry addObject:scoreCell];
+    }
+    {
+        for (int i = 0; i < _welfareData.areaList.count; i++) {
+            AreaListModel *area = [_welfareData.areaList objectAtIndex:i];
+            [self.showDataAry addObject:area];
+        }
+    }
+    {
+        if (_welfareData.moreFuliUrl && ![_welfareData.moreFuliUrl isEqualToString:@""]) {
+            [self.showDataAry addObject:_welfareData.moreFuliUrl];
+        }
+    }
     [self.collectionView reloadData];
 }
 
@@ -102,26 +136,49 @@ static NSString * const welfareDataTag = @"welfareData";
 
 #pragma mark - TabBarBtnDelegate
 - (void)tabBarBtnSelectAgain {
-    NSLog(@"welfare===tabBarBtnSelectAgain=====");
+    if (self.collectionView.contentOffset.y == 0) {
+        [self.collectionView.mj_header beginRefreshing];
+    }else{
+        canReflush = YES;
+        [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
 }
 
 #pragma mark - <UICollectionViewDataSource>
 //返回多少组
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return self.showDataAry.count;
 }
 //每组多少个
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[NSArray class]]) {
         return 1;
+    } else if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[WelfareScoresCell class]]) {
+        return 1;
+    } else if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[AreaListModel class]]) {
+        AreaListModel *area = [self.showDataAry objectAtIndex:section];
+        return area.goodsList.count;
+    } else if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[NSString class]]) {
+        return 1;
     }
+    
     return 0;
 }
 //布局CollctionViewのsection
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSArray class]]) {
         return CGSizeMake(SCREEN_WIDTH, (165.5/320)*SCREEN_WIDTH);
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[WelfareScoresCell class]]) {
+        return CGSizeMake(SCREEN_WIDTH, (35.5/320)*SCREEN_WIDTH);
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[AreaListModel class]]) {
+        AreaListModel *area = [self.showDataAry objectAtIndex:indexPath.section];
+        if ([area.showType isEqualToString:@"1"]) {
+            return CGSizeMake(SCREEN_WIDTH, (155.0/320)*SCREEN_WIDTH);
+        }else{
+            return CGSizeMake((SCREEN_WIDTH)/2, (144.5/320)*SCREEN_WIDTH);
+        }
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSString class]]) {
+        return CGSizeMake(SCREEN_WIDTH, (45.0/320)*SCREEN_WIDTH);
     }
     return CGSizeMake(0, 0);
 }
@@ -134,21 +191,77 @@ static NSString * const welfareDataTag = @"welfareData";
         WelfareBannerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:welfareBannerCell forIndexPath:indexPath];
         [cell setNews:banners];
         return cell;
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[WelfareScoresCell class]]) {
+        WelfareScoresCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:welfareScoresCell forIndexPath:indexPath];
+        [cell setObjc];
+        return cell;
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[AreaListModel class]]) {
+        AreaListModel *area = [self.showDataAry objectAtIndex:indexPath.section];
+        if ([area.showType isEqualToString:@"1"]) {
+            WelfareActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:welfareActivityCell forIndexPath:indexPath];
+            [cell setObjcWith:[area.goodsList objectAtIndex:indexPath.row]];
+            return cell;
+        }else{
+            WelfareExchangeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:welfareExchangeCell forIndexPath:indexPath];
+            [cell setObjcWith:[area.goodsList objectAtIndex:indexPath.row] index:indexPath.row];
+            return cell;
+        }
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSString class]]) {
+        WelfareMoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:welfareMoreCell forIndexPath:indexPath];
+        NSString *moreUrl = [self.showDataAry objectAtIndex:indexPath.section];
+        [cell setObjcWith:moreUrl];
+        return cell;
     }
     return nil;
 }
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[AreaListModel class]]) {
+        AreaListModel *area = [self.showDataAry objectAtIndex:section];
+        if ([area.showType isEqualToString:@"1"]) {
+            return 0;
+        }else{
+            return 0;
+        }
+    }
+    return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+
 //组之间的距离
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[AreaListModel class]]) {
+        AreaListModel *area = [self.showDataAry objectAtIndex:section];
+        if ([area.showType isEqualToString:@"1"]) {
+            return UIEdgeInsetsMake(0, 0, 0, 0);
+        }else{
+            return UIEdgeInsetsMake(0, 0, 0, 0);
+        }
+    }
     return UIEdgeInsetsMake(0, 0, 0, 0);
 }
+
 //collcetion(头部)
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[AreaListModel class]] && [kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        
+        AreaListModel *area = [self.showDataAry objectAtIndex:indexPath.section];
+        WelfareHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:welfareHeaderView forIndexPath:indexPath];
+        [header setObjcWithData:area];
+        return header;
+    }
     return nil;
 }
 //collction头部尺寸
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(0, 0);
+    if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[AreaListModel class]]) {
+        return CGSizeMake(SCREEN_WIDTH, (41.0/320)*SCREEN_WIDTH);
+    }
+    return CGSizeZero;
 }
 
 #pragma mark - <UICollectionViewDelegate>
@@ -158,4 +271,11 @@ static NSString * const welfareDataTag = @"welfareData";
     
 }
 
+//setContentOffset:CGPointMake(0, 0) animated:YES动画结束回调函数
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if (canReflush) {
+        [self.collectionView.mj_header beginRefreshing];
+        canReflush = NO;
+    }
+}
 @end

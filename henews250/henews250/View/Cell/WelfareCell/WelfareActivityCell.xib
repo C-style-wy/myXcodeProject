@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="WelfareActivityCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBL-Yc-Urf">
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocS-w7-mAt">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigDefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="Brt-fK-tUC">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="2ln-eJ-Wg7"/>
+                                            <constraint firstAttribute="height" constant="55" id="VgZ-SM-HBX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EKN-ad-RRR" userLabel="image"/>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="EKN-ad-RRR" firstAttribute="leading" secondItem="ocS-w7-mAt" secondAttribute="leading" id="67t-Cd-iaV"/>
+                                    <constraint firstItem="EKN-ad-RRR" firstAttribute="top" secondItem="ocS-w7-mAt" secondAttribute="top" id="8kp-Ci-e7T"/>
+                                    <constraint firstAttribute="trailing" secondItem="EKN-ad-RRR" secondAttribute="trailing" id="Ssg-B9-p7z"/>
+                                    <constraint firstItem="Brt-fK-tUC" firstAttribute="centerX" secondItem="ocS-w7-mAt" secondAttribute="centerX" id="gvh-C9-VKr"/>
+                                    <constraint firstItem="Brt-fK-tUC" firstAttribute="centerY" secondItem="ocS-w7-mAt" secondAttribute="centerY" id="njr-fl-QGk"/>
+                                    <constraint firstAttribute="bottom" secondItem="EKN-ad-RRR" secondAttribute="bottom" id="qxO-Aj-zVZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ocS-w7-mAt" secondAttribute="bottom" constant="9" id="PST-Wn-uYW"/>
+                            <constraint firstItem="ocS-w7-mAt" firstAttribute="leading" secondItem="NBL-Yc-Urf" secondAttribute="leading" constant="9" id="Pe2-Hq-GtO"/>
+                            <constraint firstAttribute="trailing" secondItem="ocS-w7-mAt" secondAttribute="trailing" constant="9" id="g80-6N-gkO"/>
+                            <constraint firstItem="ocS-w7-mAt" firstAttribute="top" secondItem="NBL-Yc-Urf" secondAttribute="top" id="qK4-Rx-hGX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="NBL-Yc-Urf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9nT-OO-ZET"/>
+                <constraint firstAttribute="bottom" secondItem="NBL-Yc-Urf" secondAttribute="bottom" id="R7Z-e9-QE9"/>
+                <constraint firstAttribute="trailing" secondItem="NBL-Yc-Urf" secondAttribute="trailing" id="dAC-LE-OJo"/>
+                <constraint firstItem="NBL-Yc-Urf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fBV-qo-dgW"/>
+            </constraints>
+            <connections>
+                <outlet property="bgView" destination="NBL-Yc-Urf" id="KtG-St-iuJ"/>
+                <outlet property="image" destination="EKN-ad-RRR" id="xbl-RR-Um3"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bigDefaultImage" width="100" height="100"/>
+    </resources>
+</document>

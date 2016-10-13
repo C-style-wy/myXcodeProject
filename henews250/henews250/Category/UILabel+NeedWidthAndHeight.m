@@ -24,4 +24,20 @@
     return height;
 }
 
+- (CGFloat)needWidth {
+    UIFont *fnt = self.font;
+    NSString *text = self.text;
+    NSDictionary *attribute = @{NSFontAttributeName: fnt};
+    CGFloat width = TEXTWIDTH(text, attribute, self.frame.size.height);
+    return width + 1;
+}
+
+- (CGFloat)needHeight {
+    UIFont *fnt = self.font;
+    NSString *text = self.text;
+    NSDictionary *attribute = @{NSFontAttributeName: fnt};
+    CGFloat height = TEXTHEIGHT(text, attribute, self.frame.size.width);
+    return height;
+}
+
 @end

@@ -18,4 +18,8 @@
 
 - (CGFloat)needHeightWithText:(NSString*)text;
 
+- (CGFloat)needWidth;
+
+- (CGFloat)needHeight;
+
 @end
