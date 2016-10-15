@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UIImageView *line;
 
 @property (nonatomic, assign) id<SubPageHeadViewDelegate> delegate;
 @end

@@ -10,6 +10,7 @@
 #import "SubPageHeadView.h"
 #import "CityManager.h"
 #import "NetworkManager.h"
+#import "UILabel+NeedWidthAndHeight.h"
 
 @interface SubBaseViewController : BaseViewController<SubPageHeadViewDelegate, NetworkDelegate>
 
@@ -19,4 +20,6 @@
 @property (nonatomic, retain) UIButton *pageShareBtn;
 
 @property (nonatomic, retain) NSString *url;
+
+- (void)initPage NS_REQUIRES_SUPER;
 @end

@@ -30,6 +30,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initPage {}
+
 - (void)pageBackBtnSelect {
     [self.navigationController popViewControllerAnimated:YES];
 }
