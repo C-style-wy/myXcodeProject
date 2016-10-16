@@ -79,6 +79,15 @@ typedef enum _iPhoneType {
 #define LRLog(...)
 #endif
 
+#ifdef DEBUG
+#define LRString [NSString stringWithFormat:@"%s", __FILE__].lastPathComponent
+
+#define Log(...) printf("%s 第%d行: %s\n\n", [LRString UTF8String] ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+
+#else
+#define Log(...)
+#endif
+
 // 设置随机颜色
 #define LRRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 

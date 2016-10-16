@@ -18,8 +18,8 @@
 
 @property (nonatomic, retain) UIView *thirdPartyView;
 @property (nonatomic, retain) UIView *keyLoginView;
-@property (nonatomic, retain) UIView *loginNameAndPasswordView;
 
+@property (nonatomic, retain) UIView *loginNameAndPasswordView;
 @property (nonatomic, retain) UITextField *nameField;
 @property (nonatomic, retain) UITextField *passwordField;
 

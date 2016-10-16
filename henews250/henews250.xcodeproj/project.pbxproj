@@ -1716,7 +1716,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = com.henews.cmread;
 				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1806,7 +1806,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = com.henews.cmread;
 				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1985,7 +1985,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nmghenews.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = com.henews.cmread;
 				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "";
 			};
