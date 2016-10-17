@@ -561,7 +561,11 @@
 }
 
 - (void)dealPlatformUserInfoBackWithData:(SSDKUser *)user {
-    NSString *sdkParam = [@"&token=" stringByAppendingString:user.credential.token];
+    NSString *sdkParam = @"&token=";
+    if (user.credential.token && ![user.credential.token isEqualToString:@""]) {
+        sdkParam = [sdkParam stringByAppendingString:user.credential.token];
+    }
+    
     sdkParam = [sdkParam stringByAppendingString:@"&name="];
     sdkParam = [sdkParam stringByAppendingString:user.nickname];
     

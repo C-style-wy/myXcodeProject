@@ -83,6 +83,7 @@
                    NSLog(@"%@",user.credential);
                    NSLog(@"token=%@",user.credential.token);
                    NSLog(@"nickname=%@",user.nickname);
+                   [ShareSDK cancelAuthorize:platform];
                    if (success) {
                        success(user);
                    }
