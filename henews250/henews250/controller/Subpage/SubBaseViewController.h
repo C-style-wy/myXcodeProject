@@ -12,8 +12,7 @@
 #import "NetworkManager.h"
 #import "UILabel+NeedWidthAndHeight.h"
 
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKExtension/SSEThirdPartyLoginHelper.h>
+#import "ShareSDKManager.h"
 
 @interface SubBaseViewController : BaseViewController<SubPageHeadViewDelegate, NetworkDelegate>
 

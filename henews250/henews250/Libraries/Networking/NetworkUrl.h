@@ -50,4 +50,10 @@
  */
 #define DEF_GetWeatherurl         PATH(@"%@/publish/clt/resource/portal/v2/weatherInfo.jsp?city=")
 
+/**
+ *      第三方登录接口
+ */
+#define DEF_GetThirdPartyLoginUrl    PATH(@"%@/clt/societyFromSDK.msp?weiboType=")
+
+
 #endif /* NetworkUrl_h */

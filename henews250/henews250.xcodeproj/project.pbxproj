@@ -156,8 +156,15 @@
 		D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62A1D3CB07600696FF5 /* NodeMode.m */; };
 		D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62D1D3CB21100696FF5 /* HomeMode.m */; };
 		D3D3FF041DAB328D00CCD72A /* MJRefreshWYCustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D3FF031DAB328D00CCD72A /* MJRefreshWYCustomHeader.m */; };
+		D3D68BD91DB4BF51004E6D42 /* LoginMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D68BD81DB4BF51004E6D42 /* LoginMode.m */; };
+		D3D68BDC1DB4BF7D004E6D42 /* WeiboIdMapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D68BDB1DB4BF7D004E6D42 /* WeiboIdMapModel.m */; };
+		D3D68BDF1DB4BFE7004E6D42 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D68BDE1DB4BFE7004E6D42 /* UserInfoModel.m */; };
+		D3D68BE21DB4C15E004E6D42 /* LoaclUserInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D68BE11DB4C15E004E6D42 /* LoaclUserInfoData.m */; };
+		D3D68BE51DB4C3AE004E6D42 /* UserInfoHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D68BE41DB4C3AE004E6D42 /* UserInfoHandle.m */; };
 		D3EB39321DAB1DB2006588E5 /* HenewsRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EB39311DAB1DB2006588E5 /* HenewsRefreshHeader.m */; };
 		D3F230A41D911FE400697A6C /* TierManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F230A31D911FE400697A6C /* TierManager.m */; };
+		D3FC8AA21DB37F51004282E6 /* ShareSDKHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FC8AA11DB37F51004282E6 /* ShareSDKHandle.m */; };
+		D3FC8AA61DB3837F004282E6 /* ShareSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FC8AA51DB3837F004282E6 /* ShareSDKManager.m */; };
 		D3FC97B81DAA366600A591F0 /* MYRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FC97B71DAA366600A591F0 /* MYRefreshNormalHeader.m */; };
 		D3FDB9F11DA5485C00F2BD8E /* MYRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3FDB9F01DA5485C00F2BD8E /* MYRefresh.bundle */; };
 		D3FDB9F51DA549C000F2BD8E /* MYRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDB9F41DA549C000F2BD8E /* MYRefreshConst.m */; };
@@ -465,10 +472,28 @@
 		D3CEF62D1D3CB21100696FF5 /* HomeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMode.m; sourceTree = "<group>"; };
 		D3D3FF021DAB328D00CCD72A /* MJRefreshWYCustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshWYCustomHeader.h; sourceTree = "<group>"; };
 		D3D3FF031DAB328D00CCD72A /* MJRefreshWYCustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshWYCustomHeader.m; sourceTree = "<group>"; };
+		D3D68BD01DB46175004E6D42 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = Pods/ShareSDK3/ShareSDK/Support/PlatformSDK/QQSDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		D3D68BD11DB46175004E6D42 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = Pods/ShareSDK3/ShareSDK/Support/PlatformSDK/QQSDK/TencentOpenAPI.framework; sourceTree = "<group>"; };
+		D3D68BD41DB4705B004E6D42 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D3D68BD71DB4BF51004E6D42 /* LoginMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginMode.h; sourceTree = "<group>"; };
+		D3D68BD81DB4BF51004E6D42 /* LoginMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginMode.m; sourceTree = "<group>"; };
+		D3D68BDA1DB4BF7D004E6D42 /* WeiboIdMapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboIdMapModel.h; sourceTree = "<group>"; };
+		D3D68BDB1DB4BF7D004E6D42 /* WeiboIdMapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboIdMapModel.m; sourceTree = "<group>"; };
+		D3D68BDD1DB4BFE7004E6D42 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		D3D68BDE1DB4BFE7004E6D42 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
+		D3D68BE01DB4C15E004E6D42 /* LoaclUserInfoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoaclUserInfoData.h; sourceTree = "<group>"; };
+		D3D68BE11DB4C15E004E6D42 /* LoaclUserInfoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoaclUserInfoData.m; sourceTree = "<group>"; };
+		D3D68BE31DB4C3AE004E6D42 /* UserInfoHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoHandle.h; sourceTree = "<group>"; };
+		D3D68BE41DB4C3AE004E6D42 /* UserInfoHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoHandle.m; sourceTree = "<group>"; };
 		D3EB39301DAB1DB2006588E5 /* HenewsRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HenewsRefreshHeader.h; sourceTree = "<group>"; };
 		D3EB39311DAB1DB2006588E5 /* HenewsRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HenewsRefreshHeader.m; sourceTree = "<group>"; };
 		D3F230A21D911FE400697A6C /* TierManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierManager.h; sourceTree = "<group>"; };
 		D3F230A31D911FE400697A6C /* TierManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierManager.m; sourceTree = "<group>"; };
+		D3FC8AA01DB37F51004282E6 /* ShareSDKHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareSDKHandle.h; sourceTree = "<group>"; };
+		D3FC8AA11DB37F51004282E6 /* ShareSDKHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareSDKHandle.m; sourceTree = "<group>"; };
+		D3FC8AA31DB37F88004282E6 /* ShareSDKDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareSDKDefine.h; sourceTree = "<group>"; };
+		D3FC8AA41DB3837F004282E6 /* ShareSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareSDKManager.h; sourceTree = "<group>"; };
+		D3FC8AA51DB3837F004282E6 /* ShareSDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareSDKManager.m; sourceTree = "<group>"; };
 		D3FC97B61DAA366600A591F0 /* MYRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRefreshNormalHeader.h; sourceTree = "<group>"; };
 		D3FC97B71DAA366600A591F0 /* MYRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRefreshNormalHeader.m; sourceTree = "<group>"; };
 		D3FDB9F01DA5485C00F2BD8E /* MYRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MYRefresh.bundle; sourceTree = "<group>"; };
@@ -510,6 +535,9 @@
 		1E52F506F5DD48D79F7D18B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3D68BD41DB4705B004E6D42 /* libsqlite3.tbd */,
+				D3D68BD01DB46175004E6D42 /* TencentOpenApi_IOS_Bundle.bundle */,
+				D3D68BD11DB46175004E6D42 /* TencentOpenAPI.framework */,
 				2D06F7740EE8032606215613 /* libPods-henews250.a */,
 			);
 			name = Frameworks;
@@ -741,6 +769,7 @@
 		D3276ACE1D2A681A00A249C9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D3FC8A9F1DB37F14004282E6 /* ShareSDKHandle */,
 				D3EB392F1DAB1D46006588E5 /* HenewsRefresh */,
 				D32972491D7552EC00B60181 /* Loading */,
 				D3640C8E1D631E70008049E4 /* LcationManager */,
@@ -973,6 +1002,7 @@
 		D366815E1D3762D7001948D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3D68BD61DB4BF37004E6D42 /* LoginMode */,
 				D3C2A2661DACC6CE003A3B92 /* WelfareMode */,
 				D32BD2101D7D4D9A00DB44DE /* WeatherMode */,
 				D36150431D5D6CE2003779A5 /* CityListMode */,
@@ -1094,6 +1124,23 @@
 			path = HomeMode;
 			sourceTree = "<group>";
 		};
+		D3D68BD61DB4BF37004E6D42 /* LoginMode */ = {
+			isa = PBXGroup;
+			children = (
+				D3D68BD71DB4BF51004E6D42 /* LoginMode.h */,
+				D3D68BD81DB4BF51004E6D42 /* LoginMode.m */,
+				D3D68BDA1DB4BF7D004E6D42 /* WeiboIdMapModel.h */,
+				D3D68BDB1DB4BF7D004E6D42 /* WeiboIdMapModel.m */,
+				D3D68BDD1DB4BFE7004E6D42 /* UserInfoModel.h */,
+				D3D68BDE1DB4BFE7004E6D42 /* UserInfoModel.m */,
+				D3D68BE01DB4C15E004E6D42 /* LoaclUserInfoData.h */,
+				D3D68BE11DB4C15E004E6D42 /* LoaclUserInfoData.m */,
+				D3D68BE31DB4C3AE004E6D42 /* UserInfoHandle.h */,
+				D3D68BE41DB4C3AE004E6D42 /* UserInfoHandle.m */,
+			);
+			path = LoginMode;
+			sourceTree = "<group>";
+		};
 		D3EB392F1DAB1D46006588E5 /* HenewsRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1103,6 +1150,18 @@
 				D3D3FF031DAB328D00CCD72A /* MJRefreshWYCustomHeader.m */,
 			);
 			path = HenewsRefresh;
+			sourceTree = "<group>";
+		};
+		D3FC8A9F1DB37F14004282E6 /* ShareSDKHandle */ = {
+			isa = PBXGroup;
+			children = (
+				D3FC8AA01DB37F51004282E6 /* ShareSDKHandle.h */,
+				D3FC8AA11DB37F51004282E6 /* ShareSDKHandle.m */,
+				D3FC8AA31DB37F88004282E6 /* ShareSDKDefine.h */,
+				D3FC8AA41DB3837F004282E6 /* ShareSDKManager.h */,
+				D3FC8AA51DB3837F004282E6 /* ShareSDKManager.m */,
+			);
+			path = ShareSDKHandle;
 			sourceTree = "<group>";
 		};
 		D3FDB9EB1DA5279300F2BD8E /* MYRefresh */ = {
@@ -1421,6 +1480,7 @@
 				D324796B1D8F8B88004C7A7B /* LiveViewController.m in Sources */,
 				D323750B1D4ADDA6003042C6 /* TierCollectionViewCell.m in Sources */,
 				D3C4EC691D485FF6002D4BC9 /* TierHeadView.m in Sources */,
+				D3FC8AA21DB37F51004282E6 /* ShareSDKHandle.m in Sources */,
 				D32BD2221D7D511900DB44DE /* YesterdayMode.m in Sources */,
 				D3640C8B1D62F60B008049E4 /* CityListSectionView.m in Sources */,
 				D32BD21C1D7D4FDE00DB44DE /* DayMode.m in Sources */,
@@ -1434,12 +1494,14 @@
 				D317BFCC1D795F6B00852ADC /* XMLDictionary.m in Sources */,
 				D32BD5791DA8CBEF00D55969 /* UIView+MYExtension.m in Sources */,
 				D36150461D5D6D14003779A5 /* CityListMode.m in Sources */,
+				D3D68BDF1DB4BFE7004E6D42 /* UserInfoModel.m in Sources */,
 				D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */,
 				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
 				D319C88C1D38705D002A84F5 /* AdMode.m in Sources */,
 				D31EC6871D7824F300F2B349 /* NetworkManager.m in Sources */,
 				D365587D1DAF230300D05C84 /* BigDefaultImageView.m in Sources */,
 				D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */,
+				D3D68BE21DB4C15E004E6D42 /* LoaclUserInfoData.m in Sources */,
 				D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */,
 				D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */,
 				D3957B6A1D950F3C00F4A360 /* PullCollectionView.m in Sources */,
@@ -1449,6 +1511,7 @@
 				D3640C931D631E70008049E4 /* CLLocation+MPLocation.m in Sources */,
 				D319C8891D387007002A84F5 /* SingleColMode.m in Sources */,
 				D32689D61D7FBD4D00DEB5AA /* NewsDetailViewController.m in Sources */,
+				D3D68BD91DB4BF51004E6D42 /* LoginMode.m in Sources */,
 				D32BD58B1DA8F7E400D55969 /* MYRefreshBackFooter.m in Sources */,
 				D30E52781D6438AE0018FE6D /* CityManager.m in Sources */,
 				D359E40F1D8652FA00CB8BD0 /* CoreDataManager.m in Sources */,
@@ -1467,12 +1530,15 @@
 				D32479651D8F8B6D004C7A7B /* WebViewController.m in Sources */,
 				D3CEF61B1D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.m in Sources */,
 				D31E0D9F1DAF61B4006196A7 /* WelfareExchangeCell.m in Sources */,
+				D3FC8AA61DB3837F004282E6 /* ShareSDKManager.m in Sources */,
+				D3D68BE51DB4C3AE004E6D42 /* UserInfoHandle.m in Sources */,
 				D3FDB9F51DA549C000F2BD8E /* MYRefreshConst.m in Sources */,
 				D3CEF6251D3CAE5100696FF5 /* NewsMode.m in Sources */,
 				D3D3FF041DAB328D00CCD72A /* MJRefreshWYCustomHeader.m in Sources */,
 				D319C88F1D387307002A84F5 /* LoadingMode.m in Sources */,
 				D3C2A2691DACC71A003A3B92 /* GoodsListModel.m in Sources */,
 				D3FDB9F81DA54C2600F2BD8E /* NSBundle+MYRefresh.m in Sources */,
+				D3D68BDC1DB4BF7D004E6D42 /* WeiboIdMapModel.m in Sources */,
 				D32375101D4AE5B6003042C6 /* TierCollectionReusableView.m in Sources */,
 				D31E0DAC1DAF8FEE006196A7 /* UserLoginController.m in Sources */,
 				D32C36901D321B6200431829 /* ViewPointViewController.m in Sources */,
@@ -1644,6 +1710,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/ShareSDK3/ShareSDK/Support/PlatformSDK/QQSDK",
 				);
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1719,6 +1786,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.henews.cmread;
 				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -1734,9 +1802,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/ShareSDK3/ShareSDK/Support/PlatformSDK/QQSDK",
 				);
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1809,6 +1879,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.henews.cmread;
 				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -1913,6 +1984,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/ShareSDK3/ShareSDK/Support/PlatformSDK/QQSDK",
 				);
 				INFOPLIST_FILE = henews250/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1988,6 +2060,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.henews.cmread;
 				PRODUCT_NAME = "和新闻";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = ReleaseTest;
 		};

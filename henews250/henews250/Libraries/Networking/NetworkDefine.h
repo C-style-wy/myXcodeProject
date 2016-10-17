@@ -9,6 +9,15 @@
 #ifndef NetworkDefine_h
 #define NetworkDefine_h
 
+#ifdef DEBUG
+#define NTString [NSString stringWithFormat:@"%s", __FILE__].lastPathComponent
+
+#define NTLog(...) printf("%s 第%d行: %s\n", [NTString UTF8String] ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+
+#else
+#define NTLog(...)
+#endif
+
 /**
  *  请求类型
  */

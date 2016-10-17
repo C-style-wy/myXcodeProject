@@ -82,7 +82,7 @@ typedef enum _iPhoneType {
 #ifdef DEBUG
 #define LRString [NSString stringWithFormat:@"%s", __FILE__].lastPathComponent
 
-#define Log(...) printf("%s 第%d行: %s\n\n", [LRString UTF8String] ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+#define Log(...) printf("%s 第%d行: %s\n", [LRString UTF8String] ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
 
 #else
 #define Log(...)

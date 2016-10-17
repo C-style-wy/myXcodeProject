@@ -7,6 +7,8 @@
 //
 
 #import "UserLoginController.h"
+#import "UserInfoHandle.h"
+#import "LoginMode.h"
 
 @interface UserLoginController ()
 
@@ -532,43 +534,83 @@
 #pragma mark - 按钮点击事件
 - (void)thirdPartyBtnSelect:(UIButton *)sender {
     if (1 == sender.tag) {
-        
+        [ShareSDKManager getWeixinUserInfo:^(SSDKUser *user) {
+            Log(@"Wechat===success====");
+            [self dealPlatformUserInfoBackWithData:user];
+        } failure:^(SSDKResponseState state, NSError *error) {
+            Log(@"Wechat===fail====");
+        }];
     } else if (2 == sender.tag) {
         
     } else if (3 == sender.tag) {
-        
+        [ShareSDKManager getWeiboUserInfo:^(SSDKUser *user) {
+            Log(@"weibo===success====");
+            [self dealPlatformUserInfoBackWithData:user];
+        } failure:^(SSDKResponseState state, NSError *error) {
+            Log(@"weibo===fail====");
+        }];
     } else if (4 == sender.tag) {
-        Log(@"QQ=======");
-//        [ShareSDK getUserInfo:SSDKPlatformTypeQQ
-//               onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
-//                   if (state == SSDKResponseStateSuccess) {
-//                       Log(@"QQ===success====");
-//                       NSLog(@"uid=%@",user.uid);
-//                       NSLog(@"%@",user.credential);
-//                       NSLog(@"token=%@",user.credential.token);
-//                       NSLog(@"nickname=%@",user.nickname);
-//                   } else {
-//                       Log(@"QQ===fail====");
-//                       NSLog(@"%@",error);
-//                   }
-//               }];
-        [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ
-                                       onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
+        [ShareSDKManager getQQUserInfo:^(SSDKUser *user) {
             Log(@"QQ===success====");
-           //在此回调中可以将社交平台用户信息与自身用户系统进行绑定，最后使用一个唯一用户标识来关联此用户信息。
-           //在此示例中没有跟用户系统关联，则使用一个社交用户对应一个系统用户的方式。将社交用户的uid作为关联ID传入associateHandler。
-           associateHandler (user.uid, user, user);
-           NSLog(@"dd%@",user.rawData);
-           NSLog(@"dd%@",user.credential);
-            
-        } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
+            [self dealPlatformUserInfoBackWithData:user];
+        } failure:^(SSDKResponseState state, NSError *error) {
             Log(@"QQ===fail====");
-            if (state == SSDKResponseStateSuccess) {
-                
-            }
-            
-       }];
+            NSLog(@"error===%@", error);
+        }];
     }
+}
+
+- (void)dealPlatformUserInfoBackWithData:(SSDKUser *)user {
+    NSString *sdkParam = [@"&token=" stringByAppendingString:user.credential.token];
+    sdkParam = [sdkParam stringByAppendingString:@"&name="];
+    sdkParam = [sdkParam stringByAppendingString:user.nickname];
+    
+    sdkParam = [sdkParam stringByAppendingString:@"&pic="];
+    sdkParam = [sdkParam stringByAppendingString:user.icon];
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyyMMddHHmmss"];
+    [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
+    sdkParam = [sdkParam stringByAppendingString:@"&expiresTime="];
+    sdkParam = [sdkParam stringByAppendingString:[df stringFromDate:user.credential.expired]];
+    
+    sdkParam = [sdkParam stringByAppendingString:@"&expiresin="];
+    sdkParam = [sdkParam stringByAppendingString:[[user.credential.rawData objectForKey:@"expires_in"] stringValue]];
+    
+    sdkParam = [sdkParam stringByAppendingString:@"&uid="];
+    sdkParam = [sdkParam stringByAppendingString:user.uid];
+    
+    sdkParam = [sdkParam stringByAppendingString:@"&tokenSecret="];
+    if (user.credential.secret && ![user.credential.secret isEqualToString:@""]) {
+        sdkParam = [sdkParam stringByAppendingString:user.credential.secret];
+    }
+    
+    NSString *weiboType = @"";
+    if (user.platformType == SSDKPlatformTypeSinaWeibo) {
+        weiboType = @"SINA";
+    } else if (user.platformType == SSDKPlatformSubTypeQZone) {
+        weiboType = @"TENCENT";
+    } else if (user.platformType == SSDKPlatformTypeWechat) {
+        weiboType = @"TENCENT";
+    }
+    NSString *url = [DEF_GetThirdPartyLoginUrl stringByAppendingString:weiboType];
+    url = [url stringByAppendingString:@"&otype=1"];
+    url = [url stringByAppendingString:sdkParam];
+
+    [NetworkManager postRequestJsonWithURL:url params:nil cacheBlock:^(NSDictionary *returnJson) {
+        
+    } successBlock:^(NSDictionary *returnJson) {
+        LoginMode *data = [LoginMode mj_objectWithKeyValues:returnJson];
+        LoaclUserInfoData *localUserInfo = [[LoaclUserInfoData alloc]init];
+        localUserInfo.userInfo = data.userInfo;
+        localUserInfo.isAutoLogin = YES;
+        localUserInfo.isRememberPassword = YES;
+        localUserInfo.isLogin = YES;
+        [UserInfoHandle saveUserInfo2Local:localUserInfo];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failureBlock:^(NSError *error) {
+        
+    } showHUD:NO];
 }
 
 - (void)keyLoginBtnSelect:(UIButton *)sender {

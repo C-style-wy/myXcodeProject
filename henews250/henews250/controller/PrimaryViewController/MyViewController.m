@@ -7,6 +7,7 @@
 //
 
 #import "MyViewController.h"
+#import "UserInfoHandle.h"
 
 @interface MyViewController ()
 
@@ -20,6 +21,11 @@
     [self initPage];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self dealLogin];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -27,6 +33,8 @@
 
 - (void)initPage {
     self.userHeadView = [UserHeadView loadFromNib];
+    self.userHeadView.userHeaderImage.layer.masksToBounds = YES;
+    self.userHeadView.userHeaderImage.layer.cornerRadius = 34.0f;
     self.userHeadView.controller = self;
     self.userHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, (164.0*SCREEN_WIDTH)/320.0);
     [self.view addSubview:self.userHeadView];
@@ -44,6 +52,19 @@
     [uiScrollView addSubview:myListView];
     uiScrollView.contentSize = CGSizeMake(0, uiScrollView.frame.size.height);
 }
+
+#pragma mark - 处理登录
+- (void)dealLogin {
+    LoaclUserInfoData *userInfo = [UserInfoHandle getUserInfoFromLocal];
+    if (userInfo.isLogin) {
+        [self.userHeadView.userHeaderImage loadFromWebWithUrlString:userInfo.userInfo.pic animated:YES];
+        self.userHeadView.userNameLabel.text = userInfo.userInfo.sname;
+    }else{
+        self.userHeadView.userHeaderImage.image = [UIImage imageNamed:@""];
+        self.userHeadView.userNameLabel.text = @"点击登录";
+    }
+}
+
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     float y = scrollView.contentOffset.y;

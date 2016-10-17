@@ -1,6 +1,7 @@
 # PPNetworkHelper
 
 对AFNetworking 3.x 与YYCache的二次封装,封装常见的GET、POST、文件上传/下载、网络状态监测的功能、方法接口简洁明了,并结合YYCache实现对网络数据的缓存,简单易用,不用再写FMDB那烦人的SQL语句,一句代码搞定网络数据的请求与缓存. 
+无需设置,无需插件,控制台可直接打印json中文字符,调试更方便
 
 [简书地址](http://www.jianshu.com/p/c695d20d95cb) ;
 
@@ -15,7 +16,7 @@
 `下载DEMO后,将子文件夹PPNetworkHelper拖入到项目中, 导入头文件PPNetworkHelper.h开始使用`
 ###2.CocoaPods安装:
 first
-`pod 'PPNetworkHelper',,:git => 'https://github.com/jkpang/PPNetworkHelper.git'`
+`pod 'PPNetworkHelper',:git => 'https://github.com/jkpang/PPNetworkHelper.git'`
 then
 `pod install或pod install --no-repo-update`
 
@@ -36,9 +37,9 @@ then
 [PPNetworkHelper GET:url parameters:nil success:^(id responseObject) {
     //请求成功
         //手动缓存
-      [PPNetworkCache [PPNetworkCache setHttpCache:responseObject URL:url parameters:parameters]];
+    [PPNetworkCache setHttpCache:responseObject URL:url parameters:parameters];
     } failure:^(NSError *error) {
-            //请求失败
+    //请求失败
 }];
 ```
 ###2. 自动缓存(GET与POST请求用法相同)
@@ -68,7 +69,7 @@ then
                          //上传成功
                       } failure:^(NSError *error) {
                         //上传失败
-                      }];
+}];
 
 ```
 ###4.文件下载
@@ -183,6 +184,7 @@ PPNetworkHelper全部以类方法调用,使用简单,麻麻再也不用担心我
 ###你的star是我持续更新的动力!
 ===
 ##CocoaPods更新日志
+* 2016.09.26(tag:0.3.0)--控制台直接打印json中文字符,无需插件
 * 2016.09.18(tag:0.2.5)--1.支持单个页面的多级数据缓存,2.简化网络状态监测的方法调用
 * 2016.09.12(tag:0.2.1)--小细节优化
 * 2016.09.10(tag:0.2.0)--增加网络请求设置接口(详情见:7.网络参数设置)

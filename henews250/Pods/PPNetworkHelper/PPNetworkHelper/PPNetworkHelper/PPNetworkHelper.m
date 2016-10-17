@@ -12,7 +12,7 @@
 #import "AFNetworkActivityIndicatorManager.h"
 
 #ifdef DEBUG
-#define PPLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#define PPLog(...) printf("[%s] %s [第%d行]: %s\n", __TIME__ ,__PRETTY_FUNCTION__ ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String])
 #else
 #define PPLog(...)
 #endif
@@ -168,7 +168,9 @@ static AFHTTPSessionManager *_manager;
         }];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         //上传进度
-        progress ? progress(uploadProgress) : nil;
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            progress ? progress(uploadProgress) : nil;
+        });
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         success ? success(responseObject) : nil;
@@ -189,8 +191,11 @@ static AFHTTPSessionManager *_manager;
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL]];
     NSURLSessionDownloadTask *downloadTask = [_manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        
         //下载进度
-        progress ? progress(downloadProgress) : nil;
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            progress ? progress(downloadProgress) : nil;
+        });
         PPLog(@"下载进度:%.2f%%",100.0*downloadProgress.completedUnitCount/downloadProgress.totalUnitCount);
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
@@ -249,12 +254,12 @@ static AFHTTPSessionManager *_manager;
 #pragma mark - 重置AFHTTPSessionManager相关属性
 + (void)setRequestSerializer:(PPRequestSerializer)requestSerializer
 {
-    _manager.requestSerializer = requestSerializer==PPRequestSerializerHTTP ? [AFHTTPRequestSerializer serializer] : nil ;
+    _manager.requestSerializer = requestSerializer==PPRequestSerializerHTTP ? [AFHTTPRequestSerializer serializer] : [AFJSONRequestSerializer serializer];
 }
 
 + (void)setResponseSerializer:(PPResponseSerializer)responseSerializer
 {
-    _manager.responseSerializer = responseSerializer==PPResponseSerializerHTTP ? [AFHTTPResponseSerializer serializer] : nil;
+    _manager.responseSerializer = responseSerializer==PPResponseSerializerHTTP ? [AFHTTPResponseSerializer serializer] : [AFJSONResponseSerializer serializer];
 }
 
 + (void)setRequestTimeoutInterval:(NSTimeInterval)time
@@ -269,8 +274,51 @@ static AFHTTPSessionManager *_manager;
 
 + (void)openNetworkActivityIndicator:(BOOL)open
 {
-    !open ? [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:NO] : nil ;
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:open];
 }
 
+@end
+
+
+#pragma mark - NSDictionary,NSArray的分类
+/*
+ ************************************************************************************
+ *新建NSDictionary与NSArray的分类, 控制台打印json数据中的中文
+ ************************************************************************************
+ */
+
+#ifdef DEBUG
+@implementation NSArray (PP)
+
+- (NSString *)descriptionWithLocale:(id)locale
+{
+    NSMutableString *strM = [NSMutableString stringWithString:@"(\n"];
+    
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [strM appendFormat:@"\t%@,\n", obj];
+    }];
+    
+    [strM appendString:@")"];
+    
+    return strM;
+}
 
 @end
+
+@implementation NSDictionary (PP)
+
+- (NSString *)descriptionWithLocale:(id)locale
+{
+    NSMutableString *strM = [NSMutableString stringWithString:@"{\n"];
+    
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [strM appendFormat:@"\t%@ = %@;\n", key, obj];
+    }];
+    
+    [strM appendString:@"}\n"];
+    
+    return strM;
+}
+@end
+#endif
+

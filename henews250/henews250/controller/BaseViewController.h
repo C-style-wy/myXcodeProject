@@ -14,6 +14,7 @@
 #import "HenewsRefreshHeader.h"
 
 #import "UIImageView+WebCache.h"
+#import "UIImageView+LoadFromWeb.h"
 #import "UIView+SetAllSubViewHidden.h"
 #import "UIColor+hexColor.h"
 #import "TierManager.h"

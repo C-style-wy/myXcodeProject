@@ -63,6 +63,7 @@
         self.update         = update;
     }
     NSString *requestUrl = [self addKeyWithUrl:url];
+    NTLog(@"url=====%@", [self getParamString:url]);
     __weak typeof(self)weakSelf = self;
     AFHTTPSessionManager *manager = [self getHttpSessionManager:dataType];
     if (dataType == NetWorkJSON) {
@@ -227,6 +228,52 @@
     return manager;
 }
 
+- (NSString *)getParamString:(NSString *)url {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *paramStr = @"?";
+    if ([url rangeOfString:@"?"].location != NSNotFound){
+        paramStr = @"&";
+    }
+
+    paramStr = [paramStr stringByAppendingString:WD_CLIENTNAME];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    if ([userDefaults stringForKey:WD_CLIENTNAME] && (![[userDefaults stringForKey:WD_CLIENTNAME] isEqualToString:@""])) {
+        paramStr = [paramStr stringByAppendingString:[userDefaults stringForKey:WD_CLIENTNAME]];
+    }
+    
+    paramStr = [self addOneParam:paramStr key:WD_UUID];
+    paramStr = [self addOneParam:paramStr key:WD_CLIENT_TYPE];
+    paramStr = [self addOneParam:paramStr key:WD_UA];
+    paramStr = [self addOneParam:paramStr key:WD_SYSTEM];
+    paramStr = [self addOneParam:paramStr key:WD_VERSION];
+    paramStr = [self addOneParam:paramStr key:WD_CHANNEL];
+    
+    paramStr = [self addOneParam:paramStr key:WD_RESOLUTION];
+    paramStr = [self addOneParam:paramStr key:WD_CP_ID];
+    
+    paramStr = [paramStr stringByAppendingString:@"&"];
+    paramStr = [paramStr stringByAppendingString:@"loginName"];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    paramStr = [paramStr stringByAppendingString:@""];
+    
+    url = [url stringByAppendingString:paramStr];
+    
+    return [self addKeyWithUrl:url];
+}
+
+- (NSString *)addOneParam:(NSString *)param key:(NSString *)key {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    param = [param stringByAppendingString:@"&"];
+    param = [param stringByAppendingString:key];
+    param = [param stringByAppendingString:@"="];
+    if ([userDefaults stringForKey:key] && (![[userDefaults stringForKey:key] isEqualToString:@""])) {
+        param = [param stringByAppendingString:[userDefaults stringForKey:key]];
+    }
+    
+    return param;
+}
+
 - (NSString *)addKeyWithUrl:(NSString *)url{
     if([url rangeOfString:@"?"].location != NSNotFound){
         url = [url stringByAppendingString:@"&"];
@@ -254,33 +301,12 @@
     if ([userDefaults stringForKey:WD_CP_ID] && (![[userDefaults stringForKey:WD_CP_ID] isEqualToString:@""])) {
         str = [str stringByAppendingString:[userDefaults stringForKey:WD_CP_ID]];
     }
-    str = [str stringByAppendingString:@"&"];
-    str = [str stringByAppendingString:WD_VERSION];
-    str = [str stringByAppendingString:@"="];
-    if ([userDefaults stringForKey:WD_VERSION] && (![[userDefaults stringForKey:WD_VERSION] isEqualToString:@""])) {
-        str = [str stringByAppendingString:[userDefaults stringForKey:WD_VERSION]];
-    }
     
-    str = [str stringByAppendingString:@"&"];
-    str = [str stringByAppendingString:WD_CHANNEL];
-    str = [str stringByAppendingString:@"="];
-    if ([userDefaults stringForKey:WD_CHANNEL] && (![[userDefaults stringForKey:WD_CHANNEL] isEqualToString:@""])) {
-        str = [str stringByAppendingString:[userDefaults stringForKey:WD_CHANNEL]];
-    }
+    str = [self addOneParam:str key:WD_VERSION];
+    str = [self addOneParam:str key:WD_CHANNEL];
+    str = [self addOneParam:str key:WD_UA];
+    str = [self addOneParam:str key:WD_UUID];
     
-    str = [str stringByAppendingString:@"&"];
-    str = [str stringByAppendingString:WD_UA];
-    str = [str stringByAppendingString:@"="];
-    if ([userDefaults stringForKey:WD_UA] && (![[userDefaults stringForKey:WD_UA] isEqualToString:@""])) {
-        str = [str stringByAppendingString:[userDefaults stringForKey:WD_UA]];
-    }
-    
-    str = [str stringByAppendingString:@"&"];
-    str = [str stringByAppendingString:WD_UUID];
-    str = [str stringByAppendingString:@"="];
-    if ([userDefaults stringForKey:WD_UUID] && (![[userDefaults stringForKey:WD_UUID] isEqualToString:@""])) {
-        str = [str stringByAppendingString:[userDefaults stringForKey:WD_UUID]];
-    }
     str = [str stringByAppendingString:@"&loginName="];
     //    str = [str stringByAppendingString:[userDefaults stringForKey:@"111"]];
     str = [str stringByAppendingString:@"&salt="];
