@@ -31,6 +31,7 @@
     }
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = SelectColor;
+    [cell layoutIfNeeded];
     return cell;
 }
 
@@ -112,6 +113,7 @@
     }
     
     _line.hidden = hidden;
+    [self layoutIfNeeded];
 }
 
 @end

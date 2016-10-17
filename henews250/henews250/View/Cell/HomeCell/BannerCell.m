@@ -32,6 +32,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"BannerCell" owner:nil options:nil] firstObject];
     }
+    [cell layoutIfNeeded];
     return cell;
 }
 
@@ -58,6 +59,7 @@
         [self setScrollerAction];
     }
     _line.hidden = hidden;
+    [self layoutIfNeeded];
 }
 
 - (void)setScrollerAction {

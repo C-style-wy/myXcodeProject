@@ -59,6 +59,7 @@
         pointView.layer.cornerRadius = _pointSize/2;
         [self addSubview:pointView];
     }
+    [self.superview layoutIfNeeded];
 }
 
 -(void)setCurrentPage:(NSInteger)page {

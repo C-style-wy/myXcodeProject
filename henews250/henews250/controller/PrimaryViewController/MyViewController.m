@@ -60,7 +60,7 @@
         [self.userHeadView.userHeaderImage loadFromWebWithUrlString:userInfo.userInfo.pic animated:YES];
         self.userHeadView.userNameLabel.text = userInfo.userInfo.sname;
     }else{
-        self.userHeadView.userHeaderImage.image = [UIImage imageNamed:@""];
+        self.userHeadView.userHeaderImage.image = [UIImage imageNamed:@"head_default"];
         self.userHeadView.userNameLabel.text = @"点击登录";
     }
 }

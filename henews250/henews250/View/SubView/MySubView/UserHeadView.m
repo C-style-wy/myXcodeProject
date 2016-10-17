@@ -9,6 +9,7 @@
 #import "UserHeadView.h"
 #import "UserLoginController.h"
 #import "MyViewController.h"
+#import "UserInfoHandle.h"
 
 @implementation UserHeadView
 
@@ -17,9 +18,13 @@
 }
 
 - (IBAction)loginBtnSelect:(id)sender {
-    UserLoginController *login = [UserLoginController loadFromStoryboard];
-//    [self.controller.navigationController pushViewController:login animated:YES];
-    [self.controller presentViewController:login animated:YES completion:nil];
+//    LoaclUserInfoData *userInfo = [UserInfoHandle getUserInfoFromLocal];
+//    if (userInfo && userInfo.isLogin) {
+//        
+//    }else{
+        UserLoginController *login = [UserLoginController loadFromStoryboard];
+        [self.controller presentViewController:login animated:YES completion:nil];
+//    }
 }
 
 - (IBAction)signBtnSelect:(id)sender {

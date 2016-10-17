@@ -32,12 +32,13 @@
 //    cell.selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0.5f, cell.frame.size.width, cell.frame.size.height-0.5f)];
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = SelectColor;
+    [cell layoutIfNeeded];
     return cell;
 }
 
 - (void)prepareForReuse {
     [super prepareForReuse];
-    self.image.image = nil;
+    self.image.image = [UIImage imageNamed:@""];
 }
 
 - (void)setNews:(NewsMode *)news hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort {
@@ -122,6 +123,7 @@
     }
 
     _line.hidden = hidden;
+    [self layoutIfNeeded];
 }
 
 @end

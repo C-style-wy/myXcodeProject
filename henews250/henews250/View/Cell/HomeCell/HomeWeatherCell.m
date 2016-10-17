@@ -31,6 +31,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeWeatherCell" owner:nil options:nil] firstObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell layoutIfNeeded];
     return cell;
 }
 
@@ -48,6 +49,7 @@
     } failureBlock:^(NSError *error) {
         
     } showHUD:NO];
+    
 }
 
 - (void)requestData:(NSTimer*)timer {
@@ -133,5 +135,7 @@
     NSString *wendu3 = [[[[w3 stringByAppendingString:@"  "]stringByAppendingString:highWendu3] stringByAppendingString:@"/"]stringByAppendingString:lowWendu3];
     self.wendu3.text = wendu3;
     self.weatherimg3.image = [UIImage imageNamed:w3];
+    
+    [self layoutIfNeeded];
 }
 @end
