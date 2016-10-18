@@ -361,6 +361,11 @@
         _nameField.font = [UIFont systemFontOfSize:14.0f];
         _nameField.textColor = [UIColor colorWithHexColor:@"1e1e1e"];
         [_nameField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        
+        LoaclUserInfoData *user = [UserInfoHandle getUserInfoFromLocal];
+        if (user && user.userInfo && user.userInfo.accountName && user.loginType == LoginTypeCommon) {
+            _nameField.text = user.userInfo.accountName;
+        }
     }
     return _nameField;
 }
@@ -370,9 +375,15 @@
         _passwordField = [[UITextField alloc]init];
         _passwordField.delegate = self;
         _passwordField.placeholder = @"密码";
+        _passwordField.secureTextEntry = YES;
         _passwordField.font = [UIFont systemFontOfSize:14.0f];
         _passwordField.textColor = [UIColor colorWithHexColor:@"1e1e1e"];
         [_passwordField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        
+        LoaclUserInfoData *user = [UserInfoHandle getUserInfoFromLocal];
+        if (user && user.userInfo && user.userInfo.name && user.loginType == LoginTypeCommon && user.isRememberPassword) {
+            _passwordField.text = user.password;
+        }
     }
     return _passwordField;
 }
@@ -402,13 +413,17 @@
         _autoLoginView = [[UIView alloc]initWithFrame:CGRectMake(0, self.loginNameAndPasswordView.frame.origin.y + self.loginNameAndPasswordView.frame.size.height, SCREEN_WIDTH, 45.5f)];
         _autoLoginView.backgroundColor = LRClearColor;
         
+        LoaclUserInfoData *user = [UserInfoHandle getUserInfoFromLocal];
+        
         UIButton *btn = [[UIButton alloc]init];
         [_autoLoginView addSubview:btn];
         {
             btn.translatesAutoresizingMaskIntoConstraints = NO;
-            [btn setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"unchoose"] forState:UIControlStateNormal];
             [btn setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateHighlighted];
-            [btn setImage:[UIImage imageNamed:@"unchoose"] forState:UIControlStateSelected];
+            [btn setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateSelected];
+            
+            btn.selected = user.isAutoLogin;
             
             [btn setTitle:@"自动登录" forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor colorWithHexColor:@"#999999"] forState:UIControlStateNormal];
@@ -441,10 +456,10 @@
         [_autoLoginView addSubview:btn2];
         {
             btn2.translatesAutoresizingMaskIntoConstraints = NO;
-            [btn2 setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateNormal];
+            [btn2 setImage:[UIImage imageNamed:@"unchoose"] forState:UIControlStateNormal];
             [btn2 setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateHighlighted];
-            [btn2 setImage:[UIImage imageNamed:@"unchoose"] forState:UIControlStateSelected];
-            
+            [btn2 setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateSelected];
+            btn2.selected = user.isRememberPassword;
             [btn2 setTitle:@"记住密码" forState:UIControlStateNormal];
             [btn2 setTitleColor:[UIColor colorWithHexColor:@"#999999"] forState:UIControlStateNormal];
             btn2.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -485,10 +500,14 @@
         UIButton *btn = nil;
         {
             btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44.0f, 35.5f)];
+            //转化为约束
             btn.translatesAutoresizingMaskIntoConstraints = NO;
-            
-            [btn setUserInteractionEnabled:NO];
-            btn.selected = YES;
+            if (![self.nameField.text isEqualToString:@""] && ![self.passwordField.text isEqualToString:@""]) {
+                btn.selected = NO;
+            }else{
+                btn.selected = YES;
+            }
+
             [btn setBackgroundImage:[UIImage imageNamed:@"key_login"] forState:UIControlStateNormal];
             [btn setBackgroundImage:[UIImage imageNamed:@"key_login_s"] forState:UIControlStateSelected];
             [btn setBackgroundImage:[UIImage imageNamed:@"key_login_s"] forState:UIControlStateHighlighted];
@@ -604,17 +623,31 @@
     [NetworkManager postRequestJsonWithURL:url params:nil cacheBlock:^(NSDictionary *returnJson) {
         
     } successBlock:^(NSDictionary *returnJson) {
-        LoginMode *data = [LoginMode mj_objectWithKeyValues:returnJson];
-        LoaclUserInfoData *localUserInfo = [[LoaclUserInfoData alloc]init];
-        localUserInfo.userInfo = data.userInfo;
-        localUserInfo.isAutoLogin = YES;
-        localUserInfo.isRememberPassword = YES;
-        localUserInfo.isLogin = YES;
-        [UserInfoHandle saveUserInfo2Local:localUserInfo];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dealRequestLoginUrlBackWithData:returnJson loginType:LoginTypeThirdParty];
     } failureBlock:^(NSError *error) {
         
     } showHUD:NO];
+}
+
+- (void)dealRequestLoginUrlBackWithData:(NSDictionary *)data loginType:(LoginType)loginType {
+    LoginMode *user = [LoginMode mj_objectWithKeyValues:data];
+    if ([user.resultCode isEqualToString:@"0"]) {
+        return;
+    }
+    LoaclUserInfoData *localUserInfo = [UserInfoHandle getUserInfoFromLocal];
+    localUserInfo.userInfo = user.userInfo;
+    if (loginType == LoginTypeThirdParty) {
+        localUserInfo.isAutoLogin = YES;
+        localUserInfo.isRememberPassword = YES;
+    } else if (loginType == LoginTypeCommon) {
+        if (localUserInfo.isRememberPassword) {
+            localUserInfo.password = self.passwordField.text;
+        }
+    }
+    localUserInfo.loginType = loginType;
+    localUserInfo.isLogin = YES;
+    [UserInfoHandle saveUserInfo2Local:localUserInfo];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)keyLoginBtnSelect:(UIButton *)sender {
@@ -626,21 +659,64 @@
 }
 
 - (void)autoLoginAndSoBtnSelect:(UIButton *)sender {
-    NSLog(@"autoLoginAndSoBtnSelect=======");
     sender.selected = !sender.selected;
+    LoaclUserInfoData *data = [UserInfoHandle getUserInfoFromLocal];
+    if (1 == sender.tag) {
+        data.isAutoLogin = !data.isAutoLogin;
+    }else{
+        data.isRememberPassword = !data.isRememberPassword;
+    }
+    [UserInfoHandle saveUserInfo2Local:data];
 }
 
 - (void)loginBtnSelect:(UIButton *)sender {
     NSLog(@"loginBtnSelect=======");
+    [self dealLoginBtnAction];
+}
+
+- (void)dealLoginBtnAction {
+    if ([UserInfoHandle isLogin]) {
+        return;
+    }
+    if ([self.nameField.text isEqualToString:@""]) {
+        NSLog(@"用户名不能为空!");
+        return;
+    }
+    if ([self.passwordField.text isEqualToString:@""]) {
+        NSLog(@"密码不能为空!");
+        return;
+    }
+    
+    NSString *url = [DEF_GetLoginUrl stringByAppendingString:self.nameField.text];
+    url = [url stringByAppendingString:@"&psw="];
+    url = [url stringByAppendingString:self.passwordField.text];
+    url = [self addLoginType:url];
+    [NetworkManager postRequestJsonWithURL:url params:nil cacheBlock:nil successBlock:^(NSDictionary *returnJson) {
+        [self dealRequestLoginUrlBackWithData:returnJson loginType:LoginTypeCommon];
+    } failureBlock:^(NSError *error) {
+        
+    } showHUD:YES];
+    
+}
+//判断时候是手机号，如果是，则需要添加参数loginType=1
+- (NSString *)addLoginType:(NSString *)loginUrl {
+    NSString *name = self.nameField.text;
+    NSString *MOBILE = @"^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|7[06-8])\\d{8}$";
+    
+    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
+    if ([regextestmobile evaluateWithObject:name]) {
+        loginUrl = [loginUrl stringByAppendingString:@"&loginType=1"];
+    }
+    return loginUrl;
 }
 
 - (void) textFieldDidChange:(UITextField *)textField {
     if (![self.nameField.text isEqualToString:@""] && ![self.passwordField.text isEqualToString:@""]) {
         self.loginBtn.selected = NO;
-        [self.loginBtn setUserInteractionEnabled:YES];
+//        [self.loginBtn setUserInteractionEnabled:YES];
     }else{
         self.loginBtn.selected = YES;
-        [self.loginBtn setUserInteractionEnabled:NO];
+//        [self.loginBtn setUserInteractionEnabled:NO];
     }
 }
 @end

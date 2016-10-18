@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor colorWithHexColor:@"#eeeeee"];
     _headView = [SubPageHeadView loadFromNib];
     _headView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 53);
     _headView.delegate = self;

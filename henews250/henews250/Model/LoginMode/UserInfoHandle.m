@@ -16,6 +16,13 @@ static NSString * const userInfoKey = @"userInfoKey";
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSData *data = [user objectForKey:userInfoKey];
     LoaclUserInfoData *mode = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    if (!mode) {
+        mode = [[LoaclUserInfoData alloc]init];
+        mode.isAutoLogin = YES;
+        mode.isRememberPassword = YES;
+        mode.isLogin = NO;
+    }
     return mode;
 }
 
@@ -27,4 +34,8 @@ static NSString * const userInfoKey = @"userInfoKey";
     [userDefaults synchronize];
 }
 
++ (BOOL)isLogin {
+    LoaclUserInfoData *data = [self getUserInfoFromLocal];
+    return data.isLogin;
+}
 @end

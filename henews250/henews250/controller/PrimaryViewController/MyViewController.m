@@ -57,7 +57,11 @@
 - (void)dealLogin {
     LoaclUserInfoData *userInfo = [UserInfoHandle getUserInfoFromLocal];
     if (userInfo.isLogin) {
-        [self.userHeadView.userHeaderImage loadFromWebWithUrlString:userInfo.userInfo.pic animated:YES];
+        if (userInfo.userInfo.pic && ![userInfo.userInfo.pic isEqualToString:@""]) {
+            [self.userHeadView.userHeaderImage loadFromWebWithUrlString:userInfo.userInfo.pic animated:YES];
+        }else{
+            self.userHeadView.userHeaderImage.image = [UIImage imageNamed:@"head_default"];
+        }
         self.userHeadView.userNameLabel.text = userInfo.userInfo.sname;
     }else{
         self.userHeadView.userHeaderImage.image = [UIImage imageNamed:@"head_default"];

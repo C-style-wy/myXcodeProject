@@ -81,4 +81,10 @@ typedef void (^NWFailureBlock)(NSError *error);
 #define WD_VERSION               (@"WD_VERSION")
 #define WD_ENCRYPT               (@"encrypt")
 
+#define LoginName                (@"loginName")
+#define RealName                 (@"realName")
+#define UserId                   (@"userId")
+#define PlatForm                 (@"platForm")
+#define AccountType              (@"accountType")
+
 #endif /* NetworkDefine_h */

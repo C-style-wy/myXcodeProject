@@ -9,6 +9,7 @@
 #import "NetworkItem.h"
 #import "AFNetworking.h"
 #import "NetworkCache.h"
+#import "UserInfoHandle.h"
 
 @implementation NetworkItem
 
@@ -223,7 +224,17 @@
     [manager.requestSerializer setValue:[userDefaults stringForKey:WD_CHANNEL] forHTTPHeaderField:WD_CHANNEL];
     [manager.requestSerializer setValue:[userDefaults stringForKey:WD_RESOLUTION] forHTTPHeaderField:WD_RESOLUTION];
     [manager.requestSerializer setValue:[userDefaults stringForKey:WD_CP_ID] forHTTPHeaderField:WD_CP_ID];
-    [manager.requestSerializer setValue:@"" forHTTPHeaderField:@"loginName"];
+    if ([UserInfoHandle isLogin]) {
+        LoaclUserInfoData *data = [UserInfoHandle getUserInfoFromLocal];
+        UserInfoModel *user = data.userInfo;
+        [manager.requestSerializer setValue:user.name forHTTPHeaderField:LoginName];
+        [manager.requestSerializer setValue:user.realName forHTTPHeaderField:RealName];
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@"%ld",user.userId] forHTTPHeaderField:UserId];
+        if (user.accountType && ![user.accountType isEqualToString:@""]) {
+            [manager.requestSerializer setValue:user.accountType forHTTPHeaderField:AccountType];
+        }
+    }
+    
     [manager.requestSerializer setValue:[self getKeyWithUrl:_url] forHTTPHeaderField:WD_ENCRYPT];
     return manager;
 }
@@ -251,10 +262,30 @@
     paramStr = [self addOneParam:paramStr key:WD_RESOLUTION];
     paramStr = [self addOneParam:paramStr key:WD_CP_ID];
     
-    paramStr = [paramStr stringByAppendingString:@"&"];
-    paramStr = [paramStr stringByAppendingString:@"loginName"];
-    paramStr = [paramStr stringByAppendingString:@"="];
-    paramStr = [paramStr stringByAppendingString:@""];
+    if ([UserInfoHandle isLogin]) {
+        paramStr = [paramStr stringByAppendingString:@"&"];
+        paramStr = [paramStr stringByAppendingString:LoginName];
+        paramStr = [paramStr stringByAppendingString:@"="];
+        LoaclUserInfoData *data = [UserInfoHandle getUserInfoFromLocal];
+        UserInfoModel *user = data.userInfo;
+        paramStr = [paramStr stringByAppendingString:user.name];
+        paramStr = [paramStr stringByAppendingString:@"&"];
+        paramStr = [paramStr stringByAppendingString:RealName];
+        paramStr = [paramStr stringByAppendingString:@"="];
+        paramStr = [paramStr stringByAppendingString:user.realName];
+        
+        paramStr = [paramStr stringByAppendingString:@"&"];
+        paramStr = [paramStr stringByAppendingString:UserId];
+        paramStr = [paramStr stringByAppendingString:@"="];
+        paramStr = [paramStr stringByAppendingString:[NSString stringWithFormat:@"%ld",user.userId]];
+        
+        paramStr = [paramStr stringByAppendingString:@"&"];
+        paramStr = [paramStr stringByAppendingString:AccountType];
+        paramStr = [paramStr stringByAppendingString:@"="];
+        if (user.accountType && ![user.accountType isEqualToString:@""]) {
+            paramStr = [paramStr stringByAppendingString:user.accountType];
+        }
+    }
     
     url = [url stringByAppendingString:paramStr];
     
@@ -280,6 +311,32 @@
     }else{
         url = [url stringByAppendingString:@"?"];
     }
+    
+    if ([UserInfoHandle isLogin]) {
+        url = [url stringByAppendingString:LoginName];
+        url = [url stringByAppendingString:@"="];
+        LoaclUserInfoData *data = [UserInfoHandle getUserInfoFromLocal];
+        UserInfoModel *user = data.userInfo;
+        url = [url stringByAppendingString:user.name];
+        
+        url = [url stringByAppendingString:@"&"];
+        url = [url stringByAppendingString:RealName];
+        url = [url stringByAppendingString:@"="];
+        url = [url stringByAppendingString:user.realName];
+        
+        url = [url stringByAppendingString:@"&"];
+        url = [url stringByAppendingString:UserId];
+        url = [url stringByAppendingString:@"="];
+        url = [url stringByAppendingString:[NSString stringWithFormat:@"%ld",user.userId]];
+        
+        url = [url stringByAppendingString:@"&"];
+        url = [url stringByAppendingString:AccountType];
+        url = [url stringByAppendingString:@"="];
+        if (user.accountType && ![user.accountType isEqualToString:@""]) {
+            url = [url stringByAppendingString:user.accountType];
+        }
+    }
+    url = [url stringByAppendingString:@"&"];
     url = [url stringByAppendingString:WD_ENCRYPT];
     url = [url stringByAppendingString:@"="];
     url = [url stringByAppendingString:[self getKeyWithUrl:url]];
@@ -306,9 +363,14 @@
     str = [self addOneParam:str key:WD_CHANNEL];
     str = [self addOneParam:str key:WD_UA];
     str = [self addOneParam:str key:WD_UUID];
-    
-    str = [str stringByAppendingString:@"&loginName="];
-    //    str = [str stringByAppendingString:[userDefaults stringForKey:@"111"]];
+    str = [str stringByAppendingString:@"&"];
+    str = [str stringByAppendingString:LoginName];
+    str = [str stringByAppendingString:@"="];
+    if ([UserInfoHandle isLogin]) {
+        LoaclUserInfoData *data = [UserInfoHandle getUserInfoFromLocal];
+        UserInfoModel *user = data.userInfo;
+        str = [str stringByAppendingString:user.name];
+    }
     str = [str stringByAppendingString:@"&salt="];
     str = [str stringByAppendingString:@"3d6809f2373db28c"];
     return [MD5 encoding:str];

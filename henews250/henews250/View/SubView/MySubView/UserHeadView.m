@@ -10,6 +10,7 @@
 #import "UserLoginController.h"
 #import "MyViewController.h"
 #import "UserInfoHandle.h"
+#import "UserCenterController.h"
 
 @implementation UserHeadView
 
@@ -18,13 +19,13 @@
 }
 
 - (IBAction)loginBtnSelect:(id)sender {
-//    LoaclUserInfoData *userInfo = [UserInfoHandle getUserInfoFromLocal];
-//    if (userInfo && userInfo.isLogin) {
-//        
-//    }else{
+    if ([UserInfoHandle isLogin]) {
+        UserCenterController *userCenter = [[UserCenterController alloc]init];
+        [self.controller presentViewController:userCenter animated:YES completion:nil];
+    }else{
         UserLoginController *login = [UserLoginController loadFromStoryboard];
         [self.controller presentViewController:login animated:YES completion:nil];
-//    }
+    }
 }
 
 - (IBAction)signBtnSelect:(id)sender {

@@ -54,6 +54,14 @@
  *      第三方登录接口
  */
 #define DEF_GetThirdPartyLoginUrl    PATH(@"%@/clt/societyFromSDK.msp?weiboType=")
+/**
+ *      普通登录接口
+ */
+#define DEF_GetLoginUrl    PATH(@"%@/clt/loginNew.msp?loginName=")
+/**
+ *      退出登录接口
+ */
+#define DEF_GetLogOutUrl    PATH(@"%@/clt/logout.msp")
 
 
 #endif /* NetworkUrl_h */

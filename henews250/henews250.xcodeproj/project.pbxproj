@@ -97,6 +97,9 @@
 		D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836761D40CD9F008ADE4C /* SectionView.xib */; };
 		D34075571DA9398F003C9183 /* MYRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D34075561DA9398F003C9183 /* MYRefreshStateHeader.m */; };
 		D340C1311D640AB8007D4C3D /* CityMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D340C1301D640AB8007D4C3D /* CityMode.m */; };
+		D34D32701DB5AE00000FA6F7 /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34D326F1DB5AE00000FA6F7 /* UserCenterController.m */; };
+		D34D32741DB60EF7000FA6F7 /* UserCenterSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34D32731DB60EF7000FA6F7 /* UserCenterSubView.m */; };
+		D34D32761DB60F08000FA6F7 /* UserCenterSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34D32751DB60F08000FA6F7 /* UserCenterSubView.xib */; };
 		D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F50891D5466CC004B25C5 /* SubBaseViewController.m */; };
 		D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F508D1D546A3A004B25C5 /* SubPageHeadView.m */; };
 		D34F50901D546A4D004B25C5 /* SubPageHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34F508F1D546A4D004B25C5 /* SubPageHeadView.xib */; };
@@ -366,6 +369,11 @@
 		D34075561DA9398F003C9183 /* MYRefreshStateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRefreshStateHeader.m; sourceTree = "<group>"; };
 		D340C12F1D640AB8007D4C3D /* CityMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityMode.h; sourceTree = "<group>"; };
 		D340C1301D640AB8007D4C3D /* CityMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityMode.m; sourceTree = "<group>"; };
+		D34D326E1DB5AE00000FA6F7 /* UserCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterController.h; sourceTree = "<group>"; };
+		D34D326F1DB5AE00000FA6F7 /* UserCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterController.m; sourceTree = "<group>"; };
+		D34D32721DB60EF7000FA6F7 /* UserCenterSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterSubView.h; sourceTree = "<group>"; };
+		D34D32731DB60EF7000FA6F7 /* UserCenterSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterSubView.m; sourceTree = "<group>"; };
+		D34D32751DB60F08000FA6F7 /* UserCenterSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterSubView.xib; sourceTree = "<group>"; };
 		D34F50881D5466CC004B25C5 /* SubBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubBaseViewController.h; sourceTree = "<group>"; };
 		D34F50891D5466CC004B25C5 /* SubBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubBaseViewController.m; sourceTree = "<group>"; };
 		D34F508C1D546A3A004B25C5 /* SubPageHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubPageHeadView.h; sourceTree = "<group>"; };
@@ -631,6 +639,8 @@
 			children = (
 				D31E0DAA1DAF8FEE006196A7 /* UserLoginController.h */,
 				D31E0DAB1DAF8FEE006196A7 /* UserLoginController.m */,
+				D34D326E1DB5AE00000FA6F7 /* UserCenterController.h */,
+				D34D326F1DB5AE00000FA6F7 /* UserCenterController.m */,
 			);
 			path = UserPage;
 			sourceTree = "<group>";
@@ -832,6 +842,7 @@
 		D33265291D2E4F68005C9D7D /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				D34D32711DB60ECE000FA6F7 /* UserCenterSubView */,
 				D3855B9B1D9C190800B15E27 /* MySubView */,
 				D34F508B1D546A22004B25C5 /* SubPageHead */,
 				D3C4EC611D485B05002D4BC9 /* TierManageView */,
@@ -871,6 +882,16 @@
 				D33A64311D62AF6900102968 /* ReleaseTestConfig.xcconfig */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		D34D32711DB60ECE000FA6F7 /* UserCenterSubView */ = {
+			isa = PBXGroup;
+			children = (
+				D34D32721DB60EF7000FA6F7 /* UserCenterSubView.h */,
+				D34D32731DB60EF7000FA6F7 /* UserCenterSubView.m */,
+				D34D32751DB60F08000FA6F7 /* UserCenterSubView.xib */,
+			);
+			path = UserCenterSubView;
 			sourceTree = "<group>";
 		};
 		D34F50871D5465F5004B25C5 /* Subpage */ = {
@@ -1347,6 +1368,7 @@
 				D3276AA41D2A397E00A249C9 /* Assets.xcassets in Resources */,
 				D323750C1D4ADDA6003042C6 /* TierCollectionViewCell.xib in Resources */,
 				D30E094D1D406B0C00954670 /* ThreeSmallPicCell.xib in Resources */,
+				D34D32761DB60F08000FA6F7 /* UserCenterSubView.xib in Resources */,
 				D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */,
 				D38DF72E1D3F7C7C0042A241 /* EveryOneCell.xib in Resources */,
 				D36558791DAF131F00D05C84 /* WelfareScoresCell.xib in Resources */,
@@ -1452,6 +1474,7 @@
 				D3805DCF1D7427D600B6FAE5 /* NetworkItem.m in Sources */,
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
+				D34D32701DB5AE00000FA6F7 /* UserCenterController.m in Sources */,
 				D3C2A26F1DACC964003A3B92 /* WelfareBannerModel.m in Sources */,
 				D36558781DAF131F00D05C84 /* WelfareScoresCell.m in Sources */,
 				D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */,
@@ -1521,6 +1544,7 @@
 				D3640C871D62F3BF008049E4 /* CityListCell.m in Sources */,
 				D32BD5821DA8F76A00D55969 /* MYRefreshFooter.m in Sources */,
 				D30C75D71D35D0FD00248DE0 /* UIColor+hexColor.m in Sources */,
+				D34D32741DB60EF7000FA6F7 /* UserCenterSubView.m in Sources */,
 				D37007E51D34CA19007E2AA3 /* MD5.m in Sources */,
 				D30E09481D40550E00954670 /* TagMode.m in Sources */,
 				D32BD5851DA8F77F00D55969 /* MYRefreshHeader.m in Sources */,

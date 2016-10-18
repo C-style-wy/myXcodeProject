@@ -15,4 +15,6 @@
 
 + (void)saveUserInfo2Local:(LoaclUserInfoData *)userInfo;
 
++ (BOOL)isLogin;
+
 @end
