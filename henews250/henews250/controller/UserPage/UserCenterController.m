@@ -98,6 +98,9 @@
         }
     }
     {
+        self.userCenterSubView.headBtn.tag = 1;
+        [self.userCenterSubView.headBtn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
         self.userCenterSubView.exitBtn.tag = 7;
         [self.userCenterSubView.exitBtn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -110,6 +113,7 @@
 
 #pragma mark - 按钮事件
 - (void)btnAction:(UIButton *)btn {
+    NSLog(@"btnAction======");
     if (1 == btn.tag) {
         
     } else if (2 == btn.tag) {
