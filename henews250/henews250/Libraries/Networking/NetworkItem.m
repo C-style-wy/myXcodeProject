@@ -352,6 +352,7 @@
         str = array[0];
     }
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    //网络请求没有登录不需要带 "loginName=",鉴权需要带上"loginName="。
     str = [str stringByAppendingString:@"?"];
     str = [str stringByAppendingString:WD_CP_ID];
     str = [str stringByAppendingString:@"="];
