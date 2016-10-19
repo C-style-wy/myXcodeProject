@@ -6,6 +6,8 @@
 //  Copyright © 2016年 汪洋. All rights reserved.
 //
 
+#import "MYPhoneParam.h"
+
 #ifndef NetworkDefine_h
 #define NetworkDefine_h
 
@@ -69,22 +71,5 @@ typedef void (^NWCacheBlock)(NSDictionary *returnJson);
 typedef void (^NWFailureBlock)(NSError *error);
 
 #endif
-
-#define WD_CLIENTNAME            (@"clientName")
-#define WD_UUID                  (@"WD_UUID")
-#define WD_CLIENT_TYPE           (@"WD_CLIENT_TYPE")
-#define WD_UA                    (@"WD_UA")
-#define WD_SYSTEM                (@"WD_SYSTEM")
-#define WD_CHANNEL               (@"WD_CHANNEL")
-#define WD_RESOLUTION            (@"WD_RESOLUTION")
-#define WD_CP_ID                 (@"WD_CP_ID")
-#define WD_VERSION               (@"WD_VERSION")
-#define WD_ENCRYPT               (@"encrypt")
-
-#define LoginName                (@"loginName")
-#define RealName                 (@"realName")
-#define UserId                   (@"userId")
-#define PlatForm                 (@"platForm")
-#define AccountType              (@"accountType")
 
 #endif /* NetworkDefine_h */

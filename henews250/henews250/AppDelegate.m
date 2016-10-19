@@ -7,9 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "IphoneParams.h"
-
 #import "ShareSDKManager.h"
+#import "MYPhoneParam.h"
 
 @interface AppDelegate ()
 
@@ -19,12 +18,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSString *ua = [MYPhoneParam sharedInstance].ua;
+    ua = nil;
     //第三方登录和分享注册
-    [ShareSDKManager registerApp];
-    //设置手机参数
-    IphoneParams *params = [[IphoneParams alloc]init];
-    [params setIphoneParam];
-    
+    [ShareSDKManager registerApp];    
     //地图定位初始化
     [MPLocationManager installMapSDK];
     //百度地图定位

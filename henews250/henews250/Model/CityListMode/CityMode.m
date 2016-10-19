@@ -7,17 +7,16 @@
 //
 
 #import "CityMode.h"
-
-#define CityKey (@"city")
+#import "MYPhoneParam.h"
 
 @implementation CityMode
 
 - (id)init{
     self = [super init];
     if (self) {
-        self.currentCity = @"北京";
-        self.currentProvince = @"北京";
-        self.localCity = @"北京";
+        self.currentCity = DefaultCity;
+        self.currentProvince = DefaultCity;
+        self.localCity = DefaultCity;
         self.choceCityAry = [[NSMutableArray alloc]init];
     }
     return self;

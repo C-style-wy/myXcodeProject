@@ -206,7 +206,6 @@
 //创建AFHTTPSessionManager
 - (AFHTTPSessionManager *)getHttpSessionManager:(NetWorkDataType)dataType {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     if (dataType == NetWorkJSON) {
@@ -215,21 +214,21 @@
     }else{
         manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
     }
-    [manager.requestSerializer setValue:[userDefaults stringForKey:WD_CLIENTNAME] forHTTPHeaderField:WD_CLIENTNAME];
-    [manager.requestSerializer setValue:[userDefaults stringForKey:WD_UUID] forHTTPHeaderField:WD_UUID];
-    [manager.requestSerializer setValue:[userDefaults stringForKey:WD_CLIENT_TYPE] forHTTPHeaderField:WD_CLIENT_TYPE];
-    [manager.requestSerializer setValue:[userDefaults stringForKey:WD_UA] forHTTPHeaderField:WD_UA];
-    [manager.requestSerializer setValue:[userDefaults stringForKey:WD_SYSTEM] forHTTPHeaderField:WD_SYSTEM];
-    [manager.requestSerializer setValue:[userDefaults stringForKey:WD_VERSION] forHTTPHeaderField:WD_VERSION];
-    [manager.requestSerializer setValue:[userDefaults stringForKey:WD_CHANNEL] forHTTPHeaderField:WD_CHANNEL];
-    [manager.requestSerializer setValue:[userDefaults stringForKey:WD_RESOLUTION] forHTTPHeaderField:WD_RESOLUTION];
-    [manager.requestSerializer setValue:[userDefaults stringForKey:WD_CP_ID] forHTTPHeaderField:WD_CP_ID];
+    [manager.requestSerializer setValue:[MYPhoneParam sharedInstance].clientName forHTTPHeaderField:WD_CLIENTNAME];
+    [manager.requestSerializer setValue:[MYPhoneParam sharedInstance].uuid forHTTPHeaderField:WD_UUID];
+    [manager.requestSerializer setValue:[MYPhoneParam sharedInstance].clientType forHTTPHeaderField:WD_CLIENT_TYPE];
+    [manager.requestSerializer setValue:[MYPhoneParam sharedInstance].ua forHTTPHeaderField:WD_UA];
+    [manager.requestSerializer setValue:[MYPhoneParam sharedInstance].system forHTTPHeaderField:WD_SYSTEM];
+    [manager.requestSerializer setValue:[MYPhoneParam sharedInstance].version forHTTPHeaderField:WD_VERSION];
+    [manager.requestSerializer setValue:[MYPhoneParam sharedInstance].channel forHTTPHeaderField:WD_CHANNEL];
+    [manager.requestSerializer setValue:[MYPhoneParam sharedInstance].resolution forHTTPHeaderField:WD_RESOLUTION];
+    [manager.requestSerializer setValue:[MYPhoneParam sharedInstance].cpId forHTTPHeaderField:WD_CP_ID];
     if ([UserInfoHandle isLogin]) {
         LoaclUserInfoData *data = [UserInfoHandle getUserInfoFromLocal];
         UserInfoModel *user = data.userInfo;
         [manager.requestSerializer setValue:user.name forHTTPHeaderField:LoginName];
         [manager.requestSerializer setValue:user.realName forHTTPHeaderField:RealName];
-        [manager.requestSerializer setValue:[NSString stringWithFormat:@"%ld",user.userId] forHTTPHeaderField:UserId];
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@"%ld",(long)user.userId] forHTTPHeaderField:UserId];
         if (user.accountType && ![user.accountType isEqualToString:@""]) {
             [manager.requestSerializer setValue:user.accountType forHTTPHeaderField:AccountType];
         }
@@ -240,7 +239,6 @@
 }
 
 - (NSString *)getParamString:(NSString *)url {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *paramStr = @"?";
     if ([url rangeOfString:@"?"].location != NSNotFound){
         paramStr = @"&";
@@ -248,20 +246,46 @@
 
     paramStr = [paramStr stringByAppendingString:WD_CLIENTNAME];
     paramStr = [paramStr stringByAppendingString:@"="];
-    if ([userDefaults stringForKey:WD_CLIENTNAME] && (![[userDefaults stringForKey:WD_CLIENTNAME] isEqualToString:@""])) {
-        paramStr = [paramStr stringByAppendingString:[userDefaults stringForKey:WD_CLIENTNAME]];
-    }
+    paramStr = [paramStr stringByAppendingString:[MYPhoneParam sharedInstance].clientName];
+    paramStr = [paramStr stringByAppendingString:@"&"];
+    paramStr = [paramStr stringByAppendingString:WD_UUID];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    paramStr = [paramStr stringByAppendingString:[MYPhoneParam sharedInstance].uuid];
     
-    paramStr = [self addOneParam:paramStr key:WD_UUID];
-    paramStr = [self addOneParam:paramStr key:WD_CLIENT_TYPE];
-    paramStr = [self addOneParam:paramStr key:WD_UA];
-    paramStr = [self addOneParam:paramStr key:WD_SYSTEM];
-    paramStr = [self addOneParam:paramStr key:WD_VERSION];
-    paramStr = [self addOneParam:paramStr key:WD_CHANNEL];
+    paramStr = [paramStr stringByAppendingString:@"&"];
+    paramStr = [paramStr stringByAppendingString:WD_CLIENT_TYPE];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    paramStr = [paramStr stringByAppendingString:[MYPhoneParam sharedInstance].clientType];
     
-    paramStr = [self addOneParam:paramStr key:WD_RESOLUTION];
-    paramStr = [self addOneParam:paramStr key:WD_CP_ID];
+    paramStr = [paramStr stringByAppendingString:@"&"];
+    paramStr = [paramStr stringByAppendingString:WD_UA];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    paramStr = [paramStr stringByAppendingString:[MYPhoneParam sharedInstance].ua];
     
+    paramStr = [paramStr stringByAppendingString:@"&"];
+    paramStr = [paramStr stringByAppendingString:WD_SYSTEM];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    paramStr = [paramStr stringByAppendingString:[MYPhoneParam sharedInstance].system];
+    
+    paramStr = [paramStr stringByAppendingString:@"&"];
+    paramStr = [paramStr stringByAppendingString:WD_VERSION];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    paramStr = [paramStr stringByAppendingString:[MYPhoneParam sharedInstance].version];
+    
+    paramStr = [paramStr stringByAppendingString:@"&"];
+    paramStr = [paramStr stringByAppendingString:WD_CHANNEL];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    paramStr = [paramStr stringByAppendingString:[MYPhoneParam sharedInstance].channel];
+    
+    paramStr = [paramStr stringByAppendingString:@"&"];
+    paramStr = [paramStr stringByAppendingString:WD_RESOLUTION];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    paramStr = [paramStr stringByAppendingString:[MYPhoneParam sharedInstance].resolution];
+    
+    paramStr = [paramStr stringByAppendingString:@"&"];
+    paramStr = [paramStr stringByAppendingString:WD_CP_ID];
+    paramStr = [paramStr stringByAppendingString:@"="];
+    paramStr = [paramStr stringByAppendingString:[MYPhoneParam sharedInstance].cpId];
     if ([UserInfoHandle isLogin]) {
         paramStr = [paramStr stringByAppendingString:@"&"];
         paramStr = [paramStr stringByAppendingString:LoginName];
@@ -277,7 +301,7 @@
         paramStr = [paramStr stringByAppendingString:@"&"];
         paramStr = [paramStr stringByAppendingString:UserId];
         paramStr = [paramStr stringByAppendingString:@"="];
-        paramStr = [paramStr stringByAppendingString:[NSString stringWithFormat:@"%ld",user.userId]];
+        paramStr = [paramStr stringByAppendingString:[NSString stringWithFormat:@"%ld",(long)user.userId]];
         
         paramStr = [paramStr stringByAppendingString:@"&"];
         paramStr = [paramStr stringByAppendingString:AccountType];
@@ -290,19 +314,6 @@
     url = [url stringByAppendingString:paramStr];
     
     return [self addKeyWithUrl:url];
-}
-
-- (NSString *)addOneParam:(NSString *)param key:(NSString *)key {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    param = [param stringByAppendingString:@"&"];
-    param = [param stringByAppendingString:key];
-    param = [param stringByAppendingString:@"="];
-    if ([userDefaults stringForKey:key] && (![[userDefaults stringForKey:key] isEqualToString:@""])) {
-        param = [param stringByAppendingString:[userDefaults stringForKey:key]];
-    }
-    
-    return param;
 }
 
 - (NSString *)addKeyWithUrl:(NSString *)url{
@@ -327,7 +338,7 @@
         url = [url stringByAppendingString:@"&"];
         url = [url stringByAppendingString:UserId];
         url = [url stringByAppendingString:@"="];
-        url = [url stringByAppendingString:[NSString stringWithFormat:@"%ld",user.userId]];
+        url = [url stringByAppendingString:[NSString stringWithFormat:@"%ld",(long)user.userId]];
         
         url = [url stringByAppendingString:@"&"];
         url = [url stringByAppendingString:AccountType];
@@ -335,8 +346,8 @@
         if (user.accountType && ![user.accountType isEqualToString:@""]) {
             url = [url stringByAppendingString:user.accountType];
         }
+        url = [url stringByAppendingString:@"&"];
     }
-    url = [url stringByAppendingString:@"&"];
     url = [url stringByAppendingString:WD_ENCRYPT];
     url = [url stringByAppendingString:@"="];
     url = [url stringByAppendingString:[self getKeyWithUrl:url]];
@@ -351,19 +362,33 @@
         NSArray *array = [str componentsSeparatedByString:@"?"];
         str = array[0];
     }
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    //网络请求没有登录不需要带 "loginName=",鉴权需要带上"loginName="。
+    //1 cp_id
     str = [str stringByAppendingString:@"?"];
     str = [str stringByAppendingString:WD_CP_ID];
     str = [str stringByAppendingString:@"="];
-    if ([userDefaults stringForKey:WD_CP_ID] && (![[userDefaults stringForKey:WD_CP_ID] isEqualToString:@""])) {
-        str = [str stringByAppendingString:[userDefaults stringForKey:WD_CP_ID]];
-    }
-    
-    str = [self addOneParam:str key:WD_VERSION];
-    str = [self addOneParam:str key:WD_CHANNEL];
-    str = [self addOneParam:str key:WD_UA];
-    str = [self addOneParam:str key:WD_UUID];
+    str = [str stringByAppendingString:[MYPhoneParam sharedInstance].cpId];
+    //2 version
+    str = [str stringByAppendingString:@"&"];
+    str = [str stringByAppendingString:WD_VERSION];
+    str = [str stringByAppendingString:@"="];
+    str = [str stringByAppendingString:[MYPhoneParam sharedInstance].version];
+    //3 channel
+    str = [str stringByAppendingString:@"&"];
+    str = [str stringByAppendingString:WD_CHANNEL];
+    str = [str stringByAppendingString:@"="];
+    str = [str stringByAppendingString:[MYPhoneParam sharedInstance].channel];
+    //4 ua
+    str = [str stringByAppendingString:@"&"];
+    str = [str stringByAppendingString:WD_UA];
+    str = [str stringByAppendingString:@"="];
+    str = [str stringByAppendingString:[MYPhoneParam sharedInstance].ua];
+    //5 uuid
+    str = [str stringByAppendingString:@"&"];
+    str = [str stringByAppendingString:WD_UUID];
+    str = [str stringByAppendingString:@"="];
+    str = [str stringByAppendingString:[MYPhoneParam sharedInstance].uuid];
+    //6 loginname
+    //网络请求没有登录不需要带 "loginName=",鉴权需要带上"loginName="。
     str = [str stringByAppendingString:@"&"];
     str = [str stringByAppendingString:LoginName];
     str = [str stringByAppendingString:@"="];
@@ -372,8 +397,11 @@
         UserInfoModel *user = data.userInfo;
         str = [str stringByAppendingString:user.name];
     }
-    str = [str stringByAppendingString:@"&salt="];
-    str = [str stringByAppendingString:@"3d6809f2373db28c"];
+    //7 key
+    str = [str stringByAppendingString:@"&"];
+    str = [str stringByAppendingString:SaltKey];
+    str = [str stringByAppendingString:@"="];
+    str = [str stringByAppendingString:[MYPhoneParam sharedInstance].saltKey];
     return [MD5 encoding:str];
 }
 

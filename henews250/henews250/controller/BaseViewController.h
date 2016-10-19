@@ -24,6 +24,8 @@
 
 #import "NetworkCache.h"
 
+#import "MYPhoneParam.h"
+
 
 @interface BaseViewController : UIViewController<NetworkDelegate>
 

@@ -67,11 +67,6 @@ typedef enum _iPhoneType {
 #define WD_ENCRYPT               (@"encrypt")
 
 #pragma mark - NSString value
-#define isNotFirstOpenValue      (@"1")
-
-#pragma mark - 是否是第一次打开
-#define isFirstOpen (![self getUserData:isNotFirstOpenKey])
-
 // 自定义高效率的 NSLog
 #ifdef DEBUG
 #define LRLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])

@@ -65,7 +65,7 @@
         [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"hNewsNodes"] key:News];
         [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"videoNodes"] key:View];
         //设置广告图
-        if (!isFirstOpen) {
+        if (![MYPhoneParam sharedInstance].isFirstOpen) {
             if (![self showOrHideAdImage]) {
                 [self jumpeHome:NO];
             }
@@ -75,7 +75,7 @@
 
 - (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg{
     NSLog(@"requestdidFailWithError====");
-    if (!isFirstOpen) {
+    if (![MYPhoneParam sharedInstance].isFirstOpen) {
         if (![self showOrHideAdImage]) {
             [self jumpeHome:NO];
         }
@@ -105,7 +105,7 @@
 }
 #pragma mark - 显示或者隐藏导航图
 - (void)showOrHideGuideImage {
-    if (isFirstOpen) {
+    if ([MYPhoneParam sharedInstance].isFirstOpen) {
         self.guideScrollView.delegate = self;
         self.guideScrollView.backgroundColor = LRClearColor;
         self.guideScrollView.contentSize = CGSizeMake(SCREEN_WIDTH*3, 0);
@@ -137,7 +137,7 @@
 }
 #pragma mark - 显示或者隐藏广告图
 - (BOOL)showOrHideAdImage {
-    if ([self laterCurTimeWithTimeStr:self.loadingMode.adInfo.endTime] && [self earlierCurTimeWithTimeStr:self.loadingMode.adInfo.startTime] && !isFirstOpen) {
+    if ([self laterCurTimeWithTimeStr:self.loadingMode.adInfo.endTime] && [self earlierCurTimeWithTimeStr:self.loadingMode.adInfo.startTime] && ![MYPhoneParam sharedInstance].isFirstOpen) {
         
         if ([self.loadingMode.adInfo.fullScreen isEqualToString:@"1"]) {
             self.adImageDistanceBottom.constant = 0;
@@ -214,7 +214,7 @@
 - (void)jumpeHome:(BOOL)animated {
     //关闭定时器
     [_readSecTime invalidate];
-    [self setUserData:isNotFirstOpenKey value:isNotFirstOpenValue];
+    [MYPhoneParam sharedInstance].isFirstOpen = NO;
     XNTabBarView *rootView = [XNTabBarView loadFromStoryboard];
     [self.navigationController setViewControllers:[NSArray arrayWithObject:rootView] animated:animated];
 }
