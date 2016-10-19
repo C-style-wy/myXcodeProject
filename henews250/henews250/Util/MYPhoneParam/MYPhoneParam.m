@@ -194,7 +194,12 @@
 #pragma mark - 获取参数
 //获取OpenUDID
 - (NSString*)getOpenUDID {
-    return [OpenUDID value];
+    NSString *openUdid = [OpenUDID value];
+    if (openUdid && ![openUdid isEqualToString:@""]) {
+        return openUdid;
+    }else{
+        return @"";
+    }
 }
 
 //获取ua
@@ -205,7 +210,12 @@
     while (userAgent == nil) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
-    return userAgent;
+    if (userAgent && ![userAgent isEqualToString:@""]) {
+        return userAgent;
+    }else{
+        return @"";
+    }
+    
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -228,6 +238,11 @@
 //获取版本号
 - (NSString *)getVersion {
     NSDictionary *infoDictionary =[[NSBundle mainBundle]infoDictionary];
-    return [infoDictionary objectForKey:@"CFBundleVersion"];
+    NSString *version = [infoDictionary objectForKey:@"CFBundleVersion"];
+    if (version && ![version isEqualToString:@""]) {
+        return version;
+    }else{
+        return @"";
+    }
 }
 @end
