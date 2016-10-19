@@ -18,6 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //在AppDelegate获取ua，在index页面会黑屏
     NSString *ua = [MYPhoneParam sharedInstance].ua;
     ua = nil;
     //第三方登录和分享注册
