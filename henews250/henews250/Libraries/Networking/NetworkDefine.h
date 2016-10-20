@@ -7,6 +7,7 @@
 //
 
 #import "MYPhoneParam.h"
+#import "MYLoading.h"
 
 #ifndef NetworkDefine_h
 #define NetworkDefine_h

@@ -626,7 +626,7 @@
         [self dealRequestLoginUrlBackWithData:returnJson loginType:LoginTypeThirdParty];
     } failureBlock:^(NSError *error) {
         
-    } showHUD:NO];
+    } showHUD:YES];
 }
 
 - (void)dealRequestLoginUrlBackWithData:(NSDictionary *)data loginType:(LoginType)loginType {

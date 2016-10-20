@@ -83,8 +83,10 @@
             }
         }
         if (update) {
+            if (self.showHUD) {
+                [MYLoading show];
+            }
             if (networkType == NetWorkGET) {
-                NSLog(@"json===get======");
                 [manager GET:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if (successBlock) {
                         successBlock(responseObject);
@@ -117,7 +119,6 @@
                     [weakSelf performSelector:@selector(finishedRequest:didFaild:) withObject:responseObject withObject:nil];
                     //对数据进行异步缓存
                     responseObject ? [NetworkCache saveHttpCache:responseObject forKey:url] : nil;
-                    
                     [weakSelf removewItem];
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     if (failureBlock) {
@@ -152,6 +153,9 @@
             }
         }
         if (update) {
+            if (self.showHUD) {
+                [MYLoading show];
+            }
             if (networkType == NetWorkGET) {
                 NSLog(@"xml===get======");
                 [manager GET:requestUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -411,6 +415,9 @@
  */
 - (void)removewItem
 {
+    if (self.showHUD) {
+        [MYLoading dismiss];
+    }
     __weak typeof(self)weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if ([weakSelf.handlerDelegate respondsToSelector:@selector(netWorkWillDealloc:)]) {

@@ -16,7 +16,7 @@ static CGFloat const duration = 0.4f;
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     self.backgroundColor = [UIColor clearColor];
-    self.frame = newSuperview.bounds;
+    self.frame = newSuperview.frame;
     [self addThreeCir];
     [self timer];
 }
@@ -32,6 +32,14 @@ static CGFloat const duration = 0.4f;
 
 - (void)addThreeCir
 {
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 120.0f, 60.0f)];
+    view.backgroundColor = [UIColor lightGrayColor];
+    view.layer.cornerRadius = Radius * 0.5;
+    view.layer.masksToBounds = YES;
+    view.alpha = 0.9;
+    [self addSubview:view];
+    view.center = self.center;
+    
     UIView * centerCir = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Radius, Radius)];
     centerCir.center = self.center;
     centerCir.layer.cornerRadius = Radius * 0.5;

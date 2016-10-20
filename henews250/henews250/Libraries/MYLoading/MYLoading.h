@@ -15,5 +15,5 @@
 + (MYLoading *)sharedInstance;
 + (void)show;
 
-
++ (void)dismiss;
 @end
