@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Toast.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,7 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>04DA98144BA1DF87B59EC11911559EFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2606B36C66020C728BC6C5EC8A3412AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4180BE0DCCCA47769110285F62564B52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>73BCC4638A76DEAB068C01EA21F4E0E1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A0A33CDF54CCFC9A4C415F2172735B5C</key>
+		<key>80A1D1EB4931714FB02ACD5222965309</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,22 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B256C14242CB5C5A4414285E74362DE2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C1D1F09462171CD84A6762225D4F61B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D501F5856138C06D68832D5726088B53</key>
+		<key>D73F72E35C2C6F2542B7EFACA2DB87E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F01F11616A7F647093330E9F4DD6473E</key>
+		<key>DD2690511FD88C8E86B33CD5B61587CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E85E9A9566A5B636751AE79A1BE79F60</key>
 		<dict>
 			<key>primary</key>
 			<true/>

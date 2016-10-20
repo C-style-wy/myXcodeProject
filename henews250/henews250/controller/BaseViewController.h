@@ -28,6 +28,8 @@
 
 #import "Dialog.h"
 
+#import "UIView+Toast.h"
+
 
 @interface BaseViewController : UIViewController<NetworkDelegate>
 
