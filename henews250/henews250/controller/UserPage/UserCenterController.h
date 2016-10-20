@@ -10,11 +10,13 @@
 #import "UserCenterSubView.h"
 #import "UserInfoHandle.h"
 
-@interface UserCenterController : SubBaseViewController
+@interface UserCenterController : SubBaseViewController<UIImagePickerControllerDelegate>
 
 @property(nonatomic, retain) UIScrollView *mainScrollView;
 @property(nonatomic, retain) UserCenterSubView *userCenterSubView;
 
 @property(nonatomic, retain) UserInfoModel *userInfo;
+
+@property(nonatomic, retain) UIImagePickerController *picker;
 
 @end

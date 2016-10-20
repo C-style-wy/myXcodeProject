@@ -42,6 +42,20 @@
     return _userInfo;
 }
 
+- (UIImagePickerController *)picker {
+    if (!_picker) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+        picker.view.backgroundColor = [UIColor blackColor];
+//        UIImagePickerControllerSourceType sourcheType = UIImagePickerControllerSourceTypeCamera;
+//        picker.sourceType = sourcheType;
+        picker.delegate = self;
+        picker.title = @"相册";
+        picker.allowsEditing = YES;
+        _picker = picker;
+    }
+    return _picker;
+}
+
 #pragma mark - 初始化页面
 - (void)initPage {
     [super initPage];
@@ -115,7 +129,10 @@
 - (void)btnAction:(UIButton *)btn {
     NSLog(@"btnAction======");
     if (1 == btn.tag) {
-        
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+            self.picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            [self presentViewController:self.picker animated:YES completion:nil];
+        }
     } else if (2 == btn.tag) {
         
     } else if (3 == btn.tag) {
@@ -146,4 +163,17 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    [self.picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary<NSString *,id> *)editingInfo {
+    [self.picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self.picker dismissViewControllerAnimated:YES completion:nil];
+}
 @end
