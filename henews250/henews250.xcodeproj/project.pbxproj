@@ -94,6 +94,8 @@
 		D33836721D40AF82008ADE4C /* OneBigPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836701D40AF82008ADE4C /* OneBigPicCell.xib */; };
 		D33836751D40CD44008ADE4C /* SectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33836741D40CD44008ADE4C /* SectionView.m */; };
 		D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836761D40CD9F008ADE4C /* SectionView.xib */; };
+		D33D46391DB8574F005E389D /* MYLoadingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D46381DB8574F005E389D /* MYLoadingAnimation.m */; };
+		D33D463C1DB8590C005E389D /* MYLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D463B1DB8590C005E389D /* MYLoading.m */; };
 		D34075571DA9398F003C9183 /* MYRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D34075561DA9398F003C9183 /* MYRefreshStateHeader.m */; };
 		D340C1311D640AB8007D4C3D /* CityMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D340C1301D640AB8007D4C3D /* CityMode.m */; };
 		D34D32701DB5AE00000FA6F7 /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34D326F1DB5AE00000FA6F7 /* UserCenterController.m */; };
@@ -364,6 +366,10 @@
 		D33A642F1D62AEF300102968 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		D33A64301D62AF4900102968 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		D33A64311D62AF6900102968 /* ReleaseTestConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseTestConfig.xcconfig; sourceTree = "<group>"; };
+		D33D46371DB8574F005E389D /* MYLoadingAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoadingAnimation.h; sourceTree = "<group>"; };
+		D33D46381DB8574F005E389D /* MYLoadingAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLoadingAnimation.m; sourceTree = "<group>"; };
+		D33D463A1DB8590C005E389D /* MYLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLoading.h; sourceTree = "<group>"; };
+		D33D463B1DB8590C005E389D /* MYLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLoading.m; sourceTree = "<group>"; };
 		D34075551DA9398F003C9183 /* MYRefreshStateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRefreshStateHeader.h; sourceTree = "<group>"; };
 		D34075561DA9398F003C9183 /* MYRefreshStateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRefreshStateHeader.m; sourceTree = "<group>"; };
 		D340C12F1D640AB8007D4C3D /* CityMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityMode.h; sourceTree = "<group>"; };
@@ -783,22 +789,15 @@
 		D3276ACE1D2A681A00A249C9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D33D46361DB854FF005E389D /* MYLoading */,
 				D3FC8A9F1DB37F14004282E6 /* ShareSDKHandle */,
 				D3EB392F1DAB1D46006588E5 /* HenewsRefresh */,
-				D32972491D7552EC00B60181 /* Loading */,
 				D3640C8E1D631E70008049E4 /* LcationManager */,
 				D30741A51D50730300E4E394 /* DGReorderableCollectionViewFlowLayout */,
 				D37007DF1D34C9BD007E2AA3 /* Networking */,
 				D3FDB9EB1DA5279300F2BD8E /* MYRefresh */,
 			);
 			path = Libraries;
-			sourceTree = "<group>";
-		};
-		D32972491D7552EC00B60181 /* Loading */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Loading;
 			sourceTree = "<group>";
 		};
 		D32BD2101D7D4D9A00DB44DE /* WeatherMode */ = {
@@ -886,6 +885,17 @@
 				D33A64311D62AF6900102968 /* ReleaseTestConfig.xcconfig */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		D33D46361DB854FF005E389D /* MYLoading */ = {
+			isa = PBXGroup;
+			children = (
+				D33D46371DB8574F005E389D /* MYLoadingAnimation.h */,
+				D33D46381DB8574F005E389D /* MYLoadingAnimation.m */,
+				D33D463A1DB8590C005E389D /* MYLoading.h */,
+				D33D463B1DB8590C005E389D /* MYLoading.m */,
+			);
+			path = MYLoading;
 			sourceTree = "<group>";
 		};
 		D34D32711DB60ECE000FA6F7 /* UserCenterSubView */ = {
@@ -1510,6 +1520,7 @@
 				D32BD2161D7D4EBC00DB44DE /* EnvironmentMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
 				D32BD57C1DA8D92A00D55969 /* UIScrollView+MYExtension.m in Sources */,
+				D33D463C1DB8590C005E389D /* MYLoading.m in Sources */,
 				D3FC97B81DAA366600A591F0 /* MYRefreshNormalHeader.m in Sources */,
 				D3C4EC641D485F1D002D4BC9 /* TierManageView.m in Sources */,
 				D32C36961D321B8E00431829 /* MyViewController.m in Sources */,
@@ -1594,6 +1605,7 @@
 				D32479711D8F8BB6004C7A7B /* MagazineViewController.m in Sources */,
 				D32C36991D321D6C00431829 /* UIViewController+LoadFromStoryboard.m in Sources */,
 				D32689D21D7F9B0300DEB5AA /* OnlyWordCell.m in Sources */,
+				D33D46391DB8574F005E389D /* MYLoadingAnimation.m in Sources */,
 				D324795C1D8F8AA0004C7A7B /* VideoViewController.m in Sources */,
 				D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */,
 				D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */,

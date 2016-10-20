@@ -13,6 +13,7 @@
 @interface MYPhoneParam : UIView<UIWebViewDelegate>
 
 @property (nonatomic, retain) NSUserDefaults *userDefaults;
+
 @property (nonatomic, assign) BOOL isFirstOpen;
 @property (nonatomic, retain) NSString *clientName;
 @property (nonatomic, retain) NSString *uuid;
