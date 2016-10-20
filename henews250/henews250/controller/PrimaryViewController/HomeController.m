@@ -178,18 +178,13 @@
 }
 
 - (IBAction)setBtnSelect:(id)sender {
-//    if (tierManageView == nil) {
-//        tierManageView = [[TierManageView loadFromNib] initWithName:Home];
-//        tierManageView.frame = CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53);
-//        tierManageView.delegate = self;
-//        [self.view addSubview:tierManageView];
-//    }
-//    [tierManageView openTierManage:0 clickBtn:sender addImage:nil];
-    [Dialog showWithTipText:@"提示" descText:@"是否确认删除?" LeftText:@"是" rightText:@"否" LeftBlock:^{
-        
-    } RightBlock:^{
-        
-    }];
+    if (tierManageView == nil) {
+        tierManageView = [[TierManageView loadFromNib] initWithName:Home];
+        tierManageView.frame = CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53);
+        tierManageView.delegate = self;
+        [self.view addSubview:tierManageView];
+    }
+    [tierManageView openTierManage:0 clickBtn:sender addImage:nil];
 }
 
 #pragma mark - TabBarBtnDelegate
