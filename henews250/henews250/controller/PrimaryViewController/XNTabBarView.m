@@ -29,12 +29,37 @@
     [self addMenuView];
     
     HomeController *home = [HomeController loadFromStoryboard];
+    //*******
+    home.tableViewData = [NetworkCache getHttpCacheForKey:NSStringFromClass([HomeController class])];
     self.homeDelegate = home;
+    //news
     NewsViewController *news = [NewsViewController loadFromStoryboard];
+    NSMutableArray *newsAry = [NetworkCache getHttpCacheForKey:NSStringFromClass([NewsViewController class])];
+    if (newsAry && newsAry.count > 0) {
+        for (int i = 0; i < newsAry.count; i++) {
+            ClassInfoMode *mode = [newsAry objectAtIndex:i];
+            mode.curPosition = 0;
+            mode.needReflush = YES;
+        }
+    }
+    news.classInfoAry = newsAry;
     self.newsDelegate = news;
+    
     ViewPointViewController *viewPoint = [ViewPointViewController loadFromStoryboard];
+    NSMutableArray *viewPointAry = [NetworkCache getHttpCacheForKey:NSStringFromClass([ViewPointViewController class])];
+    if (viewPointAry && viewPointAry.count > 0) {
+        for (int i = 0; i < viewPointAry.count; i++) {
+            ClassInfoMode *mode = [viewPointAry objectAtIndex:i];
+            mode.curPosition = 0;
+            mode.needReflush = YES;
+        }
+    }
+    viewPoint.classInfoAry = viewPointAry;
     self.viewPointDelegate = viewPoint;
+    
+    
     WelfareViewController *welfare = [WelfareViewController loadFromStoryboard];
+//    welfare.showDataAry = [NetworkCache getHttpCacheForKey:NSStringFromClass([WelfareViewController class])];
     self.welfareDelegate = welfare;
     MyViewController *my = [MyViewController loadFromStoryboard];
     

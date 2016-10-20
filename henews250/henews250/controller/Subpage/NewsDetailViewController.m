@@ -19,6 +19,10 @@
     // Do any additional setup after loading the view.
     self.headView.hidden = YES;
 //    [MYLoading show];
+    NSString *a = @"s";
+    self.pageData = [[NSMutableArray alloc]init];
+    [self.pageData addObject:a];
+    [self.pageData removeAllObjects];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,4 +31,15 @@
 }
 
 
+//- (NSMutableArray *)pageData {
+//    if (!_pageData) {
+//        _pageData = [[NSMutableArray alloc]init];
+//    }
+//    return _pageData;
+//}
+
+- (void)setPageData:(NSMutableArray *)pageData {
+    _pageData = pageData;
+    NSLog(@"==========");
+}
 @end

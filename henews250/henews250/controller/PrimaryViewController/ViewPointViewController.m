@@ -91,7 +91,10 @@ static NSString * const keyCurClass = @"curClass";
     self.orderAry = [[NSMutableArray alloc]init];
     [self addObserver:self forKeyPath:keyOrderAry options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:keyCurClass options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
-    
+    //*******
+    if (self.classInfoAry) {
+        [self classScrollViewShowData];
+    }
     //读取本地栏目数据，如果本地没有，则发送网络请求
     [self readLocalOrderTiersDataOrRequest];
 }
@@ -205,6 +208,8 @@ static NSString * const keyCurClass = @"curClass";
         [_lastTableView reloadData];
     }
     [self hideOrShowSeparatorStyleLine];
+    //*********
+    [NetworkCache saveHttpCache:self.classInfoAry forKey:NSStringFromClass([self class])];
 }
 
 - (void)handleAddNewsData:(NSDictionary*)data withMsg:(NSInteger)msg{
@@ -510,6 +515,7 @@ static NSString * const keyCurClass = @"curClass";
         [self classScrollViewShowData];
         self.curClass = 0;
     }else {
+        NSLog(@"xxx======");
         NSMutableArray *newClassInfoAry = [[NSMutableArray alloc]init];
         for (int i = 0; i < self.orderAry.count; i++) {
             TierMode *tier = [self.orderAry objectAtIndex:i];
@@ -525,6 +531,8 @@ static NSString * const keyCurClass = @"curClass";
         }
         self.classInfoAry = newClassInfoAry;
         [self classScrollViewShowData];
+        //********
+        self.curClass = _curClass;
     }
 }
 

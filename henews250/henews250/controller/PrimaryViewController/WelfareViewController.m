@@ -76,6 +76,11 @@ static NSString * const welfareDataTag = @"welfareData";
 
 #pragma mark - 初始化页面和请求数据
 - (void)initPage {
+    //*******
+    if (self.showDataAry.count > 0) {
+        [self.collectionView reloadData];
+    }
+    
     [self.collectionView.mj_header beginRefreshing];
 }
 
@@ -127,6 +132,8 @@ static NSString * const welfareDataTag = @"welfareData";
         }
     }
     [self.collectionView reloadData];
+    //******
+//    [NetworkCache saveHttpCache:self.showDataAry forKey:NSStringFromClass([self class])];
 }
 
 #pragma mark - 刷新

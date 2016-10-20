@@ -6,10 +6,10 @@
 //  Copyright © 2016年 汪洋. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseMode.h"
 #import "TierMode.h"
 
-@interface ClassInfoMode : NSObject
+@interface ClassInfoMode : BaseMode
 
 @property (nonatomic, retain) TierMode *tier;
 //tableView当前位置(y值)

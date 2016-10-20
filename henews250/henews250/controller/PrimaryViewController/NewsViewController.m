@@ -103,6 +103,10 @@ static NSString * const requestMainData = @"mainNewsData";
     [self addObserver:self forKeyPath:keyOrderAry options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:keyCurClass options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
     
+    //*******
+    if (self.classInfoAry) {
+        [self classScrollViewShowData];
+    }
     //读取本地栏目数据，如果本地没有，则发送网络请求
     [self readLocalOrderTiersDataOrRequest];
 }
@@ -217,6 +221,8 @@ static NSString * const requestMainData = @"mainNewsData";
         [_lastTableView reloadData];
     }
     [self hideOrShowSeparatorStyleLine];
+    //*********
+    [NetworkCache saveHttpCache:self.classInfoAry forKey:NSStringFromClass([self class])];
 }
 
 - (void)handleAddNewsData:(NSDictionary*)data withMsg:(NSInteger)msg{
@@ -538,6 +544,8 @@ static NSString * const requestMainData = @"mainNewsData";
         }
         self.classInfoAry = newClassInfoAry;
         [self classScrollViewShowData];
+        //********
+        self.curClass = _curClass;
     }
 }
 

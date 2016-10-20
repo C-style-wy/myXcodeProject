@@ -10,4 +10,6 @@
 
 @interface NewsDetailViewController : SubBaseViewController
 
+@property (nonatomic, retain) NSMutableArray *pageData;
+
 @end

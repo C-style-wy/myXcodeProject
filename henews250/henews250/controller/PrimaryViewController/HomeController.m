@@ -57,6 +57,8 @@
 #pragma mark - init
 - (void)initPage {
     canReflush = YES;
+    //*******
+    [self.tableView reloadData];
     UIImageView *setImage = [[UIImageView alloc] initWithFrame:CGRectMake(50-29, 5.5, 22, 22)];
     setImage.image = [UIImage imageNamed:@"channel_set_icon"];
     [self.setBtn addSubview:setImage];
@@ -97,7 +99,7 @@
     }else if ([tag isEqualToString:@"changeData"]){
         if (returnJson) {
             self.changeData = [ChangeDataMode mj_objectWithKeyValues:returnJson];
-            NodeMode *node = [_tableViewData objectAtIndex:msg];
+            NodeMode *node = [self.tableViewData objectAtIndex:msg];
             node.changeUrl = _changeData.changeUrl;
             node.newsList = _changeData.newsList;
             NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
@@ -122,7 +124,7 @@
     }else if ([tag isEqualToString:@"changeData"]){
         if (returnJson) {
             self.changeData = [ChangeDataMode mj_objectWithKeyValues:returnJson];
-            NodeMode *node = [_tableViewData objectAtIndex:msg];
+            NodeMode *node = [self.tableViewData objectAtIndex:msg];
             node.changeUrl = _changeData.changeUrl;
             node.newsList = _changeData.newsList;
             NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
@@ -142,13 +144,13 @@
 
 
 - (void)dealData {
-    if (!_tableViewData) {
-        _tableViewData = [[NSMutableArray alloc]init];
+    if (!self.tableViewData) {
+        self.tableViewData = [[NSMutableArray alloc]init];
     }
-    [_tableViewData removeAllObjects];
+    [self.tableViewData removeAllObjects];
     if (_homeMode.banners && _homeMode.banners.count > 0) {
         NSMutableArray *bannersAry = [_homeMode.banners copy];
-        [_tableViewData addObject:bannersAry];
+        [self.tableViewData addObject:bannersAry];
     }
     for (int i = 0; i < self.orderAry.count; i++) {
         TierMode *tier = [self.orderAry objectAtIndex:i];
@@ -157,13 +159,14 @@
             if ([tier.nodeId isEqualToString:mudel.nodeId]) {
                 if (mudel.nodeName && ![mudel.nodeName isEqualToString:@""]) {
                     if (([mudel.displayType intValue] == EditorRecommend && mudel.newsList && mudel.newsList.count > 0) || [mudel.displayType intValue] != EditorRecommend) {
-                        [_tableViewData addObject:mudel];
+                        [self.tableViewData addObject:mudel];
                     }
                 }
             }
         }
     }
-    
+    //******
+    [NetworkCache saveHttpCache:self.tableViewData forKey:NSStringFromClass([self class])];
     [self.tableView reloadData];
 }
 
@@ -227,9 +230,9 @@
 
 - (NSInteger)inTableSectionWithTier:(TierMode*)tier {
     NSInteger section = 0;
-    for (int i =  0; i < _tableViewData.count; i++) {
-        if ([[_tableViewData objectAtIndex:i] isKindOfClass:[NodeMode class]]) {
-            NodeMode *modul = [_tableViewData objectAtIndex:i];
+    for (int i =  0; i < self.tableViewData.count; i++) {
+        if ([[self.tableViewData objectAtIndex:i] isKindOfClass:[NodeMode class]]) {
+            NodeMode *modul = [self.tableViewData objectAtIndex:i];
             if ([modul.nodeId isEqualToString:tier.nodeId]) {
                 section = i;
                 return section;
@@ -241,12 +244,12 @@
 
 #pragma mark - tableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _tableViewData.count;
+    return self.tableViewData.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
-        NodeMode *modul = [_tableViewData objectAtIndex:section];
+    if ([[self.tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [self.tableViewData objectAtIndex:section];
         SectionView *view = [[SectionView loadFromNib] initWithData:modul section:section];
         view.delegate = self;
         return view;
@@ -256,7 +259,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
+    if ([[self.tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
         return 26.5f;
     }else{
         return 0;
@@ -265,8 +268,8 @@
 
 //指定每个分区中有多少行，默认为1
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([[_tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
-        NodeMode *modul = [_tableViewData objectAtIndex:section];
+    if ([[self.tableViewData objectAtIndex:section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [self.tableViewData objectAtIndex:section];
         return [[NewsCellFactory shareInstance]getNumberOfRowsInSection:modul];
     }else{
         return 1;
@@ -274,15 +277,15 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
-        NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
+    if ([[self.tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [self.tableViewData objectAtIndex:indexPath.section];
         BOOL hiddenLine = NO;
         if (modul.newsList.count == indexPath.row + 1) {
             hiddenLine = YES;
         }
         return [[NewsCellFactory shareInstance] getCell:modul row:indexPath.row tableView:tableView hiddenLine:YES isShortLine:YES];
     }else{
-        NSMutableArray *banners = [_tableViewData objectAtIndex:indexPath.section];
+        NSMutableArray *banners = [self.tableViewData objectAtIndex:indexPath.section];
         BannerCell *cell = [BannerCell cellWithTableView:tableView];
         [cell setNews:banners hiddenLine:YES];
         return cell;
@@ -294,8 +297,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
-        NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
+    if ([[self.tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [self.tableViewData objectAtIndex:indexPath.section];
         return [[NewsCellFactory shareInstance]getHeightForRow:modul row:indexPath.row];
     }else{
         return SCREEN_WIDTH*197.0f/320.0f;
@@ -304,8 +307,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if ([[_tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
-        NodeMode *modul = [_tableViewData objectAtIndex:indexPath.section];
+    if ([[self.tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
+        NodeMode *modul = [self.tableViewData objectAtIndex:indexPath.section];
         [[NewsCellFactory shareInstance]didSelectRowAtIndexPath:modul row:indexPath.row navigation:self.navigationController];
     }
 }
