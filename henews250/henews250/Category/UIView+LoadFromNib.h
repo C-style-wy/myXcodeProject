@@ -11,4 +11,5 @@
 @interface UIView (LoadFromNib)
 
 + (id)loadFromNib;
+
 @end

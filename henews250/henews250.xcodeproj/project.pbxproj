@@ -161,6 +161,9 @@
 		D3CEF6281D3CAE6600696FF5 /* ImageMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF6271D3CAE6600696FF5 /* ImageMode.m */; };
 		D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62A1D3CB07600696FF5 /* NodeMode.m */; };
 		D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF62D1D3CB21100696FF5 /* HomeMode.m */; };
+		D3D326B91DB89CE7005E807E /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D326B81DB89CE7005E807E /* Dialog.m */; };
+		D3D326BD1DB89D82005E807E /* SHLUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D326BC1DB89D82005E807E /* SHLUILabel.m */; };
+		D3D326C31DB8A7EB005E807E /* UIView+MYSnapshotView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D326C21DB8A7EB005E807E /* UIView+MYSnapshotView.m */; };
 		D3D3FF041DAB328D00CCD72A /* MJRefreshWYCustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D3FF031DAB328D00CCD72A /* MJRefreshWYCustomHeader.m */; };
 		D3D68BD91DB4BF51004E6D42 /* LoginMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D68BD81DB4BF51004E6D42 /* LoginMode.m */; };
 		D3D68BDC1DB4BF7D004E6D42 /* WeiboIdMapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D68BDB1DB4BF7D004E6D42 /* WeiboIdMapModel.m */; };
@@ -488,6 +491,12 @@
 		D3CEF62A1D3CB07600696FF5 /* NodeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeMode.m; sourceTree = "<group>"; };
 		D3CEF62C1D3CB21100696FF5 /* HomeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMode.h; sourceTree = "<group>"; };
 		D3CEF62D1D3CB21100696FF5 /* HomeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMode.m; sourceTree = "<group>"; };
+		D3D326B71DB89CE7005E807E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
+		D3D326B81DB89CE7005E807E /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
+		D3D326BB1DB89D82005E807E /* SHLUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLUILabel.h; sourceTree = "<group>"; };
+		D3D326BC1DB89D82005E807E /* SHLUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLUILabel.m; sourceTree = "<group>"; };
+		D3D326C11DB8A7EB005E807E /* UIView+MYSnapshotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MYSnapshotView.h"; sourceTree = "<group>"; };
+		D3D326C21DB8A7EB005E807E /* UIView+MYSnapshotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MYSnapshotView.m"; sourceTree = "<group>"; };
 		D3D3FF021DAB328D00CCD72A /* MJRefreshWYCustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshWYCustomHeader.h; sourceTree = "<group>"; };
 		D3D3FF031DAB328D00CCD72A /* MJRefreshWYCustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshWYCustomHeader.m; sourceTree = "<group>"; };
 		D3D68BD01DB46175004E6D42 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = Pods/ShareSDK3/ShareSDK/Support/PlatformSDK/QQSDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
@@ -789,6 +798,8 @@
 		D3276ACE1D2A681A00A249C9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D3D326BA1DB89D82005E807E /* SHLUILabel */,
+				D3D326B61DB89CD9005E807E /* Dialog */,
 				D33D46361DB854FF005E389D /* MYLoading */,
 				D3FC8A9F1DB37F14004282E6 /* ShareSDKHandle */,
 				D3EB392F1DAB1D46006588E5 /* HenewsRefresh */,
@@ -838,6 +849,8 @@
 				D31ED44F1D3E18D6003C2A54 /* UIImageView+LoadFromWeb.m */,
 				D35BB1BD1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.h */,
 				D35BB1BE1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m */,
+				D3D326C11DB8A7EB005E807E /* UIView+MYSnapshotView.h */,
+				D3D326C21DB8A7EB005E807E /* UIView+MYSnapshotView.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1168,6 +1181,24 @@
 				D32D86661D462ED1008D7216 /* ChangeDataMode.m */,
 			);
 			path = HomeMode;
+			sourceTree = "<group>";
+		};
+		D3D326B61DB89CD9005E807E /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				D3D326B71DB89CE7005E807E /* Dialog.h */,
+				D3D326B81DB89CE7005E807E /* Dialog.m */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
+		D3D326BA1DB89D82005E807E /* SHLUILabel */ = {
+			isa = PBXGroup;
+			children = (
+				D3D326BB1DB89D82005E807E /* SHLUILabel.h */,
+				D3D326BC1DB89D82005E807E /* SHLUILabel.m */,
+			);
+			path = SHLUILabel;
 			sourceTree = "<group>";
 		};
 		D3D68BD61DB4BF37004E6D42 /* LoginMode */ = {
@@ -1554,6 +1585,7 @@
 				D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */,
 				D35BB1D01D422206000D6BFD /* BannerImageView.m in Sources */,
 				D3957B6A1D950F3C00F4A360 /* PullCollectionView.m in Sources */,
+				D3D326BD1DB89D82005E807E /* SHLUILabel.m in Sources */,
 				D32BD20E1D7D040C00DB44DE /* HomeWeatherCell.m in Sources */,
 				D32C369C1D3223F800431829 /* XNTabBarButton.m in Sources */,
 				D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */,
@@ -1562,6 +1594,7 @@
 				D32689D61D7FBD4D00DEB5AA /* NewsDetailViewController.m in Sources */,
 				D3D68BD91DB4BF51004E6D42 /* LoginMode.m in Sources */,
 				D32BD58B1DA8F7E400D55969 /* MYRefreshBackFooter.m in Sources */,
+				D3D326B91DB89CE7005E807E /* Dialog.m in Sources */,
 				D30E52781D6438AE0018FE6D /* CityManager.m in Sources */,
 				D359E40F1D8652FA00CB8BD0 /* CoreDataManager.m in Sources */,
 				D36558851DAF267A00D05C84 /* WelfareActivityCell.m in Sources */,
@@ -1617,6 +1650,7 @@
 				D32479621D8F8B5E004C7A7B /* PicViewController.m in Sources */,
 				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,
 				D3C0D83A1D8E73AE00A4B051 /* NetworkCache.m in Sources */,
+				D3D326C31DB8A7EB005E807E /* UIView+MYSnapshotView.m in Sources */,
 				D31E0DA31DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.m in Sources */,
 				D32BD57F1DA8D96800D55969 /* UIScrollView+MYRefresh.m in Sources */,
 				D3640C941D631E70008049E4 /* MPLocationManager.m in Sources */,

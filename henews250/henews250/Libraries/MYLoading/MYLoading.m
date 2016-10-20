@@ -55,19 +55,44 @@
     return _overlayView;
 }
 
-- (UIWindow *)lastWindow {
-    NSEnumerator *frontToBackWindows = [UIApplication.sharedApplication.windows reverseObjectEnumerator];
-    for (UIWindow *window in frontToBackWindows) {
-        BOOL windowOnMainScreen = window.screen == UIScreen.mainScreen;
-        BOOL windowIsVisible = !window.hidden && window.alpha > 0;
-        BOOL windowLevelSupported = (window.windowLevel >= UIWindowLevelNormal && window.windowLevel <= UIWindowLevelNormal);
-        
-        if(windowOnMainScreen && windowIsVisible && windowLevelSupported) {
-            return window;
+- (UIView *)lastWindow {
+//    NSEnumerator *frontToBackWindows = [UIApplication.sharedApplication.windows reverseObjectEnumerator];
+//    for (UIWindow *window in frontToBackWindows) {
+//        BOOL windowOnMainScreen = window.screen == UIScreen.mainScreen;
+//        BOOL windowIsVisible = !window.hidden && window.alpha > 0;
+//        BOOL windowLevelSupported = (window.windowLevel >= UIWindowLevelNormal && window.windowLevel <= UIWindowLevelNormal);
+//        
+//        if(windowOnMainScreen && windowIsVisible && windowLevelSupported) {
+//            return window;
+//        }
+//    }
+//    
+//    return [UIApplication sharedApplication].keyWindow;
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
         }
     }
     
-    return [UIApplication sharedApplication].keyWindow;
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+    result = nextResponder;
+    else
+    result = window.rootViewController;
+    
+    return result.view;
 }
 
 @end

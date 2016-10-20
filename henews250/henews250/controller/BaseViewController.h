@@ -26,6 +26,8 @@
 
 #import "MYPhoneParam.h"
 
+#import "Dialog.h"
+
 
 @interface BaseViewController : UIViewController<NetworkDelegate>
 

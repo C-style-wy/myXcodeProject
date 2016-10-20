@@ -59,7 +59,7 @@ static NSString * const kDGCollectionViewKeyPath = @"collectionView";
     //返回对应view的一个快照
     if ([self respondsToSelector:@selector(snapshotViewAfterScreenUpdates:)]) {
         
-        return [self snapshotViewAfterScreenUpdates:YES];
+        return [self snapshotViewAfterScreenUpdates:NO];
     }else{
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0f);
         
