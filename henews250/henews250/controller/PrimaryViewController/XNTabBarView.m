@@ -59,7 +59,7 @@
     
     
     WelfareViewController *welfare = [WelfareViewController loadFromStoryboard];
-//    welfare.showDataAry = [NetworkCache getHttpCacheForKey:NSStringFromClass([WelfareViewController class])];
+    welfare.showDataAry = [NetworkCache getHttpCacheForKey:NSStringFromClass([WelfareViewController class])];
     self.welfareDelegate = welfare;
     MyViewController *my = [MyViewController loadFromStoryboard];
     

@@ -14,6 +14,7 @@
 #import "WelfareHeaderView.h"
 #import "WelfareCollectionViewFlowLayout.h"
 #import "WelfareMoreCell.h"
+#import "WelfareScoreItemMode.h"
 
 static NSString * const welfareBannerCell = @"welfareBannerCell";
 static NSString * const welfareScoresCell = @"welfareScoresCell";
@@ -117,7 +118,7 @@ static NSString * const welfareDataTag = @"welfareData";
         [self.showDataAry addObject:self.welfareData.banners];
     }
     {
-        WelfareScoresCell *scoreCell = [[WelfareScoresCell alloc]init];
+        WelfareScoreItemMode *scoreCell = [[WelfareScoreItemMode alloc]init];
         [self.showDataAry addObject:scoreCell];
     }
     {
@@ -133,7 +134,7 @@ static NSString * const welfareDataTag = @"welfareData";
     }
     [self.collectionView reloadData];
     //******
-//    [NetworkCache saveHttpCache:self.showDataAry forKey:NSStringFromClass([self class])];
+    [NetworkCache saveHttpCache:self.showDataAry forKey:NSStringFromClass([self class])];
 }
 
 #pragma mark - 刷新
@@ -160,7 +161,7 @@ static NSString * const welfareDataTag = @"welfareData";
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[NSArray class]]) {
         return 1;
-    } else if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[WelfareScoresCell class]]) {
+    } else if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[WelfareScoreItemMode class]]) {
         return 1;
     } else if ([[self.showDataAry objectAtIndex:section] isKindOfClass:[AreaListModel class]]) {
         AreaListModel *area = [self.showDataAry objectAtIndex:section];
@@ -175,7 +176,7 @@ static NSString * const welfareDataTag = @"welfareData";
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSArray class]]) {
         return CGSizeMake(SCREEN_WIDTH, (165.5/320)*SCREEN_WIDTH);
-    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[WelfareScoresCell class]]) {
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[WelfareScoreItemMode class]]) {
         return CGSizeMake(SCREEN_WIDTH, (35.5/320)*SCREEN_WIDTH);
     } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[AreaListModel class]]) {
         AreaListModel *area = [self.showDataAry objectAtIndex:indexPath.section];
@@ -198,7 +199,7 @@ static NSString * const welfareDataTag = @"welfareData";
         WelfareBannerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:welfareBannerCell forIndexPath:indexPath];
         [cell setNews:banners];
         return cell;
-    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[WelfareScoresCell class]]) {
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[WelfareScoreItemMode class]]) {
         WelfareScoresCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:welfareScoresCell forIndexPath:indexPath];
         [cell setObjc];
         return cell;
@@ -282,7 +283,7 @@ static NSString * const welfareDataTag = @"welfareData";
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[NSArray class]]) {
         return NO;
-    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[WelfareScoresCell class]]) {
+    } else if ([[self.showDataAry objectAtIndex:indexPath.section] isKindOfClass:[WelfareScoreItemMode class]]) {
         return NO;
     }
     return YES;

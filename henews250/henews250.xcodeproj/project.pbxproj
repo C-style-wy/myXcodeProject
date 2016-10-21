@@ -14,6 +14,7 @@
 		D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E094A1D406B0C00954670 /* ThreeSmallPicCell.m */; };
 		D30E094D1D406B0C00954670 /* ThreeSmallPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30E094B1D406B0C00954670 /* ThreeSmallPicCell.xib */; };
 		D30E52781D6438AE0018FE6D /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E52771D6438AE0018FE6D /* CityManager.m */; };
+		D31384A31DB99E0E002D2B0B /* WelfareScoreItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31384A21DB99E0E002D2B0B /* WelfareScoreItemMode.m */; };
 		D317BFCC1D795F6B00852ADC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = D317BFCB1D795F6B00852ADC /* XMLDictionary.m */; };
 		D319C8891D387007002A84F5 /* SingleColMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D319C8881D387007002A84F5 /* SingleColMode.m */; };
 		D319C88C1D38705D002A84F5 /* AdMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D319C88B1D38705D002A84F5 /* AdMode.m */; };
@@ -216,6 +217,8 @@
 		D30E52771D6438AE0018FE6D /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityManager.m; sourceTree = "<group>"; };
 		D31346141D66997700871FB8 /* NetworkUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkUrl.h; sourceTree = "<group>"; };
 		D31346151D669CDD00871FB8 /* NetworkDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkDefine.h; sourceTree = "<group>"; };
+		D31384A11DB99E0E002D2B0B /* WelfareScoreItemMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareScoreItemMode.h; sourceTree = "<group>"; };
+		D31384A21DB99E0E002D2B0B /* WelfareScoreItemMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareScoreItemMode.m; sourceTree = "<group>"; };
 		D317BFCA1D795F6B00852ADC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		D317BFCB1D795F6B00852ADC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		D319C8871D387007002A84F5 /* SingleColMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleColMode.h; sourceTree = "<group>"; };
@@ -1135,6 +1138,8 @@
 				D3C2A26E1DACC964003A3B92 /* WelfareBannerModel.m */,
 				D3C2A2701DACC9EB003A3B92 /* WelfareMode.h */,
 				D3C2A2711DACC9EB003A3B92 /* WelfareMode.m */,
+				D31384A11DB99E0E002D2B0B /* WelfareScoreItemMode.h */,
+				D31384A21DB99E0E002D2B0B /* WelfareScoreItemMode.m */,
 			);
 			path = WelfareMode;
 			sourceTree = "<group>";
@@ -1650,6 +1655,7 @@
 				D32479621D8F8B5E004C7A7B /* PicViewController.m in Sources */,
 				D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */,
 				D3C0D83A1D8E73AE00A4B051 /* NetworkCache.m in Sources */,
+				D31384A31DB99E0E002D2B0B /* WelfareScoreItemMode.m in Sources */,
 				D3D326C31DB8A7EB005E807E /* UIView+MYSnapshotView.m in Sources */,
 				D31E0DA31DAF6E02006196A7 /* WelfareCollectionViewFlowLayout.m in Sources */,
 				D32BD57F1DA8D96800D55969 /* UIScrollView+MYRefresh.m in Sources */,
