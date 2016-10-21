@@ -10,11 +10,12 @@
 #import "MPLocationManager.h"
 #import "MacroDefinition.h"
 #import "CityManager.h"
+#import "OneKeyLoginMode.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-
+@property (nonatomic, retain) OneKeyLoginMode *onekeyLogin;
 @end
 

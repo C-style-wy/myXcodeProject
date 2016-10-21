@@ -30,6 +30,8 @@
 
 #import "UIView+Toast.h"
 
+#import "AppDelegate.h"
+
 
 @interface BaseViewController : UIViewController<NetworkDelegate>
 

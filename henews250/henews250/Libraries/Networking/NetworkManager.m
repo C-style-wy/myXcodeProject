@@ -213,4 +213,43 @@
     [[NetworkHandler sharedInstance]conURL:url networkType:NetWorkPOST dataType:NetWorkXML params:mutableDict delegate:nil showHUD:showHUD target:nil action:nil cacheBlock:cacheBlock successBlock:successBlock failureBlock:failureBlock tag:nil msg:0 useCache:YES update:YES];
 }
 
+/**
+ *   获取运行商类型
+ *
+ */
++ (MNOType)getMNOType {
+    CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc] init];
+    CTCarrier *carrier = [info subscriberCellularProvider];
+    NSString *mcc = [carrier mobileCountryCode];
+    NSString *mnc = [carrier mobileNetworkCode];
+    if (mnc == nil || mnc.length <1 || [mnc isEqualToString:@"SIM Not Inserted"] ) {
+        return MNOTypeUnknown;
+    }else {
+        if ([mcc isEqualToString:@"460"]) {
+            NSInteger MNC = [mnc intValue];
+            switch (MNC) {
+                case 00:
+                case 02:
+                case 07:
+                    return MNOTypeMobile;
+                    break;
+                case 01:
+                case 06:
+                    return MNOTypeUnicom;
+                    break;
+                case 03:
+                case 05:
+                    return MNOTypeTelecom;
+                    break;
+                case 20:
+                    return MNOTypeTietong;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    
+    return MNOTypeUnknown;
+}
 @end

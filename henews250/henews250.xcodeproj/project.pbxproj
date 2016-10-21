@@ -15,6 +15,8 @@
 		D30E094D1D406B0C00954670 /* ThreeSmallPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30E094B1D406B0C00954670 /* ThreeSmallPicCell.xib */; };
 		D30E52781D6438AE0018FE6D /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E52771D6438AE0018FE6D /* CityManager.m */; };
 		D31384A31DB99E0E002D2B0B /* WelfareScoreItemMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31384A21DB99E0E002D2B0B /* WelfareScoreItemMode.m */; };
+		D31384A61DB9E39B002D2B0B /* OneKeyLoginMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31384A51DB9E39B002D2B0B /* OneKeyLoginMode.m */; };
+		D31384A81DB9F5F5002D2B0B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31384A71DB9F5F5002D2B0B /* MessageUI.framework */; };
 		D317BFCC1D795F6B00852ADC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = D317BFCB1D795F6B00852ADC /* XMLDictionary.m */; };
 		D319C8891D387007002A84F5 /* SingleColMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D319C8881D387007002A84F5 /* SingleColMode.m */; };
 		D319C88C1D38705D002A84F5 /* AdMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D319C88B1D38705D002A84F5 /* AdMode.m */; };
@@ -219,6 +221,10 @@
 		D31346151D669CDD00871FB8 /* NetworkDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkDefine.h; sourceTree = "<group>"; };
 		D31384A11DB99E0E002D2B0B /* WelfareScoreItemMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelfareScoreItemMode.h; sourceTree = "<group>"; };
 		D31384A21DB99E0E002D2B0B /* WelfareScoreItemMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelfareScoreItemMode.m; sourceTree = "<group>"; };
+		D31384A41DB9E39B002D2B0B /* OneKeyLoginMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneKeyLoginMode.h; sourceTree = "<group>"; };
+		D31384A51DB9E39B002D2B0B /* OneKeyLoginMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneKeyLoginMode.m; sourceTree = "<group>"; };
+		D31384A71DB9F5F5002D2B0B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D31384A91DB9F658002D2B0B /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		D317BFCA1D795F6B00852ADC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		D317BFCB1D795F6B00852ADC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		D319C8871D387007002A84F5 /* SingleColMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleColMode.h; sourceTree = "<group>"; };
@@ -541,6 +547,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D31384A81DB9F5F5002D2B0B /* MessageUI.framework in Frameworks */,
 				752A34D4FC99409B88A1EA77 /* libPods-henews250.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,6 +572,8 @@
 		1E52F506F5DD48D79F7D18B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D31384A91DB9F658002D2B0B /* Messages.framework */,
+				D31384A71DB9F5F5002D2B0B /* MessageUI.framework */,
 				D3D68BD41DB4705B004E6D42 /* libsqlite3.tbd */,
 				D3D68BD01DB46175004E6D42 /* TencentOpenApi_IOS_Bundle.bundle */,
 				D3D68BD11DB46175004E6D42 /* TencentOpenAPI.framework */,
@@ -610,6 +619,8 @@
 				D319C88B1D38705D002A84F5 /* AdMode.m */,
 				D319C88D1D387307002A84F5 /* LoadingMode.h */,
 				D319C88E1D387307002A84F5 /* LoadingMode.m */,
+				D31384A41DB9E39B002D2B0B /* OneKeyLoginMode.h */,
+				D31384A51DB9E39B002D2B0B /* OneKeyLoginMode.m */,
 			);
 			path = LoadingMode;
 			sourceTree = "<group>";
@@ -1530,6 +1541,7 @@
 				D32BD21F1D7D509800DB44DE /* ZhishuMode.m in Sources */,
 				D32D86671D462ED1008D7216 /* ChangeDataMode.m in Sources */,
 				D340C1311D640AB8007D4C3D /* CityMode.m in Sources */,
+				D31384A61DB9E39B002D2B0B /* OneKeyLoginMode.m in Sources */,
 				D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */,
 				D32C36931D321B8100431829 /* WelfareViewController.m in Sources */,
 				D3805DCF1D7427D600B6FAE5 /* NetworkItem.m in Sources */,

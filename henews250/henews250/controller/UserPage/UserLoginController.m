@@ -10,6 +10,10 @@
 #import "UserInfoHandle.h"
 #import "LoginMode.h"
 
+static NSString * const defaultChinaMobile = @"10658421";
+static NSString * const defaultChinaNet = @"1181702882";
+static NSString * const defaultChinaUnicom = @"1065548140182";
+
 @interface UserLoginController ()
 
 @end
@@ -538,6 +542,120 @@
     return _loginBtnView;
 }
 
+- (BOOL)isSmsLogin {
+    AppDelegate *myDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSString *isSL = myDelegate.onekeyLogin.isSmsLogin;
+    if (isSL && [isSL isEqualToString:@"1"]) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+- (NSString *)chinaMobile {
+    if (!_chinaMobile) {
+        AppDelegate *myDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSString *cm = myDelegate.onekeyLogin.chinaMobile;
+        if (cm && ![cm isEqualToString:@""]) {
+            _chinaMobile = cm;
+        }else{
+            _chinaMobile = defaultChinaMobile;
+        }
+    }
+    return _chinaMobile;
+}
+
+- (NSString *)chinaNet {
+    if (!_chinaNet) {
+        AppDelegate *myDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSString *cm = myDelegate.onekeyLogin.chinaNet;
+        if (cm && ![cm isEqualToString:@""]) {
+            _chinaNet = cm;
+        }else{
+            _chinaNet = defaultChinaNet;
+        }
+    }
+    return _chinaNet;
+}
+
+- (NSString *)chinaUnicom {
+    if (!_chinaUnicom) {
+        AppDelegate *myDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSString *cm = myDelegate.onekeyLogin.chinaUnicom;
+        if (cm && ![cm isEqualToString:@""]) {
+            _chinaUnicom = cm;
+        }else{
+            _chinaUnicom = defaultChinaUnicom;
+        }
+    }
+    return _chinaUnicom;
+}
+
+- (NSString *)simisi {
+    if (!_simisi) {
+        NSString *str = [MYPhoneParam sharedInstance].uuid;
+        NSDateFormatter *df = [[NSDateFormatter alloc]init];
+        [df setDateFormat:@"yyyyMMddHHmmss"];
+        [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
+        str = [str stringByAppendingString:[df stringFromDate:[NSDate date]]];
+        _simisi = [MD5 encoding:str];
+    }
+    return _simisi;
+}
+
+- (NSString *)randnum {
+    if (!_randnum) {
+        NSString *str = [MYPhoneParam sharedInstance].uuid;
+        NSDateFormatter *df = [[NSDateFormatter alloc]init];
+        [df setDateFormat:@"yyyyMMddHHmmss"];
+        [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
+        str = [str stringByAppendingString:@"randnum"];
+        str = [str stringByAppendingString:[df stringFromDate:[NSDate date]]];
+        _randnum = [MD5 encoding:str];
+    }
+    return _randnum;
+}
+
+- (NSString *)messgeNumber {
+    if (!_messgeNumber) {
+        _messgeNumber = self.chinaMobile;
+        MNOType mNOType = [NetworkManager getMNOType];
+        if (mNOType == MNOTypeTelecom) {
+            _messgeNumber = self.chinaNet;
+        }else if (mNOType == MNOTypeUnicom) {
+            _messgeNumber = self.chinaUnicom;
+        }
+    }
+    return _messgeNumber;
+}
+
+//- (MFMessageComposeViewController *)messageComposeViewController {
+//    if (!_messageComposeViewController) {
+//        MFMessageComposeViewController * controller = [[MFMessageComposeViewController alloc] init];
+//        controller.view.backgroundColor = [UIColor whiteColor];
+//        controller.recipients = [NSArray arrayWithObject:self.messgeNumber];
+//        controller.body = [self.simisi stringByAppendingString:self.randnum];
+//        controller.messageComposeDelegate = self;
+//        
+//        //设置标题
+//        UINavigationItem *navigationItem = [[[controller viewControllers]lastObject]navigationItem];
+//        [navigationItem setTitle:@"新信息"];
+//        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+//        [button setFrame:CGRectMake(0, 0, 40, 20)];
+//        
+//        [button setTitle:@"取消" forState:UIControlStateNormal];
+//        button.titleLabel.font = [UIFont systemFontOfSize:17.0];
+//        [button addTarget:self action:@selector(msgBackFun) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//        _messageComposeViewController = controller;
+//    }
+//    return _messageComposeViewController;
+//}
+
+- (void)msgBackFun {
+    [self.messageComposeViewController dismissViewControllerAnimated:NO completion:nil];
+}
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     //回收键盘,取消第一响应者
@@ -548,6 +666,62 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.nameField resignFirstResponder];
     [self.passwordField resignFirstResponder];
+}
+
+#pragma mark - MFMessageComposeViewControllerDelegate
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    switch ( result ) {
+        case MessageComposeResultCancelled:{
+            
+            //click cancel button
+            
+        }
+        break;
+        case MessageComposeResultFailed:{
+            [self.view makeToast:@"短信发送失败!"];
+        }// send failed
+        break;
+        case MessageComposeResultSent:{
+            [controller dismissViewControllerAnimated:NO completion:nil];//关键的一句   不能为YES
+            //do something
+            NTLog(@"发送成功======");
+            [MYLoading show];
+            [NetworkManager postRequestJsonWithURL:DEF_GetOneKeyLoginTimeUrl params:nil cacheBlock:^(NSDictionary *returnJson) {
+                
+            } successBlock:^(NSDictionary *returnJson) {
+                NSString *idleTime = [returnJson objectForKey:@"idleTime"];
+                float idle = [idleTime floatValue];
+                NTLog(@"idle=====%f", idle);
+                [NSTimer scheduledTimerWithTimeInterval:idle target:self selector:@selector(timeBack:) userInfo:nil repeats:NO];
+            } failureBlock:^(NSError *error) {
+                [MYLoading dismiss];
+                [self.view makeToast:@"登录失败!"];
+            } showHUD:NO];
+        }
+            
+        break;
+        default:
+        break;
+    }
+}
+
+- (void)timeBack:(NSTimer *)time {
+    NTLog(@"timeBack=====");
+    [time invalidate];
+    time = nil;
+    NSString *url = [DEF_GetOneKeyLoginUrl stringByAppendingString:self.simisi];
+    url = [url stringByAppendingString:@"&random="];
+    url = [url stringByAppendingString:self.randnum];
+    url = [url stringByAppendingString:@"&counter=1"];
+    [NetworkManager postRequestJsonWithURL:url params:nil cacheBlock:^(NSDictionary *returnJson) {
+        
+    } successBlock:^(NSDictionary *returnJson) {
+        [MYLoading dismiss];
+        [self dealRequestLoginUrlBackWithData:returnJson loginType:LoginTypeOneKey];
+    } failureBlock:^(NSError *error) {
+        [MYLoading dismiss];
+        [self.view makeToast:@"登录失败!"];
+    } showHUD:NO];
 }
 
 #pragma mark - 按钮点击事件
@@ -632,6 +806,7 @@
 - (void)dealRequestLoginUrlBackWithData:(NSDictionary *)data loginType:(LoginType)loginType {
     LoginMode *user = [LoginMode mj_objectWithKeyValues:data];
     if ([user.resultCode isEqualToString:@"0"]) {
+        [self.view makeToast:@"登录失败!"];
         return;
     }
     LoaclUserInfoData *localUserInfo = [UserInfoHandle getUserInfoFromLocal];
@@ -651,7 +826,43 @@
 }
 
 - (void)keyLoginBtnSelect:(UIButton *)sender {
-    NSLog(@"keyLoginBtnSelect=======");
+    MNOType mNOType = [NetworkManager getMNOType];
+    if (mNOType != MNOTypeMobile) {
+        if (!self.isSmsLogin) {
+            [self.view makeToast:@"对不起，一键登录暂未开通"];
+            return;
+        }
+    }
+    [Dialog showWithTipText:@"温馨提示" descText:@"为保障您的账户安全，需要发送一条短信进行登录验证，是否同意发送？" LeftText:@"确定" rightText:@"取消" LeftBlock:^{
+        if([MFMessageComposeViewController canSendText]) {
+            
+            //每次打开要重新new，不然会有白板的bug
+            self.messageComposeViewController = [[MFMessageComposeViewController alloc] init];
+            self.messageComposeViewController.view.backgroundColor = [UIColor whiteColor];
+            self.messageComposeViewController.recipients = [NSArray arrayWithObject:self.messgeNumber];
+            self.messageComposeViewController.body = [self.simisi stringByAppendingString:self.randnum];
+            self.messageComposeViewController.messageComposeDelegate = self;
+            
+            //设置标题
+            UINavigationItem *navigationItem = [[[self.messageComposeViewController viewControllers]lastObject]navigationItem];
+            [navigationItem setTitle:@"新信息"];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+            [button setFrame:CGRectMake(0, 0, 40, 20)];
+            
+            [button setTitle:@"取消" forState:UIControlStateNormal];
+            button.titleLabel.font = [UIFont systemFontOfSize:17.0];
+            [button addTarget:self action:@selector(msgBackFun) forControlEvents:UIControlEventTouchUpInside];
+            
+            navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+            
+            
+            [self presentViewController:self.messageComposeViewController animated:YES completion:nil];
+        }else{
+            [self.view makeToast:@"设备不支持短信功能"];
+        }
+    } RightBlock:^{
+        
+    }];
 }
 
 - (void)forgetPasswordBtnSelect:(UIButton *)sender {
@@ -680,10 +891,12 @@
     }
     if ([self.nameField.text isEqualToString:@""]) {
         NSLog(@"用户名不能为空!");
+        [self.view makeToast:@"用户名不能为空!"];
         return;
     }
     if ([self.passwordField.text isEqualToString:@""]) {
         NSLog(@"密码不能为空!");
+        [self.view makeToast:@"密码不能为空!"];
         return;
     }
     

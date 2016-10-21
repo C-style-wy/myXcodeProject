@@ -64,6 +64,13 @@
         self.loadingMode = [LoadingMode mj_objectWithKeyValues:returnJson];
         [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"hNewsNodes"] key:News];
         [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"videoNodes"] key:View];
+        
+        AppDelegate *myDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        myDelegate.onekeyLogin = [[OneKeyLoginMode alloc]init];
+        myDelegate.onekeyLogin.isSmsLogin = self.loadingMode.isSmsLogin;
+        myDelegate.onekeyLogin.chinaNet = self.loadingMode.chinaNet;
+        myDelegate.onekeyLogin.chinaMobile = self.loadingMode.chinaMobile;
+        myDelegate.onekeyLogin.chinaUnicom = self.loadingMode.chinaUnicom;
         //设置广告图
         if (![MYPhoneParam sharedInstance].isFirstOpen) {
             if (![self showOrHideAdImage]) {

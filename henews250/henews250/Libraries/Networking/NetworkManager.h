@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "NetworkHandler.h"
+#import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 
 
 @interface NetworkManager : NSObject
@@ -166,5 +168,9 @@
                  successBlock:(NWSuccessBlock)successBlock
                  failureBlock:(NWFailureBlock)failureBlock
                       showHUD:(BOOL)showHUD;
-
+/**
+ *   获取运行商类型
+ *
+ */
++ (MNOType)getMNOType;
 @end

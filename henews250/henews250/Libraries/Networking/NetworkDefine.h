@@ -38,6 +38,17 @@ typedef enum {
 }NetWorkDataType;
 
 /**
+ *  运营商类型
+ */
+typedef enum {
+    MNOTypeUnknown = 0,
+    MNOTypeMobile,              /**移动 */
+    MNOTypeUnicom,              /**联通 */
+    MNOTypeTelecom,             /**电信 */
+    MNOTypeTietong,             /**铁通 */
+}MNOType;
+
+/**
  *  网络请求超时的时间
  */
 #define API_TIME_OUT 20

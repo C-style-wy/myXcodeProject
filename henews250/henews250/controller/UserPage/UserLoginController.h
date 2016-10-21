@@ -7,8 +7,9 @@
 //
 
 #import "SubBaseViewController.h"
+#import <MessageUI/MessageUI.h>
 
-@interface UserLoginController : SubBaseViewController<UITextFieldDelegate>
+@interface UserLoginController : SubBaseViewController<UITextFieldDelegate, MFMessageComposeViewControllerDelegate>
 @property(nonatomic, retain) UIScrollView *mainScrollView;
 
 @property (nonatomic, retain) UIView *weiXinBtnView;
@@ -29,5 +30,19 @@
 @property (nonatomic, retain) UIButton *loginBtn;
 
 @property (nonatomic, retain) UIView *autoLoginView;
+
+//一键登录相关
+@property (nonatomic, assign) BOOL isSmsLogin;
+@property (nonatomic, retain) NSString *chinaMobile;
+@property (nonatomic, retain) NSString *chinaNet;
+@property (nonatomic, retain) NSString *chinaUnicom;
+
+@property (nonatomic, retain) NSString *messgeNumber;
+
+@property (nonatomic, retain) NSString *simisi;
+@property (nonatomic, retain) NSString *randnum;
+
+@property (nonatomic, retain) MFMessageComposeViewController *messageComposeViewController;
+
 
 @end

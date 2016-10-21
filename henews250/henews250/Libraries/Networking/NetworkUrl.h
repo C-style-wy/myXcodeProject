@@ -62,6 +62,14 @@
  *      退出登录接口
  */
 #define DEF_GetLogOutUrl    PATH(@"%@/clt/logout.msp")
+/**
+ *      一键登录接口
+ */
+#define DEF_GetOneKeyLoginUrl    PATH(@"%@/clt/loginWithMobile.msp?simsi=")
+/**
+ *      一键登录间隔时间接口
+ */
+#define DEF_GetOneKeyLoginTimeUrl    PATH(@"%@/clt/getTokenIdleTime.msp?")
 
 
 #endif /* NetworkUrl_h */
