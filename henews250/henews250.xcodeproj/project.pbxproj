@@ -148,6 +148,8 @@
 		D3957B6A1D950F3C00F4A360 /* PullCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3957B691D950F3C00F4A360 /* PullCollectionView.m */; };
 		D39E1C9A1DB7838A00EFFB07 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = D39E1C991DB7838A00EFFB07 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D3A05F201DB757E700567897 /* MYPhoneParam.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A05F1F1DB757E700567897 /* MYPhoneParam.m */; };
+		D3ADEB571DBBA3B1006038C0 /* ChoiceImgSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ADEB561DBBA3B1006038C0 /* ChoiceImgSource.m */; };
+		D3ADEB591DBBA3C0006038C0 /* ChoiceImgSource.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3ADEB581DBBA3C0006038C0 /* ChoiceImgSource.xib */; };
 		D3B145201D9A049300FCB5DA /* ClassInfoMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1451F1D9A049300FCB5DA /* ClassInfoMode.m */; };
 		D3C0D83A1D8E73AE00A4B051 /* NetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C0D8391D8E73AE00A4B051 /* NetworkCache.m */; };
 		D3C2A2691DACC71A003A3B92 /* GoodsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C2A2681DACC71A003A3B92 /* GoodsListModel.m */; };
@@ -469,6 +471,9 @@
 		D3A05F1E1DB757E700567897 /* MYPhoneParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPhoneParam.h; sourceTree = "<group>"; };
 		D3A05F1F1DB757E700567897 /* MYPhoneParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPhoneParam.m; sourceTree = "<group>"; };
 		D3A05F211DB7595F00567897 /* MYPhoneParamDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYPhoneParamDefine.h; sourceTree = "<group>"; };
+		D3ADEB551DBBA3B1006038C0 /* ChoiceImgSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceImgSource.h; sourceTree = "<group>"; };
+		D3ADEB561DBBA3B1006038C0 /* ChoiceImgSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceImgSource.m; sourceTree = "<group>"; };
+		D3ADEB581DBBA3C0006038C0 /* ChoiceImgSource.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoiceImgSource.xib; sourceTree = "<group>"; };
 		D3B1451E1D9A049300FCB5DA /* ClassInfoMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfoMode.h; sourceTree = "<group>"; };
 		D3B1451F1D9A049300FCB5DA /* ClassInfoMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoMode.m; sourceTree = "<group>"; };
 		D3B693921D2BBF5D00F8D1C4 /* MacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
@@ -821,6 +826,7 @@
 				D30741A51D50730300E4E394 /* DGReorderableCollectionViewFlowLayout */,
 				D37007DF1D34C9BD007E2AA3 /* Networking */,
 				D3FDB9EB1DA5279300F2BD8E /* MYRefresh */,
+				D3ADEB541DBB48F1006038C0 /* MYRereshTip */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -931,6 +937,9 @@
 				D34D32721DB60EF7000FA6F7 /* UserCenterSubView.h */,
 				D34D32731DB60EF7000FA6F7 /* UserCenterSubView.m */,
 				D34D32751DB60F08000FA6F7 /* UserCenterSubView.xib */,
+				D3ADEB551DBBA3B1006038C0 /* ChoiceImgSource.h */,
+				D3ADEB561DBBA3B1006038C0 /* ChoiceImgSource.m */,
+				D3ADEB581DBBA3C0006038C0 /* ChoiceImgSource.xib */,
 			);
 			path = UserCenterSubView;
 			sourceTree = "<group>";
@@ -1125,6 +1134,13 @@
 				D39E1C991DB7838A00EFFB07 /* OpenUDID.m */,
 			);
 			path = MYPhoneParam;
+			sourceTree = "<group>";
+		};
+		D3ADEB541DBB48F1006038C0 /* MYRereshTip */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MYRereshTip;
 			sourceTree = "<group>";
 		};
 		D3B693911D2BBEDD00F8D1C4 /* Util */ = {
@@ -1450,6 +1466,7 @@
 				D365588B1DAF317C00D05C84 /* WelfareHeaderView.xib in Resources */,
 				D36558811DAF232B00D05C84 /* BigDefaultImageView.xib in Resources */,
 				D364836E1DAE188C00E1CF23 /* WelfareBannerCell.xib in Resources */,
+				D3ADEB591DBBA3C0006038C0 /* ChoiceImgSource.xib in Resources */,
 				D35BB1C71D41F46A000D6BFD /* BannerCell.xib in Resources */,
 				D31E0DA01DAF61B4006196A7 /* WelfareExchangeCell.xib in Resources */,
 				D32689D31D7F9B0300DEB5AA /* OnlyWordCell.xib in Resources */,
@@ -1586,6 +1603,7 @@
 				D32BD2131D7D4DCC00DB44DE /* WeatherMode.m in Sources */,
 				D32BD22B1D7D5C9F00DB44DE /* ZhishusMode.m in Sources */,
 				D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */,
+				D3ADEB571DBBA3B1006038C0 /* ChoiceImgSource.m in Sources */,
 				D31ED4501D3E18D6003C2A54 /* UIImageView+LoadFromWeb.m in Sources */,
 				D317BFCC1D795F6B00852ADC /* XMLDictionary.m in Sources */,
 				D32BD5791DA8CBEF00D55969 /* UIView+MYExtension.m in Sources */,

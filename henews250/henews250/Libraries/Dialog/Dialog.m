@@ -102,11 +102,11 @@
     view.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     
     UIView *horizontalLine = [[UIView alloc]initWithFrame:CGRectMake(18, 0, footView.frame.size.width-36, 0.5f)];
-    horizontalLine.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
+    horizontalLine.backgroundColor = [UIColor colorWithHexColor:@"969696"];
     [footView addSubview:horizontalLine];
     
     UIView *verticalLine = [[UIView alloc]initWithFrame:CGRectMake((footView.frame.size.width-0.5f)/2, 5, 0.5f, footView.frame.size.height-10)];
-    verticalLine.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
+    verticalLine.backgroundColor = [UIColor colorWithHexColor:@"969696"];
     [footView addSubview:verticalLine];
     
     UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, footView.frame.size.width/2, footView.frame.size.height)];

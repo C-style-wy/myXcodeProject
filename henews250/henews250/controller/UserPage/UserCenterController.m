@@ -7,6 +7,7 @@
 //
 
 #import "UserCenterController.h"
+#import "ChoiceImgSource.h"
 
 @interface UserCenterController ()
 
@@ -125,14 +126,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)photoAction {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:self.picker animated:YES completion:nil];
+    }else{
+        [self.view makeToast:@"该设备不支持拍照!"];
+    }
+}
+- (void)albumAction {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+        self.picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        [self presentViewController:self.picker animated:YES completion:nil];
+    }else{
+        [self.view makeToast:@"无法获取相册!"];
+    }
+}
+
 #pragma mark - 按钮事件
 - (void)btnAction:(UIButton *)btn {
     NSLog(@"btnAction======");
     if (1 == btn.tag) {
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
-            self.picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-            [self presentViewController:self.picker animated:YES completion:nil];
-        }
+        [[ChoiceImgSource shareInstance] showWithSupView:self.view target:self photoAction:@selector(photoAction) albumAction:@selector(albumAction)];
     } else if (2 == btn.tag) {
         
     } else if (3 == btn.tag) {
