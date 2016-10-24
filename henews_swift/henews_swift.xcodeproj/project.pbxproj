@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */; };
-		D386A6F41DBDD2B700EFF08D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A6F31DBDD2B700EFF08D /* ViewController.swift */; };
+		D386A6F41DBDD2B700EFF08D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A6F31DBDD2B700EFF08D /* IndexViewController.swift */; };
 		D386A6F71DBDD2B700EFF08D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D386A6F51DBDD2B700EFF08D /* Main.storyboard */; };
 		D386A6F91DBDD2B700EFF08D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D386A6F81DBDD2B700EFF08D /* Assets.xcassets */; };
 		D386A6FC1DBDD2B700EFF08D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */; };
 		D386A7071DBDD2B800EFF08D /* henews_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7061DBDD2B800EFF08D /* henews_swiftTests.swift */; };
 		D386A7121DBDD2B800EFF08D /* henews_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7111DBDD2B800EFF08D /* henews_swiftUITests.swift */; };
+		D386A7241DBDF4CC00EFF08D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		D386A6EE1DBDD2B700EFF08D /* henews_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = henews_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D386A6F31DBDD2B700EFF08D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D386A6F31DBDD2B700EFF08D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		D386A6F61DBDD2B700EFF08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D386A6F81DBDD2B700EFF08D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D386A6FB1DBDD2B700EFF08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		D386A70D1DBDD2B800EFF08D /* henews_swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = henews_swiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D386A7111DBDD2B800EFF08D /* henews_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = henews_swiftUITests.swift; sourceTree = "<group>"; };
 		D386A7131DBDD2B800EFF08D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */,
-				D386A6F31DBDD2B700EFF08D /* ViewController.swift */,
+				D386A6F31DBDD2B700EFF08D /* IndexViewController.swift */,
+				D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */,
 				D386A6F51DBDD2B700EFF08D /* Main.storyboard */,
 				D386A6F81DBDD2B700EFF08D /* Assets.xcassets */,
 				D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */,
@@ -259,8 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D386A6F41DBDD2B700EFF08D /* ViewController.swift in Sources */,
+				D386A6F41DBDD2B700EFF08D /* IndexViewController.swift in Sources */,
 				D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */,
+				D386A7241DBDF4CC00EFF08D /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,14 +414,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = henews_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shoujibao.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nmgshoujibao.cmread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cf9a9d64-ca89-49aa-b9e3-4d4c624142e5";
-				PROVISIONING_PROFILE_SPECIFIER = HNEWS2;
+				PROVISIONING_PROFILE = "c81b7083-a4e5-408c-8488-fc534c5dd3d6";
+				PROVISIONING_PROFILE_SPECIFIER = "henews-nmg";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -426,14 +432,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = henews_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shoujibao.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nmgshoujibao.cmread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cf9a9d64-ca89-49aa-b9e3-4d4c624142e5";
-				PROVISIONING_PROFILE_SPECIFIER = HNEWS2;
+				PROVISIONING_PROFILE = "c81b7083-a4e5-408c-8488-fc534c5dd3d6";
+				PROVISIONING_PROFILE_SPECIFIER = "henews-nmg";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

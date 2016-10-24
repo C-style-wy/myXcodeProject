@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class IndexViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NSLog("viewDidLoad====")
     }
 
     override func didReceiveMemoryWarning() {
