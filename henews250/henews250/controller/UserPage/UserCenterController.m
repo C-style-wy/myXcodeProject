@@ -47,8 +47,6 @@
     if (!_picker) {
         UIImagePickerController *picker = [[UIImagePickerController alloc]init];
         picker.view.backgroundColor = [UIColor blackColor];
-//        UIImagePickerControllerSourceType sourcheType = UIImagePickerControllerSourceTypeCamera;
-//        picker.sourceType = sourcheType;
         picker.delegate = self;
         picker.title = @"相册";
         picker.allowsEditing = YES;
@@ -145,7 +143,6 @@
 
 #pragma mark - 按钮事件
 - (void)btnAction:(UIButton *)btn {
-    NSLog(@"btnAction======");
     if (1 == btn.tag) {
         [[ChoiceImgSource shareInstance] showWithSupView:self.view target:self photoAction:@selector(photoAction) albumAction:@selector(albumAction)];
     } else if (2 == btn.tag) {
@@ -178,14 +175,28 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    NSLog(@"info====%@", [info objectForKey:@"UIImagePickerControllerEditedImage"]);
     [self.picker dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"1");
+    UIImageView *testImg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    testImg.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    testImg.center = self.view.center;
+    [self.view addSubview:testImg];
+    
+    NSString *filePath = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
+    NSLog(@"info====%@", filePath);
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    NSLog(@"media type = %@",mediaType);
+    
+    NSLog(@"UIImagePickerControllerOriginalImage = %@",[info objectForKey:@"UIImagePickerControllerOriginalImage"]);
+    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary<NSString *,id> *)editingInfo {
     [self.picker dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"2");
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
