@@ -11,6 +11,9 @@
 
 static NSString * const keyOrderAry = @"orderAry";
 static NSString * const keyCurClass = @"curClass";
+
+static NSString * const requestMainDataTag = @"mainNewsData";
+static NSString * const requestAddNewsDataTag = @"addNewsData";
 @interface ViewPointViewController () {
     CGFloat _beginScrollX;
     NSTimer *_timer;
@@ -134,7 +137,7 @@ static NSString * const keyCurClass = @"curClass";
         [[TierManager shareInstance]compareAndSave:newsAry key:View];
         self.orderAry = [[TierManager shareInstance] getOrderTierFromLocal:View];
     }
-    if ([tag isEqualToString:@"mainNewsData"]) {
+    if ([tag isEqualToString:requestMainDataTag]) {
         [self handleMainNewsData:returnJson withMsg:msg];
         if (_firstTableView.tag == msg) {
             [_firstTableView.mj_header endRefreshing];
@@ -146,20 +149,20 @@ static NSString * const keyCurClass = @"curClass";
         ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:msg];
         classInfo.needReflush = NO;
     }
-    if ([tag isEqualToString:@"addNewsData"]) {
+    if ([tag isEqualToString:requestAddNewsDataTag]) {
         [self handleAddNewsData:returnJson withMsg:msg];
     }
 }
 
 //缓存数据返回
 - (void)requestDidCacheReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg {
-    if ([tag isEqualToString:@"mainNewsData"]) {
+    if ([tag isEqualToString:requestMainDataTag]) {
         [self handleMainNewsData:returnJson withMsg:msg];
     }
 }
 
 - (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg {
-    if ([tag isEqualToString:@"mainNewsData"]) {
+    if ([tag isEqualToString:requestMainDataTag]) {
         if (_firstTableView.tag == msg) {
             [_firstTableView.mj_header endRefreshing];
         }else if (_middleTableView.tag == msg){
@@ -168,7 +171,7 @@ static NSString * const keyCurClass = @"curClass";
             [_lastTableView.mj_header endRefreshing];
         }
     }
-    if ([tag isEqualToString:@"addNewsData"]) {
+    if ([tag isEqualToString:requestAddNewsDataTag]) {
         if (_firstTableView.tag == msg) {
             [_firstTableView.mj_footer endRefreshing];
         }else if (_middleTableView.tag == msg){
@@ -394,14 +397,14 @@ static NSString * const keyCurClass = @"curClass";
 #pragma mark -  //下拉刷新\上拉加载下一页
 - (void)headerRereshing{
     ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass];
-    [NetworkManager postRequestJsonWithURL:classInfo.tier.url params:nil delegate:self tag:@"mainNewsData" msg:self.curClass useCache:YES update:YES showHUD:NO];
+    [NetworkManager postRequestJsonWithURL:classInfo.tier.url params:nil delegate:self tag:requestMainDataTag msg:self.curClass useCache:YES update:YES showHUD:NO];
 }
 
 //上拉加载下一页
 - (void)footerRereshing {
     ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass];
     if (!classInfo.isLastPage) {
-        [NetworkManager postRequestJsonWithURL:classInfo.loadingMoreUrl params:nil delegate:self tag:@"addNewsData" msg:self.curClass useCache:NO update:YES showHUD:NO];
+        [NetworkManager postRequestJsonWithURL:classInfo.loadingMoreUrl params:nil delegate:self tag:requestAddNewsDataTag msg:self.curClass useCache:NO update:YES showHUD:NO];
     }
 }
 
@@ -678,7 +681,7 @@ static NSString * const keyCurClass = @"curClass";
             if ([[self.classInfoAry objectAtIndex:self.curClass+1] needReflush]) {
                 ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass+1];
                 NSString *url = classInfo.tier.url;
-                [NetworkManager postRequestJsonWithURL:url params:nil delegate:self tag:@"mainNewsData" msg:self.curClass+1 useCache:YES update:NO showHUD:NO];
+                [NetworkManager postRequestJsonWithURL:url params:nil delegate:self tag:requestMainDataTag msg:self.curClass+1 useCache:YES update:NO showHUD:NO];
             }
         }
     }else{
@@ -691,12 +694,12 @@ static NSString * const keyCurClass = @"curClass";
             [_middleTableView.mj_header beginRefreshing];
             ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass+1];
             NSString *url1 = classInfo.tier.url;
-            [NetworkManager postRequestJsonWithURL:url1 params:nil delegate:self tag:@"mainNewsData" msg:self.curClass+1 useCache:YES update:NO showHUD:NO];
+            [NetworkManager postRequestJsonWithURL:url1 params:nil delegate:self tag:requestMainDataTag msg:self.curClass+1 useCache:YES update:NO showHUD:NO];
             
             ClassInfoMode *classInfo1 = [self.classInfoAry objectAtIndex:self.curClass-1];
             NSString *url = classInfo1.tier.url;
             
-            [NetworkManager postRequestJsonWithURL:url params:nil delegate:self tag:@"mainNewsData" msg:self.curClass-1 useCache:YES update:NO showHUD:NO];
+            [NetworkManager postRequestJsonWithURL:url params:nil delegate:self tag:requestMainDataTag msg:self.curClass-1 useCache:YES update:NO showHUD:NO];
         }
     }else{
         _middleTableView.contentOffset = CGPointMake(0, [[self.classInfoAry objectAtIndex:index2] curPosition]);
@@ -707,7 +710,7 @@ static NSString * const keyCurClass = @"curClass";
             _lastTableView.contentOffset = CGPointMake(0, [[self.classInfoAry objectAtIndex:self.curClass] curPosition]);
             [_lastTableView.mj_header beginRefreshing];
             ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:self.curClass-1];
-            [NetworkManager postRequestJsonWithURL:classInfo.tier.url params:nil delegate:self tag:@"mainNewsData" msg:self.curClass-1 useCache:YES update:NO showHUD:NO];
+            [NetworkManager postRequestJsonWithURL:classInfo.tier.url params:nil delegate:self tag:requestMainDataTag msg:self.curClass-1 useCache:YES update:NO showHUD:NO];
         }
     }else{
         _lastTableView.contentOffset = CGPointMake(0, [[self.classInfoAry objectAtIndex:index3] curPosition]);

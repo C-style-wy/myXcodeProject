@@ -15,6 +15,9 @@
 #import "NetworkUrl.h"
 #import "objc/runtime.h"
 
+static NSString * const requestHomeDataTag = @"homeData";
+static NSString * const requestChangeDataTag = @"changeData";
+
 @interface HomeController ()
 
 @end
@@ -81,12 +84,12 @@
 //下拉刷新
 - (void)headerRereshing {
     NSString *homeUrl = [DEF_GetHomepage stringByAppendingString:[[CityManager shareInstance] getCity]];
-    [NetworkManager postRequestJsonWithURL:homeUrl params:nil delegate:self tag:@"homeData" msg:0 useCache:YES update:YES showHUD:NO];
+    [NetworkManager postRequestJsonWithURL:homeUrl params:nil delegate:self tag:requestHomeDataTag msg:0 useCache:YES update:YES showHUD:NO];
 }
 
 #pragma mark - 网络返回
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
-    if ([tag isEqualToString:@"homeData"]) {
+    if ([tag isEqualToString:requestHomeDataTag]) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
@@ -98,7 +101,7 @@
             [self dealData];
         }
         
-    }else if ([tag isEqualToString:@"changeData"]){
+    }else if ([tag isEqualToString:requestChangeDataTag]){
         if (returnJson) {
             self.changeData = [ChangeDataMode mj_objectWithKeyValues:returnJson];
             NodeMode *node = [self.tableViewData objectAtIndex:msg];
@@ -113,7 +116,7 @@
 
 //缓存数据返回
 - (void)requestDidCacheReturn:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger) msg {
-    if ([tag isEqualToString:@"homeData"]) {
+    if ([tag isEqualToString:requestHomeDataTag]) {
         if (returnJson) {
             self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
             self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
@@ -123,7 +126,7 @@
             [self dealData];
         }
         
-    }else if ([tag isEqualToString:@"changeData"]){
+    }else if ([tag isEqualToString:requestChangeDataTag]){
         if (returnJson) {
             self.changeData = [ChangeDataMode mj_objectWithKeyValues:returnJson];
             NodeMode *node = [self.tableViewData objectAtIndex:msg];
@@ -136,9 +139,9 @@
 }
 
 - (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg {
-    if ([tag isEqualToString:@"homeData"]) {
+    if ([tag isEqualToString:requestHomeDataTag]) {
         [self.tableView.mj_header endRefreshing];
-    }else if ([tag isEqualToString:@"changeData"]){
+    }else if ([tag isEqualToString:requestChangeDataTag]){
         NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
         [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
     }
@@ -205,7 +208,7 @@
 
 #pragma mark - SectionDelegate
 - (void)requestSectionChange:(NSString*)url section:(NSInteger)section {
-    [NetworkManager postRequestJsonWithURL:url params:nil delegate:self tag:@"changeData" msg:section useCache:NO update:YES showHUD:NO];
+    [NetworkManager postRequestJsonWithURL:url params:nil delegate:self tag:requestChangeDataTag msg:section useCache:NO update:YES showHUD:NO];
 }
 - (void)jumpToMore:(NodeMode*)node {
     NSLog(@"jumpToMore====");
