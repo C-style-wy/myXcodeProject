@@ -2,13 +2,14 @@
 //  MYRefreshStateHeader.h
 //  henews250
 //
-//  Created by 汪洋 on 16/10/8.
+//  Created by 汪洋 on 2016/10/25.
 //  Copyright © 2016年 汪洋. All rights reserved.
 //
 
-#import "MYRefreshHeader.h"
+#import <MJRefresh/MJRefresh.h>
 
-@interface MYRefreshStateHeader : MYRefreshHeader
+@interface MYRefreshStateHeader : MJRefreshHeader
+
 #pragma mark - 刷新时间相关
 /** 利用这个block来决定显示的更新时间文字 */
 @property (copy, nonatomic) NSString *(^lastUpdatedTimeText)(NSDate *lastUpdatedTime);
@@ -21,5 +22,6 @@
 /** 显示刷新状态的label */
 @property (weak, nonatomic, readonly) UILabel *stateLabel;
 /** 设置state状态下的文字 */
-- (void)setTitle:(NSString *)title forState:(MYRefreshState)state;
+- (void)setTitle:(NSString *)title forState:(MJRefreshState)state;
+
 @end

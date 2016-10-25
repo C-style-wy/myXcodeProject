@@ -6,9 +6,9 @@
 //  Copyright © 2016年 汪洋. All rights reserved.
 //
 
-#import <MJRefresh/MJRefresh.h>
+#import "MYRefreshStateHeader.h"
 
-@interface HenewsRefreshHeader : MJRefreshStateHeader
+@interface HenewsRefreshHeader : MYRefreshStateHeader
 
 @property (weak, nonatomic, readonly) UIImageView *arrowView;
 @end

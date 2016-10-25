@@ -88,9 +88,7 @@
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
-        [self.tableView.mj_header endRefreshingWithCompletionBlock:^{
-            NSLog(@"endRefreshingWithCompletionBlock==========");
-        }];
+        [self.tableView.mj_header endRefreshing];
         if (returnJson) {
             [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"nodes"] key:Home];
             self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];

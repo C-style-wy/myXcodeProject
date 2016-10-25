@@ -17,8 +17,20 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h0G-YH-Lfg"/>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="h0G-YH-Lfg" secondAttribute="bottom" id="6YA-4X-t2F"/>
+                            <constraint firstItem="h0G-YH-Lfg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LnR-De-Ed2"/>
+                            <constraint firstItem="h0G-YH-Lfg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="O4i-oQ-L5R"/>
+                            <constraint firstAttribute="trailing" secondItem="h0G-YH-Lfg" secondAttribute="trailing" id="Y5q-vz-CQl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bgImage" destination="h0G-YH-Lfg" id="9Kn-oe-G4j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
