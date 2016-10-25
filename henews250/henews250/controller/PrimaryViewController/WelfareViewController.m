@@ -54,6 +54,8 @@ static NSString * const welfareDataTag = @"welfareData";
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
+        // 设置刷新显示的时间的key
+        collectionView.mj_header.lastUpdatedTimeKey = NSStringFromClass([self class]);
         [self.view addSubview:_collectionView = collectionView];
         
         [_collectionView registerClass:[WelfareBannerCell class] forCellWithReuseIdentifier:welfareBannerCell];

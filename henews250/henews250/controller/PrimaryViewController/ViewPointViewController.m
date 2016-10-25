@@ -663,6 +663,11 @@ static NSString * const keyCurClass = @"curClass";
     int index1 = (int)_firstTableView.tag;
     int index2 = (int)_middleTableView.tag;
     int index3 = (int)_lastTableView.tag;
+    // 设置刷新显示的时间的key
+    _firstTableView.mj_header.lastUpdatedTimeKey = [NSStringFromClass([self class]) stringByAppendingString:[NSString stringWithFormat:@"%d",index1]];
+    _middleTableView.mj_header.lastUpdatedTimeKey = [NSStringFromClass([self class]) stringByAppendingString:[NSString stringWithFormat:@"%d",index2]];
+    _lastTableView.mj_header.lastUpdatedTimeKey = [NSStringFromClass([self class]) stringByAppendingString:[NSString stringWithFormat:@"%d",index3]];
+    
     [_firstTableView reloadData];
     [_middleTableView reloadData];
     [_lastTableView reloadData];

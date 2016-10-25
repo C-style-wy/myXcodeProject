@@ -73,6 +73,8 @@
 - (void)setupRefresh {
 //    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     self.tableView.mj_header = [HenewsRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+    // 设置刷新显示的时间的key
+    self.tableView.mj_header.lastUpdatedTimeKey = NSStringFromClass([self class]);
     [self.tableView.mj_header beginRefreshing];
 }
 
