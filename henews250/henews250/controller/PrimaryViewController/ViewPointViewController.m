@@ -667,9 +667,9 @@ static NSString * const requestAddNewsDataTag = @"addNewsData";
     int index2 = (int)_middleTableView.tag;
     int index3 = (int)_lastTableView.tag;
     // 设置刷新显示的时间的key
-    _firstTableView.mj_header.lastUpdatedTimeKey = [NSStringFromClass([self class]) stringByAppendingString:[NSString stringWithFormat:@"%d",index1]];
-    _middleTableView.mj_header.lastUpdatedTimeKey = [NSStringFromClass([self class]) stringByAppendingString:[NSString stringWithFormat:@"%d",index2]];
-    _lastTableView.mj_header.lastUpdatedTimeKey = [NSStringFromClass([self class]) stringByAppendingString:[NSString stringWithFormat:@"%d",index3]];
+    _firstTableView.mj_header.lastUpdatedTimeKey = [[self.classInfoAry objectAtIndex:index1] tier].nodeId;
+    _middleTableView.mj_header.lastUpdatedTimeKey = [[self.classInfoAry objectAtIndex:index2] tier].nodeId;
+    _lastTableView.mj_header.lastUpdatedTimeKey = [[self.classInfoAry objectAtIndex:index3] tier].nodeId;
     
     [_firstTableView reloadData];
     [_middleTableView reloadData];
