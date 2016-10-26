@@ -501,15 +501,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haochen qiu (2HY4WU95F8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhejiang Xinlan Network Media Limited Company";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhejiang Xinlan Network Media Limited Company";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = henews_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nmgshoujibao.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = zglxw.enterprise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c81b7083-a4e5-408c-8488-fc534c5dd3d6";
-				PROVISIONING_PROFILE_SPECIFIER = "henews-nmg";
+				PROVISIONING_PROFILE = "2ee2857f-391b-4f53-8914-2461e759bd3e";
+				PROVISIONING_PROFILE_SPECIFIER = zglxw.enterprise.wangda;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -520,15 +520,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haochen qiu (2HY4WU95F8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhejiang Xinlan Network Media Limited Company";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhejiang Xinlan Network Media Limited Company";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = henews_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nmgshoujibao.cmread;
+				PRODUCT_BUNDLE_IDENTIFIER = zglxw.enterprise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c81b7083-a4e5-408c-8488-fc534c5dd3d6";
-				PROVISIONING_PROFILE_SPECIFIER = "henews-nmg";
+				PROVISIONING_PROFILE = "2ee2857f-391b-4f53-8914-2461e759bd3e";
+				PROVISIONING_PROFILE_SPECIFIER = zglxw.enterprise.wangda;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

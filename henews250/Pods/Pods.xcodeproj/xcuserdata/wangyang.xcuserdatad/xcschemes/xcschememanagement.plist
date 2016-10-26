@@ -29,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MJRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>PPNetworkHelper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,17 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>04DA98144BA1DF87B59EC11911559EFD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2606B36C66020C728BC6C5EC8A3412AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4180BE0DCCCA47769110285F62564B52</key>
+		<key>2E18387D95B23CBA5BB45BD82DC7AEB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3439909237262C33B154AD476AA8348B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>391F7004FCE6A4732878841B70B664B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>80A1D1EB4931714FB02ACD5222965309</key>
+		<key>5DB604E1B9C131D7A2A9A2DF7119FA05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD1E2E7BA3DC4D9C3EE7E52DE1F8645E</key>
+		<key>6ECF1EAA78635EC1892194170BFB4F34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D73F72E35C2C6F2542B7EFACA2DB87E8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DD2690511FD88C8E86B33CD5B61587CE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E85E9A9566A5B636751AE79A1BE79F60</key>
+		<key>CBB1A2B7E51FC1E4EF362A5110D65A33</key>
 		<dict>
 			<key>primary</key>
 			<true/>

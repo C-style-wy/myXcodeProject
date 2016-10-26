@@ -6,7 +6,7 @@
 //  Copyright © 2016年 汪洋. All rights reserved.
 //
 
-#import <MJRefresh/MJRefresh.h>
+#import "MJRefresh.h"
 
 @interface MYRefreshStateHeader : MJRefreshHeader
 
