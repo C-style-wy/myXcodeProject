@@ -671,6 +671,7 @@ static NSString * const requestAddNewsDataTag = @"addNewsData";
     _middleTableView.mj_header.lastUpdatedTimeKey = [[self.classInfoAry objectAtIndex:index2] tier].nodeId;
     _lastTableView.mj_header.lastUpdatedTimeKey = [[self.classInfoAry objectAtIndex:index3] tier].nodeId;
     
+    
     [_firstTableView reloadData];
     [_middleTableView reloadData];
     [_lastTableView reloadData];
