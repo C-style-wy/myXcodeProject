@@ -141,8 +141,6 @@
 		D3957B6A1D950F3C00F4A360 /* PullCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3957B691D950F3C00F4A360 /* PullCollectionView.m */; };
 		D39E1C9A1DB7838A00EFFB07 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = D39E1C991DB7838A00EFFB07 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D3A05F201DB757E700567897 /* MYPhoneParam.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A05F1F1DB757E700567897 /* MYPhoneParam.m */; };
-		D3A91AF61DBD93A80086715B /* MYRefreshTip.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A91AF51DBD93A80086715B /* MYRefreshTip.m */; };
-		D3A964461DBCB23200309312 /* UIScrollView+MYRefreshTip.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A964451DBCB23200309312 /* UIScrollView+MYRefreshTip.m */; };
 		D3ADEB571DBBA3B1006038C0 /* ChoiceImgSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ADEB561DBBA3B1006038C0 /* ChoiceImgSource.m */; };
 		D3ADEB591DBBA3C0006038C0 /* ChoiceImgSource.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3ADEB581DBBA3C0006038C0 /* ChoiceImgSource.xib */; };
 		D3B145201D9A049300FCB5DA /* ClassInfoMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1451F1D9A049300FCB5DA /* ClassInfoMode.m */; };
@@ -446,10 +444,6 @@
 		D3A05F1E1DB757E700567897 /* MYPhoneParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPhoneParam.h; sourceTree = "<group>"; };
 		D3A05F1F1DB757E700567897 /* MYPhoneParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPhoneParam.m; sourceTree = "<group>"; };
 		D3A05F211DB7595F00567897 /* MYPhoneParamDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYPhoneParamDefine.h; sourceTree = "<group>"; };
-		D3A91AF41DBD93A80086715B /* MYRefreshTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRefreshTip.h; sourceTree = "<group>"; };
-		D3A91AF51DBD93A80086715B /* MYRefreshTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRefreshTip.m; sourceTree = "<group>"; };
-		D3A964441DBCB23200309312 /* UIScrollView+MYRefreshTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MYRefreshTip.h"; sourceTree = "<group>"; };
-		D3A964451DBCB23200309312 /* UIScrollView+MYRefreshTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MYRefreshTip.m"; sourceTree = "<group>"; };
 		D3ADEB551DBBA3B1006038C0 /* ChoiceImgSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceImgSource.h; sourceTree = "<group>"; };
 		D3ADEB561DBBA3B1006038C0 /* ChoiceImgSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceImgSource.m; sourceTree = "<group>"; };
 		D3ADEB581DBBA3C0006038C0 /* ChoiceImgSource.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoiceImgSource.xib; sourceTree = "<group>"; };
@@ -794,7 +788,6 @@
 				D3640C8E1D631E70008049E4 /* LcationManager */,
 				D30741A51D50730300E4E394 /* DGReorderableCollectionViewFlowLayout */,
 				D37007DF1D34C9BD007E2AA3 /* Networking */,
-				D3ADEB541DBB48F1006038C0 /* MYRefreshTip */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -1102,18 +1095,6 @@
 				D39E1C991DB7838A00EFFB07 /* OpenUDID.m */,
 			);
 			path = MYPhoneParam;
-			sourceTree = "<group>";
-		};
-		D3ADEB541DBB48F1006038C0 /* MYRefreshTip */ = {
-			isa = PBXGroup;
-			children = (
-				D3A964441DBCB23200309312 /* UIScrollView+MYRefreshTip.h */,
-				D3A964451DBCB23200309312 /* UIScrollView+MYRefreshTip.m */,
-				D3A91AF41DBD93A80086715B /* MYRefreshTip.h */,
-				D3A91AF51DBD93A80086715B /* MYRefreshTip.m */,
-			);
-			name = MYRefreshTip;
-			path = MYRereshTip;
 			sourceTree = "<group>";
 		};
 		D3B693911D2BBEDD00F8D1C4 /* Util */ = {
@@ -1458,7 +1439,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38DF72D1D3F7C7C0042A241 /* EveryOneCell.m in Sources */,
-				D3A91AF61DBD93A80086715B /* MYRefreshTip.m in Sources */,
 				D3276A9C1D2A397D00A249C9 /* AppDelegate.m in Sources */,
 				D31E0DA71DAF7B56006196A7 /* WelfareMoreCell.m in Sources */,
 				D38DF7261D3F72840042A241 /* NewsCellFactory.m in Sources */,
@@ -1501,7 +1481,6 @@
 				D32BD2221D7D511900DB44DE /* YesterdayMode.m in Sources */,
 				D3640C8B1D62F60B008049E4 /* CityListSectionView.m in Sources */,
 				D32BD21C1D7D4FDE00DB44DE /* DayMode.m in Sources */,
-				D3A964461DBCB23200309312 /* UIScrollView+MYRefreshTip.m in Sources */,
 				D32C368D1D321B3300431829 /* NewsViewController.m in Sources */,
 				D34F50931D5470D0004B25C5 /* CityViewController.m in Sources */,
 				D3F230A41D911FE400697A6C /* TierManager.m in Sources */,
