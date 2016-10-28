@@ -30,6 +30,9 @@
 #define MJRefreshLabelFont [UIFont boldSystemFontOfSize:14]
 
 // 常量
+// wy
+UIKIT_EXTERN const CGFloat MJRefreshTipHeight;
+
 UIKIT_EXTERN const CGFloat MJRefreshLabelLeftInset;
 UIKIT_EXTERN const CGFloat MJRefreshHeaderHeight;
 UIKIT_EXTERN const CGFloat MJRefreshFooterHeight;

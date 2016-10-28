@@ -98,6 +98,8 @@
     }
 }
 
+- (void)tipAction{}
+
 - (void)setState:(MJRefreshState)state
 {
     MJRefreshCheckState
@@ -105,24 +107,39 @@
     // 根据状态做事情
     if (state == MJRefreshStateIdle) {
         if (oldState != MJRefreshStateRefreshing) return;
-        
         // 保存刷新时间
         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:self.lastUpdatedTimeKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        if (self.refreshTip && ![self.refreshTip isEqualToString:@""]) {
+            // 恢复inset和offset
+            [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
+                self.scrollView.mj_insetT += self.insetTDelta + (self.insetTDelta + MJRefreshHeaderHeight + MJRefreshTipHeight);
+                
+                // 自动调整透明度
+                if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
+            } completion:^(BOOL finished) {
+                self.pullingPercent = 0.0;
+                [self tipAction];
+                if (self.endRefreshingCompletionBlock) {
+                    self.endRefreshingCompletionBlock();
+                }
+            }];
+        }else{
+            // 恢复inset和offset
+            [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
+                self.scrollView.mj_insetT += self.insetTDelta;
+                
+                // 自动调整透明度
+                if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
+            } completion:^(BOOL finished) {
+                self.pullingPercent = 0.0;
+                
+                if (self.endRefreshingCompletionBlock) {
+                    self.endRefreshingCompletionBlock();
+                }
+            }];
+        }
         
-        // 恢复inset和offset
-        [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
-            self.scrollView.mj_insetT += self.insetTDelta;
-            
-            // 自动调整透明度
-            if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
-        } completion:^(BOOL finished) {
-            self.pullingPercent = 0.0;
-            
-            if (self.endRefreshingCompletionBlock) {
-                self.endRefreshingCompletionBlock();
-            }
-        }];
     } else if (state == MJRefreshStateRefreshing) {
          dispatch_async(dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{

@@ -42,6 +42,18 @@
     return _loadingView;
 }
 
+- (UILabel *)tipLabel {
+    if (!_tipLabel) {
+        _tipLabel = [[UILabel alloc]init];
+        _tipLabel.textColor = [UIColor whiteColor];
+        _tipLabel.font = [UIFont systemFontOfSize:13.5f];
+        _tipLabel.textAlignment = NSTextAlignmentCenter;
+        _tipLabel.backgroundColor = [UIColor colorWithHexColor:@"#e20776"];
+        _tipLabel.alpha = 1.0f;
+        [self addSubview:_tipLabel];
+    }
+    return _tipLabel;
+}
 #pragma mark - 重写父类的方法
 - (void)prepare
 {
@@ -82,6 +94,33 @@
     }
     
     self.arrowView.tintColor = self.stateLabel.textColor;
+    
+    self.tipLabel.frame = CGRectMake(0, MJRefreshHeaderHeight-MJRefreshTipHeight, self.frame.size.width, MJRefreshTipHeight);
+    self.tipLabel.hidden = YES;
+//    self.tipLabel.transform = CGAffineTransformMakeScale(0.5, 0.5);
+}
+
+- (void)tipAction {
+    [super tipAction];
+    self.tipLabel.hidden = NO;
+    self.tipLabel.alpha = 0;
+    self.tipLabel.text = self.refreshTip;
+
+    [UIView animateWithDuration:0.2f animations:^{
+//        self.tipLabel.transform = CGAffineTransformMakeScale(0.99, 0.99);
+        self.tipLabel.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1.0f animations:^{
+            self.tipLabel.alpha = 0.99f;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2f animations:^{
+                self.scrollView.mj_insetT += -MJRefreshTipHeight;
+            } completion:^(BOOL finished) {
+                self.tipLabel.alpha = 0;
+                self.refreshTip = @"";
+            }];
+        }];
+    }];
 }
 
 - (void)setState:(MJRefreshState)state
@@ -189,9 +228,5 @@
     } else {
         self.lastUpdatedTimeLabel.text = @"正在刷新";
     }
-}
-
-- (void)endRefreshingWithTip:(NSString *)tip {
-    
 }
 @end

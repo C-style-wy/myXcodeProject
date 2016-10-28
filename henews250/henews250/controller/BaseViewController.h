@@ -32,6 +32,8 @@
 
 #import "AppDelegate.h"
 
+#import "Masonry.h"
+
 
 @interface BaseViewController : UIViewController<NetworkDelegate>
 

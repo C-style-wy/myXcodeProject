@@ -154,6 +154,10 @@
     }
 }
 
+- (void)tipAction {
+    [super tipAction];
+}
+
 - (void)setState:(MJRefreshState)state
 {
     MJRefreshCheckState

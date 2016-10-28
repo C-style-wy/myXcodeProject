@@ -26,4 +26,6 @@
 @property (strong, nonatomic) HomeMode *homeMode;
 @property (strong, nonatomic) ChangeDataMode *changeData;
 @property (nonatomic, retain) NSMutableArray *orderAry;
+
+@property (nonatomic, retain) NSString *contIdStrTabel;
 @end

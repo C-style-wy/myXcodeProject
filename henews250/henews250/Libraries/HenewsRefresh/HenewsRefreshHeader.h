@@ -11,4 +11,6 @@
 @interface HenewsRefreshHeader : MYRefreshStateHeader
 
 @property (weak, nonatomic, readonly) UIImageView *arrowView;
+
+@property (nonatomic, retain) UILabel *tipLabel;
 @end

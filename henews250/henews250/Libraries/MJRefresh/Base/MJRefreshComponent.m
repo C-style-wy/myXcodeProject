@@ -180,6 +180,11 @@
     
     [self endRefreshing];
 }
+/** wy刷新结束后带提醒的方法 */
+- (void)endRefreshingWithTip:(NSString *)tip {
+    self.refreshTip = tip;
+    [self endRefreshing];
+}
 
 #pragma mark 是否正在刷新
 - (BOOL)isRefreshing

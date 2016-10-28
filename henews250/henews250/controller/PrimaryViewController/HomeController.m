@@ -57,6 +57,13 @@ static NSString * const requestChangeDataTag = @"changeData";
     return _tableView;
 }
 
+- (NSString *)contIdStrTabel {
+    if (!_contIdStrTabel) {
+        _contIdStrTabel = [[NSString alloc]init];
+    }
+    return _contIdStrTabel;
+}
+
 #pragma mark - init
 - (void)initPage {
     canReflush = YES;
@@ -93,12 +100,23 @@ static NSString * const requestChangeDataTag = @"changeData";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.tableView.separatorColor = [UIColor colorWithHexColor:@"#c8c8c8"];
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 8);
-        [self.tableView.mj_header endRefreshing];
+        
         if (returnJson) {
             [[TierManager shareInstance] compareAndSave:[returnJson objectForKey:@"nodes"] key:Home];
             self.homeMode = [HomeMode mj_objectWithKeyValues:returnJson];
+            
+            NSString *tipStr = @"已为您推荐了新的内容";
+            if ([self.homeMode.contIdStr isEqualToString:self.contIdStrTabel]) {
+                tipStr = @"暂无新内容，休息一会儿";
+            }else{
+                self.contIdStrTabel = self.homeMode.contIdStr;
+            }
+            [self.tableView.mj_header endRefreshingWithTip:tipStr];
+            
             self.orderAry = [[TierManager shareInstance] getOrderTierFromLocal:Home];
             [self dealData];
+        }else{
+            [self.tableView.mj_header endRefreshingWithTip:@"数据出错，正在紧急处理"];
         }
         
     }else if ([tag isEqualToString:requestChangeDataTag]){
@@ -140,7 +158,7 @@ static NSString * const requestChangeDataTag = @"changeData";
 
 - (void)requestdidFailWithError:(NSError*)error tag:(NSString *)tag msg:(NSInteger)msg {
     if ([tag isEqualToString:requestHomeDataTag]) {
-        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_header endRefreshingWithTip:@"请求超时"];
     }else if ([tag isEqualToString:requestChangeDataTag]){
         NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:msg];
         [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];

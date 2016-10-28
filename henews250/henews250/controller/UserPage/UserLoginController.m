@@ -52,12 +52,18 @@ static NSString * const defaultChinaUnicom = @"1065548140182";
 #pragma mark - 懒加载
 - (UIScrollView *)mainScrollView {
     if (!_mainScrollView) {
-        UIScrollView *uiScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 53, SCREEN_WIDTH, SCREEN_HEIGHT-53)];
+        UIScrollView *uiScrollView = [[UIScrollView alloc]init];
         uiScrollView.showsVerticalScrollIndicator = NO;
         uiScrollView.showsHorizontalScrollIndicator = NO;
         uiScrollView.alwaysBounceVertical = YES;
         uiScrollView.backgroundColor = LRClearColor;
         [self.view addSubview:_mainScrollView = uiScrollView];
+        [uiScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.offset(53);
+            make.leading.offset(0);
+            make.trailing.offset(0);
+            make.bottom.offset(0);
+        }];
     }
     return _mainScrollView;
 }

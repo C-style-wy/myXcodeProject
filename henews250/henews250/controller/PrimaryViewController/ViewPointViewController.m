@@ -139,13 +139,20 @@ static NSString * const requestAddNewsDataTag = @"addNewsData";
     }
     if ([tag isEqualToString:requestMainDataTag]) {
         [self handleMainNewsData:returnJson withMsg:msg];
-        if (_firstTableView.tag == msg) {
-            [_firstTableView.mj_header endRefreshing];
-        }else if (_middleTableView.tag == msg){
-            [_middleTableView.mj_header endRefreshing];
-        }else if (_lastTableView.tag == msg){
-            [_lastTableView.mj_header endRefreshing];
+        
+        NSString *tipstr = @"暂无新内容，休息一会儿";
+        InforMode *inforData = [InforMode mj_objectWithKeyValues:returnJson];
+        if (inforData && inforData.newsMsgNum && ![inforData.newsMsgNum isEqualToString:@""] && ![inforData.newsMsgNum isEqualToString:@"0"]) {
+            tipstr = [[@"发现" stringByAppendingString:inforData.newsMsgNum] stringByAppendingString:@"条新内容"];
         }
+        if (_firstTableView.tag == msg) {
+            [_firstTableView.mj_header endRefreshingWithTip:tipstr];
+        }else if (_middleTableView.tag == msg){
+            [_middleTableView.mj_header endRefreshingWithTip:tipstr];
+        }else if (_lastTableView.tag == msg){
+            [_lastTableView.mj_header endRefreshingWithTip:tipstr];
+        }
+        
         ClassInfoMode *classInfo = [self.classInfoAry objectAtIndex:msg];
         classInfo.needReflush = NO;
     }
