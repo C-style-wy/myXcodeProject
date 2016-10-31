@@ -45,9 +45,9 @@ static NSString * const defaultChinaUnicom = @"1065548140182";
     
 }
 
-- (void)pageBackBtnSelect {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)pageBackBtnSelect {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 #pragma mark - 懒加载
 - (UIScrollView *)mainScrollView {
@@ -828,7 +828,8 @@ static NSString * const defaultChinaUnicom = @"1065548140182";
     localUserInfo.loginType = loginType;
     localUserInfo.isLogin = YES;
     [UserInfoHandle saveUserInfo2Local:localUserInfo];
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self pageBackBtnSelect];
 }
 
 - (void)keyLoginBtnSelect:(UIButton *)sender {

@@ -21,10 +21,12 @@
 - (IBAction)loginBtnSelect:(id)sender {
     if ([UserInfoHandle isLogin]) {
         UserCenterController *userCenter = [[UserCenterController alloc]init];
-        [self.controller presentViewController:userCenter animated:YES completion:nil];
+//        [self.controller presentViewController:userCenter animated:YES completion:nil];
+        [self.controller.navigationController pushViewController:userCenter animated:YES];
     }else{
         UserLoginController *login = [UserLoginController loadFromStoryboard];
-        [self.controller presentViewController:login animated:YES completion:nil];
+//        [self.controller presentViewController:login animated:YES completion:nil];
+        [self.controller.navigationController pushViewController:login animated:YES];
     }
 }
 

@@ -162,7 +162,8 @@
                 LoaclUserInfoData *data = [UserInfoHandle getUserInfoFromLocal];
                 data.isLogin = NO;
                 [UserInfoHandle saveUserInfo2Local:data];
-                [self dismissViewControllerAnimated:YES completion:nil];
+//                [self dismissViewControllerAnimated:YES completion:nil];
+                [self pageBackBtnSelect];
             }
         } failureBlock:^(NSError *error) {
             
@@ -171,9 +172,9 @@
 }
 
 #pragma mark - 页面返回按钮事件
-- (void)pageBackBtnSelect {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)pageBackBtnSelect {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {

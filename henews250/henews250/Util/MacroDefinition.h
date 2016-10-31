@@ -15,6 +15,7 @@
 #define PI (3.14159265358979323846264338327950288)
 #define NullString (@"")
 
+#define DeviceVersionFloat      ([[[UIDevice currentDevice]systemVersion]floatValue])
 // 是否大于等于IOS7
 #define isIOS7                  ([[[UIDevice currentDevice]systemVersion]floatValue] >= 7.0)
 // 是否IOS6

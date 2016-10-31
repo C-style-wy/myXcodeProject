@@ -11,11 +11,14 @@
 #import "MacroDefinition.h"
 #import "CityManager.h"
 #import "OneKeyLoginMode.h"
+#import <UserNotifications/UserNotifications.h>
+#import "NetworkManager.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (nonatomic, retain) OneKeyLoginMode *onekeyLogin;
+
+@property (nonatomic, retain) NSDictionary *pushData;
 @end
 

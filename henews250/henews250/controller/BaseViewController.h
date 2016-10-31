@@ -38,6 +38,8 @@
 @interface BaseViewController : UIViewController<NetworkDelegate>
 
 
+@property (nonatomic, assign) BOOL isViewVisable;
+
 - (iPhoneType)returnIphoneType;
 - (NSString*)getUserData:(NSString*)key;
 - (void)setUserData:(NSString*)key value:(NSString*)value;

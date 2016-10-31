@@ -15,6 +15,9 @@
 #import "NetworkUrl.h"
 #import "objc/runtime.h"
 
+#import "IndexViewController.h"
+#import "PicViewController.h"
+
 static NSString * const requestHomeDataTag = @"homeData";
 static NSString * const requestChangeDataTag = @"changeData";
 

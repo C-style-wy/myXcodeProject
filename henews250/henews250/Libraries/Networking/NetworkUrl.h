@@ -9,15 +9,22 @@
 #ifndef NetworkUrl_h
 #define NetworkUrl_h
 
-///**
-// *  正式环境
-// */
+/**
+ *  正式环境
+ */
 #define API_HOST @"http://wap.cmread.com/clt"
+#define API_PUSH_HOST @"http://wap.cmread.com/newspush"
 
-///**
-// *   开发环境
-// */
+/**
+ *   开发环境
+ */
 //#define API_HOST @"http://60.174.236.108:8091/clt"
+//#define API_PUSH_HOST @"http://60.174.236.108:8091/newspush"
+/**
+ *   测试环境
+ */
+//#define API_HOST @"http://211.140.7.174:8001/clt"
+//#define API_PUSH_HOST @"http://211.140.7.174:8001/newspush"
 
 //      接口路径全拼
 #define PATH(_path)             [NSString stringWithFormat:_path, API_HOST]
@@ -70,6 +77,9 @@
  *      一键登录间隔时间接口
  */
 #define DEF_GetOneKeyLoginTimeUrl    PATH(@"%@/clt/getTokenIdleTime.msp?")
-
+/**
+ *      推送token上报接口
+ */
+#define DEF_GetSendPushTokenUrl    PATH(@"%@/clt/operateApnUser.msp?token=")
 
 #endif /* NetworkUrl_h */

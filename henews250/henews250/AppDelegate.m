@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ShareSDKManager.h"
 #import "MYPhoneParam.h"
+#import "Dialog.h"
 
 @interface AppDelegate ()
 
@@ -67,8 +68,73 @@
         }
     }];
     
+    if (DeviceVersionFloat >= 10.0) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center setDelegate:self];
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert |
+                                                UNAuthorizationOptionBadge |
+                                                UNAuthorizationOptionSound)
+                              completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                                  if (granted) {
+                                      NSLog(@"success");
+                                  } else {
+                                      NSLog(@"failed");
+                                  }
+        }];
+    } else if (DeviceVersionFloat >= 8.0) {
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert |
+                                                                                                    UIUserNotificationTypeSound |
+                                                                                                    UIUserNotificationTypeBadge) categories:nil]];
+    }
+//    else {
+//        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+//                                                         UIRemoteNotificationTypeAlert |
+//                                                         UIRemoteNotificationTypeSound)];
+//    }
+    [application registerForRemoteNotifications];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     return YES;
 }
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
+    
+    //  Apns注册成功，该方法没有没有变化。
+    
+    //  通过JPUSH上传设备Token.
+    NTLog(@"deviceToken=====%@", deviceToken);
+    NSString *token =[[deviceToken description]stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NTLog(@"token=====%@", token);
+    NSString *url = [DEF_GetSendPushTokenUrl stringByAppendingString:token];
+    url = [url stringByAppendingString:@"&operateType=add"];
+    [NetworkManager postRequestJsonWithURL:url params:nil cacheBlock:^(NSDictionary *returnJson) {
+        
+    } successBlock:^(NSDictionary *returnJson) {
+        NTLog(@"resultMsg===%@", [returnJson objectForKey:@"resultMsg"]);
+    } failureBlock:^(NSError *error) {
+        
+    } showHUD:NO];
+}
+
+// App在前台的时候收到推送执行的回调方法
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    NSDictionary *userInfo = notification.request.content.userInfo;
+    
+    NTLog(@"===userInfo==%@", userInfo);
+    //创建一个消息对象
+    NSNotification * notice = [NSNotification notificationWithName:@"pushNotificationKey" object:nil userInfo:@{@"1":@"123"}];
+    //发送消息
+    [[NSNotificationCenter defaultCenter] postNotification:notice];
+}
+
+// App在后台的时候，点击推送信息，进入App后执行的 回调方法
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    NSDictionary *userInfo = response.notification.request.content.userInfo;
+    NTLog(@"==后台=userInfo==%@", userInfo);
+    self.pushData = userInfo;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -82,6 +148,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

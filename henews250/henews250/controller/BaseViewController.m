@@ -8,6 +8,15 @@
 
 #import "BaseViewController.h"
 
+#import "NewsDetailViewController.h"
+
+#import "IndexViewController.h"
+#import "XNTabBarView.h"
+
+#import "HomeController.h"
+#import "PicViewController.h"
+static NSString * const pushNotificationKey = @"pushNotificationKey";
+
 @interface BaseViewController ()
 
 @end
@@ -17,6 +26,21 @@
 #pragma mark - viewDiaLoad,viewWillAppear,viewDidAppear,viewWillDisappear,viewDidDisappear
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //获取通知中心单例对象
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
+    [center addObserver:self selector:@selector(pushNotification:) name:pushNotificationKey object:nil];
+    
+    //添加监听方法，监听应用从后台切换到前台
+    [center addObserver:self selector:@selector(appEnterForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
+    if ([self isKindOfClass:[HomeController class]]) {
+        AppDelegate *myDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        if (myDelegate.pushData && ![self isKindOfClass:[IndexViewController class]] && ![self isKindOfClass:[XNTabBarView class]]) {
+            PicViewController *pic = [PicViewController loadFromStoryboard];
+            [self.navigationController pushViewController:pic animated:YES];
+            myDelegate.pushData = nil;
+        }
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -27,6 +51,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    self.isViewVisable = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -35,6 +60,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    self.isViewVisable = NO;
 }
 
 
@@ -120,14 +146,26 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)pushNotification:(id)sender{
+    if (self.isViewVisable && ![self isKindOfClass:[IndexViewController class]] && ![self isKindOfClass:[XNTabBarView class]]) {
+        
+        [Dialog showWithTipText:@"提示" descText:@"推送" LeftText:@"确定" rightText:@"取消" LeftBlock:^{
+            NewsDetailViewController *news = [NewsDetailViewController loadFromStoryboard];
+            [self.navigationController pushViewController:news animated:YES];
+        } RightBlock:^{
+            
+        }];
+    }
+    
 }
-*/
 
+- (void)appEnterForeground {
+    AppDelegate *myDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    if (self.isViewVisable && myDelegate.pushData && ![self isKindOfClass:[IndexViewController class]] && ![self isKindOfClass:[XNTabBarView class]]) {
+        NTLog(@"appEnterForeground====%@",myDelegate.pushData);
+        NewsDetailViewController *news = [NewsDetailViewController loadFromStoryboard];
+        [self.navigationController pushViewController:news animated:YES];
+        myDelegate.pushData = nil;
+    }
+}
 @end

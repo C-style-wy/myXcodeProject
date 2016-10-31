@@ -479,6 +479,7 @@
 		D36558891DAF317C00D05C84 /* WelfareHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelfareHeaderView.xib; sourceTree = "<group>"; };
 		D37007E31D34CA19007E2AA3 /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
 		D37007E41D34CA19007E2AA3 /* MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5.m; sourceTree = "<group>"; };
+		D37D70321DC3416700A5F5BD /* 和新闻.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "和新闻.entitlements"; sourceTree = "<group>"; };
 		D3805DC91D7417E700B6FAE5 /* NetworkDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkDelegate.h; sourceTree = "<group>"; };
 		D3805DCA1D741EB500B6FAE5 /* NetworkHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHandler.h; sourceTree = "<group>"; };
 		D3805DCB1D741EB500B6FAE5 /* NetworkHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHandler.m; sourceTree = "<group>"; };
@@ -779,6 +780,7 @@
 		D3276A961D2A397D00A249C9 /* henews250 */ = {
 			isa = PBXGroup;
 			children = (
+				D37D70321DC3416700A5F5BD /* 和新闻.entitlements */,
 				D3276ACE1D2A681A00A249C9 /* Libraries */,
 				D332651B1D2E0347005C9D7D /* Category */,
 				D31DE9F01D2C8CB200D2B0AB /* View */,
@@ -1190,6 +1192,7 @@
 		D366815E1D3762D7001948D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3EFC1D21DC6F1930097E2BC /* PushInfoMode */,
 				D3D68BD61DB4BF37004E6D42 /* LoginMode */,
 				D3C2A2661DACC6CE003A3B92 /* WelfareMode */,
 				D32BD2101D7D4D9A00DB44DE /* WeatherMode */,
@@ -1371,6 +1374,13 @@
 			path = HenewsRefresh;
 			sourceTree = "<group>";
 		};
+		D3EFC1D21DC6F1930097E2BC /* PushInfoMode */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PushInfoMode;
+			sourceTree = "<group>";
+		};
 		D3FC8A9F1DB37F14004282E6 /* ShareSDKHandle */ = {
 			isa = PBXGroup;
 			children = (
@@ -1454,6 +1464,14 @@
 					D3276A931D2A397D00A249C9 = {
 						CreatedOnToolsVersion = 7.3.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					D3276AAC1D2A397E00A249C9 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1878,6 +1896,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "henews250/和新闻.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				DEVELOPMENT_TEAM = "";
@@ -1970,6 +1989,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "henews250/和新闻.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				DEVELOPMENT_TEAM = "";
@@ -2152,6 +2172,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "henews250/和新闻.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haochen qiu (2HY4WU95F8)";
 				DEVELOPMENT_TEAM = "";
