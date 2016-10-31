@@ -13,6 +13,17 @@
 #import "BannerCell.h"
 #import "NodeMode.h"
 
+#import "NewsDetailViewController.h"
+#import "VideoViewController.h"
+#import "TopicViewController.h"
+#import "PicViewController.h"
+#import "WebViewController.h"
+#import "ActivityViewController.h"
+#import "LiveViewController.h"
+#import "PinkactivityViewController.h"
+#import "MagazineViewController.h"
+#import "PeriodicalViewController.h"
+
 //新闻展示样式
 #define OnlyWordNews        0     //只含文字
 #define OneBigPicNews       1     //单张大图
@@ -28,19 +39,19 @@
 
 
 //新闻类型
-#define TypeNews                0    //0:文字
-#define TypeVideo               1    //1:视频
-#define TypeVideoNews           2    //2:视频新闻
-#define TypeTopic               3    //3:专题
-#define TypePic                 4    //4:图集
-#define TypeWeb                 5    //5:外链
+#define TypeNews                0    //0: 文字
+#define TypeVideo               1    //1: 视频
+#define TypeVideoNews           2    //2: 视频新闻
+#define TypeTopic               3    //3: 专题
+#define TypePic                 4    //4: 图集
+#define TypeWeb                 5    //5: 外链
 #define TypeActivity            6    //6：活动
 #define TypeLive                7    //7: 直播
-#define TypeNews8               8    //8:文字
+#define TypeNews8               8    //8: 文字
 #define TypePinkActivity        9    //9: 活动类型3pink
 #define TypeMagazine            10   //10: 杂志
 #define TypePeriodical          11   //11: 期刊
-#define TypeLanMu               12   //12:栏目
+#define TypeLanMu               12   //12: 栏目
 #define TypeAd                  13   //13:广告平台
 
 @interface NewsCellFactory : NSObject

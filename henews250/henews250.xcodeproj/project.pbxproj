@@ -188,6 +188,8 @@
 		D3D68BE21DB4C15E004E6D42 /* LoaclUserInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D68BE11DB4C15E004E6D42 /* LoaclUserInfoData.m */; };
 		D3D68BE51DB4C3AE004E6D42 /* UserInfoHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D68BE41DB4C3AE004E6D42 /* UserInfoHandle.m */; };
 		D3EB39321DAB1DB2006588E5 /* HenewsRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EB39311DAB1DB2006588E5 /* HenewsRefreshHeader.m */; };
+		D3EFC1D51DC713010097E2BC /* ApsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EFC1D41DC713010097E2BC /* ApsModel.m */; };
+		D3EFC1D81DC713620097E2BC /* PushInfoMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EFC1D71DC713620097E2BC /* PushInfoMode.m */; };
 		D3F230A41D911FE400697A6C /* TierManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F230A31D911FE400697A6C /* TierManager.m */; };
 		D3FC8AA21DB37F51004282E6 /* ShareSDKHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FC8AA11DB37F51004282E6 /* ShareSDKHandle.m */; };
 		D3FC8AA61DB3837F004282E6 /* ShareSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FC8AA51DB3837F004282E6 /* ShareSDKManager.m */; };
@@ -561,6 +563,10 @@
 		D3D68BE41DB4C3AE004E6D42 /* UserInfoHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoHandle.m; sourceTree = "<group>"; };
 		D3EB39301DAB1DB2006588E5 /* HenewsRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HenewsRefreshHeader.h; sourceTree = "<group>"; };
 		D3EB39311DAB1DB2006588E5 /* HenewsRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HenewsRefreshHeader.m; sourceTree = "<group>"; };
+		D3EFC1D31DC713010097E2BC /* ApsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApsModel.h; sourceTree = "<group>"; };
+		D3EFC1D41DC713010097E2BC /* ApsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApsModel.m; sourceTree = "<group>"; };
+		D3EFC1D61DC713620097E2BC /* PushInfoMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushInfoMode.h; sourceTree = "<group>"; };
+		D3EFC1D71DC713620097E2BC /* PushInfoMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushInfoMode.m; sourceTree = "<group>"; };
 		D3F230A21D911FE400697A6C /* TierManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierManager.h; sourceTree = "<group>"; };
 		D3F230A31D911FE400697A6C /* TierManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierManager.m; sourceTree = "<group>"; };
 		D3FC8AA01DB37F51004282E6 /* ShareSDKHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareSDKHandle.h; sourceTree = "<group>"; };
@@ -1377,6 +1383,10 @@
 		D3EFC1D21DC6F1930097E2BC /* PushInfoMode */ = {
 			isa = PBXGroup;
 			children = (
+				D3EFC1D31DC713010097E2BC /* ApsModel.h */,
+				D3EFC1D41DC713010097E2BC /* ApsModel.m */,
+				D3EFC1D61DC713620097E2BC /* PushInfoMode.h */,
+				D3EFC1D71DC713620097E2BC /* PushInfoMode.m */,
 			);
 			path = PushInfoMode;
 			sourceTree = "<group>";
@@ -1742,11 +1752,13 @@
 				D33D46391DB8574F005E389D /* MYLoadingAnimation.m in Sources */,
 				D324795C1D8F8AA0004C7A7B /* VideoViewController.m in Sources */,
 				D3CEF62E1D3CB21100696FF5 /* HomeMode.m in Sources */,
+				D3EFC1D81DC713620097E2BC /* PushInfoMode.m in Sources */,
 				D33265301D2E5DAE005C9D7D /* HomeController.m in Sources */,
 				D3C2A2721DACC9EB003A3B92 /* WelfareMode.m in Sources */,
 				D32A63F51DC0DC7F006CF376 /* MJRefreshBackFooter.m in Sources */,
 				D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */,
 				D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */,
+				D3EFC1D51DC713010097E2BC /* ApsModel.m in Sources */,
 				D32BD2191D7D4FA900DB44DE /* WeatherItemMode.m in Sources */,
 				D3855BA31D9C285C00B15E27 /* MyListView.m in Sources */,
 				D32A64071DC0DC7F006CF376 /* UIView+MJExtension.m in Sources */,

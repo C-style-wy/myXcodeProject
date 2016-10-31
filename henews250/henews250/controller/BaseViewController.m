@@ -14,7 +14,9 @@
 #import "XNTabBarView.h"
 
 #import "HomeController.h"
-#import "PicViewController.h"
+
+#import "NewsCellFactory.h"
+#import "PushInfoMode.h"
 static NSString * const pushNotificationKey = @"pushNotificationKey";
 
 @interface BaseViewController ()
@@ -36,8 +38,8 @@ static NSString * const pushNotificationKey = @"pushNotificationKey";
     if ([self isKindOfClass:[HomeController class]]) {
         AppDelegate *myDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
         if (myDelegate.pushData && ![self isKindOfClass:[IndexViewController class]] && ![self isKindOfClass:[XNTabBarView class]]) {
-            PicViewController *pic = [PicViewController loadFromStoryboard];
-            [self.navigationController pushViewController:pic animated:YES];
+            PushInfoMode *pushInfo = [PushInfoMode mj_objectWithKeyValues:myDelegate.pushData];
+            [self handlePushInfo:pushInfo];
             myDelegate.pushData = nil;
         }
     }
@@ -148,13 +150,14 @@ static NSString * const pushNotificationKey = @"pushNotificationKey";
 
 -(void)pushNotification:(id)sender{
     if (self.isViewVisable && ![self isKindOfClass:[IndexViewController class]] && ![self isKindOfClass:[XNTabBarView class]]) {
-        
+        AppDelegate *myDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        PushInfoMode *pushInfo = [PushInfoMode mj_objectWithKeyValues:myDelegate.pushData];
         [Dialog showWithTipText:@"提示" descText:@"推送" LeftText:@"确定" rightText:@"取消" LeftBlock:^{
-            NewsDetailViewController *news = [NewsDetailViewController loadFromStoryboard];
-            [self.navigationController pushViewController:news animated:YES];
+            [self handlePushInfo:pushInfo];
         } RightBlock:^{
             
         }];
+        myDelegate.pushData = nil;
     }
     
 }
@@ -162,10 +165,115 @@ static NSString * const pushNotificationKey = @"pushNotificationKey";
 - (void)appEnterForeground {
     AppDelegate *myDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     if (self.isViewVisable && myDelegate.pushData && ![self isKindOfClass:[IndexViewController class]] && ![self isKindOfClass:[XNTabBarView class]]) {
-        NTLog(@"appEnterForeground====%@",myDelegate.pushData);
-        NewsDetailViewController *news = [NewsDetailViewController loadFromStoryboard];
-        [self.navigationController pushViewController:news animated:YES];
+        PushInfoMode *pushInfo = [PushInfoMode mj_objectWithKeyValues:myDelegate.pushData];
+        [self handlePushInfo:pushInfo];
         myDelegate.pushData = nil;
+    }
+}
+
+- (void)handlePushInfo:(PushInfoMode *)info{
+    NSString *contId = info.contId;
+    switch ([info.linkType intValue]) {
+        case PushLinkTypeCommonnews:{
+            NSString *url = [DEF_GetCommonnewsUrl stringByAppendingString:contId];
+            NewsDetailViewController *news = [NewsDetailViewController loadFromStoryboard];
+            news.url = url;
+            [self.navigationController pushViewController:news animated:YES];
+        }
+            break;
+        case PushLinkTypeVideo:{
+            NSString *url = [DEF_GetVideoUrl stringByAppendingString:contId];
+            VideoViewController *video = [VideoViewController loadFromStoryboard];
+            video.url = url;
+            [self.navigationController pushViewController:video animated:YES];
+        }
+            break;
+        case PushLinkTypeVideonews:{
+            NSString *url = [DEF_GetCommonnewsUrl stringByAppendingString:contId];
+            NewsDetailViewController *news = [NewsDetailViewController loadFromStoryboard];
+            news.url = url;
+            [self.navigationController pushViewController:news animated:YES];
+        }
+            break;
+        case PushLinkTypeTopic:{
+            NSString *url = [DEF_GetTopicUrl stringByAppendingString:contId];
+            TopicViewController *topic = [TopicViewController loadFromStoryboard];
+            topic.url = url;
+            [self.navigationController pushViewController:topic animated:YES];
+        }
+            break;
+        case PushLinkTypePic:{
+            NSString *url = [DEF_GetPicUrl stringByAppendingString:contId];
+            PicViewController *pic = [PicViewController loadFromStoryboard];
+            pic.url = url;
+            [self.navigationController pushViewController:pic animated:YES];
+        }
+            break;
+        case PushLinkTypeWeb:{
+            NSString *url = [DEF_GetWebUrl stringByAppendingString:contId];
+            WebViewController *web = [WebViewController loadFromStoryboard];
+            web.url = url;
+            web.isWebLinkUrl = NO;
+            [self.navigationController pushViewController:web animated:YES];
+        }
+            break;
+        case PushLinkTypeActivity:{
+            NSString *url = [DEF_GetActivityUrl stringByAppendingString:contId];
+            ActivityViewController *activity = [ActivityViewController loadFromStoryboard];
+            activity.url = url;
+            [self.navigationController pushViewController:activity animated:YES];
+        }
+            break;
+        case PushLinkTypeLive:{
+            NSString *url = [DEF_GetLiveUrl stringByAppendingString:contId];
+            LiveViewController *live = [LiveViewController loadFromStoryboard];
+            live.url = url;
+            [self.navigationController pushViewController:live animated:YES];
+        }
+            break;
+        case PushLinkTypeSystem:{
+            
+        }
+            break;
+        case PushLinkTypeCommentForMe:{
+            
+        }
+            break;
+        case PushLinkTypeOpenWeb:{
+            NSString *url = [DEF_GetOpenWebUrl stringByAppendingString:contId];
+            WebViewController *web = [WebViewController loadFromStoryboard];
+            web.url = url;
+            web.isWebLinkUrl = YES;
+            [self.navigationController pushViewController:web animated:YES];
+        }
+            break;
+        case PushLinkTypePinkActivity:{
+            NSString *url = [DEF_GetPinkActivityUrl stringByAppendingString:contId];
+            PinkactivityViewController *pinkActivity = [PinkactivityViewController loadFromStoryboard];
+            pinkActivity.url = url;
+            [self.navigationController pushViewController:pinkActivity animated:YES];
+        }
+            break;
+        case PushLinkTypeMagazines:{
+            NSString *url = [DEF_GetMagazinesUrl stringByAppendingString:contId];
+            MagazineViewController *magazine = [MagazineViewController loadFromStoryboard];
+            magazine.url = url;
+            [self.navigationController pushViewController:magazine animated:YES];
+        }
+            break;
+        case PushLinkTypePeriodical:{
+            NSString *url = [DEF_GetPeriodicalUrl stringByAppendingString:contId];
+            PeriodicalViewController *periodical = [PeriodicalViewController loadFromStoryboard];
+            periodical.url = url;
+            [self.navigationController pushViewController:periodical animated:YES];
+        }
+            break;
+        case PushLinkTypeCommentList:{
+            
+        }
+            break;
+        default:
+            break;
     }
 }
 @end

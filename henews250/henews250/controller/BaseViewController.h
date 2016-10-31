@@ -34,9 +34,25 @@
 
 #import "Masonry.h"
 
+typedef enum {
+    PushLinkTypeCommonnews = 1,    /**< 普通新闻 */
+    PushLinkTypeVideo,             /**< 视频 */
+    PushLinkTypeVideonews,         /**< 视频新闻 */
+    PushLinkTypeTopic,             /**< 专题 */
+    PushLinkTypePic,               /**< 图集 */
+    PushLinkTypeWeb,               /**< 外链 二次请求 */
+    PushLinkTypeActivity,          /**< 活动 */
+    PushLinkTypeLive,              /**< 直播 */
+    PushLinkTypeSystem,            /**< 系统消息 */
+    PushLinkTypeCommentForMe,      /**< 评论我的 */
+    PushLinkTypeOpenWeb,           /**< 外链 直接打开 */
+    PushLinkTypePinkActivity,      /**< 活动类型 pink */
+    PushLinkTypeMagazines,         /**< 杂志 */
+    PushLinkTypePeriodical,        /**< 期刊 */
+    PushLinkTypeCommentList        /**< 评论列表 */
+}PushLinkType;
 
 @interface BaseViewController : UIViewController<NetworkDelegate>
-
 
 @property (nonatomic, assign) BOOL isViewVisable;
 

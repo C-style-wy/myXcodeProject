@@ -15,17 +15,6 @@
 #import "OneBigPicCell.h"
 #import "HomeWeatherCell.h"
 
-#import "NewsDetailViewController.h"
-#import "VideoViewController.h"
-#import "TopicViewController.h"
-#import "PicViewController.h"
-#import "WebViewController.h"
-#import "ActivityViewController.h"
-#import "LiveViewController.h"
-#import "PinkactivityViewController.h"
-#import "MagazineViewController.h"
-#import "PeriodicalViewController.h"
-
 @implementation NewsCellFactory
 + (instancetype)allocWithZone:(struct _NSZone *)zone {
     static NewsCellFactory *_factory;

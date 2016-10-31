@@ -10,4 +10,6 @@
 
 @interface WebViewController : SubBaseViewController
 
+@property (nonatomic, assign) BOOL isWebLinkUrl;
+
 @end

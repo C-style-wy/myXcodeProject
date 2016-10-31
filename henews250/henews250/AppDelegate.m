@@ -97,34 +97,19 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
-    
     //  Apns注册成功，该方法没有没有变化。
-    
-    //  通过JPUSH上传设备Token.
-    NTLog(@"deviceToken=====%@", deviceToken);
-    NSString *token =[[deviceToken description]stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NTLog(@"token=====%@", token);
-    NSString *url = [DEF_GetSendPushTokenUrl stringByAppendingString:token];
-    url = [url stringByAppendingString:@"&operateType=add"];
-    [NetworkManager postRequestJsonWithURL:url params:nil cacheBlock:^(NSDictionary *returnJson) {
-        
-    } successBlock:^(NSDictionary *returnJson) {
-        NTLog(@"resultMsg===%@", [returnJson objectForKey:@"resultMsg"]);
-    } failureBlock:^(NSError *error) {
-        
-    } showHUD:NO];
+    [self handlePushTokenBack:deviceToken];
 }
 
 // App在前台的时候收到推送执行的回调方法
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
     NSDictionary *userInfo = notification.request.content.userInfo;
-    
     NTLog(@"===userInfo==%@", userInfo);
     //创建一个消息对象
-    NSNotification * notice = [NSNotification notificationWithName:@"pushNotificationKey" object:nil userInfo:@{@"1":@"123"}];
+    NSNotification * notice = [NSNotification notificationWithName:@"pushNotificationKey" object:nil userInfo:userInfo];
     //发送消息
     [[NSNotificationCenter defaultCenter] postNotification:notice];
+    self.pushData = userInfo;
 }
 
 // App在后台的时候，点击推送信息，进入App后执行的 回调方法
@@ -135,6 +120,22 @@
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
+- (void)handlePushTokenBack:(NSData *)token {
+    NSString *tokenStr =[[token description]stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    NTLog(@"deviceToken=====%@", tokenStr);
+    tokenStr = [tokenStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NTLog(@"tokenStr=====%@", tokenStr);
+    NSString *url = [DEF_GetSendPushTokenUrl stringByAppendingString:tokenStr];
+    url = [url stringByAppendingString:@"&operateType=add"];
+    
+    [NetworkManager postRequestJsonWithURL:url params:nil cacheBlock:^(NSDictionary *returnJson) {
+        
+    } successBlock:^(NSDictionary *returnJson) {
+        
+    } failureBlock:^(NSError *error) {
+        
+    } showHUD:NO];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

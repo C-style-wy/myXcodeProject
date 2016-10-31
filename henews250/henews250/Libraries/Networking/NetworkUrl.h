@@ -82,4 +82,57 @@
  */
 #define DEF_GetSendPushTokenUrl    PATH(@"%@/clt/operateApnUser.msp?token=")
 
+/**
+ *      普通新闻详情页接口
+ */
+#define DEF_GetCommonnewsUrl    PATH(@"%@/publish/clt/resource/portal/v1/commonNews.jsp?c=")
+/**
+ *      视频详情页接口
+ */
+#define DEF_GetVideoUrl    PATH(@"%@/publish/clt/resource/portal/v1/commonNews.jsp?c=")
+/**
+ *      视频新闻详情页接口
+ */
+#define DEF_GetVideonewsUrl    PATH(@"%@/publish/clt/resource/portal/v1/commonNews.jsp?c=")
+/**
+ *      专题接口
+ */
+#define DEF_GetTopicUrl    PATH(@"%@/publish/clt/resource/portal/v1/special.jsp?c=")
+/**
+ *      图集接口
+ */
+#define DEF_GetPicUrl    PATH(@"%@/publish/clt/resource/portal/v1/commonNews.jsp?c=")
+/**
+ *      外链(二次请求)接口
+ */
+#define DEF_GetWebUrl    PATH(@"%@/publish/clt/resource/portal/v1/commonNews.jsp?c=")
+/**
+ *      活动接口
+ */
+#define DEF_GetActivityUrl    PATH(@"%@/publish/clt/resource/portal/v1/ugcList.jsp?c=")
+/**
+ *      直播接口
+ */
+#define DEF_GetLiveUrl    PATH(@"%@/publish/clt/resource/portal/v1/liveNewsList.jsp?c=")
+/**
+ *      外链(直接打开)接口
+ */
+#define DEF_GetOpenWebUrl    PATH(@"%@/publish/clt/pzx/share/pushDetail/index.jsp?c=")
+/**
+ *      pink活动接口
+ */
+#define DEF_GetPinkActivityUrl    PATH(@"%@/publish/clt/resource/portal/v1/ugcList.jsp?c=")
+/**
+ *      杂志接口
+ */
+#define DEF_GetMagazinesUrl    PATH(@"%@/publish/clt/resource/portal/v240/magazinesDetail.jsp?c=")
+/**
+ *      期刊接口
+ */
+#define DEF_GetPeriodicalUrl    PATH(@"%@/publish/clt/resource/portal/v240/periodicalDetail.jsp?c=")
+/**
+ *      评论列表接口
+ */
+#define DEF_GetCommentListUrl    PATH(@"%@/publish/clt/resource/portal/v2/commentList.jsp?objectId=")
+
 #endif /* NetworkUrl_h */
