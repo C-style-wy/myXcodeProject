@@ -833,6 +833,7 @@
 		D3276ACD1D2A681A00A249C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D3EFC1D91DC728660097E2BC /* MySubpage */,
 				D31E0DA91DAF8FAC006196A7 /* UserPage */,
 				D34F50871D5465F5004B25C5 /* Subpage */,
 				D332652D1D2E5D06005C9D7D /* PrimaryViewController */,
@@ -1389,6 +1390,13 @@
 				D3EFC1D71DC713620097E2BC /* PushInfoMode.m */,
 			);
 			path = PushInfoMode;
+			sourceTree = "<group>";
+		};
+		D3EFC1D91DC728660097E2BC /* MySubpage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MySubpage;
 			sourceTree = "<group>";
 		};
 		D3FC8A9F1DB37F14004282E6 /* ShareSDKHandle */ = {
