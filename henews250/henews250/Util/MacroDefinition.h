@@ -99,4 +99,7 @@ typedef enum _iPhoneType {
 
 
 #define DegreeCelsius (@"℃")
+
+
+static CGFloat const headerHeight = 53.0f;
 #endif /* MacroDefinition_h */

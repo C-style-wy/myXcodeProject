@@ -23,6 +23,7 @@
     self.pageTitle = self.headView.title;
     self.pageShareBtn = self.headView.shareBtn;
     [self.view addSubview:_headView];
+    [self initPage];
 }
 
 - (void)didReceiveMemoryWarning {
