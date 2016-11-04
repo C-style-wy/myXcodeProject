@@ -26,6 +26,7 @@
 		D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0AB1D46F32F0036004A /* BaseMode.m */; };
 		D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0AF1D46F3AE0036004A /* TierMode.m */; };
 		D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AA0B51D470B860036004A /* LocalTierMode.m */; };
+		D31AE2141DC9811A008D90FA /* NewsSectionMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AE2131DC9811A008D90FA /* NewsSectionMode.m */; };
 		D31DE9F41D2C8DBC00D2B0AB /* GuidePage1.m in Sources */ = {isa = PBXBuildFile; fileRef = D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */; };
 		D31DE9F61D2C8DDE00D2B0AB /* GuidePage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */; };
 		D31E0D9F1DAF61B4006196A7 /* WelfareExchangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E0D9D1DAF61B4006196A7 /* WelfareExchangeCell.m */; };
@@ -261,6 +262,8 @@
 		D31AA0AF1D46F3AE0036004A /* TierMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierMode.m; sourceTree = "<group>"; };
 		D31AA0B41D470B860036004A /* LocalTierMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTierMode.h; sourceTree = "<group>"; };
 		D31AA0B51D470B860036004A /* LocalTierMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTierMode.m; sourceTree = "<group>"; };
+		D31AE2121DC9811A008D90FA /* NewsSectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSectionMode.h; sourceTree = "<group>"; };
+		D31AE2131DC9811A008D90FA /* NewsSectionMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsSectionMode.m; sourceTree = "<group>"; };
 		D31DE9F21D2C8DBC00D2B0AB /* GuidePage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePage1.h; sourceTree = "<group>"; };
 		D31DE9F31D2C8DBC00D2B0AB /* GuidePage1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePage1.m; sourceTree = "<group>"; };
 		D31DE9F51D2C8DDE00D2B0AB /* GuidePage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidePage1.xib; sourceTree = "<group>"; };
@@ -696,6 +699,22 @@
 			path = TierMode;
 			sourceTree = "<group>";
 		};
+		D31AE2101DC97F31008D90FA /* NewsDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewsDetailCell;
+			sourceTree = "<group>";
+		};
+		D31AE2111DC980EB008D90FA /* DetailShowMode */ = {
+			isa = PBXGroup;
+			children = (
+				D31AE2121DC9811A008D90FA /* NewsSectionMode.h */,
+				D31AE2131DC9811A008D90FA /* NewsSectionMode.m */,
+			);
+			path = DetailShowMode;
+			sourceTree = "<group>";
+		};
 		D31DE9F01D2C8CB200D2B0AB /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,6 +756,7 @@
 		D31ED3FE1D3DAE2B003C2A54 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				D31AE2101DC97F31008D90FA /* NewsDetailCell */,
 				D36483691DAE181100E1CF23 /* WelfareCell */,
 				D3640C831D62F36D008049E4 /* CityListCell */,
 				D31ED3FF1D3DAE50003C2A54 /* HomeCell */,
@@ -1395,6 +1415,7 @@
 		D3DB224C1DC8605C00AE0D33 /* NewsDetailMode */ = {
 			isa = PBXGroup;
 			children = (
+				D31AE2111DC980EB008D90FA /* DetailShowMode */,
 				D3DB224D1DC8636C00AE0D33 /* NewsDetailMode.h */,
 				D3DB224E1DC8636C00AE0D33 /* NewsDetailMode.m */,
 				D3DB22501DC864B400AE0D33 /* ContentMode.h */,
@@ -1816,6 +1837,7 @@
 				D32A63F51DC0DC7F006CF376 /* MJRefreshBackFooter.m in Sources */,
 				D35BB1C61D41F46A000D6BFD /* BannerCell.m in Sources */,
 				D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */,
+				D31AE2141DC9811A008D90FA /* NewsSectionMode.m in Sources */,
 				D3EFC1D51DC713010097E2BC /* ApsModel.m in Sources */,
 				D32BD2191D7D4FA900DB44DE /* WeatherItemMode.m in Sources */,
 				D3855BA31D9C285C00B15E27 /* MyListView.m in Sources */,
