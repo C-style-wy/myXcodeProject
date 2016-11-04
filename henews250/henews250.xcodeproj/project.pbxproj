@@ -117,6 +117,8 @@
 		D34D32701DB5AE00000FA6F7 /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34D326F1DB5AE00000FA6F7 /* UserCenterController.m */; };
 		D34D32741DB60EF7000FA6F7 /* UserCenterSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34D32731DB60EF7000FA6F7 /* UserCenterSubView.m */; };
 		D34D32761DB60F08000FA6F7 /* UserCenterSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34D32751DB60F08000FA6F7 /* UserCenterSubView.xib */; };
+		D34ED57E1DCC72B800DDA6AC /* NewsTitleMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34ED57D1DCC72B800DDA6AC /* NewsTitleMode.m */; };
+		D34ED5821DCC7AF700DDA6AC /* SpotMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34ED5811DCC7AF700DDA6AC /* SpotMode.m */; };
 		D34F508A1D5466CC004B25C5 /* SubBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F50891D5466CC004B25C5 /* SubBaseViewController.m */; };
 		D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34F508D1D546A3A004B25C5 /* SubPageHeadView.m */; };
 		D34F50901D546A4D004B25C5 /* SubPageHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34F508F1D546A4D004B25C5 /* SubPageHeadView.xib */; };
@@ -436,6 +438,11 @@
 		D34D32721DB60EF7000FA6F7 /* UserCenterSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterSubView.h; sourceTree = "<group>"; };
 		D34D32731DB60EF7000FA6F7 /* UserCenterSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterSubView.m; sourceTree = "<group>"; };
 		D34D32751DB60F08000FA6F7 /* UserCenterSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterSubView.xib; sourceTree = "<group>"; };
+		D34ED57C1DCC72B800DDA6AC /* NewsTitleMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTitleMode.h; sourceTree = "<group>"; };
+		D34ED57D1DCC72B800DDA6AC /* NewsTitleMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTitleMode.m; sourceTree = "<group>"; };
+		D34ED57F1DCC756E00DDA6AC /* NewsSectionConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsSectionConst.h; sourceTree = "<group>"; };
+		D34ED5801DCC7AF700DDA6AC /* SpotMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotMode.h; sourceTree = "<group>"; };
+		D34ED5811DCC7AF700DDA6AC /* SpotMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotMode.m; sourceTree = "<group>"; };
 		D34F50881D5466CC004B25C5 /* SubBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubBaseViewController.h; sourceTree = "<group>"; };
 		D34F50891D5466CC004B25C5 /* SubBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubBaseViewController.m; sourceTree = "<group>"; };
 		D34F508C1D546A3A004B25C5 /* SubPageHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubPageHeadView.h; sourceTree = "<group>"; };
@@ -711,6 +718,11 @@
 			children = (
 				D31AE2121DC9811A008D90FA /* NewsSectionMode.h */,
 				D31AE2131DC9811A008D90FA /* NewsSectionMode.m */,
+				D34ED57C1DCC72B800DDA6AC /* NewsTitleMode.h */,
+				D34ED57D1DCC72B800DDA6AC /* NewsTitleMode.m */,
+				D34ED5801DCC7AF700DDA6AC /* SpotMode.h */,
+				D34ED5811DCC7AF700DDA6AC /* SpotMode.m */,
+				D34ED57F1DCC756E00DDA6AC /* NewsSectionConst.h */,
 			);
 			path = DetailShowMode;
 			sourceTree = "<group>";
@@ -1749,10 +1761,12 @@
 				D3F230A41D911FE400697A6C /* TierManager.m in Sources */,
 				D32BD2131D7D4DCC00DB44DE /* WeatherMode.m in Sources */,
 				D32BD22B1D7D5C9F00DB44DE /* ZhishusMode.m in Sources */,
+				D34ED57E1DCC72B800DDA6AC /* NewsTitleMode.m in Sources */,
 				D32A64031DC0DC7F006CF376 /* MJRefreshConst.m in Sources */,
 				D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */,
 				D3ADEB571DBBA3B1006038C0 /* ChoiceImgSource.m in Sources */,
 				D31ED4501D3E18D6003C2A54 /* UIImageView+LoadFromWeb.m in Sources */,
+				D34ED5821DCC7AF700DDA6AC /* SpotMode.m in Sources */,
 				D32A63FB1DC0DC7F006CF376 /* MJRefreshAutoStateFooter.m in Sources */,
 				D317BFCC1D795F6B00852ADC /* XMLDictionary.m in Sources */,
 				D36150461D5D6D14003779A5 /* CityListMode.m in Sources */,

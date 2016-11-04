@@ -7,9 +7,17 @@
 //
 
 #import "BaseMode.h"
+#import "NewsDetailMode.h"
+#import "NewsSectionConst.h"
+
+#import "NewsTitleMode.h"
+#import "SpotMode.h"
 
 @interface NewsSectionMode : BaseMode
 
+@property (nonatomic, assign) SectionType sectionType;
+@property (nonatomic, retain) NSMutableArray *newsSectionAry;
 
+- (NewsSectionMode *)initWithData:(NewsDetailMode *)data;
 
 @end
