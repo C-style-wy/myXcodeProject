@@ -7,6 +7,8 @@
 //
 
 #import "NewsDetailViewController.h"
+#import "DetailShowMode.h"
+
 
 static NSString * const NewsDetailTag = @"NewsDetailTag";
 
@@ -37,6 +39,13 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
 #pragma mark - 网络返回
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
     self.newsDetailData = [NewsDetailMode mj_objectWithKeyValues:returnJson];
+    
+    [self.pageData removeAllObjects];
+    
+    NewsSectionMode *newsSection = [[NewsSectionMode alloc]initWithData:self.newsDetailData];
+    [self.pageData addObject:newsSection];
+    
+    [self.tableView reloadData];
 }
 
 //缓存数据返回
@@ -67,17 +76,72 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
     return _tableView;
 }
 
+- (NSMutableArray *)pageData {
+    if (!_pageData) {
+        _pageData = [[NSMutableArray alloc]init];
+    }
+    return _pageData;
+}
+
 #pragma mark - tableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.pageData.count;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NewsSectionMode *sectionMode = [self.pageData objectAtIndex:section];
+    switch (sectionMode.sectionType) {
+        case SectionTypeNews:{
+            return nil;
+        }
+            break;
+        default:
+            return nil;
+            break;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    NewsSectionMode *sectionMode = [self.pageData objectAtIndex:section];
+    switch (sectionMode.sectionType) {
+        case SectionTypeNews:{
+            return 0;
+        }
+            break;
+        default:
+            return 0;
+            break;
+    }
+}
 //指定每个分区中有多少行，默认为1
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.pageData.count;
+    NewsSectionMode *sectionMode = [self.pageData objectAtIndex:section];
+    return sectionMode.newsSectionAry.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NewsSectionMode *sectionMode = [self.pageData objectAtIndex:indexPath.section];
+    switch (sectionMode.sectionType) {
+        case SectionTypeNews:{
+            NSMutableArray *ary = sectionMode.newsSectionAry;
+            if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[NewsTitleMode class]]) {
+                NewsTitleMode *titleData = [ary objectAtIndex:indexPath.row];
+                NewsTitleFrame *titleFrame = [[NewsTitleFrame alloc]init];
+                titleFrame.newsTitle = titleData;
+                
+                NewsTitleCell *cell = [NewsTitleCell cellWithTableView:tableView];
+                cell.newsTitleFrame = titleFrame;
+                return cell;
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[DetailShareMode class]]) {
+                DetailShareCell *cell = [DetailShareCell cellWithTableView:tableView];
+                return cell;
+            }
+        }
+            break;
+        default:
+            return nil;
+            break;
+    }
     return nil;
 }
 
@@ -86,6 +150,24 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NewsSectionMode *sectionMode = [self.pageData objectAtIndex:indexPath.section];
+    switch (sectionMode.sectionType) {
+        case SectionTypeNews:{
+            NSMutableArray *ary = sectionMode.newsSectionAry;
+            if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[NewsTitleMode class]]) {
+                NewsTitleMode *titleData = [ary objectAtIndex:indexPath.row];
+                NewsTitleFrame *titleFrame = [[NewsTitleFrame alloc]init];
+                titleFrame.newsTitle = titleData;
+                return titleFrame.cellHeight;
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[DetailShareMode class]]) {
+                return SCREEN_WIDTH*61.0f/320.0f;
+            }
+        }
+            break;
+        default:
+            return 0;
+            break;
+    }
     return 0;
 }
 

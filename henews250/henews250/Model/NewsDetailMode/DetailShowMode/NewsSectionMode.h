@@ -12,6 +12,7 @@
 
 #import "NewsTitleMode.h"
 #import "SpotMode.h"
+#import "DetailShareMode.h"
 
 @interface NewsSectionMode : BaseMode
 
