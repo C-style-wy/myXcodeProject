@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.headView.title.text = @"专题";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +23,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)initPage {
+    [super initPage];
+    NSString *str = @"和新闻 · 专题";
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:str];
+    [text addAttribute:NSForegroundColorAttributeName value:MainColor range:NSMakeRange(5, 3)];
+    self.pageTitle.attributedText = text;
 }
-*/
 
 @end
