@@ -12,9 +12,9 @@
 #import "SHLUILabel.h"
 #import "MacroDefinition.h"
 
-#define ContentFont [UIFont systemFontOfSize:16.5f]
+#define ContentFont [UIFont systemFontOfSize:17.0f]
 #define ContentPicSpace 0
-#define ContentLineSpace 0
+#define ContentLineSpace 2.0f
 
 @interface DetailPicAndContentFrame : NSObject
 
