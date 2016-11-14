@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MyListViewDelegate <NSObject>
+
+@optional
+- (void)btnActionWithTag:(NSInteger)tag;
+
+@end
+
 @interface MyListView : UIView
+
+@property (nonatomic, assign) id<MyListViewDelegate> delegate;
 
 @end

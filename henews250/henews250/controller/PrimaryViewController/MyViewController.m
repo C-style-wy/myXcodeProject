@@ -8,6 +8,9 @@
 
 #import "MyViewController.h"
 #import "UserInfoHandle.h"
+#import "SettingViewController.h"
+#import "UserLoginController.h"
+#import "MyIntegralViewController.h"
 
 @interface MyViewController ()
 
@@ -48,6 +51,7 @@
     [self.view addSubview:uiScrollView];
     
     MyListView *myListView = [MyListView loadFromNib];
+    myListView.delegate = self;
     myListView.frame = CGRectMake(0, 0, SCREEN_WIDTH, (293.0*SCREEN_WIDTH)/320.0);
     [uiScrollView addSubview:myListView];
     uiScrollView.contentSize = CGSizeMake(0, uiScrollView.frame.size.height);
@@ -88,4 +92,43 @@
     [self.userHeadView layoutIfNeeded];
 }
 
+
+#pragma mark - MyListViewDelegate
+- (void)btnActionWithTag:(NSInteger)tag {
+    switch (tag) {
+        case 1:{
+            
+        }
+            break;
+        case 2:{
+            
+        }
+            break;
+        case 3:{
+            
+        }
+            break;
+        case 4:{
+            
+        }
+            break;
+        case 5:{
+            if ([UserInfoHandle isLogin]) {
+                MyIntegralViewController *myIntegralViewController = [[MyIntegralViewController alloc]init];
+                [self.navigationController pushViewController:myIntegralViewController animated:YES];
+            }else{
+                UserLoginController *login = [UserLoginController loadFromStoryboard];
+                [self.navigationController pushViewController:login animated:YES];
+            }
+        }
+            break;
+        case 6:{   //设置
+            SettingViewController *setting = [[SettingViewController alloc]init];
+            [self.navigationController pushViewController:setting animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+}
 @end

@@ -122,6 +122,8 @@
 		D338DB9D1DD9962300935F5E /* CommentRelateMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DB9C1DD9962300935F5E /* CommentRelateMode.m */; };
 		D338DBA31DD99BC600935F5E /* InheritCommentVoMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBA21DD99BC600935F5E /* InheritCommentVoMode.m */; };
 		D338DBA61DD9A06B00935F5E /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBA51DD9A06B00935F5E /* CommentListViewController.m */; };
+		D338DBA91DD9B39F00935F5E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBA81DD9B39F00935F5E /* SettingViewController.m */; };
+		D338DBAC1DD9B9CC00935F5E /* MyIntegralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBAB1DD9B9CC00935F5E /* MyIntegralViewController.m */; };
 		D33D46391DB8574F005E389D /* MYLoadingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D46381DB8574F005E389D /* MYLoadingAnimation.m */; };
 		D33D463C1DB8590C005E389D /* MYLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D463B1DB8590C005E389D /* MYLoading.m */; };
 		D340C1311D640AB8007D4C3D /* CityMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D340C1301D640AB8007D4C3D /* CityMode.m */; };
@@ -456,6 +458,10 @@
 		D338DBA21DD99BC600935F5E /* InheritCommentVoMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InheritCommentVoMode.m; sourceTree = "<group>"; };
 		D338DBA41DD9A06B00935F5E /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
 		D338DBA51DD9A06B00935F5E /* CommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListViewController.m; sourceTree = "<group>"; };
+		D338DBA71DD9B39F00935F5E /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		D338DBA81DD9B39F00935F5E /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		D338DBAA1DD9B9CC00935F5E /* MyIntegralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIntegralViewController.h; sourceTree = "<group>"; };
+		D338DBAB1DD9B9CC00935F5E /* MyIntegralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIntegralViewController.m; sourceTree = "<group>"; };
 		D33A642E1D62AEBF00102968 /* CommonConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CommonConfig.xcconfig; sourceTree = "<group>"; };
 		D33A642F1D62AEF300102968 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		D33A64301D62AF4900102968 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
@@ -1534,6 +1540,10 @@
 		D3EFC1D91DC728660097E2BC /* MySubpage */ = {
 			isa = PBXGroup;
 			children = (
+				D338DBA71DD9B39F00935F5E /* SettingViewController.h */,
+				D338DBA81DD9B39F00935F5E /* SettingViewController.m */,
+				D338DBAA1DD9B9CC00935F5E /* MyIntegralViewController.h */,
+				D338DBAB1DD9B9CC00935F5E /* MyIntegralViewController.m */,
 			);
 			path = MySubpage;
 			sourceTree = "<group>";
@@ -1790,6 +1800,7 @@
 				D3C2A26F1DACC964003A3B92 /* WelfareBannerModel.m in Sources */,
 				D36558781DAF131F00D05C84 /* WelfareScoresCell.m in Sources */,
 				D3CEF62B1D3CB07600696FF5 /* NodeMode.m in Sources */,
+				D338DBA91DD9B39F00935F5E /* SettingViewController.m in Sources */,
 				D30741A81D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m in Sources */,
 				D324796E1D8F8B9F004C7A7B /* PinkactivityViewController.m in Sources */,
 				D3276A991D2A397D00A249C9 /* main.m in Sources */,
@@ -1858,6 +1869,7 @@
 				D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */,
 				D3640C931D631E70008049E4 /* CLLocation+MPLocation.m in Sources */,
 				D319C8891D387007002A84F5 /* SingleColMode.m in Sources */,
+				D338DBAC1DD9B9CC00935F5E /* MyIntegralViewController.m in Sources */,
 				D32689D61D7FBD4D00DEB5AA /* NewsDetailViewController.m in Sources */,
 				D3D68BD91DB4BF51004E6D42 /* LoginMode.m in Sources */,
 				D3D326B91DB89CE7005E807E /* Dialog.m in Sources */,
