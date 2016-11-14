@@ -118,6 +118,10 @@
 		D33836721D40AF82008ADE4C /* OneBigPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836701D40AF82008ADE4C /* OneBigPicCell.xib */; };
 		D33836751D40CD44008ADE4C /* SectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33836741D40CD44008ADE4C /* SectionView.m */; };
 		D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33836761D40CD9F008ADE4C /* SectionView.xib */; };
+		D338DB9A1DD995A300935F5E /* RelateCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DB991DD995A300935F5E /* RelateCommentModel.m */; };
+		D338DB9D1DD9962300935F5E /* CommentRelateMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DB9C1DD9962300935F5E /* CommentRelateMode.m */; };
+		D338DBA31DD99BC600935F5E /* InheritCommentVoMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBA21DD99BC600935F5E /* InheritCommentVoMode.m */; };
+		D338DBA61DD9A06B00935F5E /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBA51DD9A06B00935F5E /* CommentListViewController.m */; };
 		D33D46391DB8574F005E389D /* MYLoadingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D46381DB8574F005E389D /* MYLoadingAnimation.m */; };
 		D33D463C1DB8590C005E389D /* MYLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D463B1DB8590C005E389D /* MYLoading.m */; };
 		D340C1311D640AB8007D4C3D /* CityMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D340C1301D640AB8007D4C3D /* CityMode.m */; };
@@ -444,6 +448,14 @@
 		D33836731D40CD44008ADE4C /* SectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionView.h; sourceTree = "<group>"; };
 		D33836741D40CD44008ADE4C /* SectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionView.m; sourceTree = "<group>"; };
 		D33836761D40CD9F008ADE4C /* SectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
+		D338DB981DD995A300935F5E /* RelateCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelateCommentModel.h; sourceTree = "<group>"; };
+		D338DB991DD995A300935F5E /* RelateCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelateCommentModel.m; sourceTree = "<group>"; };
+		D338DB9B1DD9962300935F5E /* CommentRelateMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentRelateMode.h; sourceTree = "<group>"; };
+		D338DB9C1DD9962300935F5E /* CommentRelateMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentRelateMode.m; sourceTree = "<group>"; };
+		D338DBA11DD99BC600935F5E /* InheritCommentVoMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InheritCommentVoMode.h; sourceTree = "<group>"; };
+		D338DBA21DD99BC600935F5E /* InheritCommentVoMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InheritCommentVoMode.m; sourceTree = "<group>"; };
+		D338DBA41DD9A06B00935F5E /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
+		D338DBA51DD9A06B00935F5E /* CommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListViewController.m; sourceTree = "<group>"; };
 		D33A642E1D62AEBF00102968 /* CommonConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CommonConfig.xcconfig; sourceTree = "<group>"; };
 		D33A642F1D62AEF300102968 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		D33A64301D62AF4900102968 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
@@ -1123,6 +1135,19 @@
 			path = PrimaryViewController;
 			sourceTree = "<group>";
 		};
+		D338DB971DD98BB300935F5E /* CommentRelateMode */ = {
+			isa = PBXGroup;
+			children = (
+				D338DB9B1DD9962300935F5E /* CommentRelateMode.h */,
+				D338DB9C1DD9962300935F5E /* CommentRelateMode.m */,
+				D338DB981DD995A300935F5E /* RelateCommentModel.h */,
+				D338DB991DD995A300935F5E /* RelateCommentModel.m */,
+				D338DBA11DD99BC600935F5E /* InheritCommentVoMode.h */,
+				D338DBA21DD99BC600935F5E /* InheritCommentVoMode.m */,
+			);
+			path = CommentRelateMode;
+			sourceTree = "<group>";
+		};
 		D33A642D1D62AE9000102968 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1185,6 +1210,8 @@
 				D32479701D8F8BB6004C7A7B /* MagazineViewController.m */,
 				D32479721D8F8BCD004C7A7B /* PeriodicalViewController.h */,
 				D32479731D8F8BCD004C7A7B /* PeriodicalViewController.m */,
+				D338DBA41DD9A06B00935F5E /* CommentListViewController.h */,
+				D338DBA51DD9A06B00935F5E /* CommentListViewController.m */,
 			);
 			path = Subpage;
 			sourceTree = "<group>";
@@ -1462,6 +1489,7 @@
 		D3DB224C1DC8605C00AE0D33 /* NewsDetailMode */ = {
 			isa = PBXGroup;
 			children = (
+				D338DB971DD98BB300935F5E /* CommentRelateMode */,
 				D31AE2111DC980EB008D90FA /* DetailShowMode */,
 				D3DB224D1DC8636C00AE0D33 /* NewsDetailMode.h */,
 				D3DB224E1DC8636C00AE0D33 /* NewsDetailMode.m */,
@@ -1851,6 +1879,7 @@
 				D3533EB11D9A5EC800B6F1B1 /* InforMode.m in Sources */,
 				D32479651D8F8B6D004C7A7B /* WebViewController.m in Sources */,
 				D32A63F71DC0DC7F006CF376 /* MJRefreshFooter.m in Sources */,
+				D338DB9D1DD9962300935F5E /* CommentRelateMode.m in Sources */,
 				D314080D1DD46861004CD256 /* DetailPicAndContentFrame.m in Sources */,
 				D3CEF61B1D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.m in Sources */,
 				D32A64001DC0DC7F006CF376 /* MJRefreshNormalHeader.m in Sources */,
@@ -1859,6 +1888,7 @@
 				D3FC8AA61DB3837F004282E6 /* ShareSDKManager.m in Sources */,
 				D3D68BE51DB4C3AE004E6D42 /* UserInfoHandle.m in Sources */,
 				D3CEF6251D3CAE5100696FF5 /* NewsMode.m in Sources */,
+				D338DBA61DD9A06B00935F5E /* CommentListViewController.m in Sources */,
 				D319C88F1D387307002A84F5 /* LoadingMode.m in Sources */,
 				D32A64061DC0DC7F006CF376 /* UIScrollView+MJRefresh.m in Sources */,
 				D32A63FE1DC0DC7F006CF376 /* MJRefreshBackStateFooter.m in Sources */,
@@ -1869,6 +1899,7 @@
 				D31E0DAC1DAF8FEE006196A7 /* UserLoginController.m in Sources */,
 				D32C36901D321B6200431829 /* ViewPointViewController.m in Sources */,
 				D32A63FF1DC0DC7F006CF376 /* MJRefreshGifHeader.m in Sources */,
+				D338DB9A1DD995A300935F5E /* RelateCommentModel.m in Sources */,
 				D364836C1DAE186A00E1CF23 /* WelfareBannerCell.m in Sources */,
 				D33836751D40CD44008ADE4C /* SectionView.m in Sources */,
 				D32BD2251D7D517800DB44DE /* YesterdayDayMode.m in Sources */,
@@ -1894,6 +1925,7 @@
 				D33265331D2E6191005C9D7D /* XNTabBarView.m in Sources */,
 				D31AE2141DC9811A008D90FA /* NewsSectionMode.m in Sources */,
 				D3105CCA1DD2B3B600FE3A9D /* NewsTitleFrame.m in Sources */,
+				D338DBA31DD99BC600935F5E /* InheritCommentVoMode.m in Sources */,
 				D3EFC1D51DC713010097E2BC /* ApsModel.m in Sources */,
 				D32BD2191D7D4FA900DB44DE /* WeatherItemMode.m in Sources */,
 				D3855BA31D9C285C00B15E27 /* MyListView.m in Sources */,

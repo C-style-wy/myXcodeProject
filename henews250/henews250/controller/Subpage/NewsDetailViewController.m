@@ -8,9 +8,11 @@
 
 #import "NewsDetailViewController.h"
 #import "DetailShowMode.h"
+#import "CommentListViewController.h"
 
 
 static NSString * const NewsDetailTag = @"NewsDetailTag";
+static NSString * const NewsCommentTag = @"NewsCommentTag";
 
 @interface NewsDetailViewController ()
 
@@ -38,14 +40,25 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
 
 #pragma mark - 网络返回
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
-    self.newsDetailData = [NewsDetailMode mj_objectWithKeyValues:returnJson];
-    
-    [self.pageData removeAllObjects];
-    
-    NewsSectionMode *newsSection = [[NewsSectionMode alloc]initWithData:self.newsDetailData];
-    [self.pageData addObject:newsSection];
-    
-    [self.tableView reloadData];
+    if ([tag isEqualToString:NewsDetailTag]) {
+        self.newsDetailData = [NewsDetailMode mj_objectWithKeyValues:returnJson];
+        
+        // 请求评论相关数据
+        if (self.newsDetailData.newsDetailDataUrl && ![self.newsDetailData.newsDetailDataUrl isEqualToString:@""]) {
+            [NetworkManager postRequestJsonWithURL:self.newsDetailData.newsDetailDataUrl params:nil delegate:self tag:NewsCommentTag msg:0 useCache:NO update:YES showHUD:NO];
+        }
+        
+        [self.pageData removeAllObjects];
+        
+        NewsSectionMode *newsSection = [[NewsSectionMode alloc]initWithData:self.newsDetailData];
+        [self.pageData addObject:newsSection];
+        
+        [self.tableView reloadData];
+    }else if ([tag isEqualToString:NewsCommentTag]) {
+        self.commentRelateMode = [CommentRelateMode mj_objectWithKeyValues:returnJson];
+        self.commentLabel.text = [self.commentRelateMode.commentNum stringByAppendingString:@"评论"];
+        
+    }
 }
 
 //缓存数据返回
@@ -69,7 +82,6 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
 //            make.trailing.offset(0);
 //            make.bottom.offset(35.5);
 //        }];
-        
         _tableView.frame = CGRectMake(0, headerHeight, SCREEN_WIDTH, SCREEN_HEIGHT-headerHeight-35.5f);
         
         _tableView.dataSource = self;
@@ -204,6 +216,10 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
 - (IBAction)fontBtnAction:(id)sender {
 }
 - (IBAction)commentBtnAction:(id)sender {
+    CommentListViewController *commentListViewController = [[CommentListViewController alloc]init];
+    commentListViewController.url = self.newsDetailData.commentListUrl;
+    commentListViewController.commentUrl = self.newsDetailData.commentUrl;
+    [self.navigationController pushViewController:commentListViewController animated:YES];
 }
 
 - (IBAction)inputBtnAction:(id)sender {

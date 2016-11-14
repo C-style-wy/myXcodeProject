@@ -756,7 +756,7 @@
                     <connections>
                         <outlet property="caoTieLabel" destination="fgh-hY-NJf" id="s2k-8d-svo"/>
                         <outlet property="collectionBtn" destination="fxT-Hd-fnw" id="H22-EK-aHk"/>
-                        <outlet property="commentLabel" destination="fgh-hY-NJf" id="YJS-Kp-6uK"/>
+                        <outlet property="commentLabel" destination="YPi-9d-OAc" id="SyM-LL-58x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34V-xs-fOc" userLabel="First Responder" sceneMemberID="firstResponder"/>

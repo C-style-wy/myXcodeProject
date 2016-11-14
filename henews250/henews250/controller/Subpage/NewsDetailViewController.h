@@ -8,13 +8,16 @@
 
 #import "SubBaseViewController.h"
 #import "NewsDetailMode.h"
+#import "CommentRelateMode.h"
 
 @interface NewsDetailViewController : SubBaseViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) NewsDetailMode *newsDetailData;
+@property (nonatomic, retain) CommentRelateMode *commentRelateMode;
 @property (nonatomic, retain) NSMutableArray *pageData;
 @property (weak, nonatomic) IBOutlet UIButton *collectionBtn;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *caoTieLabel;
 
 @property (nonatomic, retain) UITableView *tableView;
