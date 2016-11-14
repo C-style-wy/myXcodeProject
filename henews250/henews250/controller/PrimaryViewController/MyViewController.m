@@ -11,6 +11,13 @@
 #import "SettingViewController.h"
 #import "UserLoginController.h"
 #import "MyIntegralViewController.h"
+#import "SearchViewController.h"
+#import "ReportViewController.h"
+#import "SharefriendViewController.h"
+#import "MyMsgViewController.h"
+#import "MyJoinViewController.h"
+#import "MyCollectionViewController.h"
+#import "MySubscribeViewController.h"
 
 @interface MyViewController ()
 
@@ -96,20 +103,29 @@
 #pragma mark - MyListViewDelegate
 - (void)btnActionWithTag:(NSInteger)tag {
     switch (tag) {
-        case 1:{
-            
+        case 1:{ //我的消息
+            if ([UserInfoHandle isLogin]) {
+                MyMsgViewController *myMsg = [[MyMsgViewController alloc]init];
+                [self.navigationController pushViewController:myMsg animated:YES];
+            }else{
+                UserLoginController *login = [UserLoginController loadFromStoryboard];
+                [self.navigationController pushViewController:login animated:YES];
+            }
         }
             break;
-        case 2:{
-            
+        case 2:{  //我的参与
+            MyJoinViewController *myJoin = [[MyJoinViewController alloc]init];
+            [self.navigationController pushViewController:myJoin animated:YES];
         }
             break;
-        case 3:{
-            
+        case 3:{  //我的收藏
+            MyCollectionViewController *myCollection = [[MyCollectionViewController alloc]init];
+            [self.navigationController pushViewController:myCollection animated:YES];
         }
             break;
-        case 4:{
-            
+        case 4:{  //我的订阅
+            MySubscribeViewController *mySubscribe = [[MySubscribeViewController alloc]init];
+            [self.navigationController pushViewController:mySubscribe animated:YES];
         }
             break;
         case 5:{
@@ -125,6 +141,26 @@
         case 6:{   //设置
             SettingViewController *setting = [[SettingViewController alloc]init];
             [self.navigationController pushViewController:setting animated:YES];
+        }
+            break;
+        case 7:{  //爆料
+            ReportViewController *report = [[ReportViewController alloc]init];
+            [self.navigationController pushViewController:report animated:YES];
+            
+        }
+            break;
+        case 8:{  //邀请好友
+            SharefriendViewController *sharefriend = [[SharefriendViewController alloc]init];
+            [self.navigationController pushViewController:sharefriend animated:YES];
+        }
+            break;
+        case 9:{  //扫一扫
+            
+        }
+            break;
+        case 10:{  //新闻搜索
+            SearchViewController *search = [[SearchViewController alloc]init];
+            [self.navigationController pushViewController:search animated:YES];
         }
             break;
         default:

@@ -42,5 +42,25 @@
     }
     
 }
+- (IBAction)baoliaoBtnAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(btnActionWithTag:)]) {
+        [self.delegate btnActionWithTag:7];
+    }
+}
+- (IBAction)shareFriendBtnAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(btnActionWithTag:)]) {
+        [self.delegate btnActionWithTag:8];
+    }
+}
+- (IBAction)saoBtnAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(btnActionWithTag:)]) {
+        [self.delegate btnActionWithTag:9];
+    }
+}
+- (IBAction)searchBtnAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(btnActionWithTag:)]) {
+        [self.delegate btnActionWithTag:10];
+    }
+}
 
 @end

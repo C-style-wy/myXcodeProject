@@ -124,6 +124,13 @@
 		D338DBA61DD9A06B00935F5E /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBA51DD9A06B00935F5E /* CommentListViewController.m */; };
 		D338DBA91DD9B39F00935F5E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBA81DD9B39F00935F5E /* SettingViewController.m */; };
 		D338DBAC1DD9B9CC00935F5E /* MyIntegralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBAB1DD9B9CC00935F5E /* MyIntegralViewController.m */; };
+		D338DBAF1DD9BC5700935F5E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBAE1DD9BC5700935F5E /* SearchViewController.m */; };
+		D338DBB21DD9BD3100935F5E /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBB11DD9BD3100935F5E /* ReportViewController.m */; };
+		D338DBB51DD9BE7500935F5E /* SharefriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBB41DD9BE7500935F5E /* SharefriendViewController.m */; };
+		D338DBB81DD9BF0400935F5E /* MyMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBB71DD9BF0400935F5E /* MyMsgViewController.m */; };
+		D338DBBB1DD9BF7E00935F5E /* MyJoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBBA1DD9BF7E00935F5E /* MyJoinViewController.m */; };
+		D338DBBE1DD9BFDE00935F5E /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBBD1DD9BFDE00935F5E /* MyCollectionViewController.m */; };
+		D338DBC11DD9C05A00935F5E /* MySubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D338DBC01DD9C05A00935F5E /* MySubscribeViewController.m */; };
 		D33D46391DB8574F005E389D /* MYLoadingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D46381DB8574F005E389D /* MYLoadingAnimation.m */; };
 		D33D463C1DB8590C005E389D /* MYLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = D33D463B1DB8590C005E389D /* MYLoading.m */; };
 		D340C1311D640AB8007D4C3D /* CityMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D340C1301D640AB8007D4C3D /* CityMode.m */; };
@@ -462,6 +469,20 @@
 		D338DBA81DD9B39F00935F5E /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		D338DBAA1DD9B9CC00935F5E /* MyIntegralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIntegralViewController.h; sourceTree = "<group>"; };
 		D338DBAB1DD9B9CC00935F5E /* MyIntegralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIntegralViewController.m; sourceTree = "<group>"; };
+		D338DBAD1DD9BC5700935F5E /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		D338DBAE1DD9BC5700935F5E /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		D338DBB01DD9BD3100935F5E /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		D338DBB11DD9BD3100935F5E /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		D338DBB31DD9BE7500935F5E /* SharefriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharefriendViewController.h; sourceTree = "<group>"; };
+		D338DBB41DD9BE7500935F5E /* SharefriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharefriendViewController.m; sourceTree = "<group>"; };
+		D338DBB61DD9BF0400935F5E /* MyMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMsgViewController.h; sourceTree = "<group>"; };
+		D338DBB71DD9BF0400935F5E /* MyMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMsgViewController.m; sourceTree = "<group>"; };
+		D338DBB91DD9BF7E00935F5E /* MyJoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyJoinViewController.h; sourceTree = "<group>"; };
+		D338DBBA1DD9BF7E00935F5E /* MyJoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyJoinViewController.m; sourceTree = "<group>"; };
+		D338DBBC1DD9BFDE00935F5E /* MyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewController.h; sourceTree = "<group>"; };
+		D338DBBD1DD9BFDE00935F5E /* MyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewController.m; sourceTree = "<group>"; };
+		D338DBBF1DD9C05A00935F5E /* MySubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySubscribeViewController.h; sourceTree = "<group>"; };
+		D338DBC01DD9C05A00935F5E /* MySubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySubscribeViewController.m; sourceTree = "<group>"; };
 		D33A642E1D62AEBF00102968 /* CommonConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CommonConfig.xcconfig; sourceTree = "<group>"; };
 		D33A642F1D62AEF300102968 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		D33A64301D62AF4900102968 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
@@ -1544,6 +1565,20 @@
 				D338DBA81DD9B39F00935F5E /* SettingViewController.m */,
 				D338DBAA1DD9B9CC00935F5E /* MyIntegralViewController.h */,
 				D338DBAB1DD9B9CC00935F5E /* MyIntegralViewController.m */,
+				D338DBAD1DD9BC5700935F5E /* SearchViewController.h */,
+				D338DBAE1DD9BC5700935F5E /* SearchViewController.m */,
+				D338DBB01DD9BD3100935F5E /* ReportViewController.h */,
+				D338DBB11DD9BD3100935F5E /* ReportViewController.m */,
+				D338DBB31DD9BE7500935F5E /* SharefriendViewController.h */,
+				D338DBB41DD9BE7500935F5E /* SharefriendViewController.m */,
+				D338DBB61DD9BF0400935F5E /* MyMsgViewController.h */,
+				D338DBB71DD9BF0400935F5E /* MyMsgViewController.m */,
+				D338DBB91DD9BF7E00935F5E /* MyJoinViewController.h */,
+				D338DBBA1DD9BF7E00935F5E /* MyJoinViewController.m */,
+				D338DBBC1DD9BFDE00935F5E /* MyCollectionViewController.h */,
+				D338DBBD1DD9BFDE00935F5E /* MyCollectionViewController.m */,
+				D338DBBF1DD9C05A00935F5E /* MySubscribeViewController.h */,
+				D338DBC01DD9C05A00935F5E /* MySubscribeViewController.m */,
 			);
 			path = MySubpage;
 			sourceTree = "<group>";
@@ -1827,17 +1862,20 @@
 				D3109B681DD0184F00A21D11 /* NewsTitleCell.m in Sources */,
 				D323750B1D4ADDA6003042C6 /* TierCollectionViewCell.m in Sources */,
 				D3C4EC691D485FF6002D4BC9 /* TierHeadView.m in Sources */,
+				D338DBB51DD9BE7500935F5E /* SharefriendViewController.m in Sources */,
 				D32A63FC1DC0DC7F006CF376 /* MJRefreshBackGifFooter.m in Sources */,
 				D3FC8AA21DB37F51004282E6 /* ShareSDKHandle.m in Sources */,
 				D32BD2221D7D511900DB44DE /* YesterdayMode.m in Sources */,
 				D32A63FA1DC0DC7F006CF376 /* MJRefreshAutoNormalFooter.m in Sources */,
 				D3640C8B1D62F60B008049E4 /* CityListSectionView.m in Sources */,
 				D32BD21C1D7D4FDE00DB44DE /* DayMode.m in Sources */,
+				D338DBBE1DD9BFDE00935F5E /* MyCollectionViewController.m in Sources */,
 				D32C368D1D321B3300431829 /* NewsViewController.m in Sources */,
 				D34F50931D5470D0004B25C5 /* CityViewController.m in Sources */,
 				D3F230A41D911FE400697A6C /* TierManager.m in Sources */,
 				D32BD2131D7D4DCC00DB44DE /* WeatherMode.m in Sources */,
 				D32BD22B1D7D5C9F00DB44DE /* ZhishusMode.m in Sources */,
+				D338DBC11DD9C05A00935F5E /* MySubscribeViewController.m in Sources */,
 				D34ED57E1DCC72B800DDA6AC /* NewsTitleMode.m in Sources */,
 				D32A64031DC0DC7F006CF376 /* MJRefreshConst.m in Sources */,
 				D31AA0B01D46F3AE0036004A /* TierMode.m in Sources */,
@@ -1850,6 +1888,7 @@
 				D31408031DD4587F004CD256 /* DetailShareCell.m in Sources */,
 				D3D68BDF1DB4BFE7004E6D42 /* UserInfoModel.m in Sources */,
 				D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */,
+				D338DBBB1DD9BF7E00935F5E /* MyJoinViewController.m in Sources */,
 				D39E1C9A1DB7838A00EFFB07 /* OpenUDID.m in Sources */,
 				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
 				D319C88C1D38705D002A84F5 /* AdMode.m in Sources */,
@@ -1891,7 +1930,9 @@
 				D3533EB11D9A5EC800B6F1B1 /* InforMode.m in Sources */,
 				D32479651D8F8B6D004C7A7B /* WebViewController.m in Sources */,
 				D32A63F71DC0DC7F006CF376 /* MJRefreshFooter.m in Sources */,
+				D338DBB21DD9BD3100935F5E /* ReportViewController.m in Sources */,
 				D338DB9D1DD9962300935F5E /* CommentRelateMode.m in Sources */,
+				D338DBB81DD9BF0400935F5E /* MyMsgViewController.m in Sources */,
 				D314080D1DD46861004CD256 /* DetailPicAndContentFrame.m in Sources */,
 				D3CEF61B1D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.m in Sources */,
 				D32A64001DC0DC7F006CF376 /* MJRefreshNormalHeader.m in Sources */,
@@ -1939,6 +1980,7 @@
 				D3105CCA1DD2B3B600FE3A9D /* NewsTitleFrame.m in Sources */,
 				D338DBA31DD99BC600935F5E /* InheritCommentVoMode.m in Sources */,
 				D3EFC1D51DC713010097E2BC /* ApsModel.m in Sources */,
+				D338DBAF1DD9BC5700935F5E /* SearchViewController.m in Sources */,
 				D32BD2191D7D4FA900DB44DE /* WeatherItemMode.m in Sources */,
 				D3855BA31D9C285C00B15E27 /* MyListView.m in Sources */,
 				D32A64071DC0DC7F006CF376 /* UIView+MJExtension.m in Sources */,

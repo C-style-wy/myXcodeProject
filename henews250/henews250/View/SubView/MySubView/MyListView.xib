@@ -38,6 +38,9 @@
                                     <state key="highlighted" image="post_img_s">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="baoliaoBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="JTw-UZ-1hh"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -64,6 +67,9 @@
                                     <state key="highlighted" image="friends_s">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="shareFriendBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="lUd-kP-4Ti"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -90,6 +96,9 @@
                                     <state key="highlighted" image="sao_img_s">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="saoBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="DLe-aT-p00"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -116,6 +125,9 @@
                                     <state key="highlighted" image="search_s">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="searchBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vzm-gS-DoC"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
