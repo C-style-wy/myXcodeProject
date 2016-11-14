@@ -13,7 +13,7 @@
 #import "MacroDefinition.h"
 
 #define ContentFont [UIFont systemFontOfSize:16.5f]
-#define ContentPicSpace 15.0f
+#define ContentPicSpace 0
 #define ContentLineSpace 0
 
 @interface DetailPicAndContentFrame : NSObject

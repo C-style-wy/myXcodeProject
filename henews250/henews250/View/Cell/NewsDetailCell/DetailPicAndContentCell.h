@@ -18,4 +18,7 @@
 @property (nonatomic, retain) DetailPicAndContentFrame *detailPicAndContentFrame;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView indexpath:(NSIndexPath*)indexPath;
+
 @end

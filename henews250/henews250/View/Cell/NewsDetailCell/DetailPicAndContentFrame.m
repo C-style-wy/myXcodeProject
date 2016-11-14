@@ -24,19 +24,33 @@
     
     if (contentMode.content && ![contentMode.content isEqualToString:@""]) {
         
-        
         SHLUILabel *contentLabel = [[SHLUILabel alloc] init];
         contentLabel.linesSpacing = ContentLineSpace;
         contentLabel.font = ContentFont;
         contentLabel.text = contentMode.content;
         contentHeight = [contentLabel getAttributedStringHeightWidthValue:contentWidth];
-        _cellHeight = _cellHeight + contentHeight;
+        _cellHeight = _cellHeight + contentHeight + contentPicSpace;
     }else{
         contentPicSpace = 0;
     }
-    _textFrame = CGRectMake(0, 0, contentWidth, contentHeight);
+    _textFrame = CGRectMake(rightAndLeftPadding, 0, contentWidth, contentHeight);
+    CGFloat imageWidth = SCREEN_WIDTH - rightAndLeftPadding*2;
+    CGFloat imageHeight = 0;
+    if (contentMode.imageInfoList && contentMode.imageInfoList.count > 0) {
+        ImageInfoMode *imageInfo = [contentMode.imageInfoList objectAtIndex:0];
+        if (imageInfo.url && ![imageInfo.url isEqualToString:@""]) {
+            imageHeight = 200.0f;
+            
+            if (![imageInfo.width isEqualToString:@""]) {
+                float width = [imageInfo.width floatValue];
+                float height = [imageInfo.height floatValue];
+                imageHeight = (imageWidth*height)/width;
+            }
+        }
+        _cellHeight = _cellHeight + imageHeight + contentPicSpace;
+    }
     
-    
+    _imageFrame = CGRectMake(rightAndLeftPadding, contentHeight+contentPicSpace, imageWidth, imageHeight);
 }
 
 @end

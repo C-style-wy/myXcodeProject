@@ -24,13 +24,14 @@
         // 分享
         DetailShareMode *share = [[DetailShareMode alloc]initWithData:data];
         [self.newsSectionAry addObject:share];
-//        // 图文混排
-//        ContentMode *contentData = data.content;
-//        NSArray *newsContent = contentData.content;
-//        for (int i = 0; i < newsContent.count; i++) {
-//            SubContentMode *subContent = [newsContent objectAtIndex:i];
-//            [self.newsSectionAry addObject:subContent];
-//        }
+        // 图文混排
+        ContentMode *contentData = data.content;
+        NSArray *newsContent = contentData.content;
+        
+        for (int i = 0; i < newsContent.count; i++) {
+            SubContentMode *subContent = [newsContent objectAtIndex:i];
+            [self.newsSectionAry addObject:subContent];
+        }
 //        // 点赞
 //        SpotMode *spot = [[SpotMode alloc]init];
 //        [self.newsSectionAry addObject:spot];

@@ -14,7 +14,7 @@
 #import "MacroDefinition.h"
 #import "UILabel+NeedWidthAndHeight.h"
 
-#define TitleFont [UIFont systemFontOfSize:18]
+#define TitleFont [UIFont systemFontOfSize:20]
 #define SourceAndTimeFont [UIFont systemFontOfSize:12]
 #define TitleLineSpace 0
 

@@ -9,3 +9,4 @@
 #import "NewsSectionMode.h"
 #import "NewsTitleCell.h"
 #import "DetailShareCell.h"
+#import "DetailPicAndContentCell.h"

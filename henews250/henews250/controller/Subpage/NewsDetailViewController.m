@@ -63,12 +63,15 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
         _tableView = [[UITableView alloc]init];
         _tableView.backgroundColor = [UIColor clearColor];
         [self.view addSubview:_tableView];
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.offset(headerHeight);
-            make.leading.offset(0);
-            make.trailing.offset(0);
-            make.bottom.offset(35.5);
-        }];
+//        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.offset(headerHeight);
+//            make.leading.offset(0);
+//            make.trailing.offset(0);
+//            make.bottom.offset(35.5);
+//        }];
+        
+        _tableView.frame = CGRectMake(0, headerHeight, SCREEN_WIDTH, SCREEN_HEIGHT-headerHeight-35.5f);
+        
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -135,6 +138,14 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
             }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[DetailShareMode class]]) {
                 DetailShareCell *cell = [DetailShareCell cellWithTableView:tableView];
                 return cell;
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[SubContentMode class]]){
+                SubContentMode *contentData = [ary objectAtIndex:indexPath.row];
+                DetailPicAndContentFrame *frame = [[DetailPicAndContentFrame alloc]init];
+                frame.contentMode = contentData;
+                
+                DetailPicAndContentCell *cell = [DetailPicAndContentCell cellWithTableView:tableView indexpath:indexPath];
+                cell.detailPicAndContentFrame = frame;
+                return cell;
             }
         }
             break;
@@ -145,9 +156,9 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
     return nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100.0f;
-}
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 100.0f;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NewsSectionMode *sectionMode = [self.pageData objectAtIndex:indexPath.section];
@@ -161,6 +172,11 @@ static NSString * const NewsDetailTag = @"NewsDetailTag";
                 return titleFrame.cellHeight;
             }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[DetailShareMode class]]) {
                 return SCREEN_WIDTH*61.0f/320.0f;
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[SubContentMode class]]){
+                SubContentMode *contentData = [ary objectAtIndex:indexPath.row];
+                DetailPicAndContentFrame *frame = [[DetailPicAndContentFrame alloc]init];
+                frame.contentMode = contentData;
+                return frame.cellHeight;
             }
         }
             break;
