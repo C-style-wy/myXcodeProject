@@ -12,7 +12,10 @@
 #import "SHLUILabel.h"
 #import "MacroDefinition.h"
 
-#define ContentFont [UIFont systemFontOfSize:17.0f]
+//#define ContentFont [UIFont systemFontOfSize:17.0f]
+#define ContentFont [UIFont fontWithName:@"KaiTi_GB2312" size:17.0f]
+//#define ContentFont [UIFont fontWithName:@"SimSun" size:17.0f]
+
 #define ContentPicSpace 0
 #define ContentLineSpace 2.0f
 

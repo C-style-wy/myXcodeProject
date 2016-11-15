@@ -10,6 +10,8 @@
 		752A34D4FC99409B88A1EA77 /* libPods-henews250.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06F7740EE8032606215613 /* libPods-henews250.a */; };
 		D30741A81D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D30741A71D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m */; };
 		D30C75D71D35D0FD00248DE0 /* UIColor+hexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D30C75D61D35D0FD00248DE0 /* UIColor+hexColor.m */; };
+		D30D35BA1DDAA20200697020 /* 楷体GB2312.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D30D35B91DDAA1D400697020 /* 楷体GB2312.ttf */; };
+		D30D35BC1DDAA40500697020 /* simsun.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D30D35BB1DDAA3F000697020 /* simsun.ttf */; };
 		D30E09481D40550E00954670 /* TagMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E09471D40550E00954670 /* TagMode.m */; };
 		D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30E094A1D406B0C00954670 /* ThreeSmallPicCell.m */; };
 		D30E094D1D406B0C00954670 /* ThreeSmallPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30E094B1D406B0C00954670 /* ThreeSmallPicCell.xib */; };
@@ -251,6 +253,8 @@
 		D30741A71D50730300E4E394 /* DGReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		D30C75D51D35D0FD00248DE0 /* UIColor+hexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexColor.h"; sourceTree = "<group>"; };
 		D30C75D61D35D0FD00248DE0 /* UIColor+hexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexColor.m"; sourceTree = "<group>"; };
+		D30D35B91DDAA1D400697020 /* 楷体GB2312.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "楷体GB2312.ttf"; sourceTree = "<group>"; };
+		D30D35BB1DDAA3F000697020 /* simsun.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = simsun.ttf; sourceTree = "<group>"; };
 		D30E09461D40550E00954670 /* TagMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagMode.h; sourceTree = "<group>"; };
 		D30E09471D40550E00954670 /* TagMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagMode.m; sourceTree = "<group>"; };
 		D30E09491D406B0C00954670 /* ThreeSmallPicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeSmallPicCell.h; sourceTree = "<group>"; };
@@ -976,6 +980,8 @@
 		D3276ACE1D2A681A00A249C9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D30D35BB1DDAA3F000697020 /* simsun.ttf */,
+				D30D35B91DDAA1D400697020 /* 楷体GB2312.ttf */,
 				D32A63C51DC0DC7F006CF376 /* MJRefresh */,
 				D3D326BA1DB89D82005E807E /* SHLUILabel */,
 				D3D326B61DB89CD9005E807E /* Dialog */,
@@ -1710,6 +1716,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30D35BC1DDAA40500697020 /* simsun.ttf in Resources */,
+				D30D35BA1DDAA20200697020 /* 楷体GB2312.ttf in Resources */,
 				D3640C8D1D62F618008049E4 /* CityListSectionView.xib in Resources */,
 				D3640C881D62F3BF008049E4 /* CityListCell.xib in Resources */,
 				D3855BA51D9C286A00B15E27 /* MyListView.xib in Resources */,

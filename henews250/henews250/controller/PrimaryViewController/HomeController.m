@@ -34,6 +34,14 @@ static NSString * const requestChangeDataTag = @"changeData";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPage];
+//    for (NSString *fontFamilyName in [UIFont familyNames]) {
+//        NSLog(@"--- %@ ---", fontFamilyName);
+//        for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) {
+//            NSLog(@"  %@", fontName);
+//        }
+//        
+//        NSLog(@"   ");
+//    }
 }
 
 
