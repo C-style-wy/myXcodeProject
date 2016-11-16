@@ -12,7 +12,8 @@
 @interface SubContentMode : BaseMode
 
 @property (nonatomic, strong) NSString * content;
-
 @property (strong, nonatomic) NSArray *imageInfoList;
+
+- (void)handleContent;
 
 @end

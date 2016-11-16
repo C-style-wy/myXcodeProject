@@ -8,11 +8,13 @@
 
 #import "BannerCell.h"
 #import "UIView+SetAllSubViewHidden.h"
+#import "NewsCellFactory.h"
 
 @implementation BannerCell {
     NSMutableArray *_banners;
     NSInteger _currentPage;
     CGFloat _beginScrollX;
+    UINavigationController *_navigation;
 }
 
 - (void)awakeFromNib {
@@ -40,11 +42,15 @@
     [super prepareForReuse];
 }
 
-- (void)setNews:(NSMutableArray *)banners hiddenLine:(BOOL)hidden {
+- (void)setNews:(NSMutableArray *)banners hiddenLine:(BOOL)hidden navigation:(UINavigationController *)navigation{
+    _navigation = navigation;
     if (banners && banners.count > 0) {
         _banners = banners;
         _currentPage = 0;
         [self.bannerScrol.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickAction)];
+        [self.bannerScrol addGestureRecognizer:tapGestureRecognizer];
         self.bannerScrol.contentOffset = CGPointMake(0, 0);
         for (int i = 0; i < _banners.count; i++) {
             BannerMode *banner = [_banners objectAtIndex:i];
@@ -60,6 +66,11 @@
     }
     _line.hidden = hidden;
     [self layoutIfNeeded];
+}
+
+- (void)clickAction {
+    BannerMode *bannerData = [_banners objectAtIndex:_currentPage];
+    [[NewsCellFactory shareInstance] goNewPageWithType:[bannerData.newsType intValue] url:bannerData.url param:nil navigation:_navigation];
 }
 
 - (void)setScrollerAction {

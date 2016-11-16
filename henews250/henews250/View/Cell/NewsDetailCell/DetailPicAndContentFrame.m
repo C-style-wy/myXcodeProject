@@ -47,7 +47,7 @@
                 imageHeight = (imageWidth*height)/width;
             }
         }
-        _cellHeight = _cellHeight + imageHeight + contentPicSpace;
+        _cellHeight = _cellHeight + imageHeight + ContentPicSpace;
     }
     
     _imageFrame = CGRectMake(rightAndLeftPadding, contentHeight+contentPicSpace, imageWidth, imageHeight);

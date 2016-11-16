@@ -28,6 +28,7 @@
     if (cell == nil) {
         cell = [[NewsTitleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

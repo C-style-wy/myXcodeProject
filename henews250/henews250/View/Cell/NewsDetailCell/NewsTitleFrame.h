@@ -16,7 +16,8 @@
 
 //#define TitleFont [UIFont systemFontOfSize:20]
 #define TitleFont [UIFont fontWithName:@"SimSun" size:20]
-#define SourceAndTimeFont [UIFont systemFontOfSize:12]
+//#define SourceAndTimeFont [UIFont systemFontOfSize:12]
+#define SourceAndTimeFont [UIFont fontWithName:@"SimSun" size:12]
 #define TitleLineSpace 0
 
 @interface NewsTitleFrame : NSObject

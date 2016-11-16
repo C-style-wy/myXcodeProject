@@ -321,7 +321,7 @@ static NSString * const requestChangeDataTag = @"changeData";
     }else{
         NSMutableArray *banners = [self.tableViewData objectAtIndex:indexPath.section];
         BannerCell *cell = [BannerCell cellWithTableView:tableView];
-        [cell setNews:banners hiddenLine:YES];
+        [cell setNews:banners hiddenLine:YES navigation:self.navigationController];
         return cell;
     }
 }

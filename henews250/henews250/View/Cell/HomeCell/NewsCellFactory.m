@@ -176,89 +176,89 @@
     }
 }
 
-- (void)didSelectRowAtIndexPath:(NewsMode*)news navigation:(UINavigationController *)navigation {
-    switch ([news.newsType intValue]) {
+- (void)goNewPageWithType:(int)newsType url:(NSString *)url param:(id)param navigation:(UINavigationController *)navigation {
+    switch (newsType) {
             //0:文字
         case TypeNews:{
             NewsDetailViewController *newsDetail = [NewsDetailViewController loadFromStoryboard];
-            newsDetail.url = news.url;
+            newsDetail.url = url;
             [navigation pushViewController:newsDetail animated:YES];
             break;
         }
             //1:视频
         case TypeVideo:{
             VideoViewController *videoDetail = [VideoViewController loadFromStoryboard];
-            videoDetail.url = news.url;
+            videoDetail.url = url;
             [navigation pushViewController:videoDetail animated:YES];
             break;
         }
             //2:视频新闻
         case TypeVideoNews:{
             NewsDetailViewController *newsDetail = [NewsDetailViewController loadFromStoryboard];
-            newsDetail.url = news.url;
+            newsDetail.url = url;
             [navigation pushViewController:newsDetail animated:YES];
             break;
         }
             //3:专题
         case TypeTopic:{
             TopicViewController *topicDetail = [TopicViewController loadFromStoryboard];
-            topicDetail.url = news.url;
+            topicDetail.url = url;
             [navigation pushViewController:topicDetail animated:YES];
             break;
         }
             //4:图集
         case TypePic:{
             PicViewController *picDetail = [PicViewController loadFromStoryboard];
-            picDetail.url = news.url;
+            picDetail.url = url;
             [navigation pushViewController:picDetail animated:YES];
             break;
         }
             //5:外链
         case TypeWeb:{
             WebViewController *webDetail = [WebViewController loadFromStoryboard];
-            webDetail.url = news.url;
+            webDetail.url = url;
             [navigation pushViewController:webDetail animated:YES];
             break;
         }
             //6：活动
         case TypeActivity:{
             ActivityViewController *activityDetail = [ActivityViewController loadFromStoryboard];
-            activityDetail.url = news.url;
+            activityDetail.url = url;
             [navigation pushViewController:activityDetail animated:YES];
             break;
         }
             //7: 直播
         case TypeLive:{
             LiveViewController *liveDetail = [LiveViewController loadFromStoryboard];
-            liveDetail.url = news.url;
+            liveDetail.url = url;
             [navigation pushViewController:liveDetail animated:YES];
             break;
         }
             //8:文字
         case TypeNews8:{
             NewsDetailViewController *newsDetail = [NewsDetailViewController loadFromStoryboard];
-            newsDetail.url = news.url;
+            newsDetail.url = url;
             [navigation pushViewController:newsDetail animated:YES];
             break;
         }
             //9: 活动类型3pink
         case TypePinkActivity:{
             PinkactivityViewController *pinkDetail = [PinkactivityViewController loadFromStoryboard];
-            pinkDetail.url = news.url;
+            pinkDetail.url = url;
             [navigation pushViewController:pinkDetail animated:YES];
             break;
         }
             //10: 杂志
         case TypeMagazine:{
             MagazineViewController *magazineDetail = [MagazineViewController loadFromStoryboard];
-            magazineDetail.url = news.url;
+            magazineDetail.url = url;
             [navigation pushViewController:magazineDetail animated:YES];
             break;
         }
             //11: 期刊
         case TypePeriodical:{
             PeriodicalViewController *periodicalDetail = [PeriodicalViewController loadFromStoryboard];
-            periodicalDetail.url = news.url;
+            periodicalDetail.url = url;
             [navigation pushViewController:periodicalDetail animated:YES];
             break;
         }
@@ -271,5 +271,9 @@
             break;
         }
     }
+}
+
+- (void)didSelectRowAtIndexPath:(NewsMode*)news navigation:(UINavigationController *)navigation {
+    [self goNewPageWithType:[news.newsType intValue] url:news.url param:nil navigation:navigation];
 }
 @end

@@ -16,8 +16,8 @@
 #define ContentFont [UIFont fontWithName:@"KaiTi_GB2312" size:17.0f]
 //#define ContentFont [UIFont fontWithName:@"SimSun" size:17.0f]
 
-#define ContentPicSpace 0
-#define ContentLineSpace 2.0f
+#define ContentPicSpace 9.0f
+#define ContentLineSpace 5.0f
 
 @interface DetailPicAndContentFrame : NSObject
 

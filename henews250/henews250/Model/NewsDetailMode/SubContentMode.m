@@ -16,4 +16,14 @@
              };
 }
 
+- (void)handleContent {
+    if (self.content && ![self.content isEqualToString:@""]) {
+        self.content = [self.content stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        self.content = [self.content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];  //去除掉首尾的空白字符和换行字符
+//        self.content = [self.content stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+//        self.content = [self.content stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    }
+}
+
 @end

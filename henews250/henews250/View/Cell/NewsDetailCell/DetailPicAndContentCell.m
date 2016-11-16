@@ -37,6 +37,7 @@
     if (cell == nil) {
         cell = [[DetailPicAndContentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

@@ -70,5 +70,7 @@
 
 - (void)didSelectRowAtIndexPath:(NodeMode *)modul row:(NSInteger)row navigation:(UINavigationController *)navigation;
 
+- (void)goNewPageWithType:(int)newsType url:(NSString *)url param:(id)param navigation:(UINavigationController *)navigation;
+
 - (void)didSelectRowAtIndexPath:(NewsMode*)news navigation:(UINavigationController *)navigation;
 @end

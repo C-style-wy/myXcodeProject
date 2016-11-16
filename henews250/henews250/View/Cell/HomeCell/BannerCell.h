@@ -30,5 +30,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *line;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
-- (void)setNews:(NSMutableArray *)banners hiddenLine:(BOOL)hidden;
+- (void)setNews:(NSMutableArray *)banners hiddenLine:(BOOL)hidden navigation:(UINavigationController *)navigation;
 @end

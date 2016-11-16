@@ -30,6 +30,7 @@
         
         for (int i = 0; i < newsContent.count; i++) {
             SubContentMode *subContent = [newsContent objectAtIndex:i];
+            [subContent handleContent];
             [self.newsSectionAry addObject:subContent];
         }
 //        // 点赞

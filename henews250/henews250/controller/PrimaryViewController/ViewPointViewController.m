@@ -466,7 +466,7 @@ static NSString * const requestAddNewsDataTag = @"addNewsData";
     }else{
         NSMutableArray *banners = [tempAry objectAtIndex:indexPath.row];
         BannerCell *cell = [BannerCell cellWithTableView:tableView];
-        [cell setNews:banners hiddenLine:YES];
+        [cell setNews:banners hiddenLine:YES navigation:self.navigationController];
         return cell;
     }
 }
