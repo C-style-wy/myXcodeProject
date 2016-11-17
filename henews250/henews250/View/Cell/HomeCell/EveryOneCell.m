@@ -46,7 +46,9 @@
                 [self.image loadFromWebWithUrlString:image.imageUrl animated:YES];
             }
         }
-        
+        if ([[ReadRecordManage shareInstance] isAlreadyReadWithId:_news.newsId]) {
+            self.title.textColor = ReadColor;
+        }
         if (_news.newsTitle && ![_news.newsTitle isEqualToString:@""]) {
             if ([_title needHeightWithText:_news.newsTitle] > 18) {
                 self.titleHeight.constant = 36.0f;

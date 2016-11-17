@@ -65,6 +65,11 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
         self.commentRelateMode = [CommentRelateMode mj_objectWithKeyValues:returnJson];
         self.commentLabel.text = [self.commentRelateMode.commentNum stringByAppendingString:@"评论"];
         
+        if ([self.commentRelateMode.isFavorited isEqualToString:@"1"]) {
+            self.collectionBtn.selected = YES;
+        }else{
+            self.collectionBtn.selected = NO;
+        }
     }
 }
 
@@ -319,6 +324,27 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)collectionBtnAction:(id)sender {
+    if (self.collectionBtn.selected) {
+        [NetworkManager postRequestJsonWithURL:self.newsDetailData.deleteFavoriteUrl params:nil cacheBlock:^(NSDictionary *returnJson) {
+            
+        } successBlock:^(NSDictionary *returnJson) {
+            if ([[returnJson objectForKey:@"resultCode"] isEqualToString:@"1"]) {
+                self.collectionBtn.selected = NO;
+            }
+        } failureBlock:^(NSError *error) {
+            
+        } showHUD:NO];
+    }else{
+        [NetworkManager postRequestJsonWithURL:self.newsDetailData.addFavoriteUrl params:nil cacheBlock:^(NSDictionary *returnJson) {
+            
+        } successBlock:^(NSDictionary *returnJson) {
+            if ([[returnJson objectForKey:@"resultCode"] isEqualToString:@"1"]) {
+                self.collectionBtn.selected = YES;
+            }
+        } failureBlock:^(NSError *error) {
+            
+        } showHUD:NO];
+    }
 }
 - (IBAction)nightBtnAction:(id)sender {
 }

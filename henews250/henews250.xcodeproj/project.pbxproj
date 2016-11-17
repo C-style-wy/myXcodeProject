@@ -201,6 +201,7 @@
 		D3C215CC1DDD516C0002F21D /* NoCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C215CB1DDD516C0002F21D /* NoCommentCell.m */; };
 		D3C215CF1DDD538B0002F21D /* DetailCommentSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C215CE1DDD538B0002F21D /* DetailCommentSection.m */; };
 		D3C215D11DDD53990002F21D /* DetailCommentSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C215D01DDD53990002F21D /* DetailCommentSection.xib */; };
+		D3C215D41DDD98A80002F21D /* ReadRecordManage.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C215D31DDD98A80002F21D /* ReadRecordManage.m */; };
 		D3C2A2691DACC71A003A3B92 /* GoodsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C2A2681DACC71A003A3B92 /* GoodsListModel.m */; };
 		D3C2A26C1DACC84C003A3B92 /* AreaListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C2A26B1DACC84C003A3B92 /* AreaListModel.m */; };
 		D3C2A26F1DACC964003A3B92 /* WelfareBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C2A26E1DACC964003A3B92 /* WelfareBannerModel.m */; };
@@ -624,6 +625,8 @@
 		D3C215CD1DDD538B0002F21D /* DetailCommentSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCommentSection.h; sourceTree = "<group>"; };
 		D3C215CE1DDD538B0002F21D /* DetailCommentSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCommentSection.m; sourceTree = "<group>"; };
 		D3C215D01DDD53990002F21D /* DetailCommentSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCommentSection.xib; sourceTree = "<group>"; };
+		D3C215D21DDD98A80002F21D /* ReadRecordManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadRecordManage.h; sourceTree = "<group>"; };
+		D3C215D31DDD98A80002F21D /* ReadRecordManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadRecordManage.m; sourceTree = "<group>"; };
 		D3C2A2671DACC71A003A3B92 /* GoodsListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListModel.h; sourceTree = "<group>"; };
 		D3C2A2681DACC71A003A3B92 /* GoodsListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListModel.m; sourceTree = "<group>"; };
 		D3C2A26A1DACC84C003A3B92 /* AreaListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaListModel.h; sourceTree = "<group>"; };
@@ -919,6 +922,8 @@
 				D32BD20B1D7D040C00DB44DE /* HomeWeatherCell.h */,
 				D32BD20C1D7D040C00DB44DE /* HomeWeatherCell.m */,
 				D32BD20D1D7D040C00DB44DE /* HomeWeatherCell.xib */,
+				D3C215D21DDD98A80002F21D /* ReadRecordManage.h */,
+				D3C215D31DDD98A80002F21D /* ReadRecordManage.m */,
 			);
 			path = HomeCell;
 			sourceTree = "<group>";
@@ -1898,6 +1903,7 @@
 				D3EB39321DAB1DB2006588E5 /* HenewsRefreshHeader.m in Sources */,
 				D32BD2161D7D4EBC00DB44DE /* EnvironmentMode.m in Sources */,
 				D30E094C1D406B0C00954670 /* ThreeSmallPicCell.m in Sources */,
+				D3C215D41DDD98A80002F21D /* ReadRecordManage.m in Sources */,
 				D3C1D9251DC8678300CEAC18 /* VideosMode.m in Sources */,
 				D33D463C1DB8590C005E389D /* MYLoading.m in Sources */,
 				D3C4EC641D485F1D002D4BC9 /* TierManageView.m in Sources */,

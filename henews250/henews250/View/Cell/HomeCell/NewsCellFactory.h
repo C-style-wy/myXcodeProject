@@ -24,6 +24,8 @@
 #import "MagazineViewController.h"
 #import "PeriodicalViewController.h"
 
+#import "ReadRecordManage.h"
+
 //新闻展示样式
 #define OnlyWordNews        0     //只含文字
 #define OneBigPicNews       1     //单张大图
@@ -68,9 +70,13 @@
 
 - (NSInteger)getNumberOfRowsInSection:(NodeMode *)modul;
 
+- (void)didSelectRowAtIndexPath:(NodeMode *)modul indexPath:(NSIndexPath*)indexPath tableView:(UITableView *)tableView navigation:(UINavigationController *)navigation;
+
 - (void)didSelectRowAtIndexPath:(NodeMode *)modul row:(NSInteger)row navigation:(UINavigationController *)navigation;
 
 - (void)goNewPageWithType:(int)newsType url:(NSString *)url param:(id)param navigation:(UINavigationController *)navigation;
 
 - (void)didSelectRowAtIndexPath:(NewsMode*)news navigation:(UINavigationController *)navigation;
+
+- (void)didSelectRowAtIndexPath:(NSIndexPath*)indexPath news:(NewsMode*)news tableView:(UITableView *)tableView navigation:(UINavigationController *)navigation;
 @end

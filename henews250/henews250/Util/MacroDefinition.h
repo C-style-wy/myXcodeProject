@@ -90,6 +90,8 @@ typedef enum _iPhoneType {
 // clear背景颜色
 #define LRClearColor [UIColor clearColor]
 
+#define ReadColor [UIColor colorWithHexColor:@"#999999"]
+
 #define MainColor ([UIColor colorWithHexColor:@"#e40177"])
 
 #define TEXTWIDTH(str, attribute, h) ([(str) boundingRectWithSize:CGSizeMake(MAXFLOAT, (h)) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size.width)

@@ -14,6 +14,8 @@
 #import "UIImageView+LoadFromWeb.h"
 #import "UILabel+NeedWidthAndHeight.h"
 
+#import "ReadRecordManage.h"
+
 //新闻类型
 #define NewsTypeVideo       1      //视频
 #define NewsTypeVideonews   2      //视频新闻

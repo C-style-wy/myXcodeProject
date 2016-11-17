@@ -49,6 +49,9 @@
 - (void)setNews:(NewsMode *)news hiddenLine:(BOOL)hidden isShortLine:(BOOL)isShort {
     _news = news;
     if (_news) {
+        if ([[ReadRecordManage shareInstance] isAlreadyReadWithId:_news.newsId]) {
+            self.title.textColor = ReadColor;
+        }
         if (_news.newsTitle && ![_news.newsTitle isEqualToString:@""]) {
             if ([_title needHeightWithText:_news.newsTitle] > 18) {
                 self.titleHeight.constant = 36.0f;

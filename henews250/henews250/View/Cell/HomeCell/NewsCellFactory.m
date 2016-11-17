@@ -169,6 +169,27 @@
     }
 }
 
+- (void)didSelectRowAtIndexPath:(NodeMode *)modul indexPath:(NSIndexPath*)indexPath tableView:(UITableView *)tableView navigation:(UINavigationController *)navigation {
+    if ([[modul.newsList objectAtIndex:indexPath.row] isKindOfClass:[NewsMode class]]) {
+        NewsMode *news = [modul.newsList objectAtIndex:indexPath.row];
+        [self handleReadNews:news tableView:tableView indexPath:indexPath];
+    }
+    
+    [self didSelectRowAtIndexPath:modul row:indexPath.row navigation:navigation];
+}
+
+- (void)didSelectRowAtIndexPath:(NSIndexPath*)indexPath news:(NewsMode*)news tableView:(UITableView *)tableView navigation:(UINavigationController *)navigation {
+    [self handleReadNews:news tableView:tableView indexPath:indexPath];
+    [self didSelectRowAtIndexPath:news navigation:navigation];
+}
+
+- (void)handleReadNews:(NewsMode*)news tableView:(UITableView *)tableView indexPath:(NSIndexPath*)indexPath{
+    if ([news.newsType intValue] != TypeTopic) {
+        [[ReadRecordManage shareInstance]saveReadNewsWithId:news.newsId];
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
 - (void)didSelectRowAtIndexPath:(NodeMode *)modul row:(NSInteger)row navigation:(UINavigationController *)navigation{
     if ([modul.displayType intValue] != WeatherMode) {
         NewsMode *news = [modul.newsList objectAtIndex:row];

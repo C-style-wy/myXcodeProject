@@ -343,7 +343,7 @@ static NSString * const requestChangeDataTag = @"changeData";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([[self.tableViewData objectAtIndex:indexPath.section] isKindOfClass:[NodeMode class]]) {
         NodeMode *modul = [self.tableViewData objectAtIndex:indexPath.section];
-        [[NewsCellFactory shareInstance]didSelectRowAtIndexPath:modul row:indexPath.row navigation:self.navigationController];
+        [[NewsCellFactory shareInstance]didSelectRowAtIndexPath:modul indexPath:indexPath tableView:tableView navigation:self.navigationController];
     }
 }
 

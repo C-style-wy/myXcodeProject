@@ -486,7 +486,7 @@ static NSString * const requestAddNewsDataTag = @"addNewsData";
     NSMutableArray *tempAry = (NSMutableArray*)[[self.classInfoAry objectAtIndex:tableView.tag] loadData];
     if ([[tempAry objectAtIndex:indexPath.row] isKindOfClass:[NewsMode class]]) {
         NewsMode *news = [tempAry objectAtIndex:indexPath.row];
-        [[NewsCellFactory shareInstance]didSelectRowAtIndexPath:news navigation:self.navigationController];
+        [[NewsCellFactory shareInstance]didSelectRowAtIndexPath:indexPath news:news tableView:tableView navigation:self.navigationController];
     }
 }
 
