@@ -47,7 +47,6 @@ static NSString * const ReadRecordKey = @"ReadRecordKey";
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSData *data = [user objectForKey:ReadRecordKey];
     NSMutableDictionary *record = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
     if ([record objectForKey:newsId] && [[record objectForKey:newsId] isEqualToString:@"1"]) {
         return YES;
     }else{

@@ -63,6 +63,8 @@
         }
         if ([[ReadRecordManage shareInstance] isAlreadyReadWithId:_news.newsId]) {
             self.title.textColor = ReadColor;
+        }else{
+            self.title.textColor = TitleNorColor;
         }
         if (_news.newsTitle && ![_news.newsTitle isEqualToString:@""]) {
             self.title.text = _news.newsTitle;

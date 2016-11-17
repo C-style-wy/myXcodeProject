@@ -91,6 +91,7 @@ typedef enum _iPhoneType {
 #define LRClearColor [UIColor clearColor]
 
 #define ReadColor [UIColor colorWithHexColor:@"#999999"]
+#define TitleNorColor [UIColor colorWithHexColor:@"#1e1e1e"]
 
 #define MainColor ([UIColor colorWithHexColor:@"#e40177"])
 

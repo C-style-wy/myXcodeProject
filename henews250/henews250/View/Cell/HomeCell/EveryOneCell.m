@@ -48,6 +48,8 @@
         }
         if ([[ReadRecordManage shareInstance] isAlreadyReadWithId:_news.newsId]) {
             self.title.textColor = ReadColor;
+        }else{
+            self.title.textColor = TitleNorColor;
         }
         if (_news.newsTitle && ![_news.newsTitle isEqualToString:@""]) {
             if ([_title needHeightWithText:_news.newsTitle] > 18) {
