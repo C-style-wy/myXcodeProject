@@ -56,8 +56,10 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
         [self.pageData addObject:newsSection];
         NewsSectionMode *commentSection = [[NewsSectionMode alloc]initWithCommentData:self.newsDetailData];
         [self.pageData addObject:commentSection];
-        NewsSectionMode *relationSection = [[NewsSectionMode alloc]initWithRelateContsData:self.newsDetailData];
-        [self.pageData addObject:relationSection];
+        if (self.newsDetailData.relateConts && self.newsDetailData.relateConts.count > 0) {
+            NewsSectionMode *relationSection = [[NewsSectionMode alloc]initWithRelateContsData:self.newsDetailData];
+            [self.pageData addObject:relationSection];
+        }
         [self.tableView reloadData];
     }else if ([tag isEqualToString:NewsCommentTag]) {
         self.commentRelateMode = [CommentRelateMode mj_objectWithKeyValues:returnJson];

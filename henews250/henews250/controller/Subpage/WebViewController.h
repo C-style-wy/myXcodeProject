@@ -8,8 +8,11 @@
 
 #import "SubBaseViewController.h"
 
-@interface WebViewController : SubBaseViewController
+@interface WebViewController : SubBaseViewController<UIWebViewDelegate>
 
 @property (nonatomic, assign) BOOL isWebLinkUrl;
+@property (nonatomic, retain) UIWebView *webView;
+@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, assign) BOOL hideShareButton;
 
 @end
