@@ -134,5 +134,9 @@
  *      评论列表接口
  */
 #define DEF_GetCommentListUrl    PATH(@"%@/publish/clt/resource/portal/v2/commentList.jsp?objectId=")
+/**
+ *      我的收藏接口
+ */
+#define DEF_GetMyCollectionUrl    PATH(@"%@/clt/getFavoriteList.msp?page=1&limit=10&isSynchronized=1")
 
 #endif /* NetworkUrl_h */

@@ -28,6 +28,13 @@
     [super initPage];
     self.pageTitle.text = @"我的收藏";
     self.pageShareBtn.hidden = YES;
+    [NetworkManager postRequestJsonWithURL:DEF_GetMyCollectionUrl params:nil cacheBlock:^(NSDictionary *returnJson) {
+        
+    } successBlock:^(NSDictionary *returnJson) {
+        
+    } failureBlock:^(NSError *error) {
+        
+    } showHUD:YES];
 }
 
 @end
