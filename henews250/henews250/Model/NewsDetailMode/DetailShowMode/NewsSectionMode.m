@@ -33,9 +33,41 @@
             [subContent handleContent];
             [self.newsSectionAry addObject:subContent];
         }
-//        // 点赞
-//        SpotMode *spot = [[SpotMode alloc]init];
-//        [self.newsSectionAry addObject:spot];
+        
+        if (data && data.content && data.content.link && ![data.content.link isEqualToString:@""]) {
+            LinkReadMode *linkReadData = [[LinkReadMode alloc]initWithData:data];
+            [self.newsSectionAry addObject:linkReadData];
+        }
+        // 点赞
+        SpotMode *spot = [[SpotMode alloc]init];
+        [self.newsSectionAry addObject:spot];
+    }
+    return self;
+}
+
+- (NewsSectionMode *)initWithCommentData:(NewsDetailMode *)data {
+    self = [super init];
+    if (self) {
+        self.sectionType = SectionTypeComment;
+        if (!self.newsSectionAry) {
+            self.newsSectionAry = [[NSMutableArray alloc]init];
+        }
+        [self.newsSectionAry removeAllObjects];
+        NSString *loadingStr = @"正在获取评论数据...";
+        [self.newsSectionAry addObject:loadingStr];
+    }
+    return self;
+}
+
+- (NewsSectionMode *)initWithRelateContsData:(NewsDetailMode *)data {
+    self = [super init];
+    if (self) {
+        self.sectionType = SectionTypeRecommend;
+        if (!self.newsSectionAry) {
+            self.newsSectionAry = [[NSMutableArray alloc]init];
+        }
+        [self.newsSectionAry removeAllObjects];
+        self.newsSectionAry = [data.relateConts copy];
     }
     return self;
 }

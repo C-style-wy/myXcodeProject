@@ -12,5 +12,5 @@
 
 @property (nonatomic, strong) NSString * goodTimes;
 @property (nonatomic, strong) NSString * badTimes;
-
+@property (nonatomic, strong) NSString * contentVoteUrl;
 @end

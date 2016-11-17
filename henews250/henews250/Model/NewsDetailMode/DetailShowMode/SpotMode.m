@@ -13,8 +13,9 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.goodTimes = @"";
-        self.badTimes = @"";
+        self.goodTimes = @"0";
+        self.badTimes = @"0";
+        self.contentVoteUrl = @"";
     }
     return self;
 }

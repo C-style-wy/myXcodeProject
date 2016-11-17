@@ -9,6 +9,8 @@
 #import "NewsDetailViewController.h"
 #import "DetailShowMode.h"
 #import "CommentListViewController.h"
+#import "WebViewController.h"
+#import "NewsCellFactory.h"
 
 
 static NSString * const NewsDetailTag = @"NewsDetailTag";
@@ -52,7 +54,10 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
         
         NewsSectionMode *newsSection = [[NewsSectionMode alloc]initWithData:self.newsDetailData];
         [self.pageData addObject:newsSection];
-        
+        NewsSectionMode *commentSection = [[NewsSectionMode alloc]initWithCommentData:self.newsDetailData];
+        [self.pageData addObject:commentSection];
+        NewsSectionMode *relationSection = [[NewsSectionMode alloc]initWithRelateContsData:self.newsDetailData];
+        [self.pageData addObject:relationSection];
         [self.tableView reloadData];
     }else if ([tag isEqualToString:NewsCommentTag]) {
         self.commentRelateMode = [CommentRelateMode mj_objectWithKeyValues:returnJson];
@@ -83,6 +88,7 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
 //            make.bottom.offset(35.5);
 //        }];
         _tableView.frame = CGRectMake(0, headerHeight, SCREEN_WIDTH, SCREEN_HEIGHT-headerHeight-35.5f);
+        _tableView.contentSize = CGSizeMake(_tableView.bounds.size.width, _tableView.bounds.size.height);
         
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -110,6 +116,16 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
             return nil;
         }
             break;
+        case SectionTypeComment:{
+            DetailCommentSection *sectionView = [[DetailCommentSection loadFromNib] initWithSectionType:SectionTypeComment];
+            return sectionView;
+        }
+            break;
+        case SectionTypeRecommend:{
+            DetailCommentSection *sectionView = [[DetailCommentSection loadFromNib] initWithSectionType:SectionTypeRecommend];
+            return sectionView;
+        }
+            break;
         default:
             return nil;
             break;
@@ -121,6 +137,14 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
     switch (sectionMode.sectionType) {
         case SectionTypeNews:{
             return 0;
+        }
+            break;
+        case SectionTypeComment:{
+            return SCREEN_WIDTH*43.5f/320.0f;
+        }
+            break;
+        case SectionTypeRecommend:{
+            return SCREEN_WIDTH*43.5f/320.0f;
         }
             break;
         default:
@@ -158,6 +182,37 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
                 DetailPicAndContentCell *cell = [DetailPicAndContentCell cellWithTableView:tableView indexpath:indexPath];
                 cell.detailPicAndContentFrame = frame;
                 return cell;
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[LinkReadMode class]]){
+                LinkReadCell *cell = [LinkReadCell cellWithTableView:tableView];
+                return cell;
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[SpotMode class]]){
+                DetailDingCaiCell *cell = [DetailDingCaiCell cellWithTableView:tableView];
+                return cell;
+            }
+            
+        }
+            break;
+        case SectionTypeComment:{
+            NSMutableArray *ary = sectionMode.newsSectionAry;
+            if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
+                NoCommentCell *cell = [NoCommentCell cellWithTableView:tableView];
+                return cell;
+            }
+        }
+            break;
+        case SectionTypeRecommend:{
+            NSMutableArray *ary = sectionMode.newsSectionAry;
+            if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[NewsMode class]]) {
+                NewsMode *newsData = [ary objectAtIndex:indexPath.row];
+                if (newsData.images && newsData.images.count > 0) {
+                    OneSmallPicCell *cell = [OneSmallPicCell cellWithTableView:tableView];
+                    [cell setNews:newsData hiddenLine:NO isShortLine:YES];
+                    return cell;
+                }else{
+                    OnlyWordCell *cell = [OnlyWordCell cellWithTableView:tableView];
+                    [cell setNews:newsData hiddenLine:NO isShortLine:YES];
+                    return cell;
+                }
             }
         }
             break;
@@ -189,6 +244,29 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
                 DetailPicAndContentFrame *frame = [[DetailPicAndContentFrame alloc]init];
                 frame.contentMode = contentData;
                 return frame.cellHeight;
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[LinkReadMode class]]){
+                return SCREEN_WIDTH*35.0f/320.0f;
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[SpotMode class]]){
+                return 96.0f;
+            }
+        }
+            break;
+        case SectionTypeComment:{
+            NSMutableArray *ary = sectionMode.newsSectionAry;
+            if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
+                return SCREEN_WIDTH*40.0f/320.0f;
+            }
+        }
+            break;
+        case SectionTypeRecommend:{
+            NSMutableArray *ary = sectionMode.newsSectionAry;
+            if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[NewsMode class]]) {
+                NewsMode *newsData = [ary objectAtIndex:indexPath.row];
+                if (newsData.images && newsData.images.count > 0) {
+                    return SCREEN_WIDTH*88.0f/320.0f;
+                }else{
+                    return SCREEN_WIDTH*80.0f/320.0f;
+                }
             }
         }
             break;
@@ -201,6 +279,37 @@ static NSString * const NewsCommentTag = @"NewsCommentTag";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NewsSectionMode *sectionMode = [self.pageData objectAtIndex:indexPath.section];
+    switch (sectionMode.sectionType) {
+        case SectionTypeNews:{
+            NSMutableArray *ary = sectionMode.newsSectionAry;
+            if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[NewsTitleMode class]]) {
+                
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[DetailShareMode class]]) {
+                
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[SubContentMode class]]){
+                
+            }else if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[LinkReadMode class]]){
+                LinkReadMode *linkReadData = [ary objectAtIndex:indexPath.row];
+                
+                WebViewController *webDetail = [WebViewController loadFromStoryboard];
+                webDetail.url = linkReadData.linkUrl;
+                webDetail.isWebLinkUrl = YES;
+                [self.navigationController pushViewController:webDetail animated:YES];
+            }
+        }
+            break;
+        case SectionTypeRecommend:{
+            NSMutableArray *ary = sectionMode.newsSectionAry;
+            if ([[ary objectAtIndex:indexPath.row] isKindOfClass:[NewsMode class]]) {
+                NewsMode *newsData = [ary objectAtIndex:indexPath.row];
+                [[NewsCellFactory shareInstance]goNewPageWithType:[newsData.newsType intValue] url:newsData.url param:nil navigation:self.navigationController];
+            }
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - 按钮点击事件

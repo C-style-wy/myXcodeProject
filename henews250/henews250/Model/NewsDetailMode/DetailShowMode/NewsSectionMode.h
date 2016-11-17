@@ -13,6 +13,7 @@
 #import "NewsTitleMode.h"
 #import "SpotMode.h"
 #import "DetailShareMode.h"
+#import "LinkReadMode.h"
 
 @interface NewsSectionMode : BaseMode
 
@@ -20,5 +21,9 @@
 @property (nonatomic, retain) NSMutableArray *newsSectionAry;
 
 - (NewsSectionMode *)initWithData:(NewsDetailMode *)data;
+
+- (NewsSectionMode *)initWithCommentData:(NewsDetailMode *)data;
+
+- (NewsSectionMode *)initWithRelateContsData:(NewsDetailMode *)data;
 
 @end
