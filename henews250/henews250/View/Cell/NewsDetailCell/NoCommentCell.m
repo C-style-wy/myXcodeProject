@@ -22,7 +22,7 @@
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView {
-    static NSString *identifer = @"LinkReadCell";
+    static NSString *identifer = @"NoCommentCell";
     NoCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
     if (cell == nil) {
         cell = [[NoCommentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
@@ -39,7 +39,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-4)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.frame.size.height-4)];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor colorWithHexColor:@"#b4b4b4"];
         label.text = @"正在获取评论数据...";
@@ -47,7 +47,7 @@
         [self.contentView addSubview:label];
         self.noCommentLabel = label;
         
-        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, label.frame.size.height, self.frame.size.width, 4)];
+        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, label.frame.size.height, SCREEN_WIDTH, 4)];
         lineView.backgroundColor = [UIColor colorWithHexColor:@"#dcdcdc"];
         [self.contentView addSubview:lineView];
     }
