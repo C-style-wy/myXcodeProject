@@ -14,7 +14,7 @@
     self = [super init];
     if (self) {
         self.imageUrl = data.imageUrl;
-        self.topicIntro = data.newsIntro;
+        self.topicIntro = [data.newsIntro stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
     return self;
 }
