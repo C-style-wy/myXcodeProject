@@ -7,7 +7,17 @@
 //
 
 #import "SubBaseViewController.h"
+#import "TopicModel.h"
+#import "TopicTitleModel.h"
+#import "TopicTitleCell.h"
+#import "TopicSectionView.h"
+#import "NewsCellFactory.h"
 
-@interface TopicViewController : SubBaseViewController
+@interface TopicViewController : SubBaseViewController<UITableViewDelegate, UITableViewDataSource, TopicSectionViewDelegate>
+
+@property (nonatomic, retain) NSMutableArray *pageData;
+@property (nonatomic, retain) UITableView *tableView;
+
+@property (nonatomic, retain) TopicModel *topicModel;
 
 @end

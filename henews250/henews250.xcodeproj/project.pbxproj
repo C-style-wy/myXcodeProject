@@ -227,6 +227,14 @@
 		D3DB224F1DC8636C00AE0D33 /* NewsDetailMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB224E1DC8636C00AE0D33 /* NewsDetailMode.m */; };
 		D3DB22521DC864B400AE0D33 /* ContentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB22511DC864B400AE0D33 /* ContentMode.m */; };
 		D3DB22551DC8658D00AE0D33 /* ReadContentArrayMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB22541DC8658D00AE0D33 /* ReadContentArrayMode.m */; };
+		D3E2D98C1DDEE1D000C47967 /* SpecialNodeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2D98B1DDEE1D000C47967 /* SpecialNodeListModel.m */; };
+		D3E2D98F1DDEE23900C47967 /* TopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2D98E1DDEE23900C47967 /* TopicModel.m */; };
+		D3E2D9921DDEE40000C47967 /* TopicTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2D9911DDEE40000C47967 /* TopicTitleModel.m */; };
+		D3E2D9961DDEE82000C47967 /* TopicTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2D9951DDEE82000C47967 /* TopicTitleCell.m */; };
+		D3E2D9991DDEE84900C47967 /* TopicTitleFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2D9981DDEE84900C47967 /* TopicTitleFrame.m */; };
+		D3E2D99C1DDEEEA700C47967 /* TopicSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2D99B1DDEEEA700C47967 /* TopicSectionView.m */; };
+		D3E2D99E1DDEEEB300C47967 /* TopicSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E2D99D1DDEEEB300C47967 /* TopicSectionView.xib */; };
+		D3E2D9A11DDEF87100C47967 /* TopicSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2D9A01DDEF87100C47967 /* TopicSubViewController.m */; };
 		D3EB39321DAB1DB2006588E5 /* HenewsRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EB39311DAB1DB2006588E5 /* HenewsRefreshHeader.m */; };
 		D3EFC1D51DC713010097E2BC /* ApsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EFC1D41DC713010097E2BC /* ApsModel.m */; };
 		D3EFC1D81DC713620097E2BC /* PushInfoMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EFC1D71DC713620097E2BC /* PushInfoMode.m */; };
@@ -678,6 +686,21 @@
 		D3DB22511DC864B400AE0D33 /* ContentMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentMode.m; sourceTree = "<group>"; };
 		D3DB22531DC8658D00AE0D33 /* ReadContentArrayMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadContentArrayMode.h; sourceTree = "<group>"; };
 		D3DB22541DC8658D00AE0D33 /* ReadContentArrayMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadContentArrayMode.m; sourceTree = "<group>"; };
+		D3E2D98A1DDEE1D000C47967 /* SpecialNodeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialNodeListModel.h; sourceTree = "<group>"; };
+		D3E2D98B1DDEE1D000C47967 /* SpecialNodeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialNodeListModel.m; sourceTree = "<group>"; };
+		D3E2D98D1DDEE23900C47967 /* TopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicModel.h; sourceTree = "<group>"; };
+		D3E2D98E1DDEE23900C47967 /* TopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicModel.m; sourceTree = "<group>"; };
+		D3E2D9901DDEE40000C47967 /* TopicTitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicTitleModel.h; sourceTree = "<group>"; };
+		D3E2D9911DDEE40000C47967 /* TopicTitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicTitleModel.m; sourceTree = "<group>"; };
+		D3E2D9941DDEE82000C47967 /* TopicTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicTitleCell.h; sourceTree = "<group>"; };
+		D3E2D9951DDEE82000C47967 /* TopicTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicTitleCell.m; sourceTree = "<group>"; };
+		D3E2D9971DDEE84900C47967 /* TopicTitleFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicTitleFrame.h; sourceTree = "<group>"; };
+		D3E2D9981DDEE84900C47967 /* TopicTitleFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicTitleFrame.m; sourceTree = "<group>"; };
+		D3E2D99A1DDEEEA700C47967 /* TopicSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicSectionView.h; sourceTree = "<group>"; };
+		D3E2D99B1DDEEEA700C47967 /* TopicSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicSectionView.m; sourceTree = "<group>"; };
+		D3E2D99D1DDEEEB300C47967 /* TopicSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicSectionView.xib; sourceTree = "<group>"; };
+		D3E2D99F1DDEF87100C47967 /* TopicSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicSubViewController.h; sourceTree = "<group>"; };
+		D3E2D9A01DDEF87100C47967 /* TopicSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicSubViewController.m; sourceTree = "<group>"; };
 		D3EB39301DAB1DB2006588E5 /* HenewsRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HenewsRefreshHeader.h; sourceTree = "<group>"; };
 		D3EB39311DAB1DB2006588E5 /* HenewsRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HenewsRefreshHeader.m; sourceTree = "<group>"; };
 		D3EFC1D31DC713010097E2BC /* ApsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApsModel.h; sourceTree = "<group>"; };
@@ -880,6 +903,7 @@
 		D31ED3FE1D3DAE2B003C2A54 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				D3E2D9931DDEE7E800C47967 /* TopicCell */,
 				D31AE2101DC97F31008D90FA /* NewsDetailCell */,
 				D36483691DAE181100E1CF23 /* WelfareCell */,
 				D3640C831D62F36D008049E4 /* CityListCell */,
@@ -1265,6 +1289,8 @@
 				D324795B1D8F8AA0004C7A7B /* VideoViewController.m */,
 				D324795D1D8F8B50004C7A7B /* TopicViewController.h */,
 				D324795E1D8F8B50004C7A7B /* TopicViewController.m */,
+				D3E2D99F1DDEF87100C47967 /* TopicSubViewController.h */,
+				D3E2D9A01DDEF87100C47967 /* TopicSubViewController.m */,
 				D32479601D8F8B5E004C7A7B /* PicViewController.h */,
 				D32479611D8F8B5E004C7A7B /* PicViewController.m */,
 				D32479631D8F8B6D004C7A7B /* WebViewController.h */,
@@ -1383,6 +1409,7 @@
 		D366815E1D3762D7001948D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3E2D9891DDEE19D00C47967 /* TopicMode */,
 				D3DB224C1DC8605C00AE0D33 /* NewsDetailMode */,
 				D3EFC1D21DC6F1930097E2BC /* PushInfoMode */,
 				D3D68BD61DB4BF37004E6D42 /* LoginMode */,
@@ -1576,6 +1603,33 @@
 				D3C1D92D1DC86E5500CEAC18 /* ImageInfoMode.m */,
 			);
 			path = NewsDetailMode;
+			sourceTree = "<group>";
+		};
+		D3E2D9891DDEE19D00C47967 /* TopicMode */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2D98A1DDEE1D000C47967 /* SpecialNodeListModel.h */,
+				D3E2D98B1DDEE1D000C47967 /* SpecialNodeListModel.m */,
+				D3E2D98D1DDEE23900C47967 /* TopicModel.h */,
+				D3E2D98E1DDEE23900C47967 /* TopicModel.m */,
+				D3E2D9901DDEE40000C47967 /* TopicTitleModel.h */,
+				D3E2D9911DDEE40000C47967 /* TopicTitleModel.m */,
+			);
+			path = TopicMode;
+			sourceTree = "<group>";
+		};
+		D3E2D9931DDEE7E800C47967 /* TopicCell */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2D9941DDEE82000C47967 /* TopicTitleCell.h */,
+				D3E2D9951DDEE82000C47967 /* TopicTitleCell.m */,
+				D3E2D9971DDEE84900C47967 /* TopicTitleFrame.h */,
+				D3E2D9981DDEE84900C47967 /* TopicTitleFrame.m */,
+				D3E2D99A1DDEEEA700C47967 /* TopicSectionView.h */,
+				D3E2D99B1DDEEEA700C47967 /* TopicSectionView.m */,
+				D3E2D99D1DDEEEB300C47967 /* TopicSectionView.xib */,
+			);
+			path = TopicCell;
 			sourceTree = "<group>";
 		};
 		D3EB392F1DAB1D46006588E5 /* HenewsRefresh */ = {
@@ -1772,6 +1826,7 @@
 				D33836771D40CD9F008ADE4C /* SectionView.xib in Resources */,
 				D3855BA01D9C198000B15E27 /* UserHeadView.xib in Resources */,
 				D3276AA21D2A397E00A249C9 /* Main.storyboard in Resources */,
+				D3E2D99E1DDEEEB300C47967 /* TopicSectionView.xib in Resources */,
 				D365588B1DAF317C00D05C84 /* WelfareHeaderView.xib in Resources */,
 				D36558811DAF232B00D05C84 /* BigDefaultImageView.xib in Resources */,
 				D3C215D11DDD53990002F21D /* DetailCommentSection.xib in Resources */,
@@ -1876,6 +1931,7 @@
 				D32C36931D321B8100431829 /* WelfareViewController.m in Sources */,
 				D30F1F691DDC35A400DCF18B /* LinkReadCell.m in Sources */,
 				D3C215CC1DDD516C0002F21D /* NoCommentCell.m in Sources */,
+				D3E2D9921DDEE40000C47967 /* TopicTitleModel.m in Sources */,
 				D3805DCF1D7427D600B6FAE5 /* NetworkItem.m in Sources */,
 				D33265211D2E2FB1005C9D7D /* GuidePage2.m in Sources */,
 				D31A33A21D2B538800401658 /* BaseViewController.m in Sources */,
@@ -1941,10 +1997,12 @@
 				D35BB1BF1D41B2DD000D6BFD /* UILabel+NeedWidthAndHeight.m in Sources */,
 				D338DBBB1DD9BF7E00935F5E /* MyJoinViewController.m in Sources */,
 				D39E1C9A1DB7838A00EFFB07 /* OpenUDID.m in Sources */,
+				D3E2D99C1DDEEEA700C47967 /* TopicSectionView.m in Sources */,
 				D33265281D2E49C3005C9D7D /* GuidePage3.m in Sources */,
 				D319C88C1D38705D002A84F5 /* AdMode.m in Sources */,
 				D3DB224F1DC8636C00AE0D33 /* NewsDetailMode.m in Sources */,
 				D31EC6871D7824F300F2B349 /* NetworkManager.m in Sources */,
+				D3E2D98F1DDEE23900C47967 /* TopicModel.m in Sources */,
 				D365587D1DAF230300D05C84 /* BigDefaultImageView.m in Sources */,
 				D31AA0AC1D46F32F0036004A /* BaseMode.m in Sources */,
 				D3C1D92B1DC868F200CEAC18 /* SubContentMode.m in Sources */,
@@ -1978,6 +2036,7 @@
 				D32A64041DC0DC7F006CF376 /* NSBundle+MJRefresh.m in Sources */,
 				D30E09481D40550E00954670 /* TagMode.m in Sources */,
 				D3B145201D9A049300FCB5DA /* ClassInfoMode.m in Sources */,
+				D3E2D9991DDEE84900C47967 /* TopicTitleFrame.m in Sources */,
 				D32479741D8F8BCD004C7A7B /* PeriodicalViewController.m in Sources */,
 				D3533EB11D9A5EC800B6F1B1 /* InforMode.m in Sources */,
 				D32479651D8F8B6D004C7A7B /* WebViewController.m in Sources */,
@@ -1996,6 +2055,7 @@
 				D338DBA61DD9A06B00935F5E /* CommentListViewController.m in Sources */,
 				D319C88F1D387307002A84F5 /* LoadingMode.m in Sources */,
 				D32A64061DC0DC7F006CF376 /* UIScrollView+MJRefresh.m in Sources */,
+				D3E2D9961DDEE82000C47967 /* TopicTitleCell.m in Sources */,
 				D32A63FE1DC0DC7F006CF376 /* MJRefreshBackStateFooter.m in Sources */,
 				D3C2A2691DACC71A003A3B92 /* GoodsListModel.m in Sources */,
 				D3D68BDC1DB4BF7D004E6D42 /* WeiboIdMapModel.m in Sources */,
@@ -2012,8 +2072,10 @@
 				D324795F1D8F8B50004C7A7B /* TopicViewController.m in Sources */,
 				D32BD2281D7D5BEA00DB44DE /* ForecastMode.m in Sources */,
 				D3A05F201DB757E700567897 /* MYPhoneParam.m in Sources */,
+				D3E2D9A11DDEF87100C47967 /* TopicSubViewController.m in Sources */,
 				D365588A1DAF317C00D05C84 /* WelfareHeaderView.m in Sources */,
 				D3CEF6281D3CAE6600696FF5 /* ImageMode.m in Sources */,
+				D3E2D98C1DDEE1D000C47967 /* SpecialNodeListModel.m in Sources */,
 				D33836711D40AF82008ADE4C /* OneBigPicCell.m in Sources */,
 				D32479711D8F8BB6004C7A7B /* MagazineViewController.m in Sources */,
 				D32C36991D321D6C00431829 /* UIViewController+LoadFromStoryboard.m in Sources */,

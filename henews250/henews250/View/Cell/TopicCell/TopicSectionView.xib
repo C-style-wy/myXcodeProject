@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TopicSectionView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="27"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8o-jf-1RR">
+                    <rect key="frame" x="8" y="0.0" width="234" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.11762935668230057" green="0.11765726655721664" blue="0.11762756854295731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b67-ET-haG">
+                    <rect key="frame" x="242" y="0.0" width="70" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="4QQ-Jn-Rum"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="-2" minY="0.0" maxX="2" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="62" minY="7" maxX="0.0" maxY="7"/>
+                    <state key="normal" title="更多" image="modulArrow">
+                        <color key="titleColor" red="0.58816933631896973" green="0.58827334642410278" blue="0.58816277980804443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="sectionBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="PU9-UV-pbl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.88225668668746948" green="0.88240832090377808" blue="0.88224714994430542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="b67-ET-haG" secondAttribute="trailing" constant="8" id="8BI-nt-6Xd"/>
+                <constraint firstAttribute="bottom" secondItem="b67-ET-haG" secondAttribute="bottom" id="GUv-Vb-GSB"/>
+                <constraint firstItem="J8o-jf-1RR" firstAttribute="trailing" secondItem="b67-ET-haG" secondAttribute="leading" id="Klw-0z-wq4"/>
+                <constraint firstItem="J8o-jf-1RR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="ifi-Lw-DYS"/>
+                <constraint firstAttribute="bottom" secondItem="J8o-jf-1RR" secondAttribute="bottom" id="j9R-jg-ewG"/>
+                <constraint firstItem="J8o-jf-1RR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nUd-ID-omh"/>
+                <constraint firstItem="b67-ET-haG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="v9r-JE-k7d"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="sectionBtn" destination="b67-ET-haG" id="ZMM-yo-W4e"/>
+                <outlet property="sectionLabel" destination="J8o-jf-1RR" id="CpN-Ir-Fte"/>
+            </connections>
+            <point key="canvasLocation" x="33" y="104.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="modulArrow" width="18" height="26"/>
+    </resources>
+</document>
