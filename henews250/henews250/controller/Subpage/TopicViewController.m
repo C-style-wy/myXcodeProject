@@ -167,9 +167,9 @@ static NSString * const TopicRequestKey = @"topicRequestKey";
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100.0f;
-}
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 100.0f;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[self.pageData objectAtIndex:indexPath.section] isKindOfClass:[SpecialNodeListModel class]]) {
