@@ -31,8 +31,7 @@
     self.headView.shareBtn.hidden = YES;
     self.headView.line.hidden = YES;
     
-    NSString *seee = @"总有一个";
-    NSLog(@"count====%li", [seee length]);
+
     
     SHLUILabel *label2 = [[SHLUILabel alloc]initWithFrame:CGRectMake(0, 80, SCREEN_WIDTH, 300)];
     label2.textColor = [UIColor blackColor];

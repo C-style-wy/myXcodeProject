@@ -114,7 +114,7 @@
                 if ([tempStr rangeOfString:@"<B>"].location != NSNotFound) {
                     tempStr = [tempStr stringByReplacingOccurrencesOfString:@"<B>" withString:@""];
                     
-                    [attr addAttribute:(id)kCTFontAttributeName value:[UIFont boldSystemFontOfSize:self.font.pointSize-2] range:NSMakeRange([leftStr length], [tempStr length])];
+                    [attr addAttribute:(id)kCTFontAttributeName value:[UIFont boldSystemFontOfSize:self.font.pointSize] range:NSMakeRange([leftStr length], [tempStr length])];
                     
                 }else{
                     CTFontRef helveticaBold = CTFontCreateWithName((CFStringRef)self.font.fontName,self.font.pointSize,NULL);
