@@ -39,7 +39,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        UILabel *label = [[UILabel alloc]initWithFrame:self.contentView.bounds];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.frame.size.height)];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor colorWithHexColor:@"#b4b4b4"];
         label.text = @"已自动优化阅读，点击查看原新闻";

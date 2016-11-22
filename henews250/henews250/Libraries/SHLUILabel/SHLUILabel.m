@@ -58,17 +58,92 @@
     linesSpacing_ = linesSpacing;
     [self setNeedsDisplay];
 }
+
+#pragma mark - wy
+- (NSMutableAttributedString*)handleAttributedString {
+    NSString *labelString = self.text;
+    
+    NSMutableArray *strAry = [[NSMutableArray alloc]init];
+    [strAry removeAllObjects];
+    if ([labelString rangeOfString:@"<B>\n</B>"].location != NSNotFound) {
+        labelString = [labelString stringByReplacingOccurrencesOfString:@"<B>\n</B>" withString:@"\n"];
+    }
+    while ([labelString rangeOfString:@"\n\n"].location != NSNotFound) {
+        labelString = [labelString stringByReplacingOccurrencesOfString:@"\n\n" withString:@"\n"];
+    }
+    if (([labelString rangeOfString:@"<B>"].location != NSNotFound) ||
+        ([labelString rangeOfString:@"<b>"].location != NSNotFound)) {
+        
+        labelString = [labelString stringByReplacingOccurrencesOfString:@"<b>" withString:@"<B>"];
+        labelString = [labelString stringByReplacingOccurrencesOfString:@"</b>" withString:@"</B>"];
+        
+        NSArray *ary = [labelString componentsSeparatedByString:@"<B>"];
+        
+        
+        for (int i = 0; i < ary.count; i++) {
+            NSString *subStr = [ary objectAtIndex:i];
+            if ([subStr rangeOfString:@"</B>"].location != NSNotFound) {
+                subStr = [@"<B>" stringByAppendingString:subStr];
+                NSArray *bAry = [subStr componentsSeparatedByString:@"</B>"];
+                for (int j = 0; j < bAry.count; j++) {
+                    [strAry addObject:[bAry objectAtIndex:j]];
+                }
+            }else{
+                [strAry addObject:subStr];
+            }
+        }
+//        for (int m = 0; m < strAry.count; m++) {
+//            NSLog(@"str====%@", [strAry objectAtIndex:m]);
+//        }
+    }
+    NSMutableAttributedString *attr;
+    if (strAry.count > 0) {
+        NSString *showStr = @"";
+        for (int m = 0; m < strAry.count; m++) {
+            NSString *tempStr = [[NSString alloc]initWithString:[strAry objectAtIndex:m]];
+            if ([tempStr rangeOfString:@"<B>"].location != NSNotFound) {
+                tempStr = [tempStr stringByReplacingOccurrencesOfString:@"<B>" withString:@""];
+            }
+            showStr = [showStr stringByAppendingString:tempStr];
+        }
+        attr = [[NSMutableAttributedString alloc]initWithString:showStr];
+        NSString *leftStr = @"";
+        for (int n = 0; n < strAry.count; n++) {
+            NSString *tempStr = [strAry objectAtIndex:n];
+            if (![tempStr isEqualToString:@""]) {
+                if ([tempStr rangeOfString:@"<B>"].location != NSNotFound) {
+                    tempStr = [tempStr stringByReplacingOccurrencesOfString:@"<B>" withString:@""];
+                    
+                    [attr addAttribute:(id)kCTFontAttributeName value:[UIFont boldSystemFontOfSize:self.font.pointSize-2] range:NSMakeRange([leftStr length], [tempStr length])];
+                    
+                }else{
+                    CTFontRef helveticaBold = CTFontCreateWithName((CFStringRef)self.font.fontName,self.font.pointSize,NULL);
+                    [attr addAttribute:(id)kCTFontAttributeName value:(__bridge id)helveticaBold range:NSMakeRange([leftStr length], [tempStr length])];
+                }
+                leftStr = [leftStr stringByAppendingString:tempStr];
+            }
+        }
+    }else{
+        attr = [[NSMutableAttributedString alloc]initWithString:labelString];
+        CTFontRef helveticaBold = CTFontCreateWithName((CFStringRef)self.font.fontName,self.font.pointSize,NULL);
+        [attr addAttribute:(id)kCTFontAttributeName value:(__bridge id)helveticaBold range:NSMakeRange(0, [labelString length])];
+    }
+    
+    return attr;
+}
+
 /*
  *初始化AttributedString并进行相应设置
  */
 - (void)initAttributedString{
     if(attributedString == nil){
-        NSString *labelString = self.text;
+//        NSString *labelString = self.text;
         //创建AttributeString
-        attributedString =[[NSMutableAttributedString alloc]initWithString:labelString];
+//        attributedString =[[NSMutableAttributedString alloc]initWithString:labelString];
+        attributedString = [self handleAttributedString];
         //设置字体及大小
-        CTFontRef helveticaBold = CTFontCreateWithName((CFStringRef)self.font.fontName,self.font.pointSize,NULL);
-        [attributedString addAttribute:(id)kCTFontAttributeName value:(__bridge id)helveticaBold range:NSMakeRange(0,[attributedString length])];
+//        CTFontRef helveticaBold = CTFontCreateWithName((CFStringRef)self.font.fontName,self.font.pointSize,NULL);
+//        [attributedString addAttribute:(id)kCTFontAttributeName value:(__bridge id)helveticaBold range:NSMakeRange(0,[attributedString length])];
         //设置字间距
         long number = self.characterSpacing;
         CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
@@ -128,7 +203,7 @@
         
         //给文本添加设置
         [attributedString addAttribute:(id)kCTParagraphStyleAttributeName value:(__bridge id)style range:NSMakeRange(0 , [attributedString length])];
-        CFRelease(helveticaBold);
+//        CFRelease(helveticaBold);
     }
 }
 
@@ -210,6 +285,6 @@
     
     CFRelease(textFrame);
     
-    return total_height;
+    return total_height + 3;
 }
 @end
