@@ -12,8 +12,8 @@
 /**
  *  正式环境
  */
-#define API_HOST @"http://wap.cmread.com/clt"
-#define API_PUSH_HOST @"http://wap.cmread.com/newspush"
+//#define API_HOST @"http://wap.cmread.com/clt"
+//#define API_PUSH_HOST @"http://wap.cmread.com/newspush"
 
 /**
  *   开发环境
@@ -23,8 +23,8 @@
 /**
  *   测试环境
  */
-//#define API_HOST @"http://211.140.7.174:8001/clt"
-//#define API_PUSH_HOST @"http://211.140.7.174:8001/newspush"
+#define API_HOST @"http://211.140.7.174:8001/clt"
+#define API_PUSH_HOST @"http://211.140.7.174:8001/newspush"
 
 //      接口路径全拼
 #define PATH(_path)             [NSString stringWithFormat:_path, API_HOST]
