@@ -99,24 +99,31 @@
 //    NSArray *splitAry = [_splitText componentsSeparatedByString:splitSymbol];
     
     _attr = [[NSMutableAttributedString alloc]initWithString:_showText];
-    // 处理图片
-//    _attr = [self handlePicRegex:_attr];
-    // 处理加粗
-    _attr = [self handleBRegex:_attr];
-    // 处理下划线
-    _attr = [self handleURegex:_attr];
-    // 处理颜色
-    _attr = [self handleColorRegex:_attr];
-    // 处理链接
-    _attr = [self handleLinkRegex:_attr];
+    // 基本处理
+    _attr = [self handleBaseRegex:_attr];
+    if (![_showText isEqualToString:_orginalString]) {
+        // 处理图片
+        //    _attr = [self handlePicRegex:_attr];
+        // 处理加粗
+        _attr = [self handleBRegex:_attr];
+        // 处理下划线
+        _attr = [self handleURegex:_attr];
+        // 处理颜色
+        _attr = [self handleColorRegex:_attr];
+        // 处理链接
+        _attr = [self handleLinkRegex:_attr];
+    }
 }
-- (NSMutableAttributedString *)handleBRegex:(NSMutableAttributedString *)attributedString {
-    NSArray *splitAry = [_splitText componentsSeparatedByString:splitSymbol];
-    
+- (NSMutableAttributedString *)handleBaseRegex:(NSMutableAttributedString *)attributedString {
     CTFontRef helveticaBold = CTFontCreateWithName((CFStringRef)self.textFont.fontName,self.textFont.pointSize,NULL);
     [attributedString addAttribute:(id)kCTFontAttributeName value:(__bridge id)helveticaBold range:NSMakeRange(0,[_showText length])];
     
     [attributedString addAttribute:(id)kCTForegroundColorAttributeName value:(id)(self.textColor.CGColor) range:NSMakeRange(0,[attributedString length])];
+    return attributedString;
+}
+
+- (NSMutableAttributedString *)handleBRegex:(NSMutableAttributedString *)attributedString {
+    NSArray *splitAry = [_splitText componentsSeparatedByString:splitSymbol];
     
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexBStr options:NSRegularExpressionCaseInsensitive error:&error];
