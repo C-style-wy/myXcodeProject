@@ -239,7 +239,7 @@
     if (resultPicAry && resultPicAry.count > 0) {
         NSInteger leftOffset = 0;
         for (NSTextCheckingResult *result in resultPicAry) {
-            NSLog(@"====wy======%li", result.range.location - leftOffset);
+//            NSLog(@"====wy======%li", result.range.location - leftOffset);
 //            NSString *picInfo = [_picText substringWithRange:result.range];
             
             NSTextAttachment *attch = [[NSTextAttachment alloc] init];
