@@ -9,8 +9,6 @@
 #import "SHLUILabel.h"
 #import <CoreText/CoreText.h>
 
-//#define BoldRegular (@"<B>.</B>")
-
 @interface SHLUILabel ()
 {
 @private
@@ -140,7 +138,7 @@
 //        NSString *labelString = self.text;
         //创建AttributeString
 //        attributedString =[[NSMutableAttributedString alloc]initWithString:labelString];
-        attributedString = [self handleAttributedString];
+        attributedString = [[RechTextRegex sharedInstance]getAttributedStringWithString:self.text font:self.font color:self.textColor];
         //设置字体及大小
 //        CTFontRef helveticaBold = CTFontCreateWithName((CFStringRef)self.font.fontName,self.font.pointSize,NULL);
 //        [attributedString addAttribute:(id)kCTFontAttributeName value:(__bridge id)helveticaBold range:NSMakeRange(0,[attributedString length])];
@@ -159,7 +157,7 @@
          }
          */
         //设置字体颜色
-        [attributedString addAttribute:(id)kCTForegroundColorAttributeName value:(id)(self.textColor.CGColor) range:NSMakeRange(0,[attributedString length])];
+//        [attributedString addAttribute:(id)kCTForegroundColorAttributeName value:(id)(self.textColor.CGColor) range:NSMakeRange(0,[attributedString length])];
         
         //创建文本对齐方式
         CTTextAlignment alignment = kCTTextAlignmentJustified;

@@ -72,6 +72,7 @@
 		D3276AA41D2A397E00A249C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3276AA31D2A397E00A249C9 /* Assets.xcassets */; };
 		D3276AB21D2A397E00A249C9 /* henews250Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276AB11D2A397E00A249C9 /* henews250Tests.m */; };
 		D3276ABD1D2A397E00A249C9 /* henews250UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3276ABC1D2A397E00A249C9 /* henews250UITests.m */; };
+		D3290A091DE59B2A001E895F /* RechTextRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D3290A081DE59B2A001E895F /* RechTextRegex.m */; };
 		D32A63F41DC0DC7F006CF376 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = D32A63C81DC0DC7F006CF376 /* MJRefreshAutoFooter.m */; };
 		D32A63F51DC0DC7F006CF376 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = D32A63CA1DC0DC7F006CF376 /* MJRefreshBackFooter.m */; };
 		D32A63F61DC0DC7F006CF376 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = D32A63CC1DC0DC7F006CF376 /* MJRefreshComponent.m */; };
@@ -386,6 +387,8 @@
 		D3276AB81D2A397E00A249C9 /* henews250UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = henews250UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3276ABC1D2A397E00A249C9 /* henews250UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = henews250UITests.m; sourceTree = "<group>"; };
 		D3276ABE1D2A397E00A249C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3290A071DE59B2A001E895F /* RechTextRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechTextRegex.h; sourceTree = "<group>"; };
+		D3290A081DE59B2A001E895F /* RechTextRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechTextRegex.m; sourceTree = "<group>"; };
 		D32A63C71DC0DC7F006CF376 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		D32A63C81DC0DC7F006CF376 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		D32A63C91DC0DC7F006CF376 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -1561,6 +1564,8 @@
 			children = (
 				D3D326BB1DB89D82005E807E /* SHLUILabel.h */,
 				D3D326BC1DB89D82005E807E /* SHLUILabel.m */,
+				D3290A071DE59B2A001E895F /* RechTextRegex.h */,
+				D3290A081DE59B2A001E895F /* RechTextRegex.m */,
 			);
 			path = SHLUILabel;
 			sourceTree = "<group>";
@@ -1929,6 +1934,7 @@
 				D31384A61DB9E39B002D2B0B /* OneKeyLoginMode.m in Sources */,
 				D34F508E1D546A3A004B25C5 /* SubPageHeadView.m in Sources */,
 				D32C36931D321B8100431829 /* WelfareViewController.m in Sources */,
+				D3290A091DE59B2A001E895F /* RechTextRegex.m in Sources */,
 				D30F1F691DDC35A400DCF18B /* LinkReadCell.m in Sources */,
 				D3C215CC1DDD516C0002F21D /* NoCommentCell.m in Sources */,
 				D3E2D9921DDEE40000C47967 /* TopicTitleModel.m in Sources */,
