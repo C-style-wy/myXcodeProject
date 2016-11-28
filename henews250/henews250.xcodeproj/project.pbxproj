@@ -211,6 +211,7 @@
 		D3C4EC661D485F37002D4BC9 /* TierManageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C4EC651D485F37002D4BC9 /* TierManageView.xib */; };
 		D3C4EC691D485FF6002D4BC9 /* TierHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C4EC681D485FF6002D4BC9 /* TierHeadView.m */; };
 		D3C4EC6B1D48600F002D4BC9 /* TierHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C4EC6A1D48600F002D4BC9 /* TierHeadView.xib */; };
+		D3CB15A01DE7DFB7000DB845 /* MYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CB159F1DE7DFB7000DB845 /* MYTextView.m */; };
 		D3CEF61B1D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF61A1D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.m */; };
 		D3CEF61F1D3CAB1100696FF5 /* BannerMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF61E1D3CAB1100696FF5 /* BannerMode.m */; };
 		D3CEF6251D3CAE5100696FF5 /* NewsMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEF6241D3CAE5100696FF5 /* NewsMode.m */; };
@@ -652,6 +653,8 @@
 		D3C4EC671D485FF6002D4BC9 /* TierHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierHeadView.h; sourceTree = "<group>"; };
 		D3C4EC681D485FF6002D4BC9 /* TierHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierHeadView.m; sourceTree = "<group>"; };
 		D3C4EC6A1D48600F002D4BC9 /* TierHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TierHeadView.xib; sourceTree = "<group>"; };
+		D3CB159E1DE7DFB7000DB845 /* MYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTextView.h; sourceTree = "<group>"; };
+		D3CB159F1DE7DFB7000DB845 /* MYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTextView.m; sourceTree = "<group>"; };
 		D3CEF6191D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SetAllSubViewHidden.h"; sourceTree = "<group>"; };
 		D3CEF61A1D3C6FA500696FF5 /* UIView+SetAllSubViewHidden.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SetAllSubViewHidden.m"; sourceTree = "<group>"; };
 		D3CEF61D1D3CAB1100696FF5 /* BannerMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerMode.h; sourceTree = "<group>"; };
@@ -1047,6 +1050,7 @@
 				D30D35B91DDAA1D400697020 /* 楷体GB2312.ttf */,
 				D32A63C51DC0DC7F006CF376 /* MJRefresh */,
 				D3D326BA1DB89D82005E807E /* SHLUILabel */,
+				D3CB159D1DE7DF97000DB845 /* MYTextView */,
 				D3D326B61DB89CD9005E807E /* Dialog */,
 				D33D46361DB854FF005E389D /* MYLoading */,
 				D3FC8A9F1DB37F14004282E6 /* ShareSDKHandle */,
@@ -1527,6 +1531,15 @@
 			path = TierManageView;
 			sourceTree = "<group>";
 		};
+		D3CB159D1DE7DF97000DB845 /* MYTextView */ = {
+			isa = PBXGroup;
+			children = (
+				D3CB159E1DE7DFB7000DB845 /* MYTextView.h */,
+				D3CB159F1DE7DFB7000DB845 /* MYTextView.m */,
+			);
+			path = MYTextView;
+			sourceTree = "<group>";
+		};
 		D3CEF61C1D3CAADD00696FF5 /* HomeMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -1984,6 +1997,7 @@
 				D338DBBE1DD9BFDE00935F5E /* MyCollectionViewController.m in Sources */,
 				D32C368D1D321B3300431829 /* NewsViewController.m in Sources */,
 				D34F50931D5470D0004B25C5 /* CityViewController.m in Sources */,
+				D3CB15A01DE7DFB7000DB845 /* MYTextView.m in Sources */,
 				D3F230A41D911FE400697A6C /* TierManager.m in Sources */,
 				D32BD2131D7D4DCC00DB44DE /* WeatherMode.m in Sources */,
 				D32BD22B1D7D5C9F00DB44DE /* ZhishusMode.m in Sources */,

@@ -118,7 +118,7 @@
     CTFontRef helveticaBold = CTFontCreateWithName((CFStringRef)self.textFont.fontName,self.textFont.pointSize,NULL);
     [attributedString addAttribute:(id)kCTFontAttributeName value:(__bridge id)helveticaBold range:NSMakeRange(0,[_showText length])];
     
-    [attributedString addAttribute:(id)kCTForegroundColorAttributeName value:(id)(self.textColor.CGColor) range:NSMakeRange(0,[attributedString length])];
+    [attributedString addAttribute:(id)kCTForegroundColorAttributeName value:(id)(self.textColor.CGColor) range:NSMakeRange(0, [attributedString length])];
     return attributedString;
 }
 
@@ -226,9 +226,15 @@
             for (NSString *splitStr in splitAry) {
                 if (![splitStr isEqualToString:@""]) {
                     if ([lStr rangeOfString:splitStr].location != NSNotFound) {
+                        if (linkNorStr && ![linkNorStr isEqualToString:@""]) {
+                            [attributedString addAttribute:(id)kCTForegroundColorAttributeName value:(id)[UIColor colorWithHexColor:linkNorStr].CGColor range:NSMakeRange(left, [splitStr length])];
+                        }
                         
-                        [attributedString addAttribute:(id)kCTForegroundColorAttributeName value:(id)[UIColor colorWithHexColor:linkNorStr].CGColor range:NSMakeRange(left, [splitStr length])];
                         [attributedString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(left, [splitStr length])];
+                        
+                        [attributedString addAttribute:NSLinkAttributeName
+                                       value:@"username://@www.apple.com/"
+                                       range:NSMakeRange(left, [splitStr length])];
                     }
                     left = left + splitStr.length;
                 }
