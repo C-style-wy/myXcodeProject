@@ -10,7 +10,6 @@
 		CD511A8C66C48D3AF80409DD /* Pods_henews_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14E98F7FF0B2B59D3F22B4D /* Pods_henews_swift.framework */; };
 		D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */; };
 		D386A6F41DBDD2B700EFF08D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A6F31DBDD2B700EFF08D /* IndexViewController.swift */; };
-		D386A6F71DBDD2B700EFF08D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D386A6F51DBDD2B700EFF08D /* Main.storyboard */; };
 		D386A6F91DBDD2B700EFF08D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D386A6F81DBDD2B700EFF08D /* Assets.xcassets */; };
 		D386A6FC1DBDD2B700EFF08D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */; };
 		D386A7071DBDD2B800EFF08D /* henews_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7061DBDD2B800EFF08D /* henews_swiftTests.swift */; };
@@ -42,7 +41,6 @@
 		D386A6EE1DBDD2B700EFF08D /* henews_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = henews_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D386A6F31DBDD2B700EFF08D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
-		D386A6F61DBDD2B700EFF08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D386A6F81DBDD2B700EFF08D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D386A6FB1DBDD2B700EFF08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D386A6FD1DBDD2B700EFF08D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */,
 				D386A6F31DBDD2B700EFF08D /* IndexViewController.swift */,
 				D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */,
-				D386A6F51DBDD2B700EFF08D /* Main.storyboard */,
 				D386A6F81DBDD2B700EFF08D /* Assets.xcassets */,
 				D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */,
 				D386A6FD1DBDD2B700EFF08D /* Info.plist */,
@@ -228,7 +225,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "汪洋";
 				TargetAttributes = {
 					D386A6ED1DBDD2B700EFF08D = {
@@ -274,7 +271,6 @@
 			files = (
 				D386A6FC1DBDD2B700EFF08D /* LaunchScreen.storyboard in Resources */,
 				D386A6F91DBDD2B700EFF08D /* Assets.xcassets in Resources */,
-				D386A6F71DBDD2B700EFF08D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,14 +381,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D386A6F51DBDD2B700EFF08D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D386A6F61DBDD2B700EFF08D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -422,6 +410,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -471,6 +460,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

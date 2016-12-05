@@ -9,12 +9,9 @@
 import UIKit
 
 class IndexViewController: BaseViewController {
-    // !表示确定有值，?表示不确定有值
-    @IBOutlet weak var bgImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         NSLog("viewDidLoad====")
         self.initPage()
     }
@@ -25,7 +22,7 @@ class IndexViewController: BaseViewController {
     }
 
     func initPage() {
-        
+        self.view.backgroundColor = UIColor.white
     }
     
 }

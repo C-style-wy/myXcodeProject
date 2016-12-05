@@ -1,0 +1,26 @@
+platform:ios, '7.0'
+use_frameworks! #个别需要用到它，比如reactiveCocoa
+
+def pods
+	pod 'MJExtension', '~> 3.0.13'
+	pod 'AFNetworking', '~> 3.1.0'
+	pod 'ShareSDK3', '~> 3.4.2'
+	pod 'MOBFoundation', '~> 2.0.11'
+	pod 'ShareSDK3/ShareSDKUI'
+	pod 'ShareSDK3/ShareSDKPlatforms/QQ'
+	pod 'ShareSDK3/ShareSDKPlatforms/SinaWeibo'
+	pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
+	pod 'FDFullscreenPopGesture_Bell', '~> 2.0'
+	pod 'DKNightVersion', '~> 2.4.2'
+    #pod 'MJRefresh', '~> 3.1.12'
+	pod 'SDWebImage', '~> 3.8.2'
+    pod 'BaiduMapKit', '~> 3.1.0' #百度地图SDK
+    pod 'GDataXML-HTML', '~> 1.3.0'
+    pod 'PPNetworkHelper', '~> 0.3.0'
+    pod 'SVProgressHUD', '~> 2.0.3'
+    pod 'Toast', '~> 3.0'
+    pod 'Masonry', '~> 1.0.2'
+end
+target 'henews_swift' do
+	pods
+end
