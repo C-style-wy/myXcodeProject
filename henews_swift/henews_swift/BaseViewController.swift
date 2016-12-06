@@ -12,16 +12,41 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.initPage()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    func initPage() {
+        self.view.backgroundColor = UIColor.white
+        self.navigationController!.navigationBar.isHidden = true
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+//    //设置当前ViewController的StatusBar的样式
+//    func preferredStatusBarStyle() -> UIStatusBarStyle {
+//        return .default
+//    }
+//    //隐藏还是展示statusBar
+//    override func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }
+//    //statusBar的改变动画
+//    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+//        return .Fade  
+//    }
+    
+    
     /*
     // MARK: - Navigation
 
