@@ -9,10 +9,15 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
+    let screenFrame = UIScreen.main.bounds
+    let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initPage()
+        self.initData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,32 +34,16 @@ class BaseViewController: UIViewController {
         self.navigationController!.navigationBar.isHidden = true
     }
     
+    func initData() {
+        
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-//    //设置当前ViewController的StatusBar的样式
-//    func preferredStatusBarStyle() -> UIStatusBarStyle {
-//        return .default
-//    }
-//    //隐藏还是展示statusBar
-//    override func prefersStatusBarHidden() -> Bool {
-//        return true
-//    }
-//    //statusBar的改变动画
-//    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-//        return .Fade  
-//    }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override var prefersStatusBarHidden: Bool {
+        return false
     }
-    */
 
 }

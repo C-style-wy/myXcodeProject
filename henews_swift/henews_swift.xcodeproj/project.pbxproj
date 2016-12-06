@@ -14,7 +14,7 @@
 		D386A7071DBDD2B800EFF08D /* henews_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7061DBDD2B800EFF08D /* henews_swiftTests.swift */; };
 		D386A7121DBDD2B800EFF08D /* henews_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7111DBDD2B800EFF08D /* henews_swiftUITests.swift */; };
 		D386A7241DBDF4CC00EFF08D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */; };
-		D38FD6DC1DF6534800F78F5D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6D91DF6534800F78F5D /* IndexViewController.swift */; };
+		D38FD6DD1DF6869300F78F5D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6D91DF6534800F78F5D /* IndexViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +105,8 @@
 		D386A6F01DBDD2B700EFF08D /* henews_swift */ = {
 			isa = PBXGroup;
 			children = (
-				D38FD6D41DF652CF00F78F5D /* Page */,
 				D386A7261DBE06E100EFF08D /* Util */,
+				D38FD6D41DF652CF00F78F5D /* Page */,
 				D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */,
 				D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */,
 				D386A6F81DBDD2B700EFF08D /* Assets.xcassets */,
@@ -384,9 +384,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D38FD6DD1DF6869300F78F5D /* IndexViewController.swift in Sources */,
 				D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */,
 				D386A7241DBDF4CC00EFF08D /* BaseViewController.swift in Sources */,
-				D38FD6DC1DF6534800F78F5D /* IndexViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
