@@ -7,7 +7,14 @@
 //
 
 #import "SubBaseViewController.h"
+#import "NewsDetailMode.h"
 
 @interface PicViewController : SubBaseViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrolView;
+
+@property (weak, nonatomic) IBOutlet UIView *picHead;
+@property (weak, nonatomic) IBOutlet UIView *picFoot;
+
+@property (nonatomic, retain) NewsDetailMode *picDetailData;
 
 @end

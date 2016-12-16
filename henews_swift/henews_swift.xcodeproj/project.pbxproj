@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD511A8C66C48D3AF80409DD /* Pods_henews_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14E98F7FF0B2B59D3F22B4D /* Pods_henews_swift.framework */; };
+		D31AF7221DF9521300A25456 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AF7211DF9521300A25456 /* TabBarViewController.swift */; };
 		D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */; };
 		D386A6F91DBDD2B700EFF08D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D386A6F81DBDD2B700EFF08D /* Assets.xcassets */; };
 		D386A6FC1DBDD2B700EFF08D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */; };
@@ -15,6 +16,10 @@
 		D386A7121DBDD2B800EFF08D /* henews_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7111DBDD2B800EFF08D /* henews_swiftUITests.swift */; };
 		D386A7241DBDF4CC00EFF08D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */; };
 		D38FD6DD1DF6869300F78F5D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6D91DF6534800F78F5D /* IndexViewController.swift */; };
+		D38FD6DF1DF6944500F78F5D /* MacroDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6DE1DF6944500F78F5D /* MacroDefinition.swift */; };
+		D38FD6F31DF6AE0300F78F5D /* StringMd5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6F21DF6AE0300F78F5D /* StringMd5.swift */; };
+		D38FD6F51DF6AF7600F78F5D /* NetworkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6F41DF6AF7600F78F5D /* NetworkItem.swift */; };
+		D38FD6F71DF6AFDE00F78F5D /* NetworkDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6F61DF6AFDE00F78F5D /* NetworkDefine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,7 @@
 		6B3BFB33798902A931ECBD39 /* Pods-henews_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-henews_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-henews_swift/Pods-henews_swift.debug.xcconfig"; sourceTree = "<group>"; };
 		985EED058F26A4922FF34941 /* Pods-henews_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-henews_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-henews_swift/Pods-henews_swift.release.xcconfig"; sourceTree = "<group>"; };
 		A14E98F7FF0B2B59D3F22B4D /* Pods_henews_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_henews_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D31AF7211DF9521300A25456 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D386A6EE1DBDD2B700EFF08D /* henews_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = henews_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D386A6F81DBDD2B700EFF08D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,8 +56,12 @@
 		D386A7111DBDD2B800EFF08D /* henews_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = henews_swiftUITests.swift; sourceTree = "<group>"; };
 		D386A7131DBDD2B800EFF08D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		D386A7271DBE06FA00EFF08D /* MacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
 		D38FD6D91DF6534800F78F5D /* IndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		D38FD6DE1DF6944500F78F5D /* MacroDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacroDefinition.swift; sourceTree = "<group>"; };
+		D38FD6EE1DF6ADA600F78F5D /* henews_swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "henews_swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		D38FD6F21DF6AE0300F78F5D /* StringMd5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringMd5.swift; sourceTree = "<group>"; };
+		D38FD6F41DF6AF7600F78F5D /* NetworkItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkItem.swift; sourceTree = "<group>"; };
+		D38FD6F61DF6AFDE00F78F5D /* NetworkDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDefine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D31AF71D1DF951B700A25456 /* TabBarPage(tabBar页面) */ = {
+			isa = PBXGroup;
+			children = (
+				D31AF71E1DF951B700A25456 /* controller */,
+				D31AF71F1DF951B700A25456 /* model */,
+				D31AF7201DF951B700A25456 /* view */,
+			);
+			name = "TabBarPage(tabBar页面)";
+			path = TabBarPage;
+			sourceTree = "<group>";
+		};
+		D31AF71E1DF951B700A25456 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				D31AF7211DF9521300A25456 /* TabBarViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		D31AF71F1DF951B700A25456 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		D31AF7201DF951B700A25456 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		D386A6E51DBDD2B700EFF08D = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +148,8 @@
 		D386A6F01DBDD2B700EFF08D /* henews_swift */ = {
 			isa = PBXGroup;
 			children = (
+				D38FD6E31DF6AA8000F78F5D /* Extension */,
+				D38FD6E01DF6A6DF00F78F5D /* Libraries */,
 				D386A7261DBE06E100EFF08D /* Util */,
 				D38FD6D41DF652CF00F78F5D /* Page */,
 				D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */,
@@ -112,6 +157,7 @@
 				D386A6F81DBDD2B700EFF08D /* Assets.xcassets */,
 				D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */,
 				D386A6FD1DBDD2B700EFF08D /* Info.plist */,
+				D38FD6EE1DF6ADA600F78F5D /* henews_swift-Bridging-Header.h */,
 			);
 			path = henews_swift;
 			sourceTree = "<group>";
@@ -137,7 +183,7 @@
 		D386A7261DBE06E100EFF08D /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				D386A7271DBE06FA00EFF08D /* MacroDefinition.h */,
+				D38FD6DE1DF6944500F78F5D /* MacroDefinition.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -145,6 +191,7 @@
 		D38FD6D41DF652CF00F78F5D /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				D31AF71D1DF951B700A25456 /* TabBarPage(tabBar页面) */,
 				D38FD6D71DF6534800F78F5D /* Index(启动页) */,
 			);
 			path = Page;
@@ -181,6 +228,39 @@
 			children = (
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		D38FD6E01DF6A6DF00F78F5D /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				D38FD6E11DF6A6DF00F78F5D /* Networking */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		D38FD6E11DF6A6DF00F78F5D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D38FD6F41DF6AF7600F78F5D /* NetworkItem.swift */,
+				D38FD6F61DF6AFDE00F78F5D /* NetworkDefine.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D38FD6E31DF6AA8000F78F5D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D38FD6E61DF6AC9D00F78F5D /* StringMd5 */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D38FD6E61DF6AC9D00F78F5D /* StringMd5 */ = {
+			isa = PBXGroup;
+			children = (
+				D38FD6F21DF6AE0300F78F5D /* StringMd5.swift */,
+			);
+			path = StringMd5;
 			sourceTree = "<group>";
 		};
 		E2A7A9B912D1AF35D910B0C4 /* Pods */ = {
@@ -271,6 +351,7 @@
 				TargetAttributes = {
 					D386A6ED1DBDD2B700EFF08D = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Manual;
 					};
 					D386A7011DBDD2B700EFF08D = {
@@ -384,9 +465,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D31AF7221DF9521300A25456 /* TabBarViewController.swift in Sources */,
+				D38FD6F71DF6AFDE00F78F5D /* NetworkDefine.swift in Sources */,
 				D38FD6DD1DF6869300F78F5D /* IndexViewController.swift in Sources */,
+				D38FD6F51DF6AF7600F78F5D /* NetworkItem.swift in Sources */,
 				D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */,
 				D386A7241DBDF4CC00EFF08D /* BaseViewController.swift in Sources */,
+				D38FD6DF1DF6944500F78F5D /* MacroDefinition.swift in Sources */,
+				D38FD6F31DF6AE0300F78F5D /* StringMd5.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhejiang Xinlan Network Media Limited Company";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhejiang Xinlan Network Media Limited Company";
 				DEVELOPMENT_TEAM = "";
@@ -541,6 +628,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2ee2857f-391b-4f53-8914-2461e759bd3e";
 				PROVISIONING_PROFILE_SPECIFIER = zglxw.enterprise.wangda;
+				SWIFT_OBJC_BRIDGING_HEADER = "henews_swift/henews_swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -551,6 +640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhejiang Xinlan Network Media Limited Company";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhejiang Xinlan Network Media Limited Company";
 				DEVELOPMENT_TEAM = "";
@@ -560,6 +650,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2ee2857f-391b-4f53-8914-2461e759bd3e";
 				PROVISIONING_PROFILE_SPECIFIER = zglxw.enterprise.wangda;
+				SWIFT_OBJC_BRIDGING_HEADER = "henews_swift/henews_swift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

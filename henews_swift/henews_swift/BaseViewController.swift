@@ -7,13 +7,11 @@
 //
 
 import UIKit
+let screenFrame = UIScreen.main.bounds
+let screenWidth = UIScreen.main.bounds.size.width
+let screenHeight = UIScreen.main.bounds.size.height
 
 class BaseViewController: UIViewController {
-    
-    let screenFrame = UIScreen.main.bounds
-    let screenWidth = UIScreen.main.bounds.size.width
-    let screenHeight = UIScreen.main.bounds.size.height
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initPage()
