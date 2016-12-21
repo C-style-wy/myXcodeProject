@@ -7,9 +7,12 @@
 //
 
 #import "SubBaseViewController.h"
+#import "CommentListMode.h"
 
 @interface CommentListViewController : SubBaseViewController
 
-@property (nonatomic, retain) NSString * commentUrl;
+@property (nonatomic, retain) NSString *commentUrl;
+@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) CommentListMode *commentList;
 
 @end

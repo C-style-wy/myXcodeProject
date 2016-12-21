@@ -241,6 +241,9 @@
 		D3EFC1D51DC713010097E2BC /* ApsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EFC1D41DC713010097E2BC /* ApsModel.m */; };
 		D3EFC1D81DC713620097E2BC /* PushInfoMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EFC1D71DC713620097E2BC /* PushInfoMode.m */; };
 		D3F230A41D911FE400697A6C /* TierManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F230A31D911FE400697A6C /* TierManager.m */; };
+		D3F4D9361E091AEC00989A43 /* CommentListMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F4D9351E091AEC00989A43 /* CommentListMode.m */; };
+		D3F4D9391E091B4B00989A43 /* CommentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F4D9381E091B4B00989A43 /* CommentMode.m */; };
+		D3F4D93C1E091BC700989A43 /* InheritMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F4D93B1E091BC700989A43 /* InheritMode.m */; };
 		D3FC8AA21DB37F51004282E6 /* ShareSDKHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FC8AA11DB37F51004282E6 /* ShareSDKHandle.m */; };
 		D3FC8AA61DB3837F004282E6 /* ShareSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FC8AA51DB3837F004282E6 /* ShareSDKManager.m */; };
 /* End PBXBuildFile section */
@@ -715,6 +718,12 @@
 		D3EFC1D71DC713620097E2BC /* PushInfoMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushInfoMode.m; sourceTree = "<group>"; };
 		D3F230A21D911FE400697A6C /* TierManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TierManager.h; sourceTree = "<group>"; };
 		D3F230A31D911FE400697A6C /* TierManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TierManager.m; sourceTree = "<group>"; };
+		D3F4D9341E091AEC00989A43 /* CommentListMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListMode.h; sourceTree = "<group>"; };
+		D3F4D9351E091AEC00989A43 /* CommentListMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListMode.m; sourceTree = "<group>"; };
+		D3F4D9371E091B4B00989A43 /* CommentMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentMode.h; sourceTree = "<group>"; };
+		D3F4D9381E091B4B00989A43 /* CommentMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentMode.m; sourceTree = "<group>"; };
+		D3F4D93A1E091BC700989A43 /* InheritMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InheritMode.h; sourceTree = "<group>"; };
+		D3F4D93B1E091BC700989A43 /* InheritMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InheritMode.m; sourceTree = "<group>"; };
 		D3FC8AA01DB37F51004282E6 /* ShareSDKHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareSDKHandle.h; sourceTree = "<group>"; };
 		D3FC8AA11DB37F51004282E6 /* ShareSDKHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareSDKHandle.m; sourceTree = "<group>"; };
 		D3FC8AA31DB37F88004282E6 /* ShareSDKDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareSDKDefine.h; sourceTree = "<group>"; };
@@ -1416,6 +1425,7 @@
 		D366815E1D3762D7001948D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3F4D9331E091AB200989A43 /* CommentListMode */,
 				D3E2D9891DDEE19D00C47967 /* TopicMode */,
 				D3DB224C1DC8605C00AE0D33 /* NewsDetailMode */,
 				D3EFC1D21DC6F1930097E2BC /* PushInfoMode */,
@@ -1697,6 +1707,19 @@
 			path = MySubpage;
 			sourceTree = "<group>";
 		};
+		D3F4D9331E091AB200989A43 /* CommentListMode */ = {
+			isa = PBXGroup;
+			children = (
+				D3F4D9341E091AEC00989A43 /* CommentListMode.h */,
+				D3F4D9351E091AEC00989A43 /* CommentListMode.m */,
+				D3F4D9371E091B4B00989A43 /* CommentMode.h */,
+				D3F4D9381E091B4B00989A43 /* CommentMode.m */,
+				D3F4D93A1E091BC700989A43 /* InheritMode.h */,
+				D3F4D93B1E091BC700989A43 /* InheritMode.m */,
+			);
+			path = CommentListMode;
+			sourceTree = "<group>";
+		};
 		D3FC8A9F1DB37F14004282E6 /* ShareSDKHandle */ = {
 			isa = PBXGroup;
 			children = (
@@ -1972,6 +1995,7 @@
 				D31408071DD45DF2004CD256 /* DetailShareMode.m in Sources */,
 				D31AA0B61D470B860036004A /* LocalTierMode.m in Sources */,
 				D32D86641D46142C008D7216 /* ChannelMode.m in Sources */,
+				D3F4D9391E091B4B00989A43 /* CommentMode.m in Sources */,
 				D3855B9E1D9C194600B15E27 /* UserHeadView.m in Sources */,
 				D32479681D8F8B7B004C7A7B /* ActivityViewController.m in Sources */,
 				D3C1D9281DC8688F00CEAC18 /* ImagesMode.m in Sources */,
@@ -2050,6 +2074,7 @@
 				D3640C871D62F3BF008049E4 /* CityListCell.m in Sources */,
 				D30C75D71D35D0FD00248DE0 /* UIColor+hexColor.m in Sources */,
 				D34D32741DB60EF7000FA6F7 /* UserCenterSubView.m in Sources */,
+				D3F4D93C1E091BC700989A43 /* InheritMode.m in Sources */,
 				D3C215C81DDD403B0002F21D /* DetailDingCaiCell.m in Sources */,
 				D35C08FE1DBF2EC500A3ED11 /* MYRefreshStateHeader.m in Sources */,
 				D37007E51D34CA19007E2AA3 /* MD5.m in Sources */,
@@ -2091,6 +2116,7 @@
 				D3DB22521DC864B400AE0D33 /* ContentMode.m in Sources */,
 				D324795F1D8F8B50004C7A7B /* TopicViewController.m in Sources */,
 				D32BD2281D7D5BEA00DB44DE /* ForecastMode.m in Sources */,
+				D3F4D9361E091AEC00989A43 /* CommentListMode.m in Sources */,
 				D3A05F201DB757E700567897 /* MYPhoneParam.m in Sources */,
 				D3E2D9A11DDEF87100C47967 /* TopicSubViewController.m in Sources */,
 				D365588A1DAF317C00D05C84 /* WelfareHeaderView.m in Sources */,

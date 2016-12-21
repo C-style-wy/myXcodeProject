@@ -41,7 +41,7 @@
         if (imageInfo.url && ![imageInfo.url isEqualToString:@""]) {
             imageHeight = 200.0f;
             
-            if (![imageInfo.width isEqualToString:@""]) {
+            if (![imageInfo.width isEqualToString:@""] && ![imageInfo.width isEqualToString:@"0"]) {
                 float width = [imageInfo.width floatValue];
                 float height = [imageInfo.height floatValue];
                 imageHeight = (imageWidth*height)/width;

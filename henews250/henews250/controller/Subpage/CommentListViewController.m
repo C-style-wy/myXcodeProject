@@ -29,13 +29,18 @@ static NSString * const CommentListTag = @"CommentListTag";
     self.pageTitle.text = @"评论列表";
     self.headView.shareBtn.hidden = YES;
     
-    [NetworkManager postRequestJsonWithURL:self.url params:nil delegate:self tag:CommentListTag msg:0 useCache:YES update:YES showHUD:YES];
+    
+    
+    [NetworkManager postRequestJsonWithURL:self.url params:nil delegate:self tag:CommentListTag msg:0 useCache:YES update:YES showHUD:NO];
 }
 
 #pragma mark - 网络返回
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
     if ([tag isEqualToString:CommentListTag]) {
-
+        self.commentList = [CommentListMode mj_objectWithKeyValues:returnJson];
+        CommentMode *testMode = [self.commentList.hotCommentList objectAtIndex:0];
+        NSLog(@"hotCommentList====%@", testMode.objectName);
+        
     }
 }
 
