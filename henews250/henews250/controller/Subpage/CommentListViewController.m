@@ -38,8 +38,8 @@ static NSString * const CommentListTag = @"CommentListTag";
 - (void)requestDidFinishLoading:(NSString*)tag returnJson:(NSDictionary*)returnJson msg:(NSInteger)msg{
     if ([tag isEqualToString:CommentListTag]) {
         self.commentList = [CommentListMode mj_objectWithKeyValues:returnJson];
-        CommentMode *testMode = [self.commentList.hotCommentList objectAtIndex:0];
-        NSLog(@"hotCommentList====%@", testMode.objectName);
+//        CommentMode *testMode = [self.commentList.hotCommentList objectAtIndex:0];
+//        NSLog(@"hotCommentList====%@", testMode.objectName);
         
     }
 }
