@@ -9,10 +9,12 @@
 #import "SubBaseViewController.h"
 #import "CommentListMode.h"
 
-@interface CommentListViewController : SubBaseViewController
+@interface CommentListViewController : SubBaseViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) NSString *commentUrl;
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) CommentListMode *commentList;
+
+@property (nonatomic, retain) NSMutableArray *tableShowAry;
 
 @end

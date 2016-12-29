@@ -193,6 +193,10 @@
 		D3ADEB591DBBA3C0006038C0 /* ChoiceImgSource.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3ADEB581DBBA3C0006038C0 /* ChoiceImgSource.xib */; };
 		D3B145201D9A049300FCB5DA /* ClassInfoMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1451F1D9A049300FCB5DA /* ClassInfoMode.m */; };
 		D3C0D83A1D8E73AE00A4B051 /* NetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C0D8391D8E73AE00A4B051 /* NetworkCache.m */; };
+		D3C10C7B1E10BAEB00CEE41E /* CommentListSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C10C7A1E10BAEB00CEE41E /* CommentListSectionView.m */; };
+		D3C10C7D1E10BAF700CEE41E /* CommentListSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C10C7C1E10BAF700CEE41E /* CommentListSectionView.xib */; };
+		D3C10C811E10C0D900CEE41E /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C10C7F1E10C0D900CEE41E /* CommentCell.m */; };
+		D3C10C821E10C0D900CEE41E /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C10C801E10C0D900CEE41E /* CommentCell.xib */; };
 		D3C1D9251DC8678300CEAC18 /* VideosMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1D9241DC8678300CEAC18 /* VideosMode.m */; };
 		D3C1D9281DC8688F00CEAC18 /* ImagesMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1D9271DC8688F00CEAC18 /* ImagesMode.m */; };
 		D3C1D92B1DC868F200CEAC18 /* SubContentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1D92A1DC868F200CEAC18 /* SubContentMode.m */; };
@@ -624,6 +628,12 @@
 		D3B693921D2BBF5D00F8D1C4 /* MacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
 		D3C0D8381D8E73AE00A4B051 /* NetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCache.h; sourceTree = "<group>"; };
 		D3C0D8391D8E73AE00A4B051 /* NetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCache.m; sourceTree = "<group>"; };
+		D3C10C791E10BAEB00CEE41E /* CommentListSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListSectionView.h; sourceTree = "<group>"; };
+		D3C10C7A1E10BAEB00CEE41E /* CommentListSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListSectionView.m; sourceTree = "<group>"; };
+		D3C10C7C1E10BAF700CEE41E /* CommentListSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentListSectionView.xib; sourceTree = "<group>"; };
+		D3C10C7E1E10C0D900CEE41E /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		D3C10C7F1E10C0D900CEE41E /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		D3C10C801E10C0D900CEE41E /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		D3C1D9231DC8678300CEAC18 /* VideosMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideosMode.h; sourceTree = "<group>"; };
 		D3C1D9241DC8678300CEAC18 /* VideosMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideosMode.m; sourceTree = "<group>"; };
 		D3C1D9261DC8688F00CEAC18 /* ImagesMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesMode.h; sourceTree = "<group>"; };
@@ -918,6 +928,7 @@
 		D31ED3FE1D3DAE2B003C2A54 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				D3C10C781E10BAC600CEE41E /* CommentListCell */,
 				D3E2D9931DDEE7E800C47967 /* TopicCell */,
 				D31AE2101DC97F31008D90FA /* NewsDetailCell */,
 				D36483691DAE181100E1CF23 /* WelfareCell */,
@@ -1503,6 +1514,19 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		D3C10C781E10BAC600CEE41E /* CommentListCell */ = {
+			isa = PBXGroup;
+			children = (
+				D3C10C791E10BAEB00CEE41E /* CommentListSectionView.h */,
+				D3C10C7A1E10BAEB00CEE41E /* CommentListSectionView.m */,
+				D3C10C7C1E10BAF700CEE41E /* CommentListSectionView.xib */,
+				D3C10C7E1E10C0D900CEE41E /* CommentCell.h */,
+				D3C10C7F1E10C0D900CEE41E /* CommentCell.m */,
+				D3C10C801E10C0D900CEE41E /* CommentCell.xib */,
+			);
+			path = CommentListCell;
+			sourceTree = "<group>";
+		};
 		D3C2A2661DACC6CE003A3B92 /* WelfareMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -1849,11 +1873,13 @@
 			files = (
 				D30D35BC1DDAA40500697020 /* simsun.ttf in Resources */,
 				D30D35BA1DDAA20200697020 /* 楷体GB2312.ttf in Resources */,
+				D3C10C7D1E10BAF700CEE41E /* CommentListSectionView.xib in Resources */,
 				D3640C8D1D62F618008049E4 /* CityListSectionView.xib in Resources */,
 				D3640C881D62F3BF008049E4 /* CityListCell.xib in Resources */,
 				D3855BA51D9C286A00B15E27 /* MyListView.xib in Resources */,
 				D3C4EC661D485F37002D4BC9 /* TierManageView.xib in Resources */,
 				D35BB1D21D42221D000D6BFD /* BannerImageView.xib in Resources */,
+				D3C10C821E10C0D900CEE41E /* CommentCell.xib in Resources */,
 				D33265231D2E2FC3005C9D7D /* GuidePage2.xib in Resources */,
 				D31ED4041D3DBA34003C2A54 /* OneSmallPicCell.xib in Resources */,
 				D3C4EC6B1D48600F002D4BC9 /* TierHeadView.xib in Resources */,
@@ -2013,6 +2039,7 @@
 				D3C4EC691D485FF6002D4BC9 /* TierHeadView.m in Sources */,
 				D338DBB51DD9BE7500935F5E /* SharefriendViewController.m in Sources */,
 				D32A63FC1DC0DC7F006CF376 /* MJRefreshBackGifFooter.m in Sources */,
+				D3C10C811E10C0D900CEE41E /* CommentCell.m in Sources */,
 				D3FC8AA21DB37F51004282E6 /* ShareSDKHandle.m in Sources */,
 				D32BD2221D7D511900DB44DE /* YesterdayMode.m in Sources */,
 				D32A63FA1DC0DC7F006CF376 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -2072,6 +2099,7 @@
 				D332651E1D2E19B6005C9D7D /* UIView+LoadFromNib.m in Sources */,
 				D38DF7291D3F75CD0042A241 /* BaseCell.m in Sources */,
 				D3640C871D62F3BF008049E4 /* CityListCell.m in Sources */,
+				D3C10C7B1E10BAEB00CEE41E /* CommentListSectionView.m in Sources */,
 				D30C75D71D35D0FD00248DE0 /* UIColor+hexColor.m in Sources */,
 				D34D32741DB60EF7000FA6F7 /* UserCenterSubView.m in Sources */,
 				D3F4D93C1E091BC700989A43 /* InheritMode.m in Sources */,
