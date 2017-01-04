@@ -9,12 +9,7 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    
-    var homeBtn: TabBarButton?
-    var newsBtn: TabBarButton?
-    var viewPointBtn: TabBarButton?
-    var welfareBtn: TabBarButton?
-    var myBtn: TabBarButton?
+
     var selectedBtn: TabBarButton?
     
     // 懒加载，惰性存储属性
@@ -33,13 +28,13 @@ class TabBarController: UITabBarController {
         var view: UIView?
         if let strongSelf = self {
             view = UIView()
-            view?.backgroundColor = UIColor.white
-            view?.frame = CGRect(x: 0, y: screenHeight-40, width: screenWidth, height: 40)
+            view!.backgroundColor = UIColor.white
+            view!.frame = CGRect(x: 0, y: screenHeight-40, width: screenWidth, height: 40)
             
             let line = UIImageView()
             line.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 0.5)
             line.image = UIImage(named: "menuFengexian")
-            view?.addSubview(line)
+            view!.addSubview(line)
             
             strongSelf.view.addSubview(view!)
         }
@@ -56,7 +51,15 @@ class TabBarController: UITabBarController {
         self.showLaunchImage()
         
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (Timer) in
-            self.bgImageView.isHidden = true
+            
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                self.bgImageView.alpha = 0
+                self.bgImageView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            }, completion: { (Bool) in
+                self.bgImageView.isHidden = true
+            })
+            
             Timer.invalidate()
         })
     }
@@ -78,7 +81,6 @@ class TabBarController: UITabBarController {
             btn.frame = CGRect(x: x, y: 0, width: btnWidth, height: 40)
             switch i {
             case 0:
-                homeBtn = btn
                 selectedBtn = btn
                 btn.setTitle("推荐", for: UIControlState.normal)
                 btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-22)/2, 18, (btnWidth-22)/2)
@@ -86,43 +88,45 @@ class TabBarController: UITabBarController {
                 btn.isSelected = true
                 break
             case 1:
-                newsBtn = btn
                 btn.setTitle("资讯", for: UIControlState.normal)
                 btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-16)/2, 18, (btnWidth-16)/2)
                 btn.titleEdgeInsets = UIEdgeInsetsMake(28, -18, 6, 0)
                 break
             case 2:
-                viewPointBtn = btn
                 btn.setTitle("视界", for: UIControlState.normal)
                 btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-18)/2, 18, (btnWidth-18)/2)
                 btn.titleEdgeInsets = UIEdgeInsetsMake(28, -18, 6, 0)
                 break
             case 3:
-                welfareBtn = btn
                 btn.setTitle("福利", for: UIControlState.normal)
                 btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-18)/2, 18, (btnWidth-18)/2)
                 btn.titleEdgeInsets = UIEdgeInsetsMake(28, -20, 6, 0)
                 break
             case 4:
-                myBtn = btn
                 btn.setTitle("我的", for: UIControlState.normal)
                 btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-16)/2, 18, (btnWidth-16)/2)
                 btn.titleEdgeInsets = UIEdgeInsetsMake(28, -18, 6, 0)
                 break
             default: break
             }
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            btn.titleLabel!.font = UIFont.systemFont(ofSize: 12)
             btn.setTitleColor(UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1), for: UIControlState.normal)
             btn.setTitleColor(UIColor(red: 0.88, green: 0.02, blue: 0.46, alpha: 1), for: UIControlState.selected)
             btn.tag = i
-            btn.addTarget(self, action: #selector(clickBtn), for: UIControlEvents.touchUpInside)
+            btn.addTarget(self, action: #selector(onClickBtn(sender:)) , for: UIControlEvents.touchUpInside)
             self.tabBarView.addSubview(btn)
         }
         
     }
     
-    func clickBtn() {
-        
+    func onClickBtn(sender:UIButton!) {
+        if sender == selectedBtn {
+            
+        }else{
+            selectedBtn!.isSelected = false
+            sender!.isSelected = true
+            selectedBtn = sender as! TabBarButton!
+        }
     }
     
     // 设置背景启动图

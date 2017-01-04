@@ -172,7 +172,6 @@
     }
 }
 
-
 - (void)closeMenu {
     [UIView animateWithDuration:0.1f animations:^{
         self.tabBarView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 40);
