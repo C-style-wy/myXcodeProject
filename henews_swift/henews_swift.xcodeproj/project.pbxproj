@@ -131,14 +131,14 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA301E1CDB180030BF07 /* TabInformation(资讯) */ = {
+		D344EA301E1CDB180030BF07 /* TabInformation(资讯页) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA311E1CDB180030BF07 /* controller */,
 				D344EA321E1CDB180030BF07 /* model */,
 				D344EA331E1CDB180030BF07 /* view */,
 			);
-			name = "TabInformation(资讯)";
+			name = "TabInformation(资讯页)";
 			path = TabInformation;
 			sourceTree = "<group>";
 		};
@@ -164,14 +164,14 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA341E1CDB180030BF07 /* TabMy(我的) */ = {
+		D344EA341E1CDB180030BF07 /* TabMy(我的页面) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA351E1CDB180030BF07 /* controller */,
 				D344EA361E1CDB180030BF07 /* model */,
 				D344EA371E1CDB180030BF07 /* view */,
 			);
-			name = "TabMy(我的)";
+			name = "TabMy(我的页面)";
 			path = TabMy;
 			sourceTree = "<group>";
 		};
@@ -197,14 +197,14 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA381E1CDB180030BF07 /* TabRecommend(推荐) */ = {
+		D344EA381E1CDB180030BF07 /* TabRecommend(推荐页) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA391E1CDB180030BF07 /* controller */,
 				D344EA3A1E1CDB180030BF07 /* model */,
 				D344EA3B1E1CDB180030BF07 /* view */,
 			);
-			name = "TabRecommend(推荐)";
+			name = "TabRecommend(推荐页)";
 			path = TabRecommend;
 			sourceTree = "<group>";
 		};
@@ -230,14 +230,14 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA3C1E1CDB180030BF07 /* TabViewPoint(视界) */ = {
+		D344EA3C1E1CDB180030BF07 /* TabViewPoint(视界页) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA3D1E1CDB180030BF07 /* controller */,
 				D344EA3E1E1CDB180030BF07 /* model */,
 				D344EA3F1E1CDB180030BF07 /* view */,
 			);
-			name = "TabViewPoint(视界)";
+			name = "TabViewPoint(视界页)";
 			path = TabViewPoint;
 			sourceTree = "<group>";
 		};
@@ -263,14 +263,14 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA401E1CDB180030BF07 /* TabWelfare(福利) */ = {
+		D344EA401E1CDB180030BF07 /* TabWelfare(福利页) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA411E1CDB180030BF07 /* controller */,
 				D344EA421E1CDB180030BF07 /* model */,
 				D344EA431E1CDB180030BF07 /* view */,
 			);
-			name = "TabWelfare(福利)";
+			name = "TabWelfare(福利页)";
 			path = TabWelfare;
 			sourceTree = "<group>";
 		};
@@ -366,11 +366,11 @@
 			isa = PBXGroup;
 			children = (
 				D31AF71D1DF951B700A25456 /* TabBarPage(tabBar页面) */,
-				D344EA381E1CDB180030BF07 /* TabRecommend(推荐) */,
-				D344EA301E1CDB180030BF07 /* TabInformation(资讯) */,
-				D344EA3C1E1CDB180030BF07 /* TabViewPoint(视界) */,
-				D344EA401E1CDB180030BF07 /* TabWelfare(福利) */,
-				D344EA341E1CDB180030BF07 /* TabMy(我的) */,
+				D344EA381E1CDB180030BF07 /* TabRecommend(推荐页) */,
+				D344EA301E1CDB180030BF07 /* TabInformation(资讯页) */,
+				D344EA3C1E1CDB180030BF07 /* TabViewPoint(视界页) */,
+				D344EA401E1CDB180030BF07 /* TabWelfare(福利页) */,
+				D344EA341E1CDB180030BF07 /* TabMy(我的页面) */,
 			);
 			path = Page;
 			sourceTree = "<group>";
