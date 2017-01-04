@@ -20,6 +20,8 @@
 		D38FD6F31DF6AE0300F78F5D /* StringMd5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6F21DF6AE0300F78F5D /* StringMd5.swift */; };
 		D38FD6F51DF6AF7600F78F5D /* NetworkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6F41DF6AF7600F78F5D /* NetworkItem.swift */; };
 		D38FD6F71DF6AFDE00F78F5D /* NetworkDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FD6F61DF6AFDE00F78F5D /* NetworkDefine.swift */; };
+		D3C3890B1E1B8AD7001EE6F3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C3890A1E1B8AD7001EE6F3 /* TabBarController.swift */; };
+		D3C3890F1E1B9AEA001EE6F3 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C3890E1E1B9AEA001EE6F3 /* TabBarButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		D38FD6F21DF6AE0300F78F5D /* StringMd5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringMd5.swift; sourceTree = "<group>"; };
 		D38FD6F41DF6AF7600F78F5D /* NetworkItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkItem.swift; sourceTree = "<group>"; };
 		D38FD6F61DF6AFDE00F78F5D /* NetworkDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDefine.swift; sourceTree = "<group>"; };
+		D3C3890A1E1B8AD7001EE6F3 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D3C3890E1E1B9AEA001EE6F3 /* TabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				D31AF7211DF9521300A25456 /* TabBarViewController.swift */,
+				D3C3890A1E1B8AD7001EE6F3 /* TabBarController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -148,6 +153,8 @@
 		D386A6F01DBDD2B700EFF08D /* henews_swift */ = {
 			isa = PBXGroup;
 			children = (
+				D3C3890C1E1B9AC8001EE6F3 /* Category */,
+				D3C3890D1E1B9AC8001EE6F3 /* Subclass */,
 				D38FD6E31DF6AA8000F78F5D /* Extension */,
 				D38FD6E01DF6A6DF00F78F5D /* Libraries */,
 				D386A7261DBE06E100EFF08D /* Util */,
@@ -261,6 +268,21 @@
 				D38FD6F21DF6AE0300F78F5D /* StringMd5.swift */,
 			);
 			path = StringMd5;
+			sourceTree = "<group>";
+		};
+		D3C3890C1E1B9AC8001EE6F3 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D3C3890D1E1B9AC8001EE6F3 /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				D3C3890E1E1B9AEA001EE6F3 /* TabBarButton.swift */,
+			);
+			path = Subclass;
 			sourceTree = "<group>";
 		};
 		E2A7A9B912D1AF35D910B0C4 /* Pods */ = {
@@ -468,6 +490,8 @@
 				D31AF7221DF9521300A25456 /* TabBarViewController.swift in Sources */,
 				D38FD6F71DF6AFDE00F78F5D /* NetworkDefine.swift in Sources */,
 				D38FD6DD1DF6869300F78F5D /* IndexViewController.swift in Sources */,
+				D3C3890F1E1B9AEA001EE6F3 /* TabBarButton.swift in Sources */,
+				D3C3890B1E1B8AD7001EE6F3 /* TabBarController.swift in Sources */,
 				D38FD6F51DF6AF7600F78F5D /* NetworkItem.swift in Sources */,
 				D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */,
 				D386A7241DBDF4CC00EFF08D /* BaseViewController.swift in Sources */,

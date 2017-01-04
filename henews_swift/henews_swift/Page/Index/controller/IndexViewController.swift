@@ -22,7 +22,7 @@ class IndexViewController: BaseViewController {
     
 //    private lazy var
     
-    var time:Timer!
+//    var time:Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +39,10 @@ class IndexViewController: BaseViewController {
     
     override func initData() {
         super.initData()
-        time = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { (Timer) in
-            let tabBarPage: TabBarViewController! = TabBarViewController()
-            tabBarPage.testBlock = {
-                (str) in
-                return str + "sb"
-            }
-            self.navigationController?.pushViewController(tabBarPage, animated: true)
+        
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (Timer) in
+            let tabBarPage: TabBarController! = TabBarController()
+            self.navigationController?.setViewControllers([tabBarPage], animated: true)
             Timer.invalidate()
         })
     }

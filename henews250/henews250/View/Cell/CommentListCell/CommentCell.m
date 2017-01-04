@@ -56,7 +56,12 @@
     if (_commentMode.pic && ![_commentMode.pic isEqualToString:@""]) {
         [self.userHeader loadFromWebWithUrlString:_commentMode.pic animated:YES];
     }else{
-        self.userHeader.image = [UIImage imageNamed:@"visitor_header"];
+        if (_commentMode.userId && ![_commentMode.userId isEqualToString:@""]
+            && ![_commentMode.userId isEqualToString:@"0"]) {
+            self.userHeader.image = [UIImage imageNamed:@"head_default"];
+        }else{
+            self.userHeader.image = [UIImage imageNamed:@"visitor_header"];
+        }
     }
 }
 
