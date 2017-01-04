@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CD511A8C66C48D3AF80409DD /* Pods_henews_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14E98F7FF0B2B59D3F22B4D /* Pods_henews_swift.framework */; };
-		D31AF7221DF9521300A25456 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AF7211DF9521300A25456 /* TabBarViewController.swift */; };
+		D344EA451E1CDF230030BF07 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344EA441E1CDF230030BF07 /* RecommendViewController.swift */; };
+		D344EA471E1CDF5B0030BF07 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344EA461E1CDF5B0030BF07 /* InformationViewController.swift */; };
+		D344EA491E1CDF700030BF07 /* ViewPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344EA481E1CDF700030BF07 /* ViewPointViewController.swift */; };
+		D344EA4B1E1CDF930030BF07 /* WelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344EA4A1E1CDF930030BF07 /* WelfareViewController.swift */; };
+		D344EA4D1E1CDF9E0030BF07 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344EA4C1E1CDF9E0030BF07 /* MyViewController.swift */; };
 		D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */; };
 		D386A6F91DBDD2B700EFF08D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D386A6F81DBDD2B700EFF08D /* Assets.xcassets */; };
 		D386A7071DBDD2B800EFF08D /* henews_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7061DBDD2B800EFF08D /* henews_swiftTests.swift */; };
@@ -43,7 +47,11 @@
 		6B3BFB33798902A931ECBD39 /* Pods-henews_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-henews_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-henews_swift/Pods-henews_swift.debug.xcconfig"; sourceTree = "<group>"; };
 		985EED058F26A4922FF34941 /* Pods-henews_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-henews_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-henews_swift/Pods-henews_swift.release.xcconfig"; sourceTree = "<group>"; };
 		A14E98F7FF0B2B59D3F22B4D /* Pods_henews_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_henews_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D31AF7211DF9521300A25456 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		D344EA441E1CDF230030BF07 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		D344EA461E1CDF5B0030BF07 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		D344EA481E1CDF700030BF07 /* ViewPointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPointViewController.swift; sourceTree = "<group>"; };
+		D344EA4A1E1CDF930030BF07 /* WelfareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelfareViewController.swift; sourceTree = "<group>"; };
+		D344EA4C1E1CDF9E0030BF07 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		D386A6EE1DBDD2B700EFF08D /* henews_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = henews_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D386A6F81DBDD2B700EFF08D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +112,6 @@
 		D31AF71E1DF951B700A25456 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				D31AF7211DF9521300A25456 /* TabBarViewController.swift */,
 				D3C3890A1E1B8AD7001EE6F3 /* TabBarController.swift */,
 			);
 			path = controller;
@@ -124,19 +131,21 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA301E1CDB180030BF07 /* TabInformation */ = {
+		D344EA301E1CDB180030BF07 /* TabInformation(资讯) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA311E1CDB180030BF07 /* controller */,
 				D344EA321E1CDB180030BF07 /* model */,
 				D344EA331E1CDB180030BF07 /* view */,
 			);
+			name = "TabInformation(资讯)";
 			path = TabInformation;
 			sourceTree = "<group>";
 		};
 		D344EA311E1CDB180030BF07 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				D344EA461E1CDF5B0030BF07 /* InformationViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -155,19 +164,21 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA341E1CDB180030BF07 /* TabMy */ = {
+		D344EA341E1CDB180030BF07 /* TabMy(我的) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA351E1CDB180030BF07 /* controller */,
 				D344EA361E1CDB180030BF07 /* model */,
 				D344EA371E1CDB180030BF07 /* view */,
 			);
+			name = "TabMy(我的)";
 			path = TabMy;
 			sourceTree = "<group>";
 		};
 		D344EA351E1CDB180030BF07 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				D344EA4C1E1CDF9E0030BF07 /* MyViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -186,19 +197,21 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA381E1CDB180030BF07 /* TabRecommend */ = {
+		D344EA381E1CDB180030BF07 /* TabRecommend(推荐) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA391E1CDB180030BF07 /* controller */,
 				D344EA3A1E1CDB180030BF07 /* model */,
 				D344EA3B1E1CDB180030BF07 /* view */,
 			);
+			name = "TabRecommend(推荐)";
 			path = TabRecommend;
 			sourceTree = "<group>";
 		};
 		D344EA391E1CDB180030BF07 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				D344EA441E1CDF230030BF07 /* RecommendViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -217,19 +230,21 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA3C1E1CDB180030BF07 /* TabViewPoint */ = {
+		D344EA3C1E1CDB180030BF07 /* TabViewPoint(视界) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA3D1E1CDB180030BF07 /* controller */,
 				D344EA3E1E1CDB180030BF07 /* model */,
 				D344EA3F1E1CDB180030BF07 /* view */,
 			);
+			name = "TabViewPoint(视界)";
 			path = TabViewPoint;
 			sourceTree = "<group>";
 		};
 		D344EA3D1E1CDB180030BF07 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				D344EA481E1CDF700030BF07 /* ViewPointViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -248,19 +263,21 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		D344EA401E1CDB180030BF07 /* TabWelfare */ = {
+		D344EA401E1CDB180030BF07 /* TabWelfare(福利) */ = {
 			isa = PBXGroup;
 			children = (
 				D344EA411E1CDB180030BF07 /* controller */,
 				D344EA421E1CDB180030BF07 /* model */,
 				D344EA431E1CDB180030BF07 /* view */,
 			);
+			name = "TabWelfare(福利)";
 			path = TabWelfare;
 			sourceTree = "<group>";
 		};
 		D344EA411E1CDB180030BF07 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				D344EA4A1E1CDF930030BF07 /* WelfareViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -348,12 +365,12 @@
 		D38FD6D41DF652CF00F78F5D /* Page */ = {
 			isa = PBXGroup;
 			children = (
-				D344EA301E1CDB180030BF07 /* TabInformation */,
-				D344EA341E1CDB180030BF07 /* TabMy */,
-				D344EA381E1CDB180030BF07 /* TabRecommend */,
-				D344EA3C1E1CDB180030BF07 /* TabViewPoint */,
-				D344EA401E1CDB180030BF07 /* TabWelfare */,
 				D31AF71D1DF951B700A25456 /* TabBarPage(tabBar页面) */,
+				D344EA381E1CDB180030BF07 /* TabRecommend(推荐) */,
+				D344EA301E1CDB180030BF07 /* TabInformation(资讯) */,
+				D344EA3C1E1CDB180030BF07 /* TabViewPoint(视界) */,
+				D344EA401E1CDB180030BF07 /* TabWelfare(福利) */,
+				D344EA341E1CDB180030BF07 /* TabMy(我的) */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -607,15 +624,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D31AF7221DF9521300A25456 /* TabBarViewController.swift in Sources */,
+				D344EA491E1CDF700030BF07 /* ViewPointViewController.swift in Sources */,
+				D344EA471E1CDF5B0030BF07 /* InformationViewController.swift in Sources */,
 				D38FD6F71DF6AFDE00F78F5D /* NetworkDefine.swift in Sources */,
+				D344EA4B1E1CDF930030BF07 /* WelfareViewController.swift in Sources */,
 				D3C3890F1E1B9AEA001EE6F3 /* TabBarButton.swift in Sources */,
 				D3C3890B1E1B8AD7001EE6F3 /* TabBarController.swift in Sources */,
 				D38FD6F51DF6AF7600F78F5D /* NetworkItem.swift in Sources */,
 				D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */,
 				D386A7241DBDF4CC00EFF08D /* BaseViewController.swift in Sources */,
+				D344EA4D1E1CDF9E0030BF07 /* MyViewController.swift in Sources */,
 				D38FD6DF1DF6944500F78F5D /* MacroDefinition.swift in Sources */,
 				D38FD6F31DF6AE0300F78F5D /* StringMd5.swift in Sources */,
+				D344EA451E1CDF230030BF07 /* RecommendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
