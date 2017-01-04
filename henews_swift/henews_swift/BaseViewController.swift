@@ -29,7 +29,7 @@ class BaseViewController: UIViewController {
     
     func initPage() {
         self.view.backgroundColor = UIColor.white
-        self.navigationController!.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func initData() {

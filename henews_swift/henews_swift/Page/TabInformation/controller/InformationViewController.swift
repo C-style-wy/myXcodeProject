@@ -22,14 +22,12 @@ class InformationViewController: BaseViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func initPage() {
+        self.view.backgroundColor = UIColor.gray
     }
-    */
+    
+    override func initData() {
+        
+    }
 
 }

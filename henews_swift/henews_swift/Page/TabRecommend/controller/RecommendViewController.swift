@@ -13,7 +13,6 @@ class RecommendViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +20,11 @@ class RecommendViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func initPage() {
+        self.view.backgroundColor = UIColor.red
+    }
+    
+    override func initData() {
+        
+    }
 }

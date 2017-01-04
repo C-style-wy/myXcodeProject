@@ -116,7 +116,13 @@ class TabBarController: UITabBarController {
             btn.addTarget(self, action: #selector(onClickBtn(sender:)) , for: UIControlEvents.touchUpInside)
             self.tabBarView.addSubview(btn)
         }
+        let recommend = RecommendViewController()
+        let information = InformationViewController()
+        let viewPoint = ViewPointViewController()
+        let welfare = WelfareViewController()
+        let my = MyViewController()
         
+        self.viewControllers = [recommend, information, viewPoint, welfare, my]
     }
     
     func onClickBtn(sender:UIButton!) {
@@ -126,6 +132,7 @@ class TabBarController: UITabBarController {
             selectedBtn!.isSelected = false
             sender!.isSelected = true
             selectedBtn = sender as! TabBarButton!
+            self.selectedIndex = sender.tag
         }
     }
     
