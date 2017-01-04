@@ -1,0 +1,6 @@
+framework module FDFullscreenPopGesture_Bell {
+  umbrella header "FDFullscreenPopGesture_Bell-umbrella.h"
+
+  export *
+  module * { export * }
+}
