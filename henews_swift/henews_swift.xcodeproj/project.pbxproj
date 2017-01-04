@@ -11,7 +11,6 @@
 		D31AF7221DF9521300A25456 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AF7211DF9521300A25456 /* TabBarViewController.swift */; };
 		D386A6F21DBDD2B700EFF08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */; };
 		D386A6F91DBDD2B700EFF08D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D386A6F81DBDD2B700EFF08D /* Assets.xcassets */; };
-		D386A6FC1DBDD2B700EFF08D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */; };
 		D386A7071DBDD2B800EFF08D /* henews_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7061DBDD2B800EFF08D /* henews_swiftTests.swift */; };
 		D386A7121DBDD2B800EFF08D /* henews_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7111DBDD2B800EFF08D /* henews_swiftUITests.swift */; };
 		D386A7241DBDF4CC00EFF08D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */; };
@@ -48,7 +47,6 @@
 		D386A6EE1DBDD2B700EFF08D /* henews_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = henews_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D386A6F81DBDD2B700EFF08D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D386A6FB1DBDD2B700EFF08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D386A6FD1DBDD2B700EFF08D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D386A7021DBDD2B700EFF08D /* henews_swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = henews_swiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D386A7061DBDD2B800EFF08D /* henews_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = henews_swiftTests.swift; sourceTree = "<group>"; };
@@ -315,7 +313,6 @@
 				D386A6F11DBDD2B700EFF08D /* AppDelegate.swift */,
 				D386A7231DBDF4CC00EFF08D /* BaseViewController.swift */,
 				D386A6F81DBDD2B700EFF08D /* Assets.xcassets */,
-				D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */,
 				D386A6FD1DBDD2B700EFF08D /* Info.plist */,
 				D38FD6EE1DF6ADA600F78F5D /* henews_swift-Bridging-Header.h */,
 			);
@@ -537,7 +534,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D386A6FC1DBDD2B700EFF08D /* LaunchScreen.storyboard in Resources */,
 				D386A6F91DBDD2B700EFF08D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,17 +649,6 @@
 			targetProxy = D386A70E1DBDD2B800EFF08D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D386A6FA1DBDD2B700EFF08D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D386A6FB1DBDD2B700EFF08D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D386A7141DBDD2B800EFF08D /* Debug */ = {
