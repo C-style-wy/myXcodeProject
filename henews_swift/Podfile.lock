@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Alamofire (4.2.0)
   - BaiduMapKit (3.1.0)
   - DKNightVersion (2.4.2):
     - DKNightVersion/Core (= 2.4.2)
@@ -30,10 +31,9 @@ PODS:
     - DKNightVersion/Core
   - FDFullscreenPopGesture_Bell (2.0)
   - GDataXML-HTML (1.3.0)
-  - Masonry (1.0.2)
   - MJExtension (3.0.13)
   - MOBFoundation (2.0.11)
-  - PPNetworkHelper (0.3.0):
+  - PPNetworkHelper (0.3.1):
     - AFNetworking
     - YYCache
   - SDWebImage (3.8.2):
@@ -46,17 +46,17 @@ PODS:
   - ShareSDK3/ShareSDKPlatforms/SinaWeibo (3.4.2)
   - ShareSDK3/ShareSDKPlatforms/WeChat (3.4.2)
   - ShareSDK3/ShareSDKUI (3.4.2)
-  - SVProgressHUD (2.0.3)
-  - Toast (3.0)
+  - SnapKit (3.1.2)
+  - SVProgressHUD (2.0.4)
+  - Toast (3.1.0)
   - YYCache (1.0.4)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.1.0)
+  - Alamofire (~> 4.2.0)
   - BaiduMapKit (~> 3.1.0)
   - DKNightVersion (~> 2.4.2)
   - FDFullscreenPopGesture_Bell (~> 2.0)
   - GDataXML-HTML (~> 1.3.0)
-  - Masonry (~> 1.0.2)
   - MJExtension (~> 3.0.13)
   - MOBFoundation (~> 2.0.11)
   - PPNetworkHelper (~> 0.3.0)
@@ -66,25 +66,27 @@ DEPENDENCIES:
   - ShareSDK3/ShareSDKPlatforms/SinaWeibo
   - ShareSDK3/ShareSDKPlatforms/WeChat
   - ShareSDK3/ShareSDKUI
+  - SnapKit (~> 3.1.2)
   - SVProgressHUD (~> 2.0.3)
   - Toast (~> 3.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   BaiduMapKit: 4cfaedb118cff7e157e9771859a4bf65a261b2a1
   DKNightVersion: a211bacb8d6a9677722aaf93e292a4e5908490c1
   FDFullscreenPopGesture_Bell: 7512810077dd7f167cfb6a14e060cdfd71ca5729
   GDataXML-HTML: 7adc03668cab35c288f1dbb8929a179f0fece898
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MOBFoundation: e213065e65eebd8146ab29d10a8445dc8f385091
-  PPNetworkHelper: 1d83ba107beb9469432c70bb4e132db4008a5eca
+  PPNetworkHelper: 47225f2729231a88766c26f42b314361764420cf
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   ShareSDK3: 2fa975dd22937fc7de3f6b5d0c41a18ba0dd1661
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  Toast: 32c59229abfcf41850162b83bb9259dc84372473
+  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
+  SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
+  Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 5b4d22cfa82a45d1864344ffbea929a5588961ad
+PODFILE CHECKSUM: e77cd09f80546a5874967981b4892fb10a84d83c
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

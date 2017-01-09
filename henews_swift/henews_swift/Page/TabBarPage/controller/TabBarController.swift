@@ -29,7 +29,7 @@ class TabBarController: UITabBarController {
         if let strongSelf = self {
             view = UIView()
             view!.backgroundColor = UIColor.white
-            view!.frame = CGRect(x: 0, y: screenHeight-40, width: screenWidth, height: 40)
+            view!.frame = CGRect(x: 0, y: screenHeight-TabBarHeight, width: screenWidth, height: TabBarHeight)
             
             let line = UIImageView()
             line.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 0.5)
@@ -78,34 +78,34 @@ class TabBarController: UITabBarController {
             btn.setImage(UIImage(named: imageNameSel), for: UIControlState.selected)
             let btnWidth = screenWidth / 5
             let x = CGFloat(i) * btnWidth
-            btn.frame = CGRect(x: x, y: 0, width: btnWidth, height: 40)
+            btn.frame = CGRect(x: x, y: 0, width: btnWidth, height: TabBarHeight)
             switch i {
             case 0:
                 selectedBtn = btn
                 btn.setTitle("推荐", for: UIControlState.normal)
-                btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-22)/2, 18, (btnWidth-22)/2)
-                btn.titleEdgeInsets = UIEdgeInsetsMake(28, -24.5, 6, 0)
+                btn.imageEdgeInsets = UIEdgeInsetsMake(4*E2, (btnWidth-22)/2, 18, (btnWidth-22)/2)
+                btn.titleEdgeInsets = UIEdgeInsetsMake(28*E2, -24.5, 6, 0)
                 btn.isSelected = true
                 break
             case 1:
                 btn.setTitle("资讯", for: UIControlState.normal)
-                btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-16)/2, 18, (btnWidth-16)/2)
-                btn.titleEdgeInsets = UIEdgeInsetsMake(28, -18, 6, 0)
+                btn.imageEdgeInsets = UIEdgeInsetsMake(4*E2, (btnWidth-16)/2, 18, (btnWidth-16)/2)
+                btn.titleEdgeInsets = UIEdgeInsetsMake(28*E2, -18, 6, 0)
                 break
             case 2:
                 btn.setTitle("视界", for: UIControlState.normal)
-                btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-18)/2, 18, (btnWidth-18)/2)
-                btn.titleEdgeInsets = UIEdgeInsetsMake(28, -18, 6, 0)
+                btn.imageEdgeInsets = UIEdgeInsetsMake(4*E2, (btnWidth-18)/2, 18, (btnWidth-18)/2)
+                btn.titleEdgeInsets = UIEdgeInsetsMake(28*E2, -18, 6, 0)
                 break
             case 3:
                 btn.setTitle("福利", for: UIControlState.normal)
-                btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-18)/2, 18, (btnWidth-18)/2)
-                btn.titleEdgeInsets = UIEdgeInsetsMake(28, -20, 6, 0)
+                btn.imageEdgeInsets = UIEdgeInsetsMake(4*E2, (btnWidth-18)/2, 18, (btnWidth-18)/2)
+                btn.titleEdgeInsets = UIEdgeInsetsMake(28*E2, -20, 6, 0)
                 break
             case 4:
                 btn.setTitle("我的", for: UIControlState.normal)
-                btn.imageEdgeInsets = UIEdgeInsetsMake(4, (btnWidth-16)/2, 18, (btnWidth-16)/2)
-                btn.titleEdgeInsets = UIEdgeInsetsMake(28, -18, 6, 0)
+                btn.imageEdgeInsets = UIEdgeInsetsMake(4*E2, (btnWidth-16)/2, 18, (btnWidth-16)/2)
+                btn.titleEdgeInsets = UIEdgeInsetsMake(28*E2, -18, 6, 0)
                 break
             default: break
             }

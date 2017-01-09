@@ -7,9 +7,7 @@
 //
 
 import UIKit
-let screenFrame = UIScreen.main.bounds
-let screenWidth = UIScreen.main.bounds.size.width
-let screenHeight = UIScreen.main.bounds.size.height
+import SnapKit
 
 class BaseViewController: UIViewController {
     override func viewDidLoad() {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3C34098A7DACA89F52BF902062730F50"
+               BlueprintIdentifier = "D72BDF62692B8BEB8904D327380ACE1E"
                BuildableName = "GDataXML_HTML.framework"
                BlueprintName = "GDataXML-HTML"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3C34098A7DACA89F52BF902062730F50"
+            BlueprintIdentifier = "D72BDF62692B8BEB8904D327380ACE1E"
             BuildableName = "GDataXML_HTML.framework"
             BlueprintName = "GDataXML-HTML"
             ReferencedContainer = "container:Pods.xcodeproj">

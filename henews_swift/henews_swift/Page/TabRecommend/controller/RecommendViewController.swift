@@ -19,10 +19,39 @@ class RecommendViewController: BaseViewController {
     }
     
     override func initPage() {
-        self.view.backgroundColor = UIColor.red
+        self.viewLayout()
     }
     
     override func initData() {
         
+    }
+    
+    func viewLayout() {
+        let topView = UIView()
+        topView.backgroundColor = UIColor.white
+        self.view.addSubview(topView)
+        topView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view).offset(0)
+            make.left.equalTo(self.view).offset(0)
+            make.right.equalTo(self.view).offset(0)
+            make.height.equalTo(HeadHeight)
+        }
+        
+        let line = UIImageView()
+        line.image = UIImage(named: "menuFengexian")
+        topView.addSubview(line)
+        line.snp.makeConstraints { (make) in
+            make.bottom.equalTo(topView).offset(0)
+            make.left.equalTo(topView).offset(0)
+            make.right.equalTo(topView).offset(0)
+            make.height.equalTo(0.5)
+        }
+        
+        let subView = UIView()
+        subView.backgroundColor = clearColor
+        topView.addSubview(subView)
+        subView.snp.makeConstraints { (make) in
+            make.edges.equalTo(topView).inset(UIEdgeInsetsMake(20, 0, 0, 0))
+        }
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AFNetworking
 
 class NetworkItem: NSObject {
     /**
@@ -26,12 +25,12 @@ class NetworkItem: NSObject {
      *  网络请求参数
      */
     
-    init(networkType: NetWorkType,
-         dataType: NetWorkDataType,
-         url: String
+    init(networkType p1: NetWorkType,
+            dataType p2: NetWorkDataType,
+                    url: String
          ) {
-        self.networkType = networkType
-        self.dataType = dataType
+        self.networkType = p1
+        self.dataType = p2
 //        let manager = 
         
         
