@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class NetworkItem: NSObject {
     /**
@@ -33,12 +34,24 @@ class NetworkItem: NSObject {
         self.dataType = p2
 //        let manager = 
         
+        let parameters: Parameters = ["foo": "bar"]
         
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+            .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
+                print("Progress: \(progress.fractionCompleted)")
+            }
+            .validate { request, response, data in
+                // Custom evaluation closure now includes data (allows you to parse data to dig out error messages if necessary)
+                return .success
+            }
+            .responseJSON { response in
+                debugPrint(response)
+        }
         
         super.init()
     }
     
-    func addKeyWithUrl(url: String) -> String {
+    private func addKeyWithUrl(url: String) -> String {
         var urlString: String? = url
         if urlString != nil {
             if urlString!.range(of: "?") != nil {
