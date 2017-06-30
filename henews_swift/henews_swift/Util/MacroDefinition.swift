@@ -36,7 +36,6 @@ let E2 = min(screenWidth, screenHeight)/min(320, 568)
 let E3 = screenHeight/568
 let E4 = screenHeight/320
 
-let TabBarHeight = CGFloat(40)*E2
 let HeadHeight = CGFloat(53)*E2
 
 // 颜色

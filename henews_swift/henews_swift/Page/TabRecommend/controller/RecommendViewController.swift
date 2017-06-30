@@ -25,7 +25,10 @@ class RecommendViewController: BaseViewController {
     override func initData() {
         
     }
-    
+}
+
+// MARK:- 初始化
+extension RecommendViewController {
     func viewLayout() {
         let topView = UIView()
         topView.backgroundColor = UIColor.white
@@ -52,6 +55,17 @@ class RecommendViewController: BaseViewController {
         topView.addSubview(subView)
         subView.snp.makeConstraints { (make) in
             make.edges.equalTo(topView).inset(UIEdgeInsetsMake(20, 0, 0, 0))
+        }
+        
+        let homeIcon = UIImageView()
+        homeIcon.contentMode = UIViewContentMode.scaleAspectFit
+        homeIcon.image = UIImage(named: "home_icon")
+        subView.addSubview(homeIcon)
+        homeIcon.snp.makeConstraints { (make) in
+            make.top.equalTo(subView).offset(8)
+            make.bottom.equalTo(subView).offset(-8)
+            make.centerX.equalTo(subView).offset(0)
+            make.width.equalTo(subView)
         }
     }
 }
