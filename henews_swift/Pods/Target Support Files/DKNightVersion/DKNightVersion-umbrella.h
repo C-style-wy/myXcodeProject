@@ -3,6 +3,7 @@
 #endif
 
 #import "DKNightVersion.h"
+#import "DKAlpha.h"
 #import "DKColor.h"
 #import "DKImage.h"
 #import "DKNightVersionManager.h"
@@ -13,6 +14,7 @@
 #import "EXTKeyPathCoding.h"
 #import "metamacros.h"
 #import "CALayer+Night.h"
+#import "CAShapeLayer+Night.h"
 #import "CoreAnimation+Night.h"
 #import "UIBarButtonItem+Night.h"
 #import "UIControl+Night.h"
